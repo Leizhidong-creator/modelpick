@@ -1,6 +1,6 @@
 # ModelPick multi-dimensional scorecard
 
-Generated: 2026-11-19T11:21:57.381Z
+Generated: 2026-11-19T11:26:00.544Z
 
 **Composite: 96.8/100 · grade A**
 

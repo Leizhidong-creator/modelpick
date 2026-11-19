@@ -2,7 +2,7 @@
   "lines": 90.12,
   "branches": 66.26,
   "functions": 90.34,
-  "tests": 176,
+  "tests": 177,
   "command": "node --test --experimental-test-coverage \"tests/**/*.test.js\"",
   "generatedAt": "2026-11-19"
 }

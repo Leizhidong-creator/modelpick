@@ -18,3 +18,9 @@ test('static npm registry metadata matches the package version', () => {
   assert.match(version.dist.integrity, /^sha512-/);
   assert.deepEqual(version.bin, pkg.bin);
 });
+
+test('npm package keeps the intro video out of the install payload', () => {
+  const pkg = JSON.parse(read('package.json'));
+  assert.ok(!pkg.files.includes('assets/*.mp4'));
+  assert.ok(pkg.files.includes('assets/*.png'));
+});
