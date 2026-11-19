@@ -58,3 +58,10 @@ Do not record star counts as the only success metric. A reply that says “your 
 - Opened PR to Awesome MCP Servers (98.2k stars): https://github.com/punkpeye/awesome-mcp-servers/pull/20045
 - Entry under Coding Agents; title includes the agent fast-track marker.
 - State at submission: OPEN, MERGEABLE, no review comments.
+
+## Official npm + launch post
+
+- `modelpick@0.1.0` is live on the public npm registry: https://www.npmjs.com/package/modelpick
+- Clean-project verification: `npm install modelpick` -> `0.1.0`; `modelpick verify` -> `ok: true`; VS Code setup dry-run works.
+- npm showed the normal `0.0.0-stage` processing placeholder briefly; version `0.1.0` and `latest` are correct.
+- Launch post: https://x.com/DurgaraoGa51557/status/2123398907225162026

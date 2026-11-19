@@ -79,31 +79,27 @@ More: [`research/competitive-landscape.md`](research/competitive-landscape.md) (
 
 ```bash
 # 1. Ask for a recommendation (no key, no signup, no network)
-npx -y github:Leizhidong-creator/modelpick pick "generate a product photo with the headline 'Fresh Roast'"
+npx -y modelpick pick "generate a product photo with the headline 'Fresh Roast'"
 
 # 2. Plan a multi-step deliverable
-npx -y github:Leizhidong-creator/modelpick plan "30 second product launch video"
+npx -y modelpick plan "30 second product launch video"
 
 # 3. Install into your agent (writes MCP config + skill)
-npx -y github:Leizhidong-creator/modelpick setup claude-code
+npx -y modelpick setup claude-code
 ```
 
-Or clone it (recommended while the npm package is pending):
+Official npm package: https://www.npmjs.com/package/modelpick
+
+Fallbacks if the registry is unavailable:
 
 ```bash
-git clone https://github.com/Leizhidong-creator/modelpick
-cd modelpick
-node bin/modelpick.js pick "refactor this 40k-line repo, cheapest that works"
-node bin/modelpick.js setup
-```
+# GitHub, no npm auth
+npx -y github:Leizhidong-creator/modelpick pick "refactor this 40k-line repo, cheapest that works"
 
-NPM mirror (no npm auth required):
-
-```bash
+# static registry mirror
 npm install modelpick --registry=https://leizhidong-creator.github.io/modelpick/npm/
-```
 
-Offline tarball (no npm auth required):
+# offline release tarball
 
 ```bash
 npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.0/modelpick-0.1.0.tgz
@@ -563,7 +559,7 @@ Requirements: Node ≥ 20.11. Runtime dependencies: **zero**. Python + Pillow ar
 
 ## Roadmap
 
-- [ ] Publish to npm and the MCP registry (`npx modelpick`)
+- [x] Publish to npm (`npx modelpick`) and submit to MCP directories
 - [ ] Live price refresh from provider APIs with signed snapshots
 - [ ] Community-contributed task nodes and quality evidence
 - [ ] Router mode: optionally execute the recommended call through the user's own key

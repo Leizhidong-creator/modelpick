@@ -1,6 +1,6 @@
 # NPM mirror
 
-Official npm publish is waiting on an account login. Until that is done, the repository also serves a **read-only static npm registry** from GitHub Pages.
+The official npm package is live: `npm install modelpick`. The repository also serves a **read-only static npm registry** from GitHub Pages as a fallback.
 
 ```bash
 npm install modelpick --registry=https://leizhidong-creator.github.io/modelpick/npm/
@@ -13,7 +13,7 @@ npx modelpick verify
 npx modelpick pick "3D sword for Unity"
 ```
 
-This is not `npm install modelpick` from the public registry. It is a registry-scoped install from a static file plus the GitHub Release tarball.
+This is a fallback, not the primary install. It is a registry-scoped install from a static file plus the GitHub Release tarball.
 
 ## Why
 
@@ -28,7 +28,7 @@ This is not `npm install modelpick` from the public registry. It is a registry-s
 
 - You must pass `--registry`; it does not change the user's global registry.
 - Only `modelpick` is served.
-- The public npm registry is still the long-term path.
+- The public npm registry is the primary path; this mirror is fallback only.
 - The static metadata must be regenerated when the version changes.
 
 ## Regenerate
