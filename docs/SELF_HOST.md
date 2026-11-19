@@ -54,7 +54,7 @@ npx modelpick setup vscode
 - The router reads `catalog/*.json` from the installed package.
 - API keys are read from the environment at call time; ModelPick does not write them to disk.
 - There is no analytics endpoint, account, or license check.
-- `modelpick update` fetches a new tarball; if you are air-gapped, skip it and pin a release.
+- `modelpick update` fetches a new **catalog snapshot** from GitHub, not new code; if you are air-gapped, skip it and pin a release tarball.
 
 The agent may call a provider after a pick. That call is made by the agent or your code, not by ModelPick.
 
@@ -77,7 +77,7 @@ modelpick pick "internal code review" --available --json
 4. Run `modelpick verify`; do not run `modelpick update`.
 5. Add any internal models with `modelpick add-model`.
 
-The decision path never needs the network. The only outbound calls are provider API calls made by the agent after a decision.
+The decision path never needs the network. The only outbound calls in normal use are provider API calls made by the agent after a decision; `modelpick update` optionally fetches the public catalog from GitHub.
 
 ## Operational checks
 

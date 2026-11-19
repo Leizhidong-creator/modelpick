@@ -2,6 +2,7 @@
 
 **Date:** 2026-11-19
 **Artifact:** `modelpick-0.1.0.tgz` produced by `npm pack --ignore-scripts`
+**Tarball SHA-256:** recorded on the release asset `.tgz.sha256`
 **Environment:** Windows 11, Node 24.15.0, clean temp project
 
 ## Procedure
@@ -31,7 +32,7 @@ $ npx modelpick pick "3D sword for Unity" --json
 |---|---|
 | `bin` link works after install | pass (`npx modelpick version` → `0.1.0`) |
 | Catalog is packaged | pass (`catalog/models.json` present, 40 models) |
-| Assets are packaged | pass (`assets/modelpick-intro.mp4`, 4.7 MB, bilingual captions) |
+| Assets are packaged | pass (`assets/modelpick-intro.mp4`, 7.0 MB, motion cut with bilingual captions) |
 | README-linked docs are packaged | pass (`launch/`, `tests/*.md`, `research/hf-evidence.json`) |
 | `pick --json` works from the installed package | pass |
 | `verify` works from the installed package | pass (13/13 checks, integrity hashes match) |
@@ -60,8 +61,12 @@ $ npx modelpick verify --no-color
 
 ## Package size
 
-- Tarball: **5.2 MB**
-- Unpacked: **6.3 MB**
-- Main weight: the 93.5s intro video (4.7 MB) with burned-in English + 中文 captions. The CLI, catalog, docs, and tests are under 1.6 MB.
+- Tarball: **7.8 MB**
+- Unpacked: **8.7 MB**
+- Main weight: the 93.5s motion intro video (7.0 MB) with burned-in English + 中文 captions. The CLI, catalog, docs, and tests are under 1.8 MB.
 
 The tarball is not published to npm; there is no npm auth on the build machine. This test proves the artifact is installable when the registry step is available.
+
+## Adapter smoke test
+
+`setup vscode --dry-run` in the installed package wrote a valid `.vscode/mcp.json` plan under `servers.modelpick` with `type: stdio`, without touching the project. `setup codex --global --dry-run --write` is covered by the integration suite.
