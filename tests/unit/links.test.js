@@ -50,6 +50,20 @@ test('video deliverables exist and are non-empty', () => {
   }
 });
 
+test('docs local links point at real files', () => {
+  const files = fs.readdirSync(path.join(ROOT, 'docs')).filter((file) => file.endsWith('.md'));
+  const missing = [];
+  for (const file of files) {
+    for (const link of localLinks(read(path.join('docs', file)))) {
+      const local = link.split('#')[0];
+      if (!local) continue;
+      const resolved = path.resolve(path.join(ROOT, 'docs'), local);
+      if (!fs.existsSync(resolved)) missing.push(`${file} -> ${link}`);
+    }
+  }
+  assert.deepEqual(missing, []);
+});
+
 test('site assets mirror the README assets', () => {
   for (const file of ['social-preview.png', 'terminal-pick.png', 'benchmark.png', 'modelpick-intro.mp4', 'modelpick-intro-thumb.png', 'modelpick-intro.bilingual.srt']) {
     assert.ok(fs.existsSync(path.join(ROOT, 'docs', 'assets', file)), `docs/assets/${file} missing`);
