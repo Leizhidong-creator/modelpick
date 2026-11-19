@@ -2752,8 +2752,8 @@
         ]
       },
       "quality": {
-        "overall": 95,
-        "videoGen": 95
+        "overall": 89,
+        "videoGen": 89
       },
       "speed": {
         "latencySec": 120
@@ -2779,12 +2779,17 @@
         "apiModel": "veo-3.1-generate-001",
         "apiModelNote": "Vertex only \u2014 Veo is no longer served by the Gemini API."
       },
-      "notes": "Reference-quality native audio/dialogue, 4K, 8s clips. Vertex project + IAM required. $2.00 for 5s with audio.",
+      "notes": "Native audio/dialogue and 4K remain differentiators, but Artificial Analysis T2V ranked Veo 3.1 #26 (963 Elo), below Seedance 2.5 (#4, 1156) and Kling 3.0 (#22, 1000). Use it for audio/dialogue, not as the default hero video.",
       "sources": [
         {
           "name": "BenchLM media pricing",
           "url": "https://benchlm.ai/media-pricing",
           "readAt": "2026-11-19"
+        },
+        {
+          "name": "Artificial Analysis text-to-video leaderboard",
+          "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+          "readAt": "2026-11-18"
         }
       ]
     },

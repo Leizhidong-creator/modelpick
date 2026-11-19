@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "value-simulation",
-  "generatedAt": "2026-11-19T11:04:09.266Z",
+  "generatedAt": "2026-11-19T11:06:22.472Z",
   "trialsPerTask": 4000,
   "parityThreshold": 0.9,
   "tasks": [
@@ -162,15 +162,15 @@
       "label": "Video generation",
       "strategies": {
         "frontier": {
-          "model": "veo-3.1",
-          "name": "Veo 3.1",
-          "quality": 95,
-          "firstPass": 0.943,
+          "model": "kling-4.0",
+          "name": "Kling 4.0",
+          "quality": 94,
+          "firstPass": 0.931,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 8490,
-          "costPerSolved": 2.1225,
-          "attemptsMean": 1.06125,
+          "spent": 3373.1449999998476,
+          "costPerSolved": 0.8432862499999619,
+          "attemptsMean": 1.07425,
           "qualityParity": 1,
           "costRatio": 1,
           "parityPass": true
@@ -182,25 +182,25 @@
           "firstPass": 0.839,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 2372.5,
-          "costPerSolved": 0.593125,
-          "attemptsMean": 1.18625,
-          "qualityParity": 0.89,
-          "costRatio": 0.279,
-          "parityPass": false
+          "spent": 2375.5,
+          "costPerSolved": 0.593875,
+          "attemptsMean": 1.18775,
+          "qualityParity": 0.901,
+          "costRatio": 0.704,
+          "parityPass": true
         },
         "value": {
-          "model": "kling-4.0",
-          "name": "Kling 4.0",
-          "quality": 94,
-          "firstPass": 0.931,
-          "solved": 4000,
-          "solveRate": 1,
-          "spent": 3370.789999999848,
-          "costPerSolved": 0.842697499999962,
-          "attemptsMean": 1.0735,
-          "qualityParity": 0.987,
-          "costRatio": 0.397,
+          "model": "veo-3.1-fast",
+          "name": "Veo 3.1 Fast",
+          "quality": 86,
+          "firstPass": 0.839,
+          "solved": 3996,
+          "solveRate": 0.999,
+          "spent": 2395.5,
+          "costPerSolved": 0.5994744744744744,
+          "attemptsMean": 1.19775,
+          "qualityParity": 0.901,
+          "costRatio": 0.711,
           "parityPass": true
         },
         "balanced": {
@@ -210,12 +210,12 @@
           "firstPass": 0.839,
           "solved": 3996,
           "solveRate": 0.999,
-          "spent": 2388.5,
-          "costPerSolved": 0.5977227227227228,
-          "attemptsMean": 1.19425,
-          "qualityParity": 0.89,
-          "costRatio": 0.282,
-          "parityPass": false
+          "spent": 2389.5,
+          "costPerSolved": 0.597972972972973,
+          "attemptsMean": 1.19475,
+          "qualityParity": 0.901,
+          "costRatio": 0.709,
+          "parityPass": true
         },
         "oracle": {
           "model": "oracle",
@@ -224,11 +224,11 @@
           "firstPass": null,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 2199.915000000017,
-          "costPerSolved": 0.5499787500000042,
+          "spent": 2182.175000000013,
+          "costPerSolved": 0.5455437500000032,
           "attemptsMean": null,
           "qualityParity": null,
-          "costRatio": 0.259,
+          "costRatio": 0.647,
           "parityPass": null
         }
       }
@@ -388,9 +388,9 @@
   ],
   "aggregate": {
     "frontier": {
-      "firstPass": 0.932,
+      "firstPass": 0.93,
       "solveRate": 1,
-      "costPerSolved": 0.625,
+      "costPerSolved": 0.3691,
       "qualityParity": 1,
       "costRatio": 1,
       "parityPassShare": 1
@@ -398,33 +398,33 @@
     "cheapest": {
       "firstPass": 0.876,
       "solveRate": 1,
-      "costPerSolved": 0.206,
-      "qualityParity": 0.94,
-      "costRatio": 0.461,
-      "parityPassShare": 0.8
+      "costPerSolved": 0.2062,
+      "qualityParity": 0.942,
+      "costRatio": 0.546,
+      "parityPassShare": 1
     },
     "value": {
-      "firstPass": 0.894,
+      "firstPass": 0.876,
       "solveRate": 1,
-      "costPerSolved": 0.2563,
-      "qualityParity": 0.959,
-      "costRatio": 0.486,
+      "costPerSolved": 0.2076,
+      "qualityParity": 0.942,
+      "costRatio": 0.549,
       "parityPassShare": 1
     },
     "balanced": {
       "firstPass": 0.883,
       "solveRate": 1,
-      "costPerSolved": 0.2077,
-      "qualityParity": 0.947,
-      "costRatio": 0.472,
-      "parityPassShare": 0.8
+      "costPerSolved": 0.2078,
+      "qualityParity": 0.949,
+      "costRatio": 0.557,
+      "parityPassShare": 1
     },
     "oracle": {
       "firstPass": null,
       "solveRate": 1,
-      "costPerSolved": 0.1952,
+      "costPerSolved": 0.1943,
       "qualityParity": 1,
-      "costRatio": 0.441,
+      "costRatio": 0.518,
       "parityPassShare": 1
     }
   },

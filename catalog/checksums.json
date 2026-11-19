@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "generatedAt": "2026-11-19T11:03:08.238Z",
+  "generatedAt": "2026-11-19T11:06:03.709Z",
   "files": {
-    "catalog/models.json": "dc0f5bff0fd8aae997c46eca1638ef9da19aa777a5907e7ff6497b026c04ffd6",
+    "catalog/models.json": "6fb7b76578e5bbc04708f7e89ad9f1384319e30b2fd4114071c795a8e58c16d9",
     "catalog/tasks.json": "615a36c478beb172f35361af477a6976468ea439a5765bc60ddb0e4e43561fdf",
     "catalog/policy.json": "7d8c0c6c5745dd917dedb240dc6e3d9cbf86882e3d6f4f05dc09431aa8592228"
   }

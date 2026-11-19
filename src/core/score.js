@@ -26,14 +26,14 @@ function round(value, digits = 4) {
 
 export function qualityConfidenceFor(model) {
   const modality = model?.modality;
-  if (modality === 'image') {
+  if (modality === 'image' || modality === 'video') {
     return {
       level: 'mixed',
       label: 'arena + prior',
-      note: 'Image ranking is informed by a public arena; other media dimensions remain expert priors.'
+      note: 'This modality is informed by a public arena; task weighting and other media dimensions remain expert priors.'
     };
   }
-  const media = ['video', '3d', 'audio'].includes(modality);
+  const media = ['3d', 'audio'].includes(modality);
   return media
     ? {
         level: 'prior',

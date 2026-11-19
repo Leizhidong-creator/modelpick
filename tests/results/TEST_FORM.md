@@ -1,6 +1,6 @@
 # Test form
 
-Generated: 2026-11-19T11:04:22.191Z
+Generated: 2026-11-19T11:06:27.411Z
 
 This is the human-readable evidence sheet. Machine-readable results are in `tests/results/*.json`.
 
@@ -24,7 +24,7 @@ This is the human-readable evidence sheet. Machine-readable results are in `test
 
 - Dev runs: 115 (top-1 100%, top-3 100%)
 - Held-out runs: 35 (top-1 100%, top-3 100%)
-- Value simulation: quality parity 96% at 49% of frontier cost
+- Value simulation: quality parity 94% at 55% of frontier cost
 
 ## 3. Per-task matrix (20 rows)
 
@@ -80,8 +80,8 @@ CSV: [`test-form.csv`](test-form.csv)
 | kling-4.0 | video | 1 | 0 | 1 |
 | meshy-7.1 | 3d | 1 | 0 | 1 |
 | minimax-music-3 | audio | 1 | 0 | 1 |
+| seedance-2.5 | video | 1 | 0 | 1 |
 | trellis-2 | 3d | 1 | 0 | 1 |
-| veo-3.1 | video | 1 | 0 | 1 |
 | claude-fable-5.2 | text | 13 | 0 | 0 |
 | deepseek-v4-pro | text | 2 | 0 | 0 |
 | gemini-3.8-flash | text | 2 | 0 | 0 |
@@ -96,7 +96,7 @@ CSV: [`test-form.csv`](test-form.csv)
 | minimax-m3.1-flash | text | 1 | 0 | 0 |
 | nano-banana-pro | image | 2 | 0 | 0 |
 | qwen3.8-max | text | 2 | 0 | 0 |
-| seedance-2.5 | video | 1 | 0 | 0 |
+| veo-3.1 | video | 1 | 0 | 0 |
 
 Models with zero eligible nodes are a catalog bug; the matrix test fails on them.
 

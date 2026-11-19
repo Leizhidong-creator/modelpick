@@ -1,13 +1,13 @@
 # ModelPick multi-dimensional scorecard
 
-Generated: 2026-11-19T11:04:12.235Z
+Generated: 2026-11-19T11:06:22.664Z
 
-**Composite: 97.3/100 · grade A**
+**Composite: 96.8/100 · grade A**
 
 | Dimension | Weight | Score | Target | Evidence |
 |---|---:|---:|---:|---|
 | Correctness | 25% | 100 | 90 | benchmark-latest.json + holdout-latest.json |
-| Cost efficiency | 20% | 86.4 | 80 | benchmark regret + value-latest.json |
+| Cost efficiency | 20% | 84.2 | 80 | benchmark regret + value-latest.json |
 | Robustness | 15% | 100 | 90 | priceStability + sensitivity-latest.json + determinism |
 | Coverage | 15% | 100 | 95 | catalog + task requirements |
 | Safety | 15% | 100 | 100 | adversarial-latest.json |
@@ -21,10 +21,10 @@ Generated: 2026-11-19T11:04:12.235Z
 - `intent`: 1
 - `constraints`: 1
 
-### Cost efficiency — 86.4/100
+### Cost efficiency — 84.2/100
 - `medianCostRegret`: 0
-- `qualityParity`: 0.959
-- `costRatio`: 0.486
+- `qualityParity`: 0.942
+- `costRatio`: 0.549
 
 ### Robustness — 100/100
 - `priceStability`: 1
@@ -41,7 +41,7 @@ Generated: 2026-11-19T11:04:12.235Z
 - `cases`: 28
 
 ### Operability — 100/100
-- `p95Ms`: 0.9
+- `p95Ms`: 1.1
 - `verifyOk`: true
 - `coverage`: 90.02
 

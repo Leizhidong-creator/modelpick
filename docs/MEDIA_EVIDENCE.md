@@ -38,6 +38,22 @@ This is exactly the kind of correction the product needed: the prior was expensi
 - `nano-banana-2.1` stays at 93; #8 is consistent.
 - The score is still a **task-weighted prior**, not a per-prompt measurement.
 
+
+## Text-to-video
+
+Source: [Artificial Analysis AA-Video-T2V v2.1](https://artificialanalysis.ai/video/leaderboard/text-to-video), updated 2026-11-18. Human pairwise Elo.
+
+| Rank | Model | Elo | Catalog prior before | After |
+|---:|---|---:|---:|---:|
+| 4 | Dreamina Seedance 2.5 | 1156 | 93 | 93 |
+| 22 | Kling 3.0 Omni 1080p (Pro) | 1016 | — | — |
+| 26 | Veo 3.1 | 963 | 95 | **89** |
+| 27 | Veo 3.1 Fast | 954 | 86 | 86 |
+
+Veo 3.1 was rated 95, above Seedance 2.5 (93), but the arena puts it **#26**, 193 Elo below Seedance. It keeps its real strengths — native audio/dialogue and 4K — but it is no longer the default hero video. The catalog now says: use it for audio/dialogue, not as the default.
+
+`qualityConfidence` is `mixed` for video as well.
+
 ## Media confidence
 
 `recommend` now returns:
@@ -52,7 +68,8 @@ This is exactly the kind of correction the product needed: the prior was expensi
 
 - text: `benchmark`
 - image: `mixed` (public arena + prior)
-- video / 3D / audio: `prior`
+- video: `mixed` (public arena + prior)
+- 3D / audio: `prior`
 
 This is deliberate. Calling a single arena scrape a full “independent benchmark” would be the same mistake in the other direction.
 

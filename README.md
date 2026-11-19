@@ -303,7 +303,7 @@ The value pick keeps **95.4% of frontier first-pass quality at 41.6% of the cost
 
 | Correctness | Cost | Robustness | Coverage | Safety | Operability | Composite |
 |---:|---:|---:|---:|---:|---:|---:|
-| 100 | 86.4 | 100 | 100 | 100 | 100 | **97.3 / A** |
+| 100 | 84.2 | 100 | 100 | 100 | 100 | **96.8 / A** |
 
 <p align="center"><img src="assets/scorecard.png" alt="ModelPick six-dimension scorecard" width="82%" /></p>
 
