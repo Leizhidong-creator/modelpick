@@ -10,7 +10,7 @@
 - [ ] GitHub release `v0.1.0` with the changelog.
 - [ ] 4 issue templates, 4 discussion categories, 8 good-first-issues.
 - [ ] Landing page deployed to GitHub Pages.
-- [ ] X account pinned post scheduled; Product Hunt draft saved.
+- [ ] X profile + cold-start checklist done (`launch/x-cold-start.md`); Product Hunt draft saved.
 - [ ] 20 developers in a DM list (not for vote asks — for feedback).
 
 ## Week 1
