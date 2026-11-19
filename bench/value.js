@@ -15,7 +15,7 @@ import { rankModels, qualityFor, unitCostFor, attemptsFor } from '../src/core/sc
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TASKS = ['coding-agent', 'image-gen', 'video-gen', '3d-gen', 'tts'];
 const TRIALS = 4000;
-const MAX_ATTEMPTS = 5;
+const MAX_ATTEMPTS = 4;
 const PARITY = 0.9;
 
 function mulberry32(seed) {
