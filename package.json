@@ -23,7 +23,6 @@
     "skills",
     "plugins",
     "types",
-    "launch/*.md",
     "docs/*.md",
     "research/*.md",
     "research/hf-evidence.json",
