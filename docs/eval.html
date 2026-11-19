@@ -150,15 +150,16 @@ function evaluate(text, taskOverride) {
 
 function fmt(x) { return x === null ? '—' : `$${x.toFixed(4)}`; }
 function pct(x) { return `${(x * 100).toFixed(1)}%`; }
+function esc(x) { return String(x).replace(/[&<>"']/g, (c) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c])); }
 
 function render(result) {
   last = result;
   const total = result.models.reduce((a, m) => a + m.n, 0);
   const passed = result.models.reduce((a, m) => a + m.passed, 0);
   $('cards').innerHTML = [
-    ['Runs', total], ['Pass rate', total ? pct(passed / total) : '—'], ['Models', result.models.length], ['Task', result.task]
+    ['Runs', total], ['Pass rate', total ? pct(passed / total) : '—'], ['Models', result.models.length], ['Task', esc(result.task)]
   ].map(([k, v]) => `<div class="card"><b>${v}</b><span>${k}</span></div>`).join('');
-  $('tbody').innerHTML = result.models.map((m) => `<tr><td>${m.model}</td><td>${m.n}</td><td>${m.passed}</td><td>${pct(m.p)}</td><td>${pct(m.lo)} – ${pct(m.hi)}</td><td>${m.cps === null ? '—' : fmt(m.cps)}${m.missingCost ? ' *' : ''}</td></tr>`).join('');
+  $('tbody').innerHTML = result.models.map((m) => `<tr><td>${esc(m.model)}</td><td>${m.n}</td><td>${m.passed}</td><td>${pct(m.p)}</td><td>${pct(m.lo)} – ${pct(m.hi)}</td><td>${m.cps === null ? '—' : fmt(m.cps)}${m.missingCost ? ' *' : ''}</td></tr>`).join('');
   $('results').classList.remove('hidden');
   $('error').textContent = '';
 }
@@ -181,8 +182,8 @@ coding-agent,claude-fable-5.2,false,0.64,1,92`;
 
 $('download').addEventListener('click', () => {
   if (!last) return;
-  const rows = last.models.map((m) => `<tr><td>${m.model}</td><td>${m.n}</td><td>${m.passed}</td><td>${pct(m.p)}</td><td>${pct(m.lo)} – ${pct(m.hi)}</td><td>${m.cps === null ? '—' : fmt(m.cps)}</td></tr>`).join('');
-  const html = `<!doctype html><meta charset="utf-8"><title>ModelPick eval — ${last.task}</title><style>body{font-family:system-ui;margin:40px;color:#111}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #ddd;padding:8px;text-align:left}</style><h1>ModelPick eval</h1><p>Task: ${last.task} · runs: ${last.n} · generated locally from your CSV.</p><table><tr><th>Model</th><th>Runs</th><th>Passed</th><th>Pass rate</th><th>95% interval</th><th>Cost / solved</th></tr>${rows}</table><p style="color:#666">Preview report. For the authoritative report, run <code>modelpick eval evals.csv --html report.html</code>.</p>`;
+  const rows = last.models.map((m) => `<tr><td>${esc(m.model)}</td><td>${m.n}</td><td>${m.passed}</td><td>${pct(m.p)}</td><td>${pct(m.lo)} – ${pct(m.hi)}</td><td>${m.cps === null ? '—' : fmt(m.cps)}</td></tr>`).join('');
+  const html = `<!doctype html><meta charset="utf-8"><title>ModelPick eval — ${last.task}</title><style>body{font-family:system-ui;margin:40px;color:#111}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #ddd;padding:8px;text-align:left}</style><h1>ModelPick eval</h1><p>Task: ${esc(last.task)} · runs: ${last.n} · generated locally from your CSV.</p><table><tr><th>Model</th><th>Runs</th><th>Passed</th><th>Pass rate</th><th>95% interval</th><th>Cost / solved</th></tr>${rows}</table><p style="color:#666">Preview report. For the authoritative report, run <code>modelpick eval evals.csv --html report.html</code>.</p>`;
   const blob = new Blob([html], { type: 'text/html' });
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'modelpick-eval.html'; a.click(); URL.revokeObjectURL(a.href);
 });
