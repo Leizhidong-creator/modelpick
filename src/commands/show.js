@@ -1,5 +1,6 @@
 import { loadCatalog, findModel } from '../core/catalog.js';
 import { connectionFor } from '../core/connect.js';
+import { rankModels } from '../core/score.js';
 import { ModelPickError } from '../core/errors.js';
 
 function money(value) {
@@ -26,6 +27,25 @@ export async function runShow(ctx) {
     });
   }
   const connection = connectionFor(model, { useOpenRouter: Boolean(ctx.flags.openrouter) });
+  const applicability = catalog.tasks
+    .map((task) => {
+      const ranked = rankModels(catalog, task, { limit: 50 });
+      const index = ranked.candidates.findIndex((candidate) => candidate.slug === model.slug);
+      if (index < 0) return null;
+      const candidate = ranked.candidates[index];
+      return {
+        task: task.id,
+        label: task.label,
+        rank: index + 1,
+        quality: candidate.quality,
+        costPerTask: candidate.costPerTask,
+        unit: task.modality === 'text' ? 'task' : `usable ${task.workload?.unit ?? 'asset'}`,
+        top3: index < 3
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.rank - b.rank || b.quality - a.quality);
+  const best = applicability.find((item) => item.rank === 1) ?? applicability[0] ?? null;
 
   if (ctx.json) {
     console.log(
@@ -46,6 +66,13 @@ export async function runShow(ctx) {
             notes: model.notes,
             sources: model.sources
           },
+          applicability: {
+            eligibleNodes: applicability.length,
+            top1Nodes: applicability.filter((item) => item.rank === 1).length,
+            top3Nodes: applicability.filter((item) => item.top3).length,
+            best,
+            nodes: applicability
+          },
           connection
         },
         null,
@@ -65,6 +92,15 @@ export async function runShow(ctx) {
     console.log(`  ${s.dim('price')} ${money(model.pricing.amount)} per ${model.pricing.unit} ${s.dim(model.pricing.confidence === 'estimated' ? '(estimated)' : '')}`);
   }
   console.log(`  ${s.dim('quality')} overall ${model.quality.overall}`);
+  if (best) {
+    console.log(`\n  ${s.cyan('BEST NODES')}`);
+    for (const item of applicability.filter((entry) => entry.top3).slice(0, 5)) {
+      console.log(`  ${s.dim(`#${item.rank}`)} ${item.label} ${s.dim('·')} quality ${item.quality} ${s.dim('·')} $${item.costPerTask.toFixed(4)}/${item.unit}`);
+    }
+    console.log(`  ${s.dim(`${applicability.length} eligible nodes · ${applicability.filter((item) => item.rank === 1).length} top-1`)}`);
+  } else {
+    console.log(`\n  ${s.yellow('!')} This model is not eligible for any task under the current floors.`);
+  }
   console.log(`\n  ${s.cyan('CONNECT')}`);
   console.log(`  ${s.dim('endpoint')} ${connection.baseUrl ?? '—'}`);
   console.log(`  ${s.dim('model id')} ${connection.apiModel ?? '—'}`);

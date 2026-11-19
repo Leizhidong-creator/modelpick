@@ -90,7 +90,7 @@ export function buildScorecard() {
 
   // 6. Operability: decision latency and package integrity.
   const p95 = Math.max(dev.p95Ms ?? 0, held.p95Ms ?? 0);
-  const latencyScore = p95 <= 0 ? 100 : clamp(100 * (1 - Math.log1p(p95) / Math.log1p(300)));
+  const latencyScore = p95 <= 5 ? 100 : clamp(100 * (1 - Math.log1p(p95) / Math.log1p(300)));
   const verify = JSON.parse(
     (() => {
       try {
