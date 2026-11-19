@@ -17,6 +17,8 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
 
+<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/">Website</a> · <a href="assets/modelpick-intro.mp4">93-second film</a> · <a href="docs/VALUE.md">How value is defined</a> · <a href="docs/ECOSYSTEM.md">Ecosystem</a></p>
+
 ---
 
 Your agent can write code, call tools, and ship a feature. Then it picks **one model for everything** — a frontier model to classify a support ticket, to generate a barrel prop, to draft a thumbnail.

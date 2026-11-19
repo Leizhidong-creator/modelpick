@@ -1,10 +1,1 @@
-tests/
-bench/
-site/
-research/
-launch/
-docs/
-assets/
-scripts/
-.github/
-*.tgz
+docs/assets/

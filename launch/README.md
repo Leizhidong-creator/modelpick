@@ -26,7 +26,7 @@ Everything needed to launch ModelPick without inventing claims. The full researc
 | Film poster | `../assets/modelpick-intro-thumb.png` |
 | Film captions | `../assets/modelpick-intro.srt` |
 | Film script & storyboard | [`video-storyboard.md`](video-storyboard.md) |
-| Landing page | `../site/index.html` |
+| Landing page | `../docs/index.html` |
 
 ## Drafts
 

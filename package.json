@@ -23,7 +23,7 @@
     "skills",
     "plugins",
     "types",
-    "docs",
+    "docs/*.md",
     "bench",
     "assets/*.png",
     "assets/*.mp4",

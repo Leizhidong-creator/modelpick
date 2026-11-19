@@ -34,7 +34,7 @@ Then push again. No code changes are required.
 | File | Trigger | Jobs |
 |---|---|---|
 | `ci.yml` | push to main, PR, manual | validate → test → benchmark on Ubuntu/Windows/macOS × Node 20/22/24; uploads `tests/results` |
-| `pages.yml` | push to `site/` or manual | deploys `site/` to GitHub Pages |
+| `pages.yml` | push to `docs/` or manual | deploys `docs/` to GitHub Pages |
 | `release.yml` | tag `v*` | validates, tests, creates a GitHub release from the tag |
 
 The local equivalents are:
