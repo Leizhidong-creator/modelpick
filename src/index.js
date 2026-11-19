@@ -6,6 +6,7 @@ export { modelAvailability, anyProviderKey } from './core/availability.js';
 export { connectionFor, providerConnection } from './core/connect.js';
 export { shouldJudge, buildJudgePrompt, parseVerdict, aggregateVerdicts, applyVerdict } from './core/judge.js';
 export { buildDecisionPacket, readVerdict, validateVerdict } from './core/decision.js';
+export { evaluateRuns } from './core/evaluate.js';
 export { startMcpServer, createMcpServer } from './mcp/server.js';
 export { installAgent, detectAgents, mcpCommand, AGENTS } from './integrations/index.js';
 export { ModelPickError } from './core/errors.js';

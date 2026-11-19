@@ -10,7 +10,7 @@ import { makeStyle } from './format.js';
 
 const COMMANDS = new Set([
   'pick', 'choose', 'recommend', 'plan', 'compare', 'models', 'list', 'tasks',
-  'setup', 'mcp', 'doctor', 'keys', 'update', 'bench', 'add-model', 'show', 'decide', 'verify', 'version', 'help'
+  'setup', 'mcp', 'doctor', 'keys', 'update', 'bench', 'add-model', 'show', 'decide', 'verify', 'eval', 'version', 'help'
 ]);
 
 const ALIASES = { choose: 'pick', recommend: 'pick', list: 'models' };
@@ -57,6 +57,7 @@ ${b('MAINTAIN')}
   show <model>       Endpoint, auth, SDK, curl example, and evidence for one model
   decide <task>      Build a portable decision packet for any judge/decision model
   verify             Verify catalog, evidence, benchmark, and package hashes
+  eval <file>        Analyze your own pass/fail runs with Wilson intervals
 
 ${b('OPTIONS')}
   --task <id>        Force a task node (see modelpick tasks)
@@ -216,6 +217,11 @@ export async function main(argv) {
       case 'verify': {
         const { runVerify } = await import('../commands/verify.js');
         await runVerify(ctx);
+        break;
+      }
+      case 'eval': {
+        const { runEval } = await import('../commands/eval.js');
+        await runEval(ctx);
         break;
       }
       default:

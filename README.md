@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-135%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-140%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-25%2F25-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -303,7 +303,7 @@ The value pick keeps **95.4% of frontier first-pass quality at 41.6% of the cost
 
 | Correctness | Cost | Robustness | Coverage | Safety | Operability | Composite |
 |---:|---:|---:|---:|---:|---:|---:|
-| 100 | 88 | 100 | 100 | 100 | 93.1 | **96.9 / A** |
+| 100 | 88 | 100 | 100 | 100 | 92.1 | **96.8 / A** |
 
 <p align="center"><img src="assets/scorecard.png" alt="ModelPick six-dimension scorecard" width="82%" /></p>
 
@@ -369,6 +369,7 @@ modelpick tasks                    List the 20 nodes
 modelpick show <model>             Endpoint, auth, SDK, curl, and evidence
 modelpick decide "<task>"          Build a portable decision packet for any judge
 modelpick verify                   Verify catalog, evidence, benchmarks, hashes
+modelpick eval <file>              Analyze your own pass/fail runs
 modelpick add-model <file>         Add a private/custom model
 modelpick setup [agent]            Install MCP + skill
 modelpick mcp                      Run the stdio MCP server
@@ -529,6 +530,7 @@ Requirements: Node ≥ 20.11. Runtime dependencies: **zero**. Python + Pillow ar
 - [Data provenance](docs/DATA.md)
 - [How value is defined](docs/VALUE.md)
 - [Quality evidence](docs/QUALITY.md)
+- [Bring your own eval](docs/EVALS.md)
 - [Ecosystem and embedding](docs/ECOSYSTEM.md)
 - [Judge/decision models](docs/JUDGES.md)
 - [Publishing and launch runbook](docs/PUBLISHING.md)

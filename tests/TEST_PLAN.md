@@ -18,7 +18,7 @@ Evidence lives in `tests/results/` (JSON + HTML) and `tests/evidence/` (images +
 
 ## Dimensions
 
-### 1. Unit logic — 88 tests
+### 1. Unit logic — 91 tests
 
 | Area | File | What is asserted |
 |---|---|---|
@@ -32,7 +32,7 @@ Evidence lives in `tests/results/` (JSON + HTML) and `tests/evidence/` (images +
 | Judge | `tests/unit/judge.test.js` | prompt blindness, strict JSON, invented slug rejection, Borda, movement cap |
 | Links | `tests/unit/links.test.js` | README/launch links resolve, video assets exist, site mirrors assets |
 
-Result: **88/88 pass**.
+Result: **91/91 pass**.
 
 ### 2. Data integrity
 
@@ -44,7 +44,7 @@ Result: **88/88 pass**.
 - Media prices carry `verified` or `estimated`.
 - Snapshot age <120 days.
 
-### 3. Integration — 44 tests
+### 3. Integration — 46 tests
 
 | Area | File | What is asserted |
 |---|---|---|
@@ -54,7 +54,7 @@ Result: **88/88 pass**.
 | Decision | `tests/integration/decision.test.js` | packet contract, verdict application, invented slug rejection, missing file |
 | Add-model | `tests/integration/add-model.test.js` | validation before write, routable custom model, removal |
 
-Result: **44/44 pass**.
+Result: **46/46 pass**.
 
 ### 4. End-to-end — 3 tests
 
