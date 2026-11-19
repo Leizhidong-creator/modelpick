@@ -103,11 +103,21 @@ Result: **36/36 pass**.
 
 ### 7. Cross-platform CI
 
-`.github/workflows/ci.yml` runs:
+The workflow template lives in `docs/ci/ci.yml`; it is **not enabled on GitHub yet** because the publishing token lacks the `workflow` scope. The template runs:
 
 - OS: Ubuntu, Windows, macOS.
 - Node: 20.x, 22.x, 24.x.
-- Steps: validate → test → benchmark → upload artifacts.
+- Steps: validate → test → benchmark → held-out → value → adversarial → upload artifacts.
+
+Local runtime matrix actually executed:
+
+| Runtime | Result |
+|---|---|
+| Node 20.20.2 | 122/122 tests, 115-run benchmark, value simulation |
+| Node 22.x | 122/122 tests |
+| Node 24.15.0 | 122/122 tests |
+
+Evidence: `tests/results/node-version-verification.md`.
 
 The CLI avoids POSIX-only shell assumptions; setup uses absolute `node` paths on Windows and `cmd /c npx` for portable configs.
 
@@ -145,7 +155,8 @@ Screenshots and charts: `tests/evidence/terminal-pick.png`, `terminal-plan.png`,
 2. Media quality scores are priors, not independent measurements.
 3. The benchmark labels and catalog share one author.
 4. Windows MCP configs use an absolute `node` path by default; portable configs need `cmd /c npx`.
-5. No automated test for the Claude Code plugin schema beyond JSON parsing; validated against the documented layout.
+5. Claude Code plugin is validated with the real `claude plugin validate` (2.1.170); headless MCP approval is still manual.
 6. npm package is not published yet; GitHub install is the tested path.
+7. GitHub Actions are template-only until a token with `workflow` scope pushes `docs/ci/`.
 
 These are recorded, not hidden. The next test cycle should add a community-labeled holdout and a small live-call smoke test with user-provided keys.
