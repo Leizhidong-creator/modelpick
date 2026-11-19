@@ -1,0 +1,56 @@
+name: Design partner
+description: Run modelpick eval on 20-50 real runs and report what the router gets wrong
+title: "[design partner] <task> on <agent>"
+labels: ["design-partner"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Five slots. Do not paste API keys, prompts, or customer data.
+        Only model slugs, pass/fail, cost, attempts, and optional 0-100 quality.
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Agent
+      options:
+        - Claude Code
+        - Codex CLI
+        - Cursor
+        - DeepSeek Harness
+        - GitHub Copilot CLI
+        - VS Code / Copilot agent mode
+        - Other MCP client
+    validations:
+      required: true
+  - type: input
+    id: task
+    attributes:
+      label: Task id
+      description: "Example: coding-agent, 3d-gen, image-gen"
+      placeholder: coding-agent
+    validations:
+      required: true
+  - type: textarea
+    id: runs
+    attributes:
+      label: Eval JSON (redacted)
+      description: "Paste the evals.json or a link to a Gist. Remove prompts, outputs, and keys."
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: Where the router was wrong
+      description: "Which model did it pick, what did you expect, and what did it cost?"
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: I removed prompts, outputs, customer data, and API keys.
+          required: true
+        - label: You may publish the anonymized counterexample.
+          required: false

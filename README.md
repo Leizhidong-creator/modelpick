@@ -543,6 +543,7 @@ Requirements: Node ≥ 20.11. Runtime dependencies: **zero**. Python + Pillow ar
 - [Multi-dimensional scorecard](tests/results/SCORECARD.md)
 - [Adversarial review](tests/ADVERSARIAL_REVIEW.md)
 - [Test form: 20 tasks × 40 models](tests/results/TEST_FORM.md)
+- [Design partner program: 5 slots](docs/DESIGN_PARTNERS.md)
 - [Test plan](tests/TEST_PLAN.md)
 - [Benchmark methodology](bench/METHODOLOGY.md)
 - [Contributing](CONTRIBUTING.md)
