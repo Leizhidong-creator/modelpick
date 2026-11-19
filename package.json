@@ -32,7 +32,6 @@
     "tests/results/*.json",
     "bench",
     "assets/*.png",
-    "assets/*.mp4",
     "assets/*.srt",
     "assets/*.ass",
     "assets/chart-data.json",
