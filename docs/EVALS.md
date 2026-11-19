@@ -26,7 +26,7 @@ Fields:
 | `task` | yes | A real ModelPick task id (`3d-gen`, `image-gen`, `coding-agent`, `tts`, …). |
 | `model` | yes | Catalog slug, or a custom slug you added with `add-model`. |
 | `passed` | yes | Did this run produce an acceptable result? |
-| `cost` | no | Actual API spend for this run. Default 0. |
+| `cost` | no | Actual API spend for this run. If any run omits it, cost per solved is omitted instead of treated as $0. |
 | `attempts` | no | Attempts used in this run. Default 1. |
 | `quality` | no | A human 0–100 score for this output. |
 

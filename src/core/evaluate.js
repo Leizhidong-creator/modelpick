@@ -28,7 +28,7 @@ function normalise(input) {
       runs.push({
         model: run.model,
         passed: Boolean(run.passed),
-        cost: Number(run.cost ?? 0),
+        cost: run.cost == null ? null : Number(run.cost),
         attempts: Math.max(1, Number(run.attempts ?? 1)),
         quality: run.quality == null ? null : Number(run.quality)
       });
@@ -39,7 +39,7 @@ function normalise(input) {
         runs.push({
           model,
           passed: Boolean(run.passed),
-          cost: Number(run.cost ?? 0),
+          cost: run.cost == null ? null : Number(run.cost),
           attempts: Math.max(1, Number(run.attempts ?? 1)),
           quality: run.quality == null ? null : Number(run.quality)
         });
@@ -67,7 +67,9 @@ export function evaluateRuns(input, catalog, { minSamples = 5 } = {}) {
     const model = catalog.bySlug.get(slug);
     const solved = items.filter((item) => item.passed).length;
     const attempts = items.reduce((sum, item) => sum + item.attempts, 0);
-    const cost = items.reduce((sum, item) => sum + item.cost, 0);
+    const costs = items.map((item) => item.cost).filter((value) => value !== null);
+    const allCosts = costs.length === items.length;
+    const cost = allCosts ? costs.reduce((sum, value) => sum + value, 0) : null;
     const quality = items.filter((item) => item.quality != null).map((item) => item.quality);
     const interval = wilson(solved, items.length);
     results.push({
@@ -81,7 +83,8 @@ export function evaluateRuns(input, catalog, { minSamples = 5 } = {}) {
       passRateHigh: interval.high,
       meanAttempts: items.length ? attempts / items.length : 0,
       totalCost: cost,
-      costPerSolved: solved ? cost / solved : null,
+      costPerSolved: solved && allCosts ? cost / solved : null,
+      costCoverage: allCosts ? 'complete' : 'partial',
       meanQuality: quality.length ? quality.reduce((sum, value) => sum + value, 0) / quality.length : null,
       catalogQuality: model ? Math.round(qualityFor(model, taskDef) * 10) / 10 : null,
       enoughSamples: items.length >= minSamples

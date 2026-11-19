@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "adversarial",
-  "generatedAt": "2026-11-19T09:54:53.886Z",
+  "generatedAt": "2026-11-19T09:59:58.945Z",
   "total": 25,
   "passed": 25,
   "failed": 0,
@@ -13,16 +13,16 @@
       "expected": "ERR_MISSING_TASK, no crash",
       "observed": "ERR_MISSING_TASK",
       "pass": true,
-      "ms": 1.8
+      "ms": 1.3
     },
     {
       "id": "A02",
       "area": "input",
       "vector": "100,000-character query",
       "expected": "no crash, <2s",
-      "observed": "12ms",
+      "observed": "13ms",
       "pass": true,
-      "ms": 12.1
+      "ms": 13.5
     },
     {
       "id": "A03",
@@ -31,7 +31,7 @@
       "expected": "treated as data, task 3d-gen",
       "observed": "3d-gen",
       "pass": true,
-      "ms": 1
+      "ms": 1.2
     },
     {
       "id": "A04",
@@ -49,7 +49,7 @@
       "expected": "no crash, task detected",
       "observed": "image-gen",
       "pass": true,
-      "ms": 3.5
+      "ms": 4.2
     },
     {
       "id": "A06",
@@ -58,7 +58,7 @@
       "expected": "ERR_UNKNOWN_TASK, no file read",
       "observed": 1,
       "pass": true,
-      "ms": 162.8
+      "ms": 159.3
     },
     {
       "id": "A07",
@@ -67,7 +67,7 @@
       "expected": "ERR_INVALID_OPTION",
       "observed": 1,
       "pass": true,
-      "ms": 146.5
+      "ms": 141.6
     },
     {
       "id": "A08",
@@ -76,7 +76,7 @@
       "expected": "ERR_INVALID_OPTION",
       "observed": 1,
       "pass": true,
-      "ms": 143
+      "ms": 136.9
     },
     {
       "id": "A09",
@@ -85,7 +85,7 @@
       "expected": "NO_ELIGIBLE_MODEL, not a silent fallback",
       "observed": "NO_ELIGIBLE_MODEL",
       "pass": true,
-      "ms": 1.3
+      "ms": 1
     },
     {
       "id": "A10",
@@ -103,7 +103,7 @@
       "expected": "ERR_INVALID_OPTIMIZE",
       "observed": 1,
       "pass": true,
-      "ms": 149.6
+      "ms": 139.1
     },
     {
       "id": "A12",
@@ -112,7 +112,7 @@
       "expected": "ERR_OVERRIDES_INVALID, no silent ignore",
       "observed": "ERR_OVERRIDES_INVALID",
       "pass": true,
-      "ms": 6
+      "ms": 5.9
     },
     {
       "id": "A13",
@@ -121,7 +121,7 @@
       "expected": "load succeeds",
       "observed": 40,
       "pass": true,
-      "ms": 7.3
+      "ms": 6.8
     },
     {
       "id": "A14",
@@ -130,7 +130,7 @@
       "expected": "ERR_INVALID_CATALOG",
       "observed": "ERR_INVALID_CATALOG",
       "pass": true,
-      "ms": 1.1
+      "ms": 1.2
     },
     {
       "id": "A15",
@@ -139,7 +139,7 @@
       "expected": "never appears in keys output",
       "observed": 0,
       "pass": true,
-      "ms": 145.3
+      "ms": 146.3
     },
     {
       "id": "A16",
@@ -148,7 +148,7 @@
       "expected": "no files written",
       "observed": "none",
       "pass": true,
-      "ms": 127.4
+      "ms": 139.8
     },
     {
       "id": "A17",
@@ -157,7 +157,7 @@
       "expected": "refuse + preserve bytes",
       "observed": 1,
       "pass": true,
-      "ms": 140
+      "ms": 150.5
     },
     {
       "id": "A18",
@@ -166,7 +166,7 @@
       "expected": "refuse before writing overrides",
       "observed": 1,
       "pass": true,
-      "ms": 172.8
+      "ms": 135.9
     },
     {
       "id": "A19",
@@ -175,7 +175,7 @@
       "expected": "tool error, server alive",
       "observed": "{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"error\\\":\\\"TOOL_ERROR\\\",\\\"message\\\":\\\"Tell ",
       "pass": true,
-      "ms": 138.2
+      "ms": 141.9
     },
     {
       "id": "A20",
@@ -184,7 +184,7 @@
       "expected": "JSON-RPC -32602",
       "observed": -32602,
       "pass": true,
-      "ms": 136.7
+      "ms": 145.1
     },
     {
       "id": "A21",
@@ -193,7 +193,7 @@
       "expected": "all responses, no interleaving corruption",
       "observed": 10,
       "pass": true,
-      "ms": 149.1
+      "ms": 150
     },
     {
       "id": "A22",
@@ -202,7 +202,7 @@
       "expected": "stale true and ageDays > 120",
       "observed": 687,
       "pass": true,
-      "ms": 1
+      "ms": 1.2
     },
     {
       "id": "A23",
@@ -211,7 +211,7 @@
       "expected": "no crash; availability false",
       "observed": false,
       "pass": true,
-      "ms": 0.6
+      "ms": 0.9
     },
     {
       "id": "A24",
@@ -220,7 +220,7 @@
       "expected": "ERR_VERDICT_INVALID, no rerank",
       "observed": 1,
       "pass": true,
-      "ms": 315.5
+      "ms": 297
     },
     {
       "id": "A25",
@@ -229,7 +229,7 @@
       "expected": "applied=true, top is the verdict top",
       "observed": "meshy-7.1",
       "pass": true,
-      "ms": 292.8
+      "ms": 296
     }
   ]
 }

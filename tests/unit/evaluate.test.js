@@ -32,6 +32,23 @@ test('evaluates pass rate, Wilson interval, attempts, and cost per solved', () =
   assert.equal(tripo.enoughSamples, true);
 });
 
+test('omits cost per solved when any run lacks a cost', () => {
+  const result = evaluateRuns(
+    {
+      task: '3d-gen',
+      runs: [
+        { model: 'tripo-h3.1', passed: true, cost: 0.2 },
+        { model: 'tripo-h3.1', passed: true }
+      ]
+    },
+    catalog
+  );
+  const tripo = result.models[0];
+  assert.equal(tripo.costCoverage, 'partial');
+  assert.equal(tripo.costPerSolved, null);
+  assert.equal(tripo.totalCost, null);
+});
+
 test('flags small samples and sorts by cost per solved', () => {
   const result = evaluateRuns(input, catalog, { minSamples: 5 });
   assert.equal(result.models[0].slug, 'tripo-h3.1');
