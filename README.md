@@ -289,7 +289,9 @@ The value pick keeps **95.4% of frontier first-pass quality at 41.6% of the cost
 
 | Correctness | Cost | Robustness | Coverage | Safety | Operability | Composite |
 |---:|---:|---:|---:|---:|---:|---:|
-| 100 | 88 | 100 | 100 | 100 | 93.8 | **97 / A** |
+| 100 | 88 | 100 | 100 | 100 | 94.1 | **97 / A** |
+
+<p align="center"><img src="assets/scorecard.png" alt="ModelPick six-dimension scorecard" width="82%" /></p>
 
 Correctness is the decision benchmark; it is not an independent output benchmark. Cost is regret plus the value simulation. Robustness is price perturbation, retry sensitivity, and determinism. Coverage is every task and model. Safety is the 25-case adversarial suite. Operability is p95 latency, `modelpick verify`, and line coverage (84.8%).
 
