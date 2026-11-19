@@ -91,3 +91,8 @@ Do not record star counts as the only success metric. A reply that says “your 
 - Official MCP Registry entry published and active:
   https://registry.modelcontextprotocol.io/v0/servers?search=modelpick
 - `mcp-publisher validate server.json` -> valid; `publish` -> successfully published.
+
+## MCP Registry launch post
+
+- https://x.com/DurgaraoGa51557/status/2123411822497927467
+- Announcement: Official MCP Registry entry, npm 0.1.1, `npx modelpick setup claude-code`.
