@@ -52,3 +52,9 @@ Do not record star counts as the only success metric. A reply that says “your 
 - https://x.com/DurgaraoGa51557/status/2123392183323762781
 - Reply under Anthropic's Claude Fable 5.2 / Mythos 5.2 launch post.
 - Value-first: 80k/8k/60% cache comparison, Fable $0.64 vs Astra $0.68 vs Sol $0.18; Fable wins hero coding, not every node.
+
+## Directory submission
+
+- Opened PR to Awesome MCP Servers (98.2k stars): https://github.com/punkpeye/awesome-mcp-servers/pull/20045
+- Entry under Coding Agents; title includes the agent fast-track marker.
+- State at submission: OPEN, MERGEABLE, no review comments.
