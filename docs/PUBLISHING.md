@@ -21,13 +21,13 @@ The repository is live. This is the remaining sequence to make it installable ev
 npm login
 npm publish --access public
 npm view modelpick version
-npx -y modelpick pick "refactor this repo"
+npx -y github:Leizhidong-creator/modelpick pick "refactor this repo"
 ```
 
 After publish, update the install commands in `README.md`, `docs/ECOSYSTEM.md`, and the site from GitHub npx to:
 
 ```bash
-npx -y modelpick pick "refactor this repo"
+npx -y github:Leizhidong-creator/modelpick pick "refactor this repo"
 ```
 
 ## 2. MCP Registry and directories

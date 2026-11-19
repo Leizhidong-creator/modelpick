@@ -293,7 +293,7 @@ No stars badge, no "built with AI" badge. Both read as vanity to this audience.
 ### 5.4 Releases, install paths, first-success moment
 
 - Ship `v0.1.0` on **D−1** with a real changelog, via `semantic-release` and npm `--provenance` (provenance shows on npmjs.com and reads as "not slop").
-- Three install paths, all tested on a clean machine the day before: `npx modelpick init`; `npm i -g modelpick`; `claude mcp add modelpick -- npx -y modelpick mcp`.
+- Three install paths, all tested on a clean machine the day before: `npx modelpick init`; `npm i -g modelpick`; `claude mcp add modelpick -- npx -y github:Leizhidong-creator/modelpick mcp`.
 - `modelpick doctor` diagnoses the five most common failures (no keys, host not detected, stale price cache, offline, unsupported node type). Every week-1 support question becomes a `doctor` check.
 - Pin prices to a daily-refreshed cache and print `prices as of <date>` in every output. Stale prices are the number-one credibility risk.
 
@@ -526,8 +526,8 @@ Three tools: `pick_model` (node type + budget → ranked models with $/solved),
 `price_task` (token estimate → cost across candidates), `log_outcome` (records what
 actually happened so pass rates improve).
 
-Install: claude mcp add modelpick -- npx -y modelpick mcp
-Cursor: Settings → MCP → add `npx -y modelpick mcp`.
+Install: claude mcp add modelpick -- npx -y github:Leizhidong-creator/modelpick mcp
+Cursor: Settings → MCP → add `npx -y github:Leizhidong-creator/modelpick mcp`.
 
 Design choice worth criticizing: it is advisory, not a proxy — modelpick never sees
 your keys or your traffic. Tradeoff: it cannot enforce the route, only recommend it

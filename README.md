@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-143%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-144%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-25%2F25-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -531,6 +531,7 @@ Requirements: Node ≥ 20.11. Runtime dependencies: **zero**. Python + Pillow ar
 - [How value is defined](docs/VALUE.md)
 - [Quality evidence](docs/QUALITY.md)
 - [Bring your own eval](docs/EVALS.md)
+- [Self-hosting](docs/SELF_HOST.md)
 - [Ecosystem and embedding](docs/ECOSYSTEM.md)
 - [Judge/decision models](docs/JUDGES.md)
 - [Publishing and launch runbook](docs/PUBLISHING.md)

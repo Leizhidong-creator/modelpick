@@ -130,6 +130,16 @@ test('Codex dry-run does not create a config file', () => {
   assert.ok(!fs.existsSync(file));
 });
 
+test('generated AGENTS block uses a runnable install command', () => {
+  const cwd = tempDir();
+  const result = runCli(['setup', 'generic', '--json'], { cwd });
+  assert.equal(result.status, 0);
+  const agents = fs.readFileSync(path.join(cwd, 'AGENTS.md'), 'utf8');
+  assert.ok(agents.includes('github:Leizhidong-creator/modelpick'));
+  assert.ok(agents.includes('get_decision_packet'));
+  assert.ok(!agents.includes('modelpick@latest'));
+});
+
 test('VS Code setup writes .vscode/mcp.json without clobbering siblings', () => {
   const cwd = tempDir();
   fs.mkdirSync(path.join(cwd, '.vscode'), { recursive: true });

@@ -44,7 +44,7 @@
 
 ### D5 — Saturday: open-weight audience
 - r/LocalLLaMA post (`launch/reddit.md`), focused on `--open-weights` and self-host cost.
-- Add a `docs/SELF_HOST.md` page with a GPU-hour cost model placeholder; ask for the formula.
+- Publish [`docs/SELF_HOST.md`](../docs/SELF_HOST.md); ask for a GPU-hour cost formula in the thread.
 - Success signal: 30+ open-weight runs.
 
 ### D6 — Sunday: rest + reply backlog

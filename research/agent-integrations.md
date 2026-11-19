@@ -159,10 +159,10 @@ Install scope is chosen interactively (three options): **user** (every project),
 
 ```bash
 # stdio (note the "--" separator before the command)
-claude mcp add --transport stdio modelpick -- npx -y modelpick-mcp@latest
+claude mcp add --transport stdio modelpick -- npx -y github:Leizhidong-creator/modelpick-mcp@latest
 
 # with env vars (put another option between --env and the server name)
-claude mcp add --env MODELPICK_API_KEY=sk-... --transport stdio modelpick -- npx -y modelpick-mcp@latest
+claude mcp add --env MODELPICK_API_KEY=sk-... --transport stdio modelpick -- npx -y github:Leizhidong-creator/modelpick-mcp@latest
 
 # remote
 claude mcp add --transport http modelpick https://api.example.com/mcp
@@ -231,7 +231,7 @@ Precedence when a skill name collides: enterprise > personal (`~/.claude/skills/
 Claude Code's docs contain **no** `cmd /c` guidance — I checked. In practice, a stdio server whose `command` is `npx` fails to spawn on native Windows because `npx` is a `.cmd` shim; the working form is:
 
 ```powershell
-claude mcp add --transport stdio modelpick -- cmd /c npx -y modelpick-mcp@latest
+claude mcp add --transport stdio modelpick -- cmd /c npx -y github:Leizhidong-creator/modelpick-mcp@latest
 ```
 
 `[UNVERIFIED — field-reported, not in official docs]`. Test per machine; prefer an absolute `node.exe` + script path if you need determinism.
@@ -306,8 +306,8 @@ Python-style `[mcp_servers.x.env]` values are literal strings in TOML; there is 
 ### 2.3 CLI
 
 ```bash
-codex mcp add modelpick -- npx -y modelpick-mcp@latest
-codex mcp add modelpick --env MODELPICK_API_KEY=sk-... -- npx -y modelpick-mcp@latest
+codex mcp add modelpick -- npx -y github:Leizhidong-creator/modelpick-mcp@latest
+codex mcp add modelpick --env MODELPICK_API_KEY=sk-... -- npx -y github:Leizhidong-creator/modelpick-mcp@latest
 codex mcp add example --url https://mcp.example.com --oauth-client-id my-client
 codex mcp list
 codex mcp --help
@@ -605,8 +605,8 @@ Install from Customize → *From GitHub Repository* (repo needs the marketplace 
 ```
 
 ```bash
-copilot mcp add modelpick -- npx -y modelpick-mcp@latest
-copilot mcp add modelpick --env MODELPICK_API_KEY=sk-... -- npx -y modelpick-mcp@latest
+copilot mcp add modelpick -- npx -y github:Leizhidong-creator/modelpick-mcp@latest
+copilot mcp add modelpick --env MODELPICK_API_KEY=sk-... -- npx -y github:Leizhidong-creator/modelpick-mcp@latest
 copilot mcp add --transport http notion https://mcp.notion.com/mcp
 copilot mcp add --transport http --header "Authorization: Bearer …" stripe https://mcp.stripe.com
 copilot mcp list

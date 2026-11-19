@@ -171,13 +171,14 @@ const AGENTS_BLOCK = `${MARK_START}
 Before you generate an image, video, 3D asset, or audio, start a long coding/refactor/review task, or quote a model price, call the \`modelpick\` MCP tools:
 
 - \`pick_model\` — ranked model for one workflow node, with \`costPerTask\`, quality, latency, and key setup.
+- \`get_decision_packet\` — optional portable prompt for a judge/decision model; feed its JSON back as \`verdict\` to \`pick_model\`.
 - \`plan_workflow\` — a multi-step deliverable (e.g. concept → 3D → render), one model per step.
 - \`get_setup\` — the env var, key URL, docs, and API model id.
 
 Use the tool's \`recommendation.setup.direct.env\` value; never invent prices or model ids. If MCP is not available, run:
 
 \`\`\`bash
-npx -y modelpick@latest pick "<what you are doing>" --json
+npx -y github:Leizhidong-creator/modelpick pick "<what you are doing>" --json
 \`\`\`
 
 Report the chosen model and \`costPerTask\` in your final answer when the user cares about cost.
