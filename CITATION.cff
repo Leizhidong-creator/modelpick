@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use ModelPick in research, cite this repository and the catalog date."
+title: "ModelPick: a decision layer for cost-effective model routing in coding agents"
+abstract: >-
+  ModelPick is an open-source, zero-runtime-dependency CLI and stdio MCP server
+  that selects a model per workflow node, prices decisions in cost per solved
+  task, and returns the exact provider connection. It ships a 40-model,
+  20-node catalog, a decision benchmark, adversarial tests, and a bring-your-own
+  eval command.
+authors:
+  - family-names: "Lei"
+    given-names: "Zhidong"
+version: "0.1.0"
+date-released: "2026-11-19"
+license: MIT
+repository-code: "https://github.com/Leizhidong-creator/modelpick"
+url: "https://leizhidong-creator.github.io/modelpick/"
+keywords:
+  - model routing
+  - coding agents
+  - MCP
+  - cost per solved task
+  - LLM benchmark
