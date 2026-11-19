@@ -14,3 +14,6 @@
 Next check: 24h after the first reply-first session. Record profile clicks, repo clicks, installs, and any reply that contains a real counterexample.
 
 Do not record star counts as the only success metric. A reply that says “your pick is wrong for this task” is more valuable than 10 empty stars.
+
+- Design partner reply posted under the pinned post: 5 slots, eval file, no signup.
+- Reply views at posting: 4; no external users yet.
