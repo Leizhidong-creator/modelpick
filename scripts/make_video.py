@@ -342,42 +342,61 @@ def scene_plan(t: float) -> Image.Image:
 def scene_install(t: float) -> Image.Image:
     image = frame_shell()
     draw = ImageDraw.Draw(image)
-    fade(draw, (140, 80), "Installs where you already work.", F_H1, IVORY, ease((t - 0.1) / 0.8))
-    draw.line((142, 190, 720, 190), fill=GOLD, width=2)
-    cols = [
-        ("CLI", "npx -y github:…/modelpick", "pick  ·  plan  ·  compare"),
-        ("MCP", "modelpick mcp", "6 tools over stdio"),
-        ("SKILL", ".agents/skills/modelpick", "portable across five agents"),
-    ]
-    for index, (label, command, detail) in enumerate(cols):
-        a = ease((t - 0.5 - index * 0.3) / 0.8)
-        x = 140 + index * 560
-        draw.line((x, 280, x + 500, 280), fill=(80, 92, 106), width=1)
-        spaced(draw, (x, 300), label, F_MONO_SMALL, GOLD, 3)
-        draw.text((x + 30, 370), command, font=F_MONO, fill=TEXT)
-        draw.text((x + 30, 440), detail, font=F_BODY, fill=DIM)
-        draw.text((x + 30, 540), "no gateway  ·  no keys stored", font=F_SMALL, fill=GREEN)
-    agents = ["CLAUDE CODE", "CODEX", "CURSOR", "DEEPSEEK HARNESS", "COPILOT"]
-    x = 140
-    for index, name in enumerate(agents):
-        a = ease((t - 2.0 - index * 0.12) / 0.6)
+    fade(draw, (140, 80), "Set up your agent.", F_H1, IVORY, ease((t - 0.1) / 0.8))
+    draw.line((142, 190, 580, 190), fill=GOLD, width=2)
+    tabs = ["CLAUDE CODE", "CODEX CLI", "CURSOR", "DEEPSEEK HARNESS", "COPILOT CLI"]
+    tab_cmds = ["setup claude-code", "setup codex", "setup cursor", "setup dsh", "setup copilot"]
+    for index, name in enumerate(tabs):
+        a = ease((t - 0.35 - index * 0.12) / 0.6)
         if a <= 0:
             continue
-        bbox = draw.textbbox((0, 0), name, font=F_MONO_SMALL)
-        width = bbox[2] - bbox[0] + 34
-        rounded(draw, (x, 730, x + width, 786), 3, (PANEL2[0], PANEL2[1], PANEL2[2], int(220 * a)), (60, 74, 90), 1)
-        draw.text((x + 17, 744), name, font=F_MONO_SMALL, fill=TEXT)
-        x += width + 14
-    fade(draw, (140, 880), "One command. One decision layer. Every agent.", F_H2, IVORY, ease((t - 3.0) / 0.8))
+        x = 140 + index * 350
+        active = index == 1
+        rounded(draw, (x, 230, x + 330, 296), 3, (PANEL[0], PANEL[1], PANEL[2], int(220 * a)), (57, 197, 207) if active else (60, 74, 90), 2 if active else 1)
+        draw.text((x + 18, 246), name, font=F(20, True), fill=CYAN if active else TEXT)
+        draw.text((x + 18, 270), tab_cmds[index], font=F_MONO_SMALL, fill=DIM)
+
+    rounded(draw, (140, 330, 1000, 930), 3, (PANEL[0], PANEL[1], PANEL[2], 220), (60, 74, 90), 1)
+    draw.text((170, 354), "~/.codex/config.toml", font=F_MONO, fill=GOLD)
+    draw.text((900, 360), "global", font=F_MONO_SMALL, fill=DIM)
+    draw.line((170, 392, 970, 392), fill=(60, 74, 90), width=1)
+    code = [
+        "[mcp_servers.modelpick]",
+        'command = "npx"',
+        'args = ["-y",',
+        '  "github:Leizhidong-creator/modelpick",',
+        '  "mcp"]',
+    ]
+    for index, line in enumerate(code):
+        draw.text((170, 418 + index * 42), line, font=F_MONO, fill=TEXT if index == 0 else (201, 212, 223))
+    draw.text((170, 660), "Existing config is backed up. Sibling", font=F_SMALL, fill=DIM)
+    draw.text((170, 692), "MCP servers are left untouched.", font=F_SMALL, fill=DIM)
+
+    steps = [
+        ("1", "RUN THIS", "npx -y github:Leizhidong-creator/modelpick setup codex\ncodex mcp add modelpick --\n  npx -y github:Leizhidong-creator/modelpick mcp"),
+        ("2", "RESTART", "codex mcp list  →  modelpick  enabled"),
+        ("3", "ASK IT", 'pick a model for a 3D sword for Unity'),
+    ]
+    y = 356
+    for index, (num, label, body) in enumerate(steps):
+        a = ease((t - 0.8 - index * 0.3) / 0.7)
+        if a <= 0:
+            continue
+        draw.text((1040, y), num, font=F(24, True), fill=CYAN)
+        draw.text((1080, y - 2), label, font=F(20, True), fill=GOLD)
+        for offset, line in enumerate(body.split("\n")):
+            draw.text((1080, y + 34 + offset * 30), line, font=F_MONO_SMALL, fill=TEXT if index < 2 else CYAN)
+        y += 150
+    fade(draw, (1040, 890), "One command. The config is shown before you run it.", F_SMALL, DIM, ease((t - 2.4) / 0.8))
     return image
 
 
 def scene_evidence(t: float) -> Image.Image:
     image = frame_shell()
     draw = ImageDraw.Draw(image)
-    fade(draw, (140, 80), "Decisions you can audit.", F_H1, IVORY, ease((t - 0.1) / 0.8))
+    fade(draw, (140, 80), "Every pick has a test.", F_H1, IVORY, ease((t - 0.1) / 0.8))
     draw.line((142, 190, 580, 190), fill=GOLD, width=2)
-    metrics = [("100%", "top-1 acceptable", "115 development runs"), ("0.5ms", "p95 decision", "no network in the path"), ("40", "models · 20 nodes", "every price sourced")]
+    metrics = [("100%", "top-1 acceptable", "115 development runs"), ("1.1ms", "p95 decision", "no network in the path"), ("40", "models · 20 nodes", "every price sourced")]
     for index, (value, label, detail) in enumerate(metrics):
         a = ease((t - 0.5 - index * 0.3) / 0.8)
         x = 140 + index * 560

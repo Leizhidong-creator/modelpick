@@ -12,12 +12,12 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-129%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-130%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-25%2F25-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
 
-<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/">Website</a> · <a href="assets/modelpick-intro.mp4">93-second film</a> · <a href="docs/VALUE.md">How value is defined</a> · <a href="docs/ECOSYSTEM.md">Ecosystem</a></p>
+<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/">Website</a> · <a href="assets/modelpick-intro.mp4">intro video (93s)</a> · <a href="docs/VALUE.md">How value is defined</a> · <a href="docs/ECOSYSTEM.md">Ecosystem</a></p>
 
 ---
 
@@ -40,10 +40,10 @@ npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for 
 </p>
 
 <p align="center">
-  <a href="assets/modelpick-intro.mp4"><img src="assets/modelpick-intro-thumb.png" alt="Watch the 93-second ModelPick intro film" width="72%" /></a>
+  <a href="assets/modelpick-intro.mp4"><img src="assets/modelpick-intro-thumb.png" alt="Watch the ModelPick intro video" width="72%" /></a>
 </p>
 
-<p align="center"><a href="assets/modelpick-intro.mp4"><strong>▶ Watch the intro video (93s)</strong></a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.srt">English captions</a></p>
+<p align="center"><a href="assets/modelpick-intro.mp4"><strong>▶ Watch the intro video (93s)</strong></a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
 
 ---
 

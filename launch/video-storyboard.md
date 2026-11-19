@@ -1,7 +1,7 @@
 # ModelPick intro video — script and storyboard
 
-**Master:** `assets/modelpick-intro.mp4` · 93.5s · 1920×1080 · 24fps · H.264 + AAC
-**Captions:** `assets/modelpick-intro.srt` (English, not burned in)
+**Master:** `assets/modelpick-intro.mp4` · 93.5s · 1920×1080 · 24fps · H.264 + AAC · no camera motion (stable frames + 0.45s crossfades)
+**Captions:** `assets/modelpick-intro.bilingual.srt` (English + 中文), burned in and also provided as SRT
 **Poster:** `assets/modelpick-intro-thumb.png`
 **Voice:** local Kokoro neural TTS, `am_michael`, speed 0.93 — measured, low, keynote pace. No cloud voice, no key.
 **Music:** generated A-minor synth pad, ducked under the voice, no percussion.
@@ -24,7 +24,7 @@ The product appears at 30s, after the problem is felt. The benchmark appears at 
 | 3 | 00:18.0–00:30.2 | This is ModelPick. A decision layer that picks the best value at every node — not the cheapest, the best price-performance — and prices it in cost per solved task. | **MODELPICK** / "Not the cheapest. The best value." / "5.5 quality points below the best, at 27% of the cost." |
 | 4 | 00:30.2–00:47.5 | Inside Claude Code, ask for a game-ready 3D asset. ModelPick compares Tripo, Hunyuan, and Meshy, applies the constraints, and returns one recommendation with the real cost. Twenty-one cents per usable asset. | Terminal: `modelpick pick "3D sword for a Unity game"` → Tripo H3.1, 94 quality, $0.21. Side panel: quality / cost / attempts / `TRIPO_API_KEY`. |
 | 5 | 00:47.5–01:00.5 | For a launch video, it plans the whole pipeline. Script, keyframes, clips, voice, music. Five models, one budget, before a single frame renders. | Five nodes: script $0.03, keyframes $0.04, clips $0.60, voice $0.02, music $0.09. Total $0.77. |
-| 6 | 01:00.5–01:13.5 | One command installs it into Codex, Cursor, DeepSeek Harness, or Copilot. A CLI, an MCP server, and a skill. No gateway. No keys stored. | Three columns: CLI / MCP / SKILL. Agent chips. "No gateway · no keys stored." |
+| 6 | 01:00.5–01:13.5 | One command installs it into Codex, Cursor, DeepSeek Harness, or Copilot. A CLI, an MCP server, and a skill. No gateway. No keys stored. | Agent tabs (Claude, Codex, Cursor, DSH, Copilot); active Codex tab; real `~/.codex/config.toml`; run / restart / ask steps. |
 | 7 | 01:13.5–01:23.5 | Every price has a source. Every decision is benchmarked. And the entire catalog is a JSON file you can change. | 100% top-1, 1.1ms p95, 40 models. Four 100% bars. |
 | 8 | 01:23.5–01:33.5 | ModelPick. Stop paying frontier prices for non-frontier work. Open source. MIT. On GitHub. | Logo, tagline, `github.com/Leizhidong-creator/modelpick`, install command. |
 
@@ -39,7 +39,7 @@ Full text is in `assets/modelpick-intro.srt`.
 | 3. Introducing | Centered cyan square with "MP", then the wordmark. Tagline in cyan, proof line in green monospace. | Logo scales 0.96→1; text fades. | 0.55s fade. | Pad opens up; VO lands on "best value". |
 | 4. Claude Code | Left: a terminal with traffic lights, typed command, line-by-line output. Right: a decision card with four rows. | Terminal lines appear at reading speed; card fades 1.2s later. | Cut on the word "asset". | VO; pad low. |
 | 5. Pipeline | Five connected cards across 1920px, each a step + model + price. Total at lower left. | Arrows draw left-to-right; cards fade in sequence. | 0.45s fade. | Pad pulses once at "one budget". |
-| 6. Install | Three columns (CLI, MCP, SKILL), then a row of five agent chips. | Columns rise; chips pop 0.12s apart. | 0.45s fade. | VO; pad steady. |
+| 6. Install | Agent tabs across the top; active Codex tab; real `~/.codex/config.toml` on the left; run / restart / ask steps on the right. | Tabs fade in; config and steps appear. No camera motion. | 0.45s fade. | VO; pad steady. |
 | 7. Evidence | Three big numbers, then four full-width bars. | Numbers fade up; bars fill 0.8s. | 0.45s fade. | Pad resolves. |
 | 8. CTA | Logo, tagline, URL, install command. | Slow fade; hold 2s. | Fade to black. | Pad resolves to a single note; VO ends. |
 
@@ -65,7 +65,7 @@ python scripts/render_stills.py
 
 Outputs: `assets/modelpick-intro.mp4`, `.srt`, `-thumb.png`.
 
-The final master uses the **still-master + camera pass** (`render_stills.py`): one fully composed still per scene, then a 1–4% push, lateral drift, grain, vignette, and 0.45s crossfades at 24fps. It is visually identical to the final state of the full-motion renderer, and it made the 1080p master reproducible in minutes instead of an hour. `make_video.py` is the full-motion version for future edits.
+The final master uses the **static-still pass** (`MP_STATIC=1 python scripts/render_stills.py`): one fully composed still per scene, 0.45s crossfades, and no camera push, drift, or cycling grain. That removes the frame-to-frame shimmer the first cut had. It is deliberately a clean product overview, not a live screen recording. `make_video.py` is the full-motion renderer for a future cut.
 
 The voice is **local** Kokoro `am_michael` at 0.93 speed. No cloud TTS, no API key, no per-render cost. The model files are not committed; the rendered film is.
 

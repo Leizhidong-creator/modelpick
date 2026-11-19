@@ -34,6 +34,7 @@
     "assets/*.png",
     "assets/*.mp4",
     "assets/*.srt",
+    "assets/*.ass",
     "assets/chart-data.json",
     "README.md",
     "LICENSE",

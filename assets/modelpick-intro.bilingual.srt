@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:02,678
+Your agent can build almost anything. But it still picks one
+你的智能体几乎能构建任何东西。但它仍然只选
+
+2
+00:00:02,678 --> 00:00:05,355
+model for everything.
+一个模型来处理所有任务。
+
+3
+00:00:07,500 --> 00:00:12,268
+A frontier model to classify a support ticket. To generate a
+一个前沿模型，只用来给客服工单分类。生成一个
+
+4
+00:00:12,268 --> 00:00:17,036
+barrel prop. To draft a thumbnail. Most of that spend is wasted.
+油桶道具。做一张缩略图。大部分开销都浪费了。
+
+5
+00:00:18,000 --> 00:00:21,790
+This is ModelPick. A decision layer that picks the best value
+这是 ModelPick。它按性价比选模型——
+
+6
+00:00:21,790 --> 00:00:25,581
+at every node — not the cheapest, the best price-performance
+不是最便宜，而是最合适——
+
+7
+00:00:25,581 --> 00:00:29,371
+— and prices it in cost per solved task.
+并按每个成功任务计价。
+
+8
+00:00:30,171 --> 00:00:34,315
+Inside Claude Code, ask for a game-ready 3D asset. ModelPick
+在 Claude Code 里，要一个可用于游戏的 3D 资产。
+
+9
+00:00:34,315 --> 00:00:38,459
+compares Tripo, Hunyuan, and Meshy, applies the constraints,
+ModelPick 会比较 Tripo、Hunyuan 和 Meshy，应用约束，
+
+10
+00:00:38,459 --> 00:00:42,603
+and returns one recommendation with the real cost. Twenty-one
+然后给出一个带真实成本的推荐。
+
+11
+00:00:42,603 --> 00:00:46,747
+cents per usable asset.
+每个可用资产 0.21 美元。
+
+12
+00:00:47,547 --> 00:00:51,124
+For a launch video, it plans the whole pipeline. Script, keyframes,
+做一支发布视频，它会规划整条流水线。
+
+13
+00:00:51,124 --> 00:00:54,701
+clips, voice, music. Five models, one budget, before a single
+脚本、关键帧、片段、配音、音乐。
+
+14
+00:00:54,701 --> 00:00:58,278
+frame renders.
+五个模型，一个预算，在渲染第一帧之前就定好。
+
+15
+00:01:00,547 --> 00:01:04,351
+One command installs it into Codex, Cursor, DeepSeek Harness,
+一条命令装进 Codex、Cursor、DeepSeek Harness
+
+16
+00:01:04,351 --> 00:01:08,156
+or Copilot. A CLI, an MCP server, and a skill. No gateway. No
+或 Copilot。CLI、MCP 服务器和 skill。
+
+17
+00:01:08,156 --> 00:01:11,960
+keys stored.
+没有网关。不存密钥。
+
+18
+00:01:13,547 --> 00:01:17,813
+Every price has a source. Every decision is benchmarked. And
+每个价格都有来源。每个决策都有基准测试。
+
+19
+00:01:17,813 --> 00:01:22,080
+the entire catalog is a JSON file you can change.
+整个目录就是一个你可以修改的 JSON 文件。
+
+20
+00:01:23,547 --> 00:01:27,440
+ModelPick. Stop paying frontier prices for non-frontier work.
+ModelPick。别再用前沿模型的价格做非前沿的工作。
+
+21
+00:01:27,440 --> 00:01:31,334
+Open source. MIT. On GitHub.
+开源。MIT。在 GitHub 上。

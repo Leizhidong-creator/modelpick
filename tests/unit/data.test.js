@@ -1,7 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { loadCatalog } from '../../src/core/catalog.js';
 
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const catalog = loadCatalog();
 const TODAY = new Date('2026-11-19T23:59:59Z');
 
@@ -68,4 +73,12 @@ test('open-weight models are marked consistently', () => {
 test('catalog snapshot is not stale', () => {
   const age = (TODAY - new Date(catalog.updatedAt)) / 86400000;
   assert.ok(age <= 120, `catalog is ${Math.round(age)} days old`);
+});
+
+test('catalog checksums match the shipped manifest', () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'catalog', 'checksums.json'), 'utf8'));
+  for (const [file, expected] of Object.entries(manifest.files)) {
+    const actual = crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, file))).digest('hex');
+    assert.equal(actual, expected, `${file} changed; run node scripts/checksums.js`);
+  }
 });

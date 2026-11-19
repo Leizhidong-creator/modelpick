@@ -7,6 +7,7 @@ cut, so the timing never changes.
 """
 from __future__ import annotations
 
+import os
 import subprocess
 from pathlib import Path
 
@@ -14,6 +15,8 @@ import imageio_ffmpeg
 from PIL import Image, ImageChops
 
 import make_video as mv
+
+STATIC = os.environ.get("MP_STATIC") == "1"
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
@@ -74,18 +77,20 @@ for frame in range(frame_count):
     scene = TIMELINE[index]
     local = now - scene["start"]
     progress = min(1.0, local / max(scene["duration"], 0.1))
-    image = camera(stills[scene["id"]], progress, index)
+    image = stills[scene["id"]] if STATIC else camera(stills[scene["id"]], progress, index)
 
     # 0.45s crossfade into the next still at the end of each scene.
     remaining = scene["duration"] - local
     if index < len(TIMELINE) - 1 and remaining < 0.45:
         next_scene = TIMELINE[index + 1]
-        next_image = camera(stills[next_scene["id"]], 0.0, index + 1)
+        next_image = stills[next_scene["id"]] if STATIC else camera(stills[next_scene["id"]], 0.0, index + 1)
         alpha = 1 - remaining / 0.45
         image = Image.blend(image, next_image, max(0.0, min(1.0, alpha)))
 
-    image = Image.blend(image, mv.GRAIN[frame % 4], 0.028)
-    image = ImageChops.multiply(image, mv.VIGNETTE)
+    if not STATIC:
+        image = Image.blend(image, mv.GRAIN[frame % 4], 0.028)
+        image = ImageChops.multiply(image, mv.VIGNETTE)
+    image = image.convert("RGB")
     # Global fade-in/out only; scene crossfades already handle the middle.
     if now < 0.5:
         image = Image.blend(Image.new("RGB", (W, H), mv.BG), image, now / 0.5)

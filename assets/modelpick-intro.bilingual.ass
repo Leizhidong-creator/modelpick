@@ -1,0 +1,56 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: En,Segoe UI Semibold,30,&H00FFFFFF,&H000000FF,&H00000000,&H90000000,0,0,0,0,100,100,0,0,4,0,0,2,80,80,92,1
+Style: Zh,Microsoft YaHei,26,&H00E6EDF3,&H000000FF,&H00000000,&H90000000,0,0,0,0,100,100,0,0,4,0,0,2,80,80,44,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,00:00:00.000,00:00:02.678,En,,0,0,0,,Your agent can build almost anything. But it still picks one
+Dialogue: 0,00:00:00.000,00:00:02.678,Zh,,0,0,0,,你的智能体几乎能构建任何东西。但它仍然只选
+Dialogue: 0,00:00:02.678,00:00:05.355,En,,0,0,0,,model for everything.
+Dialogue: 0,00:00:02.678,00:00:05.355,Zh,,0,0,0,,一个模型来处理所有任务。
+Dialogue: 0,00:00:07.500,00:00:12.268,En,,0,0,0,,A frontier model to classify a support ticket. To generate a
+Dialogue: 0,00:00:07.500,00:00:12.268,Zh,,0,0,0,,一个前沿模型，只用来给客服工单分类。生成一个
+Dialogue: 0,00:00:12.268,00:00:17.036,En,,0,0,0,,barrel prop. To draft a thumbnail. Most of that spend is wasted.
+Dialogue: 0,00:00:12.268,00:00:17.036,Zh,,0,0,0,,油桶道具。做一张缩略图。大部分开销都浪费了。
+Dialogue: 0,00:00:18.000,00:00:21.790,En,,0,0,0,,This is ModelPick. A decision layer that picks the best value
+Dialogue: 0,00:00:18.000,00:00:21.790,Zh,,0,0,0,,这是 ModelPick。它按性价比选模型——
+Dialogue: 0,00:00:21.790,00:00:25.581,En,,0,0,0,,at every node — not the cheapest, the best price-performance
+Dialogue: 0,00:00:21.790,00:00:25.581,Zh,,0,0,0,,不是最便宜，而是最合适——
+Dialogue: 0,00:00:25.581,00:00:29.371,En,,0,0,0,,— and prices it in cost per solved task.
+Dialogue: 0,00:00:25.581,00:00:29.371,Zh,,0,0,0,,并按每个成功任务计价。
+Dialogue: 0,00:00:30.171,00:00:34.315,En,,0,0,0,,Inside Claude Code, ask for a game-ready 3D asset. ModelPick
+Dialogue: 0,00:00:30.171,00:00:34.315,Zh,,0,0,0,,在 Claude Code 里，要一个可用于游戏的 3D 资产。
+Dialogue: 0,00:00:34.315,00:00:38.459,En,,0,0,0,,compares Tripo, Hunyuan, and Meshy, applies the constraints,
+Dialogue: 0,00:00:34.315,00:00:38.459,Zh,,0,0,0,,ModelPick 会比较 Tripo、Hunyuan 和 Meshy，应用约束，
+Dialogue: 0,00:00:38.459,00:00:42.603,En,,0,0,0,,and returns one recommendation with the real cost. Twenty-one
+Dialogue: 0,00:00:38.459,00:00:42.603,Zh,,0,0,0,,然后给出一个带真实成本的推荐。
+Dialogue: 0,00:00:42.603,00:00:46.747,En,,0,0,0,,cents per usable asset.
+Dialogue: 0,00:00:42.603,00:00:46.747,Zh,,0,0,0,,每个可用资产 0.21 美元。
+Dialogue: 0,00:00:47.547,00:00:51.124,En,,0,0,0,,For a launch video, it plans the whole pipeline. Script, keyframes,
+Dialogue: 0,00:00:47.547,00:00:51.124,Zh,,0,0,0,,做一支发布视频，它会规划整条流水线。
+Dialogue: 0,00:00:51.124,00:00:54.701,En,,0,0,0,,clips, voice, music. Five models, one budget, before a single
+Dialogue: 0,00:00:51.124,00:00:54.701,Zh,,0,0,0,,脚本、关键帧、片段、配音、音乐。
+Dialogue: 0,00:00:54.701,00:00:58.278,En,,0,0,0,,frame renders.
+Dialogue: 0,00:00:54.701,00:00:58.278,Zh,,0,0,0,,五个模型，一个预算，在渲染第一帧之前就定好。
+Dialogue: 0,00:01:00.547,00:01:04.351,En,,0,0,0,,One command installs it into Codex, Cursor, DeepSeek Harness,
+Dialogue: 0,00:01:00.547,00:01:04.351,Zh,,0,0,0,,一条命令装进 Codex、Cursor、DeepSeek Harness
+Dialogue: 0,00:01:04.351,00:01:08.156,En,,0,0,0,,or Copilot. A CLI, an MCP server, and a skill. No gateway. No
+Dialogue: 0,00:01:04.351,00:01:08.156,Zh,,0,0,0,,或 Copilot。CLI、MCP 服务器和 skill。
+Dialogue: 0,00:01:08.156,00:01:11.960,En,,0,0,0,,keys stored.
+Dialogue: 0,00:01:08.156,00:01:11.960,Zh,,0,0,0,,没有网关。不存密钥。
+Dialogue: 0,00:01:13.547,00:01:17.813,En,,0,0,0,,Every price has a source. Every decision is benchmarked. And
+Dialogue: 0,00:01:13.547,00:01:17.813,Zh,,0,0,0,,每个价格都有来源。每个决策都有基准测试。
+Dialogue: 0,00:01:17.813,00:01:22.080,En,,0,0,0,,the entire catalog is a JSON file you can change.
+Dialogue: 0,00:01:17.813,00:01:22.080,Zh,,0,0,0,,整个目录就是一个你可以修改的 JSON 文件。
+Dialogue: 0,00:01:23.547,00:01:27.440,En,,0,0,0,,ModelPick. Stop paying frontier prices for non-frontier work.
+Dialogue: 0,00:01:23.547,00:01:27.440,Zh,,0,0,0,,ModelPick。别再用前沿模型的价格做非前沿的工作。
+Dialogue: 0,00:01:27.440,00:01:31.334,En,,0,0,0,,Open source. MIT. On GitHub.
+Dialogue: 0,00:01:27.440,00:01:31.334,Zh,,0,0,0,,开源。MIT。在 GitHub 上。
