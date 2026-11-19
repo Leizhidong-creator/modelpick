@@ -10,7 +10,7 @@ import { makeStyle } from './format.js';
 
 const COMMANDS = new Set([
   'pick', 'choose', 'recommend', 'plan', 'compare', 'models', 'list', 'tasks',
-  'setup', 'mcp', 'doctor', 'keys', 'update', 'bench', 'add-model', 'show', 'version', 'help'
+  'setup', 'mcp', 'doctor', 'keys', 'update', 'bench', 'add-model', 'show', 'decide', 'version', 'help'
 ]);
 
 const ALIASES = { choose: 'pick', recommend: 'pick', list: 'models' };
@@ -36,6 +36,7 @@ ${b('USAGE')}
 
 ${b('CORE COMMANDS')}
   pick <task>        Rank models for one workflow node (alias: choose)
+                     (--max-cost, --open-weights, --available, --verdict)
   plan <goal>        Multi-step workflow with a model per step
   compare <a> <b..>  Side-by-side cost per solved task
   models             Browse the catalog (--modality, --provider, --task)
@@ -43,6 +44,7 @@ ${b('CORE COMMANDS')}
 
 ${b('AGENT INTEGRATION')}
   setup [agent]      Configure Claude Code, Codex, Cursor, DSH, or generic MCP
+                     (--global, --write, --profile for DSH; --dry-run to preview)
   mcp                Run the Model Context Protocol server (stdio)
   keys               Show required key env vars (never prints values)
   doctor             Diagnose install, keys, catalog freshness
@@ -53,6 +55,7 @@ ${b('MAINTAIN')}
   add-model <file>   Add a private/custom model to ~/.modelpick/overrides.json
                      (--example prints a template, --remove <slug> deletes)
   show <model>       Endpoint, auth, SDK, curl example, and evidence for one model
+  decide <task>      Build a portable decision packet for any judge/decision model
 
 ${b('OPTIONS')}
   --task <id>        Force a task node (see modelpick tasks)
@@ -202,6 +205,11 @@ export async function main(argv) {
       case 'show': {
         const { runShow } = await import('../commands/show.js');
         await runShow(ctx);
+        break;
+      }
+      case 'decide': {
+        const { runDecide } = await import('../commands/decide.js');
+        await runDecide(ctx);
         break;
       }
       default:

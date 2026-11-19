@@ -97,6 +97,32 @@ export interface Recommendation {
   evidence: Array<{ name: string; url: string; readAt: string }>;
 }
 
+export interface Verdict {
+  ranking: string[];
+  confidence?: number;
+  reason?: string;
+}
+
+export interface DecisionPacket {
+  schemaVersion: '1.0';
+  kind: 'decision-packet';
+  task: { id: string; label: string; blurb: string };
+  constraints: Record<string, unknown>;
+  allowedSlugs: string[];
+  candidates: Array<Record<string, unknown>>;
+  prompt: string;
+  outputSchema: Record<string, string>;
+  applyCommand: string;
+}
+
+export interface DecisionMeta {
+  source: 'external-verdict';
+  applied: boolean;
+  reason: string;
+  confidence?: number;
+  ranking: string[];
+}
+
 export interface RecommendationResult {
   schemaVersion: string;
   kind: 'recommendation';
@@ -107,6 +133,7 @@ export interface RecommendationResult {
   alternatives: Recommendation[];
   picks: Record<string, Recommendation | null>;
   assumptions: Record<string, unknown>;
+  decision?: DecisionMeta | null;
   error: string | null;
 }
 
@@ -122,6 +149,7 @@ export declare function recommend(
     contextTokens?: number;
     excludeProviders?: string[];
     topK?: number;
+    verdict?: Verdict;
   }
 ): RecommendationResult;
 
@@ -135,4 +163,7 @@ export declare function loadCatalog(options?: {
 export declare function plan(catalog: Catalog, goal: string, options?: Record<string, unknown>): unknown;
 export declare function compare(catalog: Catalog, slugs: string[], options?: Record<string, unknown>): unknown;
 export declare function detectTask(text: string, tasks: Task[]): unknown;
+export declare function buildDecisionPacket(result: RecommendationResult): DecisionPacket;
+export declare function readVerdict(file: string): Verdict;
+export declare function validateVerdict(verdict: Verdict, allowedSlugs: string[]): Verdict;
 export { ModelPickError };

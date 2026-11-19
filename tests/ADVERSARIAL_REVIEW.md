@@ -28,7 +28,7 @@
 
 ## Adversarial test matrix
 
-23 cases, run by `node tests/adversarial/run.js`; raw results in `tests/results/adversarial-latest.json`.
+25 cases, run by `node tests/adversarial/run.js`; raw results in `tests/results/adversarial-latest.json`.
 
 | ID | Area | Attack | Expected | Observed | Result |
 |---|---|---|---|---|---|
@@ -55,8 +55,10 @@
 | A21 | MCP | 10 concurrent calls | 10 responses | 10 | PASS |
 | A22 | Claims | Stale catalog | `stale=true` | 687 days | PASS |
 | A23 | Keys | No keys | decision, availability false | false | PASS |
+| A24 | Decision | Verdict invents a model | `ERR_VERDICT_INVALID` | exit 1 | PASS |
+| A25 | Decision | External verdict reorders | applied, verdict top wins | meshy-7.1 | PASS |
 
-**Result: 23/23 pass.**
+**Result: 25/25 pass.**
 
 ## Claims audit
 

@@ -2,6 +2,8 @@ import { ModelPickError } from './errors.js';
 import { rankModels, qualityFor, unitCostFor, attemptsFor, workloadFor } from './score.js';
 import { parseIntent, resolveTask, detectTask } from './tasks.js';
 import { anyProviderKey, modelAvailability } from './availability.js';
+import { applyVerdict } from './judge.js';
+import { validateVerdict } from './decision.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { PACKAGE_ROOT } from './catalog.js';
@@ -137,6 +139,24 @@ export function recommend(catalog, input = {}) {
     anyKeys: anyProviderKey(input.env ?? process.env),
     checked: true
   };
+  let decision = null;
+  if (input.verdict) {
+    const allowed = ranked.candidates.map((candidate) => candidate.slug);
+    const verdict = validateVerdict(input.verdict, allowed);
+    const applied = applyVerdict(ranked.candidates, verdict, { maxShift: 2 });
+    if (applied.applied) {
+      const order = new Map(applied.candidates.map((candidate, index) => [candidate.slug, index]));
+      ranked.candidates = applied.candidates;
+      ranked.all = [...ranked.all].sort((a, b) => (order.get(a.slug) ?? 99) - (order.get(b.slug) ?? 99));
+    }
+    decision = {
+      source: 'external-verdict',
+      applied: applied.applied,
+      reason: applied.reason,
+      confidence: verdict.confidence,
+      ranking: verdict.ranking
+    };
+  }
   const response = {
     schemaVersion: SCHEMA_VERSION,
     kind: 'recommendation',
@@ -166,6 +186,7 @@ export function recommend(catalog, input = {}) {
       priceBasis: task.modality === 'text' ? 'USD per million tokens, cache-aware' : `USD per ${task.workload?.unit ?? 'unit'}`
     },
     keyStatus,
+    decision,
     availability: {
       recommendedReady: null,
       bestAvailable: null,

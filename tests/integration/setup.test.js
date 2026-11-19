@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { runCli, tempDir } from '../helpers.js';
+import { writeDshMcp, mcpCommand } from '../../src/integrations/index.js';
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -81,4 +82,27 @@ test('unknown agent is rejected before writing', () => {
   assert.equal(result.status, 1);
   assert.ok(result.stderr.includes('ERR_UNKNOWN_AGENT'));
   assert.ok(!fs.existsSync(path.join(cwd, '.mcp.json')));
+});
+
+test('DSH MCP row is written once, with a backup', () => {
+  const home = tempDir('mp-dsh-');
+  const profileDir = path.join(home, 'profiles', 'desktop');
+  fs.mkdirSync(profileDir, { recursive: true });
+  const file = path.join(profileDir, 'cordis.patch.yml');
+  fs.writeFileSync(file, '- id: existing\n  name: test\n');
+  const first = writeDshMcp(mcpCommand({ mode: 'node' }), { profile: 'desktop', dshHome: home });
+  assert.equal(first.action, 'appended');
+  assert.ok(fs.existsSync(file));
+  assert.ok(fs.readFileSync(file, 'utf8').includes('mcp-modelpick'));
+  assert.ok(first.backup && fs.existsSync(first.backup));
+  const second = writeDshMcp(mcpCommand({ mode: 'node' }), { profile: 'desktop', dshHome: home });
+  assert.equal(second.action, 'already-present');
+  assert.equal((fs.readFileSync(file, 'utf8').match(/id: mcp-modelpick/g) ?? []).length, 1);
+});
+
+test('DSH dry-run does not create a profile file', () => {
+  const home = tempDir('mp-dsh-dry-');
+  const result = writeDshMcp(mcpCommand({ mode: 'node' }), { profile: 'web', dryRun: true, dshHome: home });
+  assert.equal(result.action, 'append');
+  assert.ok(!fs.existsSync(result.file));
 });

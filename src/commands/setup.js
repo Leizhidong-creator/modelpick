@@ -32,6 +32,8 @@ export async function runSetup(ctx) {
       installAgent(agent, {
         cwd: process.cwd(),
         global: Boolean(ctx.flags.global),
+        write: Boolean(ctx.flags.write),
+        profile: ctx.options.profile,
         dryRun: Boolean(ctx.flags['dry-run']),
         mode
       })

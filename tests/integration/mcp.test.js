@@ -44,6 +44,28 @@ test('pick_model returns a compact, useful payload', async () => {
   assert.ok(JSON.stringify(payload).length < 12000, 'MCP payload should stay small');
 });
 
+test('pick_model accepts an external verdict and reports it', async () => {
+  const first = await mcpSession([
+    init,
+    { jsonrpc: '2.0', id: 20, method: 'tools/call', params: { name: 'pick_model', arguments: { query: 'create a 3D game asset' } } }
+  ]);
+  const base = toolResult(first.responses.get(20));
+  const slugs = [base.recommendation.slug, ...base.alternatives.map((alt) => alt.slug)];
+  const verdict = { ranking: [...slugs].reverse(), confidence: 0.8, reason: 'test' };
+  const second = await mcpSession([
+    init,
+    {
+      jsonrpc: '2.0',
+      id: 21,
+      method: 'tools/call',
+      params: { name: 'pick_model', arguments: { query: 'create a 3D game asset', verdict } }
+    }
+  ]);
+  const judged = toolResult(second.responses.get(21));
+  assert.equal(judged.recommendation.slug, slugs.at(-1));
+  assert.equal(judged.decision.applied, true);
+});
+
 test('plan_workflow returns every step and a total', async () => {
   const { responses } = await mcpSession([
     init,

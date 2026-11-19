@@ -59,7 +59,8 @@ The bundled catalog is a **dated snapshot**. `modelpick update` fetches a newer 
 8. **Normalize cost against an anchor.** `costScore = 1 − log1p(cost)/log1p(anchor)`, where anchor is the task's willingness-to-pay, the budget, or 2.5× the cheapest eligible model. This avoids min–max normalization, which makes every cheap model look equally good.
 9. **Utility.** Weighted sum of quality, cost, speed, and context fit; weights come from the task or a preset.
 10. **Labels.** `best-overall`, `best-quality`, `best-value`, `fastest`, `cheapest` are independent of the rank order.
-11. **Explain.** Human-readable reasons are derived from rank deltas, price ratios, tags, and capability matches.
+11. **Optional external decision.** A judge/decision model can receive a portable packet (`modelpick decide --json`) and return a verdict. The verdict may reorder the top-k by at most two positions; it cannot add a model, change a price, or override a constraint. The deterministic result is the fallback.
+12. **Explain.** Human-readable reasons are derived from rank deltas, price ratios, tags, and capability matches.
 
 `plan()` runs `recommend()` per step and sums `costPerTask`. `compare()` evaluates the requested models on the same task and workload.
 
@@ -67,11 +68,11 @@ The bundled catalog is a **dated snapshot**. `modelpick update` fetches a newer 
 
 | Surface | Entry | Contract |
 |---|---|---|
-| CLI | `bin/modelpick.js` | human output + `--json`; exit 3 when no model fits constraints |
-| MCP | `src/mcp/server.js` | JSON-RPC over stdio, 6 tools, compact payloads |
+| CLI | `bin/modelpick.js` | human output + `--json`; exit 3 when no model fits constraints; `decide` + `--verdict` |
+| MCP | `src/mcp/server.js` | JSON-RPC over stdio, 6 tools, compact payloads, optional `verdict` |
 | Skill | `skills/modelpick/SKILL.md` | when to call, how to read results, fallback CLI |
 | Claude plugin | `plugins/modelpick/` | manifest, `.mcp.json`, command, skill |
-| Installers | `src/integrations/index.js` | idempotent writes with backups; never clobber invalid JSON |
+| Installers | `src/integrations/index.js` | idempotent writes with backups; never clobber invalid JSON; DSH profile row |
 | Connections | `src/core/connect.js` | endpoint, auth header, SDK, curl example per provider |
 
 ## Extension points

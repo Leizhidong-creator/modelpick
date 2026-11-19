@@ -35,8 +35,7 @@ function portableSkillPaths(cwd) {
  * `node` is the most reliable default: no npx shim, no network, ~60ms startup.
  * `npx` is portable across machines once the package is published.
  */
-export function mcpCommand({ mode = 'node', cwd = process.cwd() } = {}) {
-  if (mode === 'npx' || mode === 'github') {
+export function mcpCommand({ mode = 'node', cwd = process.cwd() } = {}) {  if (mode === 'npx' || mode === 'github') {
     if (process.platform === 'win32') {
       return {
         command: 'cmd',
@@ -123,6 +122,27 @@ function copySkill(dir, { dryRun = false } = {}) {
   return actions;
 }
 
+/**
+ * Add a DSH MCP client row to a profile's cordis.patch.yml. DSH has no mcp.json:
+ * MCP servers are Cordis plugin rows. We require an explicit `--write` because
+ * this file is live application configuration.
+ */
+export function writeDshMcp(server, { profile = 'desktop', dryRun = false, dshHome } = {}) {
+  const base = dshHome ?? home('.dsh');
+  const file = path.join(base, 'profiles', profile, 'cordis.patch.yml');
+  const block = `\n# modelpick:begin (managed by modelpick setup dsh --write)\n- id: mcp-modelpick\n  name: '@deepseek-ai/dsh-mcp-client'\n  config:\n    serverName: modelpick\n    transport: stdio\n    command: ${JSON.stringify(server.command)}\n    args: ${JSON.stringify(server.args)}\n# modelpick:end\n`;
+  let current = '';
+  if (fs.existsSync(file)) current = fs.readFileSync(file, 'utf8');
+  if (current.includes('id: mcp-modelpick')) {
+    return { file, changed: false, action: 'already-present' };
+  }
+  if (dryRun) return { file, changed: true, action: 'append', content: block };
+  ensureDir(file);
+  const backup = fs.existsSync(file) ? backupFile(file) : null;
+  fs.appendFileSync(file, block, 'utf8');
+  return { file, changed: true, action: 'appended', backup };
+}
+
 const AGENTS_BLOCK = `${MARK_START}
 ## Model selection (ModelPick)
 
@@ -200,6 +220,13 @@ export function installAgent(agentId, options = {}) {
       notes.push(
         `- id: mcp-modelpick\n  name: '@deepseek-ai/dsh-mcp-client'\n  config:\n    serverName: modelpick\n    transport: stdio\n    command: ${JSON.stringify(server.command)}\n    args: ${JSON.stringify(server.args)}`
       );
+      if (global && options.write) {
+        const written = writeDshMcp(server, { profile: options.profile ?? 'desktop', dryRun, dshHome: options.dshHome });
+        actions.push({ file: written.file, changed: written.changed, action: written.action });
+        if (written.changed) notes.push(`Wrote the MCP row to ${written.file}. Restart DSH to load it.`);
+      } else {
+        notes.push(`Write it automatically with: modelpick setup dsh --global --write --profile desktop`);
+      }
       notes.push(`Or use the skill without MCP: ${JSON.stringify(process.execPath)} ${JSON.stringify(BIN)} pick "<task>" --json`);
       break;
     }

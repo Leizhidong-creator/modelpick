@@ -295,8 +295,8 @@ def scene_claude(t: float) -> Image.Image:
         y = 380
         for label, value in rows:
             draw.text((1326, y), label, font=F_SMALL, fill=DIM)
-            draw.text((1326, y + 34), value, font=F_SERIF_NUM if value.startswith(("94", "$")) else F(38, True), fill=IVORY)
-            y += 118
+            draw.text((1326, y + 34), value, font=F(42, True), fill=IVORY)
+            y += 122
     fade(draw, (140, 950), "Not a leaderboard. A decision with a receipt.", F_BODY, DIM, ease((t - 3.4) / 1.0))
     return image
 
@@ -322,11 +322,11 @@ def scene_plan(t: float) -> Image.Image:
             continue
         x = start_x + index * (box_w + gap)
         y = 300 + (1 - a) * 30
-        rounded(draw, (x, y, x + box_w, y + 300), 3, (PANEL[0], PANEL[1], PANEL[2], int(200 * a)), (60, 74, 90), 1)
+        rounded(draw, (x, y, x + box_w, y + 320), 3, (PANEL[0], PANEL[1], PANEL[2], int(200 * a)), (60, 74, 90), 1)
         draw.text((x + 24, y + 22), num, font=F_MONO_SMALL, fill=GOLD)
         spaced(draw, (x + 24, y + 70), label, F(22, True), IVORY, 2)
         draw.text((x + 24, y + 150), model, font=F(24), fill=TEXT)
-        draw.text((x + 24, y + 222), cost, font=F_SERIF_NUM, fill=GOLD)
+        draw.text((x + 24, y + 215), cost, font=SERIF(72, True), fill=GOLD)
         if index < len(steps) - 1:
             x1 = x + box_w + 8
             x2 = x + box_w + gap - 8

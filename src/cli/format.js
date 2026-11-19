@@ -191,6 +191,13 @@ export function renderRecommendation(result, options = {}) {
   }
 
   lines.push(renderCandidate(result.recommendation, { rank: 1, task: result.task, style, width, explain: options.explain }));
+  if (result.decision?.applied) {
+    lines.push(
+      `  ${style.dim('external verdict applied')} ${style.dim('·')} ${style.dim(`confidence ${result.decision.confidence ?? 'n/a'}`)}`
+    );
+  } else if (result.decision && result.decision.applied === false) {
+    lines.push(`  ${style.yellow('external verdict rejected')} ${style.dim(`· ${result.decision.reason}`)}`);
+  }
   if (result.availability?.bestAvailable && !result.availability.recommendedReady) {
     lines.push('');
     lines.push(

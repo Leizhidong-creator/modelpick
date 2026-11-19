@@ -2,6 +2,10 @@ export { loadCatalog, findModel, catalogStats, validateCatalog, validateTasks, P
 export { recommend, plan, compare } from './core/recommend.js';
 export { rankModels, qualityFor, unitCostFor, attemptsFor, workloadFor, OPTIMIZE_PRESETS } from './core/score.js';
 export { detectTask, findTask, parseIntent, resolveTask } from './core/tasks.js';
+export { modelAvailability, anyProviderKey } from './core/availability.js';
+export { connectionFor, providerConnection } from './core/connect.js';
+export { shouldJudge, buildJudgePrompt, parseVerdict, aggregateVerdicts, applyVerdict } from './core/judge.js';
+export { buildDecisionPacket, readVerdict, validateVerdict } from './core/decision.js';
 export { startMcpServer, createMcpServer } from './mcp/server.js';
 export { installAgent, detectAgents, mcpCommand, AGENTS } from './integrations/index.js';
 export { ModelPickError } from './core/errors.js';

@@ -59,9 +59,13 @@ python -m pip install -r scripts/requirements-video.txt
 #   assets/_tts/kokoro-v1.0.onnx
 #   assets/_tts/voices-v1.0.bin
 python scripts/make_video.py
+# Faster visual-only pass (reuses the existing voice/music mix):
+python scripts/render_stills.py
 ```
 
 Outputs: `assets/modelpick-intro.mp4`, `.srt`, `-thumb.png`.
+
+The final master uses the **still-master + camera pass** (`render_stills.py`): one fully composed still per scene, then a 1–4% push, lateral drift, grain, vignette, and 0.45s crossfades at 24fps. It is visually identical to the final state of the full-motion renderer, and it made the 1080p master reproducible in minutes instead of an hour. `make_video.py` is the full-motion version for future edits.
 
 The voice is **local** Kokoro `am_michael` at 0.93 speed. No cloud TTS, no API key, no per-render cost. The model files are not committed; the rendered film is.
 

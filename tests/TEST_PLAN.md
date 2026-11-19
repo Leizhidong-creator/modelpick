@@ -18,7 +18,7 @@ Evidence lives in `tests/results/` (JSON + HTML) and `tests/evidence/` (images +
 
 ## Dimensions
 
-### 1. Unit logic — 76 tests
+### 1. Unit logic — 82 tests
 
 | Area | File | What is asserted |
 |---|---|---|
@@ -28,8 +28,11 @@ Evidence lives in `tests/results/` (JSON + HTML) and `tests/evidence/` (images +
 | Data | `tests/unit/data.test.js` | price/source/date integrity, no future releases, every task has ≥2 models, every model is reachable, confidence values, snapshot age |
 | Policy | `tests/unit/policy.test.js` | policy is data-driven, user override changes routing, custom model via overrides, load from another cwd |
 | Security | `tests/unit/security.test.js` | secrets never printed, prompt injection is data, path traversal rejected, unknown command, `--no-color` |
+| Availability | `tests/unit/availability.test.js` | direct/multi-env/OpenRouter keys, missing-key fallback, `--available` filter |
+| Judge | `tests/unit/judge.test.js` | prompt blindness, strict JSON, invented slug rejection, Borda, movement cap |
+| Links | `tests/unit/links.test.js` | README/launch links resolve, video assets exist, site mirrors assets |
 
-Result: **76/76 pass**.
+Result: **82/82 pass**.
 
 ### 2. Data integrity
 
@@ -41,15 +44,17 @@ Result: **76/76 pass**.
 - Media prices carry `verified` or `estimated`.
 - Snapshot age <120 days.
 
-### 3. Integration — 29 tests
+### 3. Integration — 36 tests
 
 | Area | File | What is asserted |
 |---|---|---|
 | CLI | `tests/integration/cli.test.js` | version/help, tasks, model filters, pick, constraints, no-eligible exit code, plan, compare, doctor, keys, update, invalid preset |
 | MCP | `tests/integration/mcp.test.js` | initialize, 6 tools, compact pick payload, plan, setup, list, unknown tool, explain, clean stdout |
-| Setup | `tests/integration/setup.test.js` | generic/Claude/DSH installs, idempotent AGENTS block, sibling MCP preservation, invalid JSON refusal, dry run, unknown agent |
+| Setup | `tests/integration/setup.test.js` | generic/Claude/DSH installs, idempotent AGENTS block, sibling MCP preservation, invalid JSON refusal, dry run, unknown agent, DSH row/backup |
+| Decision | `tests/integration/decision.test.js` | packet contract, verdict application, invented slug rejection, missing file |
+| Add-model | `tests/integration/add-model.test.js` | validation before write, routable custom model, removal |
 
-Result: **29/29 pass**.
+Result: **36/36 pass**.
 
 ### 4. End-to-end — 3 tests
 
@@ -61,7 +66,7 @@ Result: **29/29 pass**.
 
 ### 5. Adversarial / security
 
-23 cases in `tests/adversarial/run.js`; raw results in `tests/results/adversarial-latest.json`; full findings table in [`ADVERSARIAL_REVIEW.md`](ADVERSARIAL_REVIEW.md). Result: **23/23 pass**.
+25 cases in `tests/adversarial/run.js`; raw results in `tests/results/adversarial-latest.json`; full findings table in [`ADVERSARIAL_REVIEW.md`](ADVERSARIAL_REVIEW.md). Result: **25/25 pass**.
 
 | Case | Expected | Observed |
 |---|---|---|
@@ -86,6 +91,8 @@ Result: **29/29 pass**.
 | MCP 10 concurrent calls | 10 responses | pass |
 | Stale catalog | flagged | pass |
 | No keys | decision + availability false | pass |
+| Verdict invents a model | `ERR_VERDICT_INVALID` | pass |
+| Verdict reorders | applied, verdict top wins | pass |
 
 ### 6. Performance
 

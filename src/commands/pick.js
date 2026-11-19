@@ -1,4 +1,5 @@
 import { recommend } from '../core/recommend.js';
+import { readVerdict } from '../core/decision.js';
 import { renderHeader, renderRecommendation } from '../cli/format.js';
 import { ModelPickError } from '../core/errors.js';
 import { numberOption, csvOption } from '../util/args.js';
@@ -13,6 +14,7 @@ export async function runPick(ctx) {
     });
   }
   const catalog = ctx.loadCatalog();
+  const verdict = ctx.options.verdict ? readVerdict(ctx.options.verdict) : undefined;
   const result = recommend(catalog, {
     query,
     task: ctx.options.task,
@@ -23,6 +25,7 @@ export async function runPick(ctx) {
     contextTokens: numberOption(ctx.options, 'context', { min: 1 }),
     excludeProviders: csvOption(ctx.options, 'exclude'),
     availableOnly: Boolean(ctx.flags.available || ctx.flags['only-available']),
+    verdict,
     topK: numberOption(ctx.options, 'top', { min: 1, max: 10 }) ?? 3
   });
 

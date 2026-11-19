@@ -26,6 +26,16 @@ const TOOLS = [
         available_only: { type: 'boolean', description: 'Only models whose provider key is present in the environment.' },
         context_tokens: { type: 'integer', description: 'Input tokens the task needs.' },
         exclude_providers: { type: 'array', items: { type: 'string' } },
+        verdict: {
+          type: 'object',
+          description: 'Optional ranking from an external judge/decision model. Must contain every shortlisted slug once.',
+          properties: {
+            ranking: { type: 'array', items: { type: 'string' } },
+            confidence: { type: 'number' },
+            reason: { type: 'string' }
+          },
+          required: ['ranking']
+        },
         top_k: { type: 'integer', minimum: 1, maximum: 5, default: 3 }
       },
       required: ['query']
@@ -110,6 +120,7 @@ function compactRecommendation(result) {
   return {
     schemaVersion: result.schemaVersion,
     task: result.task,
+    decision: result.decision,
     catalog: { version: result.catalog.version, updatedAt: result.catalog.updatedAt, stale: result.catalog.stale },
     recommendation: result.recommendation
       ? {
@@ -186,6 +197,7 @@ export function createMcpServer({ input = process.stdin, output = process.stdout
           availableOnly: args.available_only,
           contextTokens: args.context_tokens,
           excludeProviders: args.exclude_providers,
+          verdict: args.verdict,
           topK: args.top_k ?? 3
         });
         return textResult(compactRecommendation(result));

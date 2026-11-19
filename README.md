@@ -12,8 +12,8 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-108%20passing-3fb950" />
-  <img alt="adversarial" src="https://img.shields.io/badge/adversarial-23%2F23-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-121%20passing-3fb950" />
+  <img alt="adversarial" src="https://img.shields.io/badge/adversarial-25%2F25-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
 
@@ -233,6 +233,25 @@ Every answer includes:
 
 ---
 
+## Bring your own decision model
+
+The deterministic router is the default. If you want a judge or decision model
+(Claude, GPT, Gemini, a Google decision model, or a local model) to re-rank the
+shortlist, keep it outside the key store:
+
+```bash
+modelpick decide "rigged 3D character for Unity" --json > packet.json
+# send packet.prompt to your judge; save its JSON as verdict.json
+modelpick pick "rigged 3D character for Unity" --verdict verdict.json
+```
+
+The verdict can only reorder the shortlist, at most two positions, and cannot
+invent a model or override a hard constraint. `pick_model` accepts the same
+`verdict` object over MCP. The protocol, guardrails, and meta-evaluation
+thresholds are in [`docs/JUDGES.md`](docs/JUDGES.md).
+
+---
+
 ## Commands
 
 ```text
@@ -242,6 +261,7 @@ modelpick compare <a> <b> --task   Side-by-side cost per solved task
 modelpick models                   Browse the catalog
 modelpick tasks                    List the 20 nodes
 modelpick show <model>             Endpoint, auth, SDK, curl, and evidence
+modelpick decide "<task>"          Build a portable decision packet for any judge
 modelpick add-model <file>         Add a private/custom model
 modelpick setup [agent]            Install MCP + skill
 modelpick mcp                      Run the stdio MCP server
@@ -251,7 +271,7 @@ modelpick update                   Refresh the catalog snapshot
 modelpick bench                    Run the decision benchmark
 ```
 
-Useful flags: `--optimize`, `--max-cost`, `--min-quality`, `--open-weights`, `--context`, `--exclude`, `--task`, `--json`, `--explain`, `--no-color`.
+Useful flags: `--optimize`, `--max-cost`, `--min-quality`, `--open-weights`, `--context`, `--exclude`, `--task`, `--verdict`, `--json`, `--explain`, `--no-color`.
 
 ```bash
 # Machine-readable for any agent
@@ -391,7 +411,7 @@ node --test "tests/**/*.test.js"
 node bench/run.js              # decision benchmark -> tests/results/
 node bench/holdout.js          # held-out decision benchmark
 node bench/value.js            # cost-per-solved-task simulation
-node tests/adversarial/run.js  # 23 adversarial cases
+node tests/adversarial/run.js  # 25 adversarial cases
 node scripts/check.js          # all of the above
 node scripts/make_assets.py    # regenerate README/test images
 ```
@@ -402,6 +422,8 @@ Requirements: Node ≥ 20.11. Runtime dependencies: **zero**. Python + Pillow ar
 - [Data provenance](docs/DATA.md)
 - [How value is defined](docs/VALUE.md)
 - [Quality evidence](docs/QUALITY.md)
+- [Ecosystem and embedding](docs/ECOSYSTEM.md)
+- [Judge/decision models](docs/JUDGES.md)
 - [Per-node leaderboard](docs/LEADERBOARD.md)
 - [Adversarial review](tests/ADVERSARIAL_REVIEW.md)
 - [Test plan](tests/TEST_PLAN.md)

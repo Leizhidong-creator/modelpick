@@ -194,6 +194,24 @@ add('A23', 'claims', 'Recommendation without any keys still returns a decision',
   return { pass: Boolean(result.recommendation) && result.availability.recommendedReady === false, observed: result.availability.recommendedReady };
 });
 
+add('A24', 'decision', 'Verdict invents a model outside the shortlist', 'ERR_VERDICT_INVALID, no rerank', async () => {
+  const cwd = tempDir('mp-adv-verdict-');
+  const packet = runCli(['decide', '3D sword for a Unity game', '--json'], { cwd });
+  const parsed = JSON.parse(packet.stdout);
+  fs.writeFileSync(path.join(cwd, 'bad.json'), JSON.stringify({ ranking: [...parsed.allowedSlugs, 'invented-model'], confidence: 0.9 }));
+  const result = runCli(['pick', '3D sword for a Unity game', '--verdict', 'bad.json', '--json'], { cwd });
+  return { pass: result.status === 1 && result.stderr.includes('ERR_VERDICT_INVALID'), observed: result.status };
+});
+
+add('A25', 'decision', 'External verdict reorders locally', 'applied=true, top is the verdict top', async () => {
+  const cwd = tempDir('mp-adv-verdict-ok-');
+  const packet = JSON.parse(runCli(['decide', '3D sword for a Unity game', '--json'], { cwd }).stdout);
+  const ranking = [...packet.allowedSlugs].reverse();
+  fs.writeFileSync(path.join(cwd, 'verdict.json'), JSON.stringify({ ranking, confidence: 0.7, reason: 'adversarial' }));
+  const result = JSON.parse(runCli(['pick', '3D sword for a Unity game', '--verdict', 'verdict.json', '--json'], { cwd }).stdout);
+  return { pass: result.recommendation.slug === ranking[0] && result.decision.applied === true, observed: result.recommendation.slug };
+});
+
 const results = [];
 for (const item of cases) {
   const started = performance.now();
