@@ -3,7 +3,7 @@ import { ModelPickError } from '../core/errors.js';
 const BOOLEAN_FLAGS = new Set([
   'help', 'version', 'json', 'explain', 'open-weights', 'local', 'no-color', 'quiet',
   'dry-run', 'force', 'all', 'no-input', 'check', 'yes', 'list', 'offline', 'verbose',
-  'no-cache', 'include-deprecated', 'portable', 'global'
+  'no-cache', 'include-deprecated', 'portable', 'global', 'available', 'only-available', 'openrouter'
 ]);
 
 /**
@@ -46,7 +46,7 @@ export function parseArgs(argv) {
         continue;
       }
       const next = argv[i + 1];
-      if (next != null && !next.startsWith('-')) {
+      if (next != null && (!next.startsWith('-') || /^-\d/.test(next))) {
         options[key] = next;
         i += 1;
       } else {

@@ -1,6 +1,7 @@
 import { renderModels } from '../cli/format.js';
 import { qualityFor } from '../core/score.js';
 import { findTask } from '../core/tasks.js';
+import { modelAvailability } from '../core/availability.js';
 import { ModelPickError } from '../core/errors.js';
 
 export async function runModels(ctx) {
@@ -10,6 +11,9 @@ export async function runModels(ctx) {
   if (ctx.options.provider) models = models.filter((model) => model.provider.id === ctx.options.provider);
   if (ctx.options.tag) models = models.filter((model) => model.tags?.includes(ctx.options.tag));
   if (ctx.flags['open-weights'] || ctx.flags.local) models = models.filter((model) => model.openWeights);
+  if (ctx.flags.available || ctx.flags['only-available']) {
+    models = models.filter((model) => modelAvailability(model).ready);
+  }
 
   let task = null;
   if (ctx.options.task) {

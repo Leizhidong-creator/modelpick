@@ -137,6 +137,18 @@ export function renderCandidate(candidate, { rank = 1, task, style, width = 76, 
     lines.push(`  ${style.dim('note')} ${wrap(candidate.notes, width - 8).trim()}`);
   }
 
+  if (candidate.availability) {
+    lines.push('');
+    if (candidate.availability.ready) {
+      lines.push(`  ${style.green('✓')} ${style.dim('key detected:')} ${candidate.availability.via.join(', ')}`);
+    } else {
+      lines.push(
+        `  ${style.yellow('!')} ${style.dim('key missing:')} ${candidate.availability.missing.join(', ') || 'provider key'} ` +
+          `${style.dim('— recommendation is still valid, the key is only needed to run it.')}`
+      );
+    }
+  }
+
   lines.push('');
   lines.push(renderSetupBlock(candidate, { style, width }));
 
@@ -179,6 +191,18 @@ export function renderRecommendation(result, options = {}) {
   }
 
   lines.push(renderCandidate(result.recommendation, { rank: 1, task: result.task, style, width, explain: options.explain }));
+  if (result.availability?.bestAvailable && !result.availability.recommendedReady) {
+    lines.push('');
+    lines.push(
+      `  ${style.green('run now')} ${style.bold(result.availability.bestAvailable.name)} ` +
+        `${style.dim('·')} ${money(result.availability.bestAvailable.costPerTask)} ${style.dim('· quality')} ${num(result.availability.bestAvailable.quality)} ` +
+        `${style.dim(`· key ${result.availability.bestAvailable.availability.via.join(', ')}`)}`
+    );
+  } else if (result.availability?.note) {
+    lines.push('');
+    lines.push(`  ${style.dim(result.availability.note)}`);
+  }
+
   if (result.alternatives?.length) {
     lines.push('');
     const unit = result.task.modality === 'text' ? 'task' : `usable ${result.task.workload?.unit ?? 'asset'}`;
@@ -194,7 +218,11 @@ export function renderRecommendation(result, options = {}) {
   lines.push('');
   const picks = result.picks ?? {};
   const chips = [];
-  if (picks.value?.slug !== result.recommendation?.slug) chips.push(`value ${style.cyan(picks.value?.name)} ${style.dim(money(picks.value?.costPerTask))}`);
+  if (result.value && result.value.slug !== result.recommendation?.slug) {
+    chips.push(
+      `value ${style.cyan(result.value.name)} ${style.dim(`${num(result.value.quality)}q · ${Math.round(result.value.costRatio * 100)}% cost`)}`
+    );
+  }
   if (picks.quality?.slug !== result.recommendation?.slug) chips.push(`max quality ${style.cyan(picks.quality?.name)}`);
   if (picks.fastest?.slug !== result.recommendation?.slug) chips.push(`fastest ${style.cyan(picks.fastest?.name)}`);
   if (chips.length) lines.push(`  ${style.dim('also')}  ${chips.join(`   ${style.dim(S.dot)}   `)}`);

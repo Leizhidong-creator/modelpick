@@ -1,6 +1,7 @@
 import { ModelPickError } from './errors.js';
 import { rankModels, qualityFor, unitCostFor, attemptsFor, workloadFor } from './score.js';
 import { parseIntent, resolveTask, detectTask } from './tasks.js';
+import { anyProviderKey, modelAvailability } from './availability.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { PACKAGE_ROOT } from './catalog.js';
@@ -88,9 +89,11 @@ function compact(candidate, task) {
     score: candidate.score,
     labels: candidate.labels,
     priceConfidence: candidate.priceConfidence,
+    availability: candidate.availability,
     why: candidate.why,
     tradeoffs: candidate.tradeoffs,
     setup: candidate.setup,
+    connection: candidate.connection,
     openWeights: candidate.openWeights,
     contextWindow: candidate.model?.contextWindow ?? null,
     modalities: candidate.model?.modalities ?? null,
@@ -116,6 +119,7 @@ export function recommend(catalog, input = {}) {
     onlyProviders: input.onlyProviders ?? [],
     maxLatencySec: input.maxLatencySec,
     minContext: input.contextTokens ?? undefined,
+    availableOnly: Boolean(input.availableOnly),
     ...requirements
   };
 
@@ -124,10 +128,15 @@ export function recommend(catalog, input = {}) {
     optimize,
     constraints,
     workload,
+    env: input.env,
     limit: input.topK ?? 3
   });
 
   const fresh = freshness(catalog);
+  const keyStatus = {
+    anyKeys: anyProviderKey(input.env ?? process.env),
+    checked: true
+  };
   const response = {
     schemaVersion: SCHEMA_VERSION,
     kind: 'recommendation',
@@ -151,12 +160,22 @@ export function recommend(catalog, input = {}) {
       workload: ranked.workload,
       optimize,
       requirements,
+      availableOnly: Boolean(input.availableOnly),
+      valueTolerance: ranked.value?.tolerance ?? null,
       retryModel: 'attempts = 1 / (1 - 1.15 × (100 - quality) / 100), capped at 4.0',
       priceBasis: task.modality === 'text' ? 'USD per million tokens, cache-aware' : `USD per ${task.workload?.unit ?? 'unit'}`
+    },
+    keyStatus,
+    availability: {
+      recommendedReady: null,
+      bestAvailable: null,
+      fallbacks: [],
+      note: null
     },
     recommendation: null,
     alternatives: [],
     picks: { quality: null, value: null, fastest: null, cheapest: null },
+    value: ranked.value ?? null,
     rejected: ranked.rejected,
     error: ranked.error,
     message: ranked.message
@@ -175,12 +194,29 @@ export function recommend(catalog, input = {}) {
   const base = baseline(catalog, task, { workload, constraints: { ...constraints, maxCost: undefined, minQuality: undefined } });
   response.recommendation = compact(ranked.candidates[0], task);
   response.alternatives = ranked.candidates.slice(1).map((candidate) => compact(candidate, task));
+  const available = ranked.all.find((candidate) => candidate.availability?.ready) ?? null;
+  const top = ranked.candidates[0];
+  response.availability = {
+    recommendedReady: Boolean(top?.availability?.ready),
+    bestAvailable: available ? compact(available, task) : null,
+    fallbacks: ranked.all
+      .filter((candidate) => candidate.availability?.ready && candidate.slug !== top?.slug)
+      .slice(0, 3)
+      .map((candidate) => compact(candidate, task)),
+    note: top?.availability?.ready
+      ? `Key detected: ${top.availability.via.join(', ')}`
+      : keyStatus.anyKeys
+        ? `Top pick needs ${top?.availability?.missing?.join(', ') || 'a provider key'}; the best model you can run now is ${available?.name ?? 'not in the catalog'}.`
+        : 'No provider keys detected. Recommendations work offline; add a key when you are ready to call a model.'
+  };
   response.picks = {
     quality: compact(ranked.all.find((candidate) => candidate.labels.includes('best-quality')), task),
     value: compact(ranked.all.find((candidate) => candidate.labels.includes('best-value')), task),
     fastest: compact(ranked.all.find((candidate) => candidate.labels.includes('fastest')), task),
-    cheapest: compact(ranked.all.find((candidate) => candidate.labels.includes('cheapest')), task)
+    cheapest: compact(ranked.all.find((candidate) => candidate.labels.includes('cheapest')), task),
+    available: available ? compact(available, task) : null
   };
+  response.value = ranked.value ?? null;
   response.savings = base && response.recommendation
     ? {
         baseline: base.slug,
@@ -218,6 +254,7 @@ export function compare(catalog, slugs, input = {}) {
       costPerTask: Math.round(unitCost * attempts * 1e6) / 1e6,
       contextWindow: model.contextWindow,
       openWeights: model.openWeights,
+      availability: modelAvailability(model, input.env ?? process.env),
       pricing: model.pricing,
       setup: model.provider
     };

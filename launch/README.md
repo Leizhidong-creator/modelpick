@@ -22,6 +22,10 @@ Everything needed to launch ModelPick without inventing claims. The full researc
 | Benchmark chart | `../assets/benchmark.png` |
 | Quality vs cost | `../assets/cost-quality.png` |
 | Architecture | `../assets/architecture.png` |
+| Intro film (93s, English VO) | `../assets/modelpick-intro.mp4` |
+| Film poster | `../assets/modelpick-intro-thumb.png` |
+| Film captions | `../assets/modelpick-intro.srt` |
+| Film script & storyboard | [`video-storyboard.md`](video-storyboard.md) |
 | Landing page | `../site/index.html` |
 
 ## Drafts

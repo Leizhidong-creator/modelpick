@@ -1,0 +1,432 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "value-simulation",
+  "generatedAt": "2026-11-19T07:55:36.360Z",
+  "trialsPerTask": 4000,
+  "parityThreshold": 0.9,
+  "tasks": [
+    {
+      "task": "coding-agent",
+      "label": "Agentic coding",
+      "strategies": {
+        "frontier": {
+          "model": "claude-fable-5.2",
+          "name": "Claude Fable 5.2",
+          "quality": 92.32,
+          "firstPass": 0.912,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 2576.054400000094,
+          "costPerSolved": 0.6440136000000235,
+          "attemptsMean": 1.09975,
+          "qualityParity": 1,
+          "costRatio": 1,
+          "parityPass": true
+        },
+        "cheapest": {
+          "model": "claude-haiku-5.5",
+          "name": "Claude Haiku 5.5",
+          "quality": 68.82,
+          "firstPass": 0.641,
+          "solved": 3974,
+          "solveRate": 0.9935,
+          "spent": 47.454720000002816,
+          "costPerSolved": 0.011941298439859792,
+          "attemptsMean": 1.54475,
+          "qualityParity": 0.703,
+          "costRatio": 0.019,
+          "parityPass": false
+        },
+        "value": {
+          "model": "gemini-4-carbon",
+          "name": "Gemini 4 Carbon",
+          "quality": 87.3,
+          "firstPass": 0.854,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 701.2944000000482,
+          "costPerSolved": 0.17532360000001204,
+          "attemptsMean": 1.17825,
+          "qualityParity": 0.936,
+          "costRatio": 0.272,
+          "parityPass": true
+        },
+        "balanced": {
+          "model": "claude-haiku-5.5",
+          "name": "Claude Haiku 5.5",
+          "quality": 68.82,
+          "firstPass": 0.641,
+          "solved": 3972,
+          "solveRate": 0.993,
+          "spent": 48.399360000002886,
+          "costPerSolved": 0.012185135951662358,
+          "attemptsMean": 1.5755,
+          "qualityParity": 0.703,
+          "costRatio": 0.019,
+          "parityPass": false
+        },
+        "oracle": {
+          "model": "oracle",
+          "name": "per-trial oracle",
+          "quality": null,
+          "firstPass": null,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 32.64966400000154,
+          "costPerSolved": 0.008162416000000386,
+          "attemptsMean": null,
+          "qualityParity": null,
+          "costRatio": 0.013,
+          "parityPass": null
+        }
+      }
+    },
+    {
+      "task": "image-gen",
+      "label": "Image generation",
+      "strategies": {
+        "frontier": {
+          "model": "nano-banana-pro",
+          "name": "Nano Banana Pro",
+          "quality": 96,
+          "firstPass": 0.954,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 563.0680000000203,
+          "costPerSolved": 0.14076700000000508,
+          "attemptsMean": 1.0505,
+          "qualityParity": 1,
+          "costRatio": 1,
+          "parityPass": true
+        },
+        "cheapest": {
+          "model": "seedream-5.5",
+          "name": "Seedream 5.5",
+          "quality": 90.65,
+          "firstPass": 0.892,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 133.8900000000043,
+          "costPerSolved": 0.03347250000000108,
+          "attemptsMean": 1.11575,
+          "qualityParity": 0.935,
+          "costRatio": 0.238,
+          "parityPass": true
+        },
+        "value": {
+          "model": "nano-banana-2.1",
+          "name": "Nano Banana 2.1",
+          "quality": 93.65,
+          "firstPass": 0.927,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 144.71520000001644,
+          "costPerSolved": 0.03617880000000411,
+          "attemptsMean": 1.07675,
+          "qualityParity": 0.972,
+          "costRatio": 0.257,
+          "parityPass": true
+        },
+        "balanced": {
+          "model": "nano-banana-2.1",
+          "name": "Nano Banana 2.1",
+          "quality": 93.65,
+          "firstPass": 0.927,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 145.21920000001654,
+          "costPerSolved": 0.036304800000004134,
+          "attemptsMean": 1.0805,
+          "qualityParity": 0.972,
+          "costRatio": 0.258,
+          "parityPass": true
+        },
+        "oracle": {
+          "model": "oracle",
+          "name": "per-trial oracle",
+          "quality": null,
+          "firstPass": null,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 122.14020000000458,
+          "costPerSolved": 0.030535050000001146,
+          "attemptsMean": null,
+          "qualityParity": null,
+          "costRatio": 0.217,
+          "parityPass": null
+        }
+      }
+    },
+    {
+      "task": "video-gen",
+      "label": "Video generation",
+      "strategies": {
+        "frontier": {
+          "model": "veo-3.1",
+          "name": "Veo 3.1",
+          "quality": 95,
+          "firstPass": 0.943,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 8490,
+          "costPerSolved": 2.1225,
+          "attemptsMean": 1.06125,
+          "qualityParity": 1,
+          "costRatio": 1,
+          "parityPass": true
+        },
+        "cheapest": {
+          "model": "veo-3.1-fast",
+          "name": "Veo 3.1 Fast",
+          "quality": 86,
+          "firstPass": 0.839,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 2372.5,
+          "costPerSolved": 0.593125,
+          "attemptsMean": 1.18625,
+          "qualityParity": 0.89,
+          "costRatio": 0.279,
+          "parityPass": false
+        },
+        "value": {
+          "model": "kling-4.0",
+          "name": "Kling 4.0",
+          "quality": 94,
+          "firstPass": 0.931,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 3370.789999999848,
+          "costPerSolved": 0.842697499999962,
+          "attemptsMean": 1.0735,
+          "qualityParity": 0.987,
+          "costRatio": 0.397,
+          "parityPass": true
+        },
+        "balanced": {
+          "model": "veo-3.1-fast",
+          "name": "Veo 3.1 Fast",
+          "quality": 86,
+          "firstPass": 0.839,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 2390.5,
+          "costPerSolved": 0.597625,
+          "attemptsMean": 1.19525,
+          "qualityParity": 0.89,
+          "costRatio": 0.282,
+          "parityPass": false
+        },
+        "oracle": {
+          "model": "oracle",
+          "name": "per-trial oracle",
+          "quality": null,
+          "firstPass": null,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 2200.985000000017,
+          "costPerSolved": 0.5502462500000043,
+          "attemptsMean": null,
+          "qualityParity": null,
+          "costRatio": 0.259,
+          "parityPass": null
+        }
+      }
+    },
+    {
+      "task": "3d-gen",
+      "label": "3D asset generation",
+      "strategies": {
+        "frontier": {
+          "model": "tripo-h3.1",
+          "name": "Tripo H3.1",
+          "quality": 94,
+          "firstPass": 0.931,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 866.0000000000599,
+          "costPerSolved": 0.21650000000001499,
+          "attemptsMean": 1.0825,
+          "qualityParity": 1,
+          "costRatio": 1,
+          "parityPass": true
+        },
+        "cheapest": {
+          "model": "tripo-h3.1",
+          "name": "Tripo H3.1",
+          "quality": 94,
+          "firstPass": 0.931,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 858.2000000000581,
+          "costPerSolved": 0.21455000000001453,
+          "attemptsMean": 1.07275,
+          "qualityParity": 1,
+          "costRatio": 0.991,
+          "parityPass": true
+        },
+        "value": {
+          "model": "tripo-h3.1",
+          "name": "Tripo H3.1",
+          "quality": 94,
+          "firstPass": 0.931,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 859.6000000000585,
+          "costPerSolved": 0.2149000000000146,
+          "attemptsMean": 1.0745,
+          "qualityParity": 1,
+          "costRatio": 0.993,
+          "parityPass": true
+        },
+        "balanced": {
+          "model": "tripo-h3.1",
+          "name": "Tripo H3.1",
+          "quality": 94,
+          "firstPass": 0.931,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 860.2000000000586,
+          "costPerSolved": 0.21505000000001465,
+          "attemptsMean": 1.07525,
+          "qualityParity": 1,
+          "costRatio": 0.993,
+          "parityPass": true
+        },
+        "oracle": {
+          "model": "oracle",
+          "name": "per-trial oracle",
+          "quality": null,
+          "firstPass": null,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 833.1250000000445,
+          "costPerSolved": 0.2082812500000111,
+          "attemptsMean": null,
+          "qualityParity": null,
+          "costRatio": 0.962,
+          "parityPass": null
+        }
+      }
+    },
+    {
+      "task": "tts",
+      "label": "Text to speech",
+      "strategies": {
+        "frontier": {
+          "model": "eleven-v4",
+          "name": "Eleven v4",
+          "quality": 95,
+          "firstPass": 0.943,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 339.28000000000105,
+          "costPerSolved": 0.08482000000000026,
+          "attemptsMean": 1.06025,
+          "qualityParity": 1,
+          "costRatio": 1,
+          "parityPass": true
+        },
+        "cheapest": {
+          "model": "voxtral-tts-3",
+          "name": "Voxtral TTS 3",
+          "quality": 88,
+          "firstPass": 0.862,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 60.293999999997865,
+          "costPerSolved": 0.015073499999999466,
+          "attemptsMean": 1.1595,
+          "qualityParity": 0.914,
+          "costRatio": 0.178,
+          "parityPass": true
+        },
+        "value": {
+          "model": "eleven-v4",
+          "name": "Eleven v4",
+          "quality": 95,
+          "firstPass": 0.943,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 339.520000000001,
+          "costPerSolved": 0.08488000000000025,
+          "attemptsMean": 1.061,
+          "qualityParity": 1,
+          "costRatio": 1.001,
+          "parityPass": true
+        },
+        "balanced": {
+          "model": "voxtral-tts-3",
+          "name": "Voxtral TTS 3",
+          "quality": 88,
+          "firstPass": 0.862,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 59.72199999999795,
+          "costPerSolved": 0.014930499999999488,
+          "attemptsMean": 1.1485,
+          "qualityParity": 0.914,
+          "costRatio": 0.176,
+          "parityPass": true
+        },
+        "oracle": {
+          "model": "oracle",
+          "name": "per-trial oracle",
+          "quality": null,
+          "firstPass": null,
+          "solved": 4000,
+          "solveRate": 1,
+          "spent": 61.16499999999918,
+          "costPerSolved": 0.015291249999999796,
+          "attemptsMean": null,
+          "qualityParity": null,
+          "costRatio": 0.18,
+          "parityPass": null
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "frontier": {
+      "firstPass": 0.937,
+      "solveRate": 1,
+      "costPerSolved": 0.6417,
+      "qualityParity": 1,
+      "costRatio": 1,
+      "parityPassShare": 1
+    },
+    "cheapest": {
+      "firstPass": 0.833,
+      "solveRate": 0.999,
+      "costPerSolved": 0.1736,
+      "qualityParity": 0.888,
+      "costRatio": 0.341,
+      "parityPassShare": 0.6
+    },
+    "value": {
+      "firstPass": 0.917,
+      "solveRate": 1,
+      "costPerSolved": 0.2708,
+      "qualityParity": 0.979,
+      "costRatio": 0.584,
+      "parityPassShare": 1
+    },
+    "balanced": {
+      "firstPass": 0.84,
+      "solveRate": 0.999,
+      "costPerSolved": 0.1752,
+      "qualityParity": 0.896,
+      "costRatio": 0.346,
+      "parityPassShare": 0.6
+    },
+    "oracle": {
+      "firstPass": null,
+      "solveRate": 1,
+      "costPerSolved": 0.1625,
+      "qualityParity": 1,
+      "costRatio": 0.326,
+      "parityPassShare": 1
+    }
+  },
+  "caveat": "Synthetic: uses catalog quality as first-pass success probability and the router retry curve. Validates the cost-per-solved-task arithmetic and the value definition; it is not a live model eval."
+}

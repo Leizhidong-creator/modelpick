@@ -15,3 +15,8 @@ tests/results/*.local.json
 *.tgz
 .vscode/
 .idea/
+assets/_tts/
+assets/_video/
+assets/video-frame-*.png
+assets/_vo*.mp3
+assets/_kokoro_test.wav

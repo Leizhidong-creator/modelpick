@@ -8,11 +8,12 @@
 Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
 
 <p align="center">
-  <a href="https://github.com/Leizhidong-creator/modelpick/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Leizhidong-creator/modelpick/actions/workflows/ci.yml/badge.svg" /></a>
   <a href="https://github.com/Leizhidong-creator/modelpick/releases"><img alt="release" src="https://img.shields.io/github/v/release/Leizhidong-creator/modelpick?color=39c5cf" /></a>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
+  <img alt="tests" src="https://img.shields.io/badge/tests-108%20passing-3fb950" />
+  <img alt="adversarial" src="https://img.shields.io/badge/adversarial-23%2F23-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
 
@@ -36,6 +37,12 @@ npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for 
   <img src="assets/terminal-pick.png" alt="ModelPick CLI recommending Tripo H3.1 for a 3D game asset" width="92%" />
 </p>
 
+<p align="center">
+  <a href="assets/modelpick-intro.mp4"><img src="assets/modelpick-intro-thumb.png" alt="Watch the 93-second ModelPick intro film" width="72%" /></a>
+</p>
+
+<p align="center"><a href="assets/modelpick-intro.mp4"><strong>▶ Watch the 93-second intro film</strong></a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.srt">English captions</a></p>
+
 ---
 
 ## Why this exists
@@ -54,7 +61,7 @@ Three things are broken in model selection today:
 
 | | Gateway (OpenRouter, LiteLLM, Portkey) | Coding router (claude-code-router) | **ModelPick** |
 |---|---|---|---|
-| Optimizes | access, failover, provider margin | model switching inside a coding loop | **cost per solved task at each node** |
+| Optimizes | access, failover, provider margin | model switching inside a coding loop | **best price-performance at each node** |
 | Modalities | mostly text; OpenRouter's live catalog is ~4% non-text | text | **text, image, video, 3D, audio** |
 | Decision | route by price/availability | rules or a classifier | capability filters + benchmark-weighted utility |
 | Keys | held by the gateway | local | **never stored; you call the provider** |
@@ -184,6 +191,18 @@ The catalog is a **dated snapshot**, not a live price feed. `modelpick update` r
 
 Full per-node tables: [`docs/LEADERBOARD.md`](docs/LEADERBOARD.md).
 
+### Value, measured
+
+`node bench/value.js` simulates 4,000 jobs per task across five task types, using catalog quality as first-pass success and the router's retry curve:
+
+| Strategy | First-pass | Cost / solved | Quality parity | Cost vs frontier |
+|---|---:|---:|---:|---:|
+| Frontier always | 93.7% | $0.6417 | 100% | 100% |
+| **Value pick** | **91.7%** | **$0.2708** | **97.9%** | **58.4%** |
+| Cheapest always | 83.3% | $0.1736 | 88.8% | 34.1% |
+
+The value pick keeps **97.9% of frontier first-pass quality at 58% of the cost**. The cheapest model saves another 24 cost points but loses 11 quality points and fails a 90%-parity bar on two of five tasks. This is synthetic; the arithmetic and the definition are in [`docs/VALUE.md`](docs/VALUE.md), and the evidence behind every quality score is in [`docs/QUALITY.md`](docs/QUALITY.md).
+
 ---
 
 ## The decision engine
@@ -202,7 +221,9 @@ request
   └─ weighted utility → pick + alternatives + why + trade-offs + setup
 ```
 
-Presets: `balanced` (task weights), `quality`, `cost`, `speed`, `privacy`. Budgets and quality floors are hard constraints, not suggestions.
+Presets: `balanced` (task weights), `value` (price-performance), `quality`, `cost`, `speed`, `privacy`. Budgets and quality floors are hard constraints, not suggestions.
+
+**The default is a value decision, not a bargain hunt.** The value pick is the cheapest model within **6 quality points of the best eligible model** — and never worse than the recommendation itself. It is returned as `picks.value` and `value`, with the quality gap and the percentage of the best model's cost. The full definition, simulation, and sensitivity analysis are in [`docs/VALUE.md`](docs/VALUE.md).
 
 Every answer includes:
 - `recommendation.slug`, `quality`, `costPerTask`, `expectedAttempts`, `latencySec`
@@ -220,6 +241,8 @@ modelpick plan "<goal>"            Multi-step workflow, one model per step
 modelpick compare <a> <b> --task   Side-by-side cost per solved task
 modelpick models                   Browse the catalog
 modelpick tasks                    List the 20 nodes
+modelpick show <model>             Endpoint, auth, SDK, curl, and evidence
+modelpick add-model <file>         Add a private/custom model
 modelpick setup [agent]            Install MCP + skill
 modelpick mcp                      Run the stdio MCP server
 modelpick keys                     Show required env vars (never values)
@@ -240,9 +263,70 @@ modelpick pick "implement OAuth" --min-quality 85 --max-cost 0.25
 # Open weights only
 modelpick pick "refactor this repo" --open-weights
 
+# Only models whose key is already in this shell
+modelpick pick "refactor this repo" --available
+
 # Need 400K tokens of context
 modelpick pick "read this 400-page document" --context 400000
 ```
+
+### Only have a few API keys?
+
+You do not need every provider. ModelPick separates **the best decision** from **what you can run right now**:
+
+```bash
+modelpick pick "refactor this repo"
+```
+
+```text
+! key missing: GEMINI_API_KEY, GOOGLE_API_KEY — recommendation is still valid
+run now  GPT-6.2 Sol · $0.20 · quality 83.9 · key OPENAI_API_KEY
+```
+
+- `--available` restricts ranking to models whose key exists (or any text model if you have `OPENROUTER_API_KEY`).
+- The JSON always includes `availability.bestAvailable`, `availability.fallbacks`, and `recommendation.availability.missing`.
+- An `OPENROUTER_API_KEY` is a universal fallback for text models; `FAL_KEY` covers many media models.
+- If a capability has no accessible model, the tool says so instead of inventing a recommendation.
+
+### Add your own model
+
+Bring a private endpoint, a self-hosted vLLM/Ollama model, or a provider the catalog does not cover:
+
+```bash
+modelpick add-model --example > my-model.json
+# edit the slug, provider env var, pricing, and quality scores
+modelpick add-model my-model.json
+modelpick pick "refactor this repo"          # it is now a candidate
+modelpick add-model --remove my-model
+```
+
+The model is written to `~/.modelpick/overrides.json`, validated against the full catalog before saving, and never touches the repo. You can also add a whole list with `{ "models": [...] }`.
+
+### Connect without guessing the endpoint
+
+`pick` gives you the env var and key URL. `show` gives you the full connection card:
+
+```bash
+modelpick show tripo-h3.1
+```
+
+```text
+CONNECT
+endpoint  https://api.tripo3d.ai/v2/openapi
+model id  h3.1
+auth      bearer · env TRIPO_API_KEY
+platform  https://platform.tripo3d.ai
+docs      https://developers.tripo3d.ai/en/docs
+sdk       REST / MCP
+
+example
+curl -X POST "https://api.tripo3d.ai/v2/openapi/task" \
+  -H "Authorization: Bearer $TRIPO_API_KEY" \
+  -H "content-type: application/json" \
+  -d '{"type":"text_to_model","prompt":"a stylized sword"}'
+```
+
+The same object is returned by the MCP `get_setup` tool. If an endpoint is a provider's common path rather than a freshly verified one, the card says so (`typical` vs `verified`).
 
 ---
 
@@ -305,6 +389,9 @@ See [`docs/DATA.md`](docs/DATA.md) for provenance and [`research/`](research/) f
 node scripts/validate.js       # catalog + policy + manifests
 node --test "tests/**/*.test.js"
 node bench/run.js              # decision benchmark -> tests/results/
+node bench/holdout.js          # held-out decision benchmark
+node bench/value.js            # cost-per-solved-task simulation
+node tests/adversarial/run.js  # 23 adversarial cases
 node scripts/check.js          # all of the above
 node scripts/make_assets.py    # regenerate README/test images
 ```
@@ -313,7 +400,10 @@ Requirements: Node ≥ 20.11. Runtime dependencies: **zero**. Python + Pillow ar
 
 - [Architecture](docs/ARCHITECTURE.md)
 - [Data provenance](docs/DATA.md)
+- [How value is defined](docs/VALUE.md)
+- [Quality evidence](docs/QUALITY.md)
 - [Per-node leaderboard](docs/LEADERBOARD.md)
+- [Adversarial review](tests/ADVERSARIAL_REVIEW.md)
 - [Test plan](tests/TEST_PLAN.md)
 - [Benchmark methodology](bench/METHODOLOGY.md)
 - [Contributing](CONTRIBUTING.md)

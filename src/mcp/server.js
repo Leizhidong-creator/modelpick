@@ -3,6 +3,8 @@ import { loadCatalog, catalogStats, findModel } from '../core/catalog.js';
 import { recommend, plan, compare } from '../core/recommend.js';
 import { detectTask } from '../core/tasks.js';
 import { ModelPickError } from '../core/errors.js';
+import { modelAvailability } from '../core/availability.js';
+import { connectionFor } from '../core/connect.js';
 
 const PROTOCOL_VERSION = '2025-06-18';
 const SERVER_INFO = { name: 'modelpick', version: '0.1.0' };
@@ -21,6 +23,7 @@ const TOOLS = [
         max_cost: { type: 'number', description: 'Budget in USD per solved task.' },
         min_quality: { type: 'number', description: 'Quality floor 0-100.' },
         open_weights: { type: 'boolean', description: 'Only open-weight / self-hostable models.' },
+        available_only: { type: 'boolean', description: 'Only models whose provider key is present in the environment.' },
         context_tokens: { type: 'integer', description: 'Input tokens the task needs.' },
         exclude_providers: { type: 'array', items: { type: 'string' } },
         top_k: { type: 'integer', minimum: 1, maximum: 5, default: 3 }
@@ -72,6 +75,7 @@ const TOOLS = [
         modality: { type: 'string', enum: ['text', 'image', 'video', '3d', 'audio'] },
         task: { type: 'string' },
         open_weights: { type: 'boolean' },
+        available_only: { type: 'boolean', description: 'Only models whose provider key is present.' },
         limit: { type: 'integer', minimum: 1, maximum: 100, default: 40 }
       }
     }
@@ -120,7 +124,8 @@ function compactRecommendation(result) {
           why: result.recommendation.why,
           tradeoffs: result.recommendation.tradeoffs,
           setup: result.recommendation.setup,
-          priceConfidence: result.recommendation.priceConfidence
+          priceConfidence: result.recommendation.priceConfidence,
+          availability: result.recommendation.availability
         }
       : null,
     alternatives: (result.alternatives ?? []).map((alt) => ({
@@ -136,9 +141,21 @@ function compactRecommendation(result) {
           quality: result.picks.quality?.slug ?? null,
           value: result.picks.value?.slug ?? null,
           fastest: result.picks.fastest?.slug ?? null,
-          cheapest: result.picks.cheapest?.slug ?? null
+          cheapest: result.picks.cheapest?.slug ?? null,
+          available: result.picks.available
+            ? {
+                slug: result.picks.available.slug,
+                name: result.picks.available.name,
+                costPerTask: result.picks.available.costPerTask,
+                quality: result.picks.available.quality,
+                setup: result.picks.available.setup
+              }
+            : null
         }
       : null,
+    availability: result.availability ?? null,
+    keyStatus: result.keyStatus ?? null,
+    value: result.value ?? null,
     savings: result.savings ?? null,
     assumptions: result.assumptions,
     error: result.error ?? null,
@@ -166,6 +183,7 @@ export function createMcpServer({ input = process.stdin, output = process.stdout
           maxCost: args.max_cost,
           minQuality: args.min_quality,
           openWeights: args.open_weights,
+          availableOnly: args.available_only,
           contextTokens: args.context_tokens,
           excludeProviders: args.exclude_providers,
           topK: args.top_k ?? 3
@@ -210,6 +228,7 @@ export function createMcpServer({ input = process.stdin, output = process.stdout
           modality: model.modality,
           provider: model.provider,
           access: model.access,
+          connection: connectionFor(model),
           pricing: model.pricing,
           docs: model.sources
         });
@@ -218,6 +237,7 @@ export function createMcpServer({ input = process.stdin, output = process.stdout
         let models = cat.models;
         if (args.modality) models = models.filter((model) => model.modality === args.modality);
         if (args.open_weights) models = models.filter((model) => model.openWeights);
+        if (args.available_only) models = models.filter((model) => modelAvailability(model).ready);
         if (args.task) {
           const task = cat.taskById.get(args.task);
           if (!task) return toolError(`Unknown task: ${args.task}`);

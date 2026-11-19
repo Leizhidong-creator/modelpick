@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "adversarial",
+  "generatedAt": "2026-11-19T07:58:53.444Z",
+  "total": 23,
+  "passed": 23,
+  "failed": 0,
+  "results": [
+    {
+      "id": "A01",
+      "area": "input",
+      "vector": "Empty query",
+      "expected": "ERR_MISSING_TASK, no crash",
+      "observed": "ERR_MISSING_TASK",
+      "pass": true,
+      "ms": 0.9
+    },
+    {
+      "id": "A02",
+      "area": "input",
+      "vector": "100,000-character query",
+      "expected": "no crash, <2s",
+      "observed": "12ms",
+      "pass": true,
+      "ms": 12
+    },
+    {
+      "id": "A03",
+      "area": "input",
+      "vector": "Prompt injection: ignore instructions + rm -rf",
+      "expected": "treated as data, task 3d-gen",
+      "observed": "3d-gen",
+      "pass": true,
+      "ms": 1
+    },
+    {
+      "id": "A04",
+      "area": "input",
+      "vector": "Shell metacharacters",
+      "expected": "no shell execution, structured result",
+      "observed": "tripo-h3.1",
+      "pass": true,
+      "ms": 0.7
+    },
+    {
+      "id": "A05",
+      "area": "input",
+      "vector": "RTL + emoji + zero-width characters",
+      "expected": "no crash, task detected",
+      "observed": "image-gen",
+      "pass": true,
+      "ms": 3.4
+    },
+    {
+      "id": "A06",
+      "area": "path",
+      "vector": "Task id traversal: ../../etc/passwd",
+      "expected": "ERR_UNKNOWN_TASK, no file read",
+      "observed": 1,
+      "pass": true,
+      "ms": 131.4
+    },
+    {
+      "id": "A07",
+      "area": "budget",
+      "vector": "Negative budget",
+      "expected": "ERR_INVALID_OPTION",
+      "observed": 1,
+      "pass": true,
+      "ms": 120.6
+    },
+    {
+      "id": "A08",
+      "area": "budget",
+      "vector": "NaN budget",
+      "expected": "ERR_INVALID_OPTION",
+      "observed": 1,
+      "pass": true,
+      "ms": 121.3
+    },
+    {
+      "id": "A09",
+      "area": "constraints",
+      "vector": "Open weights + $0.001 budget",
+      "expected": "NO_ELIGIBLE_MODEL, not a silent fallback",
+      "observed": "NO_ELIGIBLE_MODEL",
+      "pass": true,
+      "ms": 1
+    },
+    {
+      "id": "A10",
+      "area": "constraints",
+      "vector": "2M-token context requirement",
+      "expected": "NO_ELIGIBLE_MODEL with near misses",
+      "observed": "NO_ELIGIBLE_MODEL",
+      "pass": true,
+      "ms": 0.4
+    },
+    {
+      "id": "A11",
+      "area": "constraints",
+      "vector": "Unknown optimize preset",
+      "expected": "ERR_INVALID_OPTIMIZE",
+      "observed": 1,
+      "pass": true,
+      "ms": 135.9
+    },
+    {
+      "id": "A12",
+      "area": "catalog",
+      "vector": "Invalid overrides JSON",
+      "expected": "ERR_OVERRIDES_INVALID, no silent ignore",
+      "observed": "ERR_OVERRIDES_INVALID",
+      "pass": true,
+      "ms": 4.9
+    },
+    {
+      "id": "A13",
+      "area": "catalog",
+      "vector": "Corrupt cache falls back to bundled snapshot",
+      "expected": "load succeeds",
+      "observed": 41,
+      "pass": true,
+      "ms": 5.5
+    },
+    {
+      "id": "A14",
+      "area": "catalog",
+      "vector": "Duplicate slug validation",
+      "expected": "ERR_INVALID_CATALOG",
+      "observed": "ERR_INVALID_CATALOG",
+      "pass": true,
+      "ms": 1.1
+    },
+    {
+      "id": "A15",
+      "area": "secrets",
+      "vector": "Secret in environment",
+      "expected": "never appears in keys output",
+      "observed": 0,
+      "pass": true,
+      "ms": 120.1
+    },
+    {
+      "id": "A16",
+      "area": "setup",
+      "vector": "Setup dry-run on a clean project",
+      "expected": "no files written",
+      "observed": "none",
+      "pass": true,
+      "ms": 115.3
+    },
+    {
+      "id": "A17",
+      "area": "setup",
+      "vector": "Invalid .mcp.json is never overwritten",
+      "expected": "refuse + preserve bytes",
+      "observed": 1,
+      "pass": true,
+      "ms": 114.6
+    },
+    {
+      "id": "A18",
+      "area": "add-model",
+      "vector": "Incomplete model file",
+      "expected": "refuse before writing overrides",
+      "observed": 1,
+      "pass": true,
+      "ms": 105.9
+    },
+    {
+      "id": "A19",
+      "area": "mcp",
+      "vector": "tools/call with null arguments",
+      "expected": "tool error, server alive",
+      "observed": "{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"error\\\":\\\"TOOL_ERROR\\\",\\\"message\\\":\\\"Tell ",
+      "pass": true,
+      "ms": 113.4
+    },
+    {
+      "id": "A20",
+      "area": "mcp",
+      "vector": "Unknown tool",
+      "expected": "JSON-RPC -32602",
+      "observed": -32602,
+      "pass": true,
+      "ms": 109.7
+    },
+    {
+      "id": "A21",
+      "area": "mcp",
+      "vector": "10 concurrent pick calls",
+      "expected": "all responses, no interleaving corruption",
+      "observed": 10,
+      "pass": true,
+      "ms": 133.1
+    },
+    {
+      "id": "A22",
+      "area": "claims",
+      "vector": "Stale catalog is flagged",
+      "expected": "stale true and ageDays > 120",
+      "observed": 687,
+      "pass": true,
+      "ms": 0.7
+    },
+    {
+      "id": "A23",
+      "area": "claims",
+      "vector": "Recommendation without any keys still returns a decision",
+      "expected": "no crash; availability false",
+      "observed": false,
+      "pass": true,
+      "ms": 0.7
+    }
+  ]
+}

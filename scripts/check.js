@@ -7,7 +7,10 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const steps = [
   ['validate', [path.join(ROOT, 'scripts', 'validate.js')]],
   ['test', ['--test', 'tests/**/*.test.js']],
-  ['bench', [path.join(ROOT, 'bench', 'run.js')]]
+  ['bench', [path.join(ROOT, 'bench', 'run.js')]],
+  ['holdout', [path.join(ROOT, 'bench', 'holdout.js')]],
+  ['value', [path.join(ROOT, 'bench', 'value.js')]],
+  ['adversarial', [path.join(ROOT, 'tests', 'adversarial', 'run.js')]]
 ];
 
 let failed = false;

@@ -10,7 +10,7 @@ import { makeStyle } from './format.js';
 
 const COMMANDS = new Set([
   'pick', 'choose', 'recommend', 'plan', 'compare', 'models', 'list', 'tasks',
-  'setup', 'mcp', 'doctor', 'keys', 'update', 'bench', 'version', 'help'
+  'setup', 'mcp', 'doctor', 'keys', 'update', 'bench', 'add-model', 'show', 'version', 'help'
 ]);
 
 const ALIASES = { choose: 'pick', recommend: 'pick', list: 'models' };
@@ -50,13 +50,17 @@ ${b('AGENT INTEGRATION')}
 ${b('MAINTAIN')}
   update             Refresh the price/ID snapshot from GitHub
   bench              Run the offline decision benchmark
+  add-model <file>   Add a private/custom model to ~/.modelpick/overrides.json
+                     (--example prints a template, --remove <slug> deletes)
+  show <model>       Endpoint, auth, SDK, curl example, and evidence for one model
 
 ${b('OPTIONS')}
   --task <id>        Force a task node (see modelpick tasks)
-  --optimize <mode>  balanced | quality | cost | speed | privacy
+  --optimize <mode>  balanced | value | quality | cost | speed | privacy
   --max-cost <usd>   Budget per solved task
   --min-quality <n>  Quality floor (0-100)
   --open-weights     Only open-weight models
+  --available        Only models whose provider key is present
   --context <n>      Input tokens required (filters context windows)
   --exclude <ids>    Comma-separated provider ids to exclude
   --top <n>          Number of alternatives (default 3)
@@ -69,6 +73,9 @@ ${b('EXAMPLES')}
   modelpick pick "edit this product photo, remove background" --json
   modelpick plan "30s product launch video" --optimize cost
   modelpick pick "classify 2M support tickets" --max-cost 0.001
+  modelpick pick "refactor this repo" --available
+  modelpick show tripo-h3.1
+  modelpick add-model --example > my-model.json
 
 ${style.dim('Catalog is a dated snapshot. Prices change; verify before committing budget.')}
 `;
@@ -185,6 +192,16 @@ export async function main(argv) {
       case 'bench': {
         const { runBench } = await import('../commands/bench.js');
         await runBench(ctx);
+        break;
+      }
+      case 'add-model': {
+        const { runAddModel } = await import('../commands/add-model.js');
+        await runAddModel(ctx);
+        break;
+      }
+      case 'show': {
+        const { runShow } = await import('../commands/show.js');
+        await runShow(ctx);
         break;
       }
       default:

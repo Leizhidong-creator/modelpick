@@ -1,5 +1,7 @@
 import { ModelPickError } from './errors.js';
 import { loadPolicy } from './policy.js';
+import { modelAvailability } from './availability.js';
+import { connectionFor } from './connect.js';
 
 const UNIT_LABELS = {
   mtok: 'task',
@@ -88,9 +90,10 @@ export function unitCostFor(model, task, workload = workloadFor(task)) {
  * need ~1.9 attempts; a 95-quality model ~1.07. This is a model, not a measurement:
  * the UI always shows it and the benchmark evaluates it explicitly.
  */
-export function attemptsFor(quality) {
+export function attemptsFor(quality, multiplier) {
   const retry = loadPolicy().retry;
-  const failure = clamp(((100 - quality) / 100) * retry.failureMultiplier, retry.minFailure, retry.maxFailure);
+  const factor = multiplier ?? retry.failureMultiplier;
+  const failure = clamp(((100 - quality) / 100) * factor, retry.minFailure, retry.maxFailure);
   return round(Math.min(1 / (1 - failure), retry.maxAttempts), 3);
 }
 
@@ -115,6 +118,7 @@ function constraintReasons(model, task, evaluation, constraints) {
   if (constraints.minTextInImage != null && (model.quality?.textInImage ?? 0) < constraints.minTextInImage) {
     reasons.push('text_rendering_too_weak');
   }
+  if (constraints.availableOnly && !evaluation.availability?.ready) reasons.push('keys_missing');
   if (constraints.requiresRigging && !model.capabilities?.rigging) reasons.push('no_rigging');
   if (constraints.requiresLipSync && !model.capabilities?.lipSync) reasons.push('no_lip_sync');
   if (constraints.requiresCinematic && !model.capabilities?.cinematic) reasons.push('not_cinematic');
@@ -128,12 +132,13 @@ export function evaluateModel(model, task, options = {}) {
   const workload = workloadFor(task, options.workload);
   const quality = qualityFor(model, task);
   const unitCost = unitCostFor(model, task, workload);
-  const attempts = attemptsFor(quality);
+  const attempts = attemptsFor(quality, options.retryMultiplier);
   const costPerTask = round(unitCost * attempts, 6);
   const latencySec = latencyFor(model, task, workload);
   const requiredContext = task.modality === 'text' ? (workload.requiredContext ?? workload.inputTokens) : 0;
   const contextFit = requiredContext && model.contextWindow ? clamp(model.contextWindow / requiredContext, 0, 1) : 1;
   const contextOk = !requiredContext || !model.contextWindow || model.contextWindow >= requiredContext * 1.02;
+  const availability = modelAvailability(model, options.env ?? process.env);
 
   const evaluation = {
     slug: model.slug,
@@ -150,6 +155,7 @@ export function evaluateModel(model, task, options = {}) {
     contextOk,
     openWeights: Boolean(model.openWeights),
     tags: model.tags ?? [],
+    availability,
     reasons: []
   };
 
@@ -216,6 +222,7 @@ function present(model, evaluation, labels, why, tradeoffs) {
     why,
     tradeoffs,
     setup: setupFor(model),
+    connection: connectionFor(model),
     evidence: model.sources ?? [],
     notes: model.notes ?? null,
     releaseDate: model.releaseDate ?? null
@@ -253,7 +260,7 @@ export function rankModels(catalog, task, options = {}) {
   );
   const evaluated = compatible.map((model) => ({
     model,
-    evaluation: evaluateModel(model, task, { workload, constraints })
+    evaluation: evaluateModel(model, task, { workload, constraints, env: options.env, retryMultiplier: options.retryMultiplier })
   }));
 
   const hardEligible = evaluated.filter(({ evaluation }) => evaluation.eligible);
@@ -331,12 +338,31 @@ export function rankModels(catalog, task, options = {}) {
   const bestQuality = Math.max(...ranked.map((item) => item.quality));
   const cheapest = Math.min(...ranked.map((item) => item.costPerTask));
   const fastest = Math.min(...ranked.map((item) => item.latencySec));
-  const valuePool = ranked.filter((item) => item.quality >= Math.max(floor, 50));
-  const value = (valuePool.length ? valuePool : ranked).reduce(
+  const tolerance = options.valueTolerance ?? loadPolicy().value?.qualityTolerance ?? 6;
+  const leader = ranked[0];
+  // The value pick is never worse than the recommendation. It is the cheapest
+  // model within tolerance of the best AND at least as good as the top pick.
+  const threshold = Math.max(bestQuality - tolerance, leader.quality - 0.5);
+  let valuePool = ranked.filter((item) => item.quality >= threshold);
+  if (!valuePool.length) valuePool = [leader];
+  const value = valuePool.reduce(
     (best, item) =>
-      item.quality / Math.max(item.costPerTask, 1e-6) > best.quality / Math.max(best.costPerTask, 1e-6) ? item : best,
-    (valuePool.length ? valuePool : ranked)[0]
+      item.costPerTask < best.costPerTask - 1e-9 ||
+      (Math.abs(item.costPerTask - best.costPerTask) <= 1e-9 && item.quality > best.quality)
+        ? item
+        : best,
+    valuePool[0]
   );
+  const valueMeta = {
+    slug: value.slug,
+    name: value.name,
+    quality: value.quality,
+    costPerTask: value.costPerTask,
+    bestQuality,
+    qualityGap: round(bestQuality - value.quality, 1),
+    costRatio: round(value.costPerTask / Math.max(ranked.find((item) => item.quality === bestQuality)?.costPerTask ?? value.costPerTask, 1e-9), 2),
+    tolerance
+  };
 
   const finalists = ranked.map((item, index) => {
     const labels = [];
@@ -356,7 +382,24 @@ export function rankModels(catalog, task, options = {}) {
         else why.push(`${cheaper}× cheaper per solved task at equal quality.`);
       }
     }
-    if (index === 0) why.push(`${round(item.quality, 1)} quality at $${item.costPerTask.toFixed(4)} per ${UNIT_LABELS[modelUnit(item.model)] ?? 'task'}; ${item.attempts} expected attempts.`);
+    if (item.slug === value.slug) {
+      if (value.slug === top.slug) {
+        why.push(
+          valueMeta.qualityGap <= 0.1
+            ? `Best value: the highest quality at $${value.costPerTask.toFixed(4)} per solved task.`
+            : `Value pick: ${valueMeta.qualityGap} quality points below the best, at ${Math.round(valueMeta.costRatio * 100)}% of the cost.`
+        );
+      } else {
+        why.push(
+          `Value pick: ${valueMeta.qualityGap} quality points below the best, at ${Math.round(valueMeta.costRatio * 100)}% of the cost.`
+        );
+      }
+    }
+    if (index === 0) {
+      why.push(
+        `${round(item.quality, 1)} quality at $${item.costPerTask.toFixed(4)} per ${UNIT_LABELS[modelUnit(item.model)] ?? 'task'}; ${item.attempts} expected attempts.`
+      );
+    }
     if (task.modality === 'text' && item.model.contextWindow) why.push(`${formatContext(item.model.contextWindow)} context window.`);
     why.push(...tagWhy(item.model, task));
     const tradeoffs = [];
@@ -377,6 +420,7 @@ export function rankModels(catalog, task, options = {}) {
     softFloorApplied,
     candidates: finalists.slice(0, limit),
     all: finalists,
+    value: valueMeta,
     rejected: evaluated.filter(({ evaluation }) => !evaluation.eligible).map(({ model, evaluation }) => ({
       slug: model.slug,
       name: model.name,

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0",
+  "readAt": "2026-11-19",
+  "note": "Metadata only. Closed frontier models cannot be re-run on these datasets from this repo; the catalog uses published benchmark results and labels the confidence.",
+  "datasets": [
+    {
+      "id": "SWE-bench/SWE-bench_Verified",
+      "role": "agentic coding (verified subset)",
+      "url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified",
+      "downloads": 115563,
+      "lastModified": "2026-08-16T04:23:43.000Z",
+      "license": null,
+      "rows": 500,
+      "sizeBytes": 6304616,
+      "readAt": "2026-11-19",
+      "error": null
+    },
+    {
+      "id": "ScaleAI/SWE-bench_Pro",
+      "role": "agentic coding, harder held-out subset",
+      "url": "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro",
+      "downloads": 40712,
+      "lastModified": "2026-09-22T18:44:38.000Z",
+      "license": null,
+      "rows": 1424,
+      "sizeBytes": 15128250,
+      "readAt": "2026-11-19",
+      "error": null
+    },
+    {
+      "id": "SWE-bench/SWE-bench_Multilingual",
+      "role": "multilingual coding",
+      "url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual",
+      "downloads": 39506,
+      "lastModified": "2026-08-17T00:45:10.000Z",
+      "license": "mit",
+      "rows": 300,
+      "sizeBytes": 1875846,
+      "readAt": "2026-11-19",
+      "error": null
+    },
+    {
+      "id": "MMMU/MMMU",
+      "role": "multimodal reasoning",
+      "url": "https://huggingface.co/datasets/MMMU/MMMU",
+      "downloads": 93177,
+      "lastModified": "2026-10-05T02:04:29.000Z",
+      "license": "apache-2.0",
+      "rows": 11550,
+      "sizeBytes": 3655862232,
+      "readAt": "2026-11-19",
+      "error": null
+    },
+    {
+      "id": "lmarena-ai/arena-human-preference-55k",
+      "role": "human preference (LMArena)",
+      "url": "https://huggingface.co/datasets/lmarena-ai/arena-human-preference-55k",
+      "downloads": 5952,
+      "lastModified": "2024-05-17T03:04:04.000Z",
+      "license": "apache-2.0",
+      "rows": 57477,
+      "sizeBytes": 184175071,
+      "readAt": "2026-11-19",
+      "error": null
+    },
+    {
+      "id": "open-llm-leaderboard/results",
+      "role": "open-weight model evaluation results",
+      "url": "https://huggingface.co/datasets/open-llm-leaderboard/results",
+      "downloads": 30332,
+      "lastModified": "2025-03-15T05:57:14.000Z",
+      "license": null,
+      "rows": 0,
+      "sizeBytes": 0,
+      "readAt": "2026-11-19",
+      "error": null
+    },
+    {
+      "id": "Vchitect/VBench_sampled_video",
+      "role": "video generation quality",
+      "url": "https://huggingface.co/datasets/Vchitect/VBench_sampled_video",
+      "downloads": 2236,
+      "lastModified": "2026-08-23T14:23:23.000Z",
+      "license": "mit",
+      "rows": null,
+      "sizeBytes": null,
+      "readAt": "2026-11-19",
+      "error": null
+    }
+  ]
+}

@@ -9,11 +9,13 @@ const DEFAULTS = {
   presets: {
     balanced: null,
     quality: { quality: 0.82, cost: 0.08, speed: 0.02, context: 0.08 },
+    value: { quality: 0.62, cost: 0.33, speed: 0.05, context: 0.0 },
     cost: { quality: 0.35, cost: 0.65, speed: 0.0, context: 0.0 },
     speed: { quality: 0.3, cost: 0.1, speed: 0.6, context: 0.0 },
     privacy: { quality: 0.55, cost: 0.2, speed: 0.1, context: 0.15 }
   },
   anchors: { costPresetMultiplier: 0.5, qualityPresetMultiplier: 2, minCostMultiple: 2.5 },
+  value: { qualityTolerance: 6 },
   confidence: { highTags: ['frontier', 'benchmarked'], default: 'medium' }
 };
 
@@ -63,6 +65,8 @@ export function validatePolicy(policy) {
   const retry = policy.retry;
   if (!(retry.maxFailure > 0 && retry.maxFailure < 1)) throw new Error('policy.retry.maxFailure must be between 0 and 1');
   if (!(retry.failureMultiplier > 0)) throw new Error('policy.retry.failureMultiplier must be positive');
+  const tolerance = policy.value?.qualityTolerance;
+  if (!(tolerance >= 0 && tolerance <= 20)) throw new Error('policy.value.qualityTolerance must be between 0 and 20');
   return policy;
 }
 

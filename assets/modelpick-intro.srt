@@ -1,0 +1,83 @@
+11
+00:00:00,000 --> 00:00:02,678
+Your agent can build almost anything. But it still picks one
+
+12
+00:00:02,678 --> 00:00:05,355
+model for everything.
+
+21
+00:00:07,500 --> 00:00:12,268
+A frontier model to classify a support ticket. To generate a
+
+22
+00:00:12,268 --> 00:00:17,036
+barrel prop. To draft a thumbnail. Most of that spend is wasted.
+
+31
+00:00:18,000 --> 00:00:21,790
+This is ModelPick. A decision layer that picks the best value
+
+32
+00:00:21,790 --> 00:00:25,581
+at every node — not the cheapest, the best price-performance
+
+33
+00:00:25,581 --> 00:00:29,371
+— and prices it in cost per solved task.
+
+41
+00:00:30,171 --> 00:00:34,315
+Inside Claude Code, ask for a game-ready 3D asset. ModelPick
+
+42
+00:00:34,315 --> 00:00:38,459
+compares Tripo, Hunyuan, and Meshy, applies the constraints,
+
+43
+00:00:38,459 --> 00:00:42,603
+and returns one recommendation with the real cost. Twenty-one
+
+44
+00:00:42,603 --> 00:00:46,747
+cents per usable asset.
+
+51
+00:00:47,547 --> 00:00:51,124
+For a launch video, it plans the whole pipeline. Script, keyframes,
+
+52
+00:00:51,124 --> 00:00:54,701
+clips, voice, music. Five models, one budget, before a single
+
+53
+00:00:54,701 --> 00:00:58,278
+frame renders.
+
+61
+00:01:00,547 --> 00:01:04,351
+One command installs it into Codex, Cursor, DeepSeek Harness,
+
+62
+00:01:04,351 --> 00:01:08,156
+or Copilot. A CLI, an MCP server, and a skill. No gateway. No
+
+63
+00:01:08,156 --> 00:01:11,960
+keys stored.
+
+71
+00:01:13,547 --> 00:01:17,813
+Every price has a source. Every decision is benchmarked. And
+
+72
+00:01:17,813 --> 00:01:22,080
+the entire catalog is a JSON file you can change.
+
+81
+00:01:23,547 --> 00:01:27,440
+ModelPick. Stop paying frontier prices for non-frontier work.
+
+82
+00:01:27,440 --> 00:01:31,334
+Open source. MIT. On GitHub.

@@ -1,0 +1,57 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
+
+function localLinks(text) {
+  const links = new Set();
+  for (const match of text.matchAll(/\]\(([^)]+)\)/g)) links.add(match[1]);
+  for (const match of text.matchAll(/src="([^"]+)"/g)) links.add(match[1]);
+  return [...links].filter(
+    (link) =>
+      !link.startsWith('http') &&
+      !link.startsWith('#') &&
+      !link.startsWith('mailto:') &&
+      !link.startsWith('data:') &&
+      !link.startsWith('cursor:')
+  );
+}
+
+test('README local links point at real files', () => {
+  const links = localLinks(read('README.md'));
+  const missing = links
+    .map((link) => link.split('#')[0])
+    .filter(Boolean)
+    .filter((link) => !fs.existsSync(path.join(ROOT, link)));
+  assert.deepEqual(missing, [], `missing: ${missing.join(', ')}`);
+});
+
+test('launch kit links point at real files', () => {
+  const files = fs.readdirSync(path.join(ROOT, 'launch')).filter((file) => file.endsWith('.md'));
+  const missing = [];
+  for (const file of files) {
+    for (const link of localLinks(read(path.join('launch', file)))) {
+      const local = link.split('#')[0];
+      if (!local) continue;
+      if (!fs.existsSync(path.join(ROOT, 'launch', local))) missing.push(`${file} -> ${link}`);
+    }
+  }
+  assert.deepEqual(missing, []);
+});
+
+test('video deliverables exist and are non-empty', () => {
+  for (const file of ['assets/modelpick-intro.mp4', 'assets/modelpick-intro.srt', 'assets/modelpick-intro-thumb.png', 'launch/video-storyboard.md']) {
+    const stat = fs.statSync(path.join(ROOT, file));
+    assert.ok(stat.size > 1000, `${file} is too small`);
+  }
+});
+
+test('site assets mirror the README assets', () => {
+  for (const file of ['social-preview.png', 'terminal-pick.png', 'benchmark.png', 'modelpick-intro.mp4', 'modelpick-intro-thumb.png']) {
+    assert.ok(fs.existsSync(path.join(ROOT, 'site', 'assets', file)), `site/assets/${file} missing`);
+  }
+});

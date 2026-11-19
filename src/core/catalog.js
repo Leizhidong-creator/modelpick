@@ -143,7 +143,7 @@ function mergeOverride(models, overrides) {
 export function loadCatalog(options = {}) {
   const catalogFile = options.catalogFile ?? path.join(PACKAGE_ROOT, 'catalog', 'models.json');
   const tasksFile = options.tasksFile ?? path.join(PACKAGE_ROOT, 'catalog', 'tasks.json');
-  const overridesFile = options.overridesFile ?? paths().overrides;
+  const overridesFile = options.overridesFile === null ? null : (options.overridesFile ?? paths().overrides);
 
   let raw;
   let source = catalogFile;
@@ -183,7 +183,7 @@ export function loadCatalog(options = {}) {
     });
   }
 
-  if (fs.existsSync(overridesFile)) {
+  if (overridesFile && fs.existsSync(overridesFile)) {
     try {
       raw = { ...raw, models: mergeOverride(raw.models, readJson(overridesFile)) };
     } catch (error) {

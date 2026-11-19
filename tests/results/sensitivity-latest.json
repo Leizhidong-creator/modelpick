@@ -1,0 +1,413 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "sensitivity",
+  "generatedAt": "2026-11-19T07:55:55.020Z",
+  "toleranceRows": [
+    {
+      "tolerance": 3,
+      "picks": [
+        {
+          "task": "coding-agent",
+          "value": "claude-fable-5.2",
+          "quality": 92.32,
+          "qualityGap": 0,
+          "cost": 0.642403,
+          "costRatio": 53.654,
+          "label": "tolerance 3"
+        },
+        {
+          "task": "image-gen",
+          "value": "nano-banana-2.1",
+          "quality": 93.65,
+          "qualityGap": 2.3,
+          "cost": 0.036254,
+          "costRatio": 1.079,
+          "label": "tolerance 3"
+        },
+        {
+          "task": "video-gen",
+          "value": "kling-4.0",
+          "quality": 94,
+          "qualityGap": 1,
+          "cost": 0.84309,
+          "costRatio": 1.415,
+          "label": "tolerance 3"
+        },
+        {
+          "task": "3d-gen",
+          "value": "tripo-h3.1",
+          "quality": 94,
+          "qualityGap": 0,
+          "cost": 0.2148,
+          "costRatio": 1,
+          "label": "tolerance 3"
+        },
+        {
+          "task": "tts",
+          "value": "eleven-v4",
+          "quality": 95,
+          "qualityGap": 0,
+          "cost": 0.08488,
+          "costRatio": 5.629,
+          "label": "tolerance 3"
+        }
+      ]
+    },
+    {
+      "tolerance": 5,
+      "picks": [
+        {
+          "task": "coding-agent",
+          "value": "claude-fable-5.2",
+          "quality": 92.32,
+          "qualityGap": 0,
+          "cost": 0.642403,
+          "costRatio": 53.654,
+          "label": "tolerance 5"
+        },
+        {
+          "task": "image-gen",
+          "value": "nano-banana-2.1",
+          "quality": 93.65,
+          "qualityGap": 2.3,
+          "cost": 0.036254,
+          "costRatio": 1.079,
+          "label": "tolerance 5"
+        },
+        {
+          "task": "video-gen",
+          "value": "kling-4.0",
+          "quality": 94,
+          "qualityGap": 1,
+          "cost": 0.84309,
+          "costRatio": 1.415,
+          "label": "tolerance 5"
+        },
+        {
+          "task": "3d-gen",
+          "value": "tripo-h3.1",
+          "quality": 94,
+          "qualityGap": 0,
+          "cost": 0.2148,
+          "costRatio": 1,
+          "label": "tolerance 5"
+        },
+        {
+          "task": "tts",
+          "value": "eleven-v4",
+          "quality": 95,
+          "qualityGap": 0,
+          "cost": 0.08488,
+          "costRatio": 5.629,
+          "label": "tolerance 5"
+        }
+      ]
+    },
+    {
+      "tolerance": 6,
+      "picks": [
+        {
+          "task": "coding-agent",
+          "value": "gemini-4-carbon",
+          "quality": 87.3,
+          "qualityGap": 5,
+          "cost": 0.174245,
+          "costRatio": 14.553,
+          "label": "tolerance 6"
+        },
+        {
+          "task": "image-gen",
+          "value": "nano-banana-2.1",
+          "quality": 93.65,
+          "qualityGap": 2.3,
+          "cost": 0.036254,
+          "costRatio": 1.079,
+          "label": "tolerance 6"
+        },
+        {
+          "task": "video-gen",
+          "value": "kling-4.0",
+          "quality": 94,
+          "qualityGap": 1,
+          "cost": 0.84309,
+          "costRatio": 1.415,
+          "label": "tolerance 6"
+        },
+        {
+          "task": "3d-gen",
+          "value": "tripo-h3.1",
+          "quality": 94,
+          "qualityGap": 0,
+          "cost": 0.2148,
+          "costRatio": 1,
+          "label": "tolerance 6"
+        },
+        {
+          "task": "tts",
+          "value": "eleven-v4",
+          "quality": 95,
+          "qualityGap": 0,
+          "cost": 0.08488,
+          "costRatio": 5.629,
+          "label": "tolerance 6"
+        }
+      ]
+    },
+    {
+      "tolerance": 8,
+      "picks": [
+        {
+          "task": "coding-agent",
+          "value": "gemini-4-carbon",
+          "quality": 87.3,
+          "qualityGap": 5,
+          "cost": 0.174245,
+          "costRatio": 14.553,
+          "label": "tolerance 8"
+        },
+        {
+          "task": "image-gen",
+          "value": "nano-banana-2.1",
+          "quality": 93.65,
+          "qualityGap": 2.3,
+          "cost": 0.036254,
+          "costRatio": 1.079,
+          "label": "tolerance 8"
+        },
+        {
+          "task": "video-gen",
+          "value": "kling-4.0",
+          "quality": 94,
+          "qualityGap": 1,
+          "cost": 0.84309,
+          "costRatio": 1.415,
+          "label": "tolerance 8"
+        },
+        {
+          "task": "3d-gen",
+          "value": "tripo-h3.1",
+          "quality": 94,
+          "qualityGap": 0,
+          "cost": 0.2148,
+          "costRatio": 1,
+          "label": "tolerance 8"
+        },
+        {
+          "task": "tts",
+          "value": "voxtral-tts-3",
+          "quality": 88,
+          "qualityGap": 7,
+          "cost": 0.01508,
+          "costRatio": 1,
+          "label": "tolerance 8"
+        }
+      ]
+    },
+    {
+      "tolerance": 10,
+      "picks": [
+        {
+          "task": "coding-agent",
+          "value": "gemini-4-carbon",
+          "quality": 87.3,
+          "qualityGap": 5,
+          "cost": 0.174245,
+          "costRatio": 14.553,
+          "label": "tolerance 10"
+        },
+        {
+          "task": "image-gen",
+          "value": "nano-banana-2.1",
+          "quality": 93.65,
+          "qualityGap": 2.3,
+          "cost": 0.036254,
+          "costRatio": 1.079,
+          "label": "tolerance 10"
+        },
+        {
+          "task": "video-gen",
+          "value": "veo-3.1-fast",
+          "quality": 86,
+          "qualityGap": 9,
+          "cost": 0.596,
+          "costRatio": 1,
+          "label": "tolerance 10"
+        },
+        {
+          "task": "3d-gen",
+          "value": "tripo-h3.1",
+          "quality": 94,
+          "qualityGap": 0,
+          "cost": 0.2148,
+          "costRatio": 1,
+          "label": "tolerance 10"
+        },
+        {
+          "task": "tts",
+          "value": "voxtral-tts-3",
+          "quality": 88,
+          "qualityGap": 7,
+          "cost": 0.01508,
+          "costRatio": 1,
+          "label": "tolerance 10"
+        }
+      ]
+    }
+  ],
+  "retryRows": [
+    {
+      "multiplier": 0.8,
+      "picks": [
+        {
+          "task": "coding-agent",
+          "value": "gemini-4-carbon",
+          "quality": 87.3,
+          "qualityGap": 5,
+          "cost": 0.165614,
+          "costRatio": 16.189,
+          "label": "retry 0.8"
+        },
+        {
+          "task": "image-gen",
+          "value": "nano-banana-2.1",
+          "quality": 93.65,
+          "qualityGap": 2.3,
+          "cost": 0.035414,
+          "costRatio": 1.092,
+          "label": "retry 0.8"
+        },
+        {
+          "task": "video-gen",
+          "value": "kling-4.0",
+          "quality": 94,
+          "qualityGap": 1,
+          "cost": 0.82425,
+          "costRatio": 1.464,
+          "label": "retry 0.8"
+        },
+        {
+          "task": "3d-gen",
+          "value": "tripo-h3.1",
+          "quality": 94,
+          "qualityGap": 0,
+          "cost": 0.21,
+          "costRatio": 1,
+          "label": "retry 0.8"
+        },
+        {
+          "task": "tts",
+          "value": "eleven-v4",
+          "quality": 95,
+          "qualityGap": 0,
+          "cost": 0.08336,
+          "costRatio": 5.798,
+          "label": "retry 0.8"
+        }
+      ]
+    },
+    {
+      "multiplier": 1.15,
+      "picks": [
+        {
+          "task": "coding-agent",
+          "value": "gemini-4-carbon",
+          "quality": 87.3,
+          "qualityGap": 5,
+          "cost": 0.174245,
+          "costRatio": 14.553,
+          "label": "retry 1.15"
+        },
+        {
+          "task": "image-gen",
+          "value": "nano-banana-2.1",
+          "quality": 93.65,
+          "qualityGap": 2.3,
+          "cost": 0.036254,
+          "costRatio": 1.079,
+          "label": "retry 1.15"
+        },
+        {
+          "task": "video-gen",
+          "value": "kling-4.0",
+          "quality": 94,
+          "qualityGap": 1,
+          "cost": 0.84309,
+          "costRatio": 1.415,
+          "label": "retry 1.15"
+        },
+        {
+          "task": "3d-gen",
+          "value": "tripo-h3.1",
+          "quality": 94,
+          "qualityGap": 0,
+          "cost": 0.2148,
+          "costRatio": 1,
+          "label": "retry 1.15"
+        },
+        {
+          "task": "tts",
+          "value": "eleven-v4",
+          "quality": 95,
+          "qualityGap": 0,
+          "cost": 0.08488,
+          "costRatio": 5.629,
+          "label": "retry 1.15"
+        }
+      ]
+    },
+    {
+      "multiplier": 1.5,
+      "picks": [
+        {
+          "task": "coding-agent",
+          "value": "gemini-4-carbon",
+          "quality": 87.3,
+          "qualityGap": 5,
+          "cost": 0.183768,
+          "costRatio": 12.734,
+          "label": "retry 1.5"
+        },
+        {
+          "task": "image-gen",
+          "value": "nano-banana-2.1",
+          "quality": 93.65,
+          "qualityGap": 2.3,
+          "cost": 0.037128,
+          "costRatio": 1.064,
+          "label": "retry 1.5"
+        },
+        {
+          "task": "video-gen",
+          "value": "kling-4.0",
+          "quality": 94,
+          "qualityGap": 1,
+          "cost": 0.862715,
+          "costRatio": 1.363,
+          "label": "retry 1.5"
+        },
+        {
+          "task": "3d-gen",
+          "value": "tripo-h3.1",
+          "quality": 94,
+          "qualityGap": 0,
+          "cost": 0.2198,
+          "costRatio": 1,
+          "label": "retry 1.5"
+        },
+        {
+          "task": "tts",
+          "value": "eleven-v4",
+          "quality": 95,
+          "qualityGap": 0,
+          "cost": 0.08648,
+          "costRatio": 5.453,
+          "label": "retry 1.5"
+        }
+      ]
+    }
+  ],
+  "flips": {
+    "tolerance": 3,
+    "retry": 0
+  }
+}

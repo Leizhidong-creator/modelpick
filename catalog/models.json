@@ -2470,14 +2470,14 @@
       "slug": "seedance-2.5",
       "name": "Seedance 2.5",
       "provider": {
-        "id": "bytedance",
-        "name": "ByteDance",
+        "id": "fal",
+        "name": "fal.ai (ByteDance)",
         "env": [
-          "BYTEPLUS_API_KEY"
+          "FAL_KEY"
         ],
-        "keysUrl": "https://console.byteplus.com",
-        "docsUrl": "https://docs.byteplus.com/en/docs/ModelArk/Seedance",
-        "sdk": "REST"
+        "keysUrl": "https://fal.ai/dashboard/keys",
+        "docsUrl": "https://fal.ai/docs",
+        "sdk": "npm i @fal-ai/client"
       },
       "modality": "video",
       "contextWindow": null,
@@ -2532,14 +2532,14 @@
         "cinematic": true
       },
       "access": {
-        "apiModel": "seedance-2-5",
-        "apiModelNote": "ModelArk id; billing is per generated video token, so per-second figures are estimates."
+        "apiModel": "bytedance/seedance-2.5/us/text-to-video",
+        "apiModelNote": "fal queue endpoint; BytePlus/Volcengine use a token-based Ark API."
       },
       "notes": "30s, 4K, synchronized audio; strongest cinematic look above $0.20/s. Most expensive at 1080p+.",
       "sources": [
         {
-          "name": "Seedance API guide",
-          "url": "https://www.seeddance.io/blog/seedance-2-5-api-guide",
+          "name": "fal.ai",
+          "url": "https://fal.ai/models/bytedance/seedance-2.5/us/text-to-video",
           "readAt": "2026-11-19"
         }
       ]
@@ -2549,14 +2549,14 @@
       "slug": "seedream-5.5",
       "name": "Seedream 5.5",
       "provider": {
-        "id": "bytedance",
-        "name": "ByteDance",
+        "id": "fal",
+        "name": "fal.ai (ByteDance)",
         "env": [
-          "BYTEPLUS_API_KEY"
+          "FAL_KEY"
         ],
-        "keysUrl": "https://console.byteplus.com",
-        "docsUrl": "https://docs.byteplus.com/en/docs/ModelArk/Seedream",
-        "sdk": "REST"
+        "keysUrl": "https://fal.ai/dashboard/keys",
+        "docsUrl": "https://fal.ai/docs",
+        "sdk": "npm i @fal-ai/client"
       },
       "modality": "image",
       "contextWindow": null,
@@ -2602,8 +2602,8 @@
         "textInImage": true
       },
       "access": {
-        "apiModel": "bytedance/seedream/v5.5",
-        "apiModelNote": "fal route; BytePlus model id may differ."
+        "apiModel": "fal-ai/bytedance/seedream/v5.5/text-to-image",
+        "apiModelNote": "fal queue endpoint; BytePlus also serves Seedream 5.5."
       },
       "notes": "Cheapest credible 2K image at $0.03; transparent PNG, configurable dimensions, layerize variant. No 4K on fal.",
       "sources": [
@@ -2755,8 +2755,8 @@
         "pbr": true
       },
       "access": {
-        "apiModel": "tripo3d/h3.1/text-to-3d",
-        "apiModelNote": "fal route; Tripo direct uses the same H3.1 generation endpoint."
+        "apiModel": "h3.1",
+        "apiModelNote": "Tripo takes a task type (text_to_model / image_to_model), not an OpenAI-style model id."
       },
       "notes": "Cheapest usable game asset at $0.10; quad/retopo mesh +$0.05, HD texture $0.30, auto-rig separate.",
       "sources": [
@@ -2780,7 +2780,8 @@
         ],
         "keysUrl": "https://console.cloud.google.com/iam-admin/serviceaccounts",
         "docsUrl": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate",
-        "sdk": "npm i @google-cloud/aiplatform"
+        "sdk": "npm i @google-cloud/aiplatform",
+        "envMode": "all"
       },
       "modality": "video",
       "contextWindow": null,
@@ -2856,7 +2857,8 @@
         ],
         "keysUrl": "https://console.cloud.google.com/iam-admin/serviceaccounts",
         "docsUrl": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate",
-        "sdk": "npm i @google-cloud/aiplatform"
+        "sdk": "npm i @google-cloud/aiplatform",
+        "envMode": "all"
       },
       "modality": "video",
       "contextWindow": null,

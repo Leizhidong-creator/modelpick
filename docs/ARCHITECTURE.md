@@ -72,6 +72,7 @@ The bundled catalog is a **dated snapshot**. `modelpick update` fetches a newer 
 | Skill | `skills/modelpick/SKILL.md` | when to call, how to read results, fallback CLI |
 | Claude plugin | `plugins/modelpick/` | manifest, `.mcp.json`, command, skill |
 | Installers | `src/integrations/index.js` | idempotent writes with backups; never clobber invalid JSON |
+| Connections | `src/core/connect.js` | endpoint, auth header, SDK, curl example per provider |
 
 ## Extension points
 
@@ -90,6 +91,10 @@ The bundled catalog is a **dated snapshot**. `modelpick update` fetches a newer 
 ### Add an agent
 
 Add a branch to `installAgent()` that returns actions. Reuse `mergeMcpFile`, `upsertBlock`, `copySkill`. The decision engine is untouched.
+
+### Add a provider connection
+
+Add an entry to `PROVIDERS` in `src/core/connect.js` with `baseUrl`, `auth`, `platformUrl`, `docs`, `sdk`, and an `example(model)` function. The `show` command and MCP `get_setup` pick it up automatically.
 
 ### Add a surface
 

@@ -22,6 +22,7 @@ export async function runPick(ctx) {
     openWeights: Boolean(ctx.flags['open-weights'] || ctx.flags.local),
     contextTokens: numberOption(ctx.options, 'context', { min: 1 }),
     excludeProviders: csvOption(ctx.options, 'exclude'),
+    availableOnly: Boolean(ctx.flags.available || ctx.flags['only-available']),
     topK: numberOption(ctx.options, 'top', { min: 1, max: 10 }) ?? 3
   });
 
