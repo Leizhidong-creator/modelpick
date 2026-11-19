@@ -7,7 +7,7 @@
     "0.1.0": {
       "dist": {
         "tarball": "https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.0/modelpick-0.1.0.tgz",
-        "integrity": "sha512-LpD6L9mRUe9y+DOdvt7OG3lV0moKhLtzMLKL9fNAFy7SwJc5qKx3UeV5oSgQRBMdGa7VQ7cqFN5iQR4lpdEpKg=="
+        "integrity": "sha512-OUeS5764YK7TOGB6gc0VV87z4WZYVm/B+2yiGACsZA9575GyZPDtpG4AlEVQU06sx8yW+mbLjxVOI1RiZ9rZ4w=="
       },
       "version": "0.1.0",
       "license": "MIT",
