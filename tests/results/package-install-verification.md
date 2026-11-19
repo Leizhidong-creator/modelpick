@@ -1,0 +1,44 @@
+# Package install verification
+
+**Date:** 2026-11-19
+**Artifact:** `modelpick-0.1.0.tgz` produced by `npm pack --ignore-scripts`
+**Environment:** Windows 11, Node 24.15.0, clean temp project
+
+## Procedure
+
+```text
+$ npm pack --ignore-scripts --silent
+modelpick-0.1.0.tgz
+
+$ mkdir mp-pkg-test && cd mp-pkg-test
+$ echo '{"name":"mp-test","private":true}' > package.json
+$ npm install <repo>/modelpick-0.1.0.tgz
+
+$ npx modelpick version
+0.1.0
+
+$ npx modelpick pick "3D sword for Unity" --json
+{
+  "schemaVersion": "1.0",
+  "task": { "id": "3d-gen", ... },
+  "recommendation": { "slug": "tripo-h3.1", "costPerTask": 0.2148, ... }
+}
+```
+
+## What was checked
+
+| Check | Result |
+|---|---|
+| `bin` link works after install | pass (`npx modelpick version` → `0.1.0`) |
+| Catalog is packaged | pass (`catalog/models.json` present, 41 models) |
+| Assets are packaged | pass (`assets/modelpick-intro.mp4`, 13.6 MB) |
+| README-linked docs are packaged | pass (`launch/`, `tests/*.md`, `research/hf-evidence.json`) |
+| `pick --json` works from the installed package | pass |
+
+## Package size
+
+- Tarball: **14.3 MB**
+- Unpacked: **15.0 MB**
+- Main weight: the 93.5s intro film (13.6 MB). The CLI, catalog, docs, and tests are under 1.5 MB.
+
+The tarball is not published to npm; there is no npm auth on the build machine. This test proves the artifact is installable when the registry step is available.

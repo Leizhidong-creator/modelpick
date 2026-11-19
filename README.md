@@ -426,6 +426,7 @@ Requirements: Node ≥ 20.11. Runtime dependencies: **zero**. Python + Pillow ar
 - [Quality evidence](docs/QUALITY.md)
 - [Ecosystem and embedding](docs/ECOSYSTEM.md)
 - [Judge/decision models](docs/JUDGES.md)
+- [Publishing and launch runbook](docs/PUBLISHING.md)
 - [Per-node leaderboard](docs/LEADERBOARD.md)
 - [Adversarial review](tests/ADVERSARIAL_REVIEW.md)
 - [Test plan](tests/TEST_PLAN.md)
