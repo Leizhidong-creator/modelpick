@@ -140,6 +140,14 @@ test('generated AGENTS block uses a runnable install command', () => {
   assert.ok(!agents.includes('modelpick@latest'));
 });
 
+test('VS Code and Copilot reject --global rather than writing a project file', () => {
+  for (const agent of ['vscode', 'copilot']) {
+    const result = runCli(['setup', agent, '--global', '--json'], { cwd: tempDir() });
+    assert.equal(result.status, 1);
+    assert.ok(result.stderr.includes('ERR_GLOBAL_UNSUPPORTED'), `${agent}: ${result.stderr}`);
+  }
+});
+
 test('VS Code setup writes .vscode/mcp.json without clobbering siblings', () => {
   const cwd = tempDir();
   fs.mkdirSync(path.join(cwd, '.vscode'), { recursive: true });

@@ -261,6 +261,12 @@ export function installAgent(agentId, options = {}) {
       break;
     }
     case 'copilot': {
+      if (global) {
+        throw new ModelPickError('Copilot CLI has no portable global MCP path.', {
+          code: 'ERR_GLOBAL_UNSUPPORTED',
+          hint: 'Run `modelpick setup copilot` inside the repo, or add `.mcp.json` manually.'
+        });
+      }
       actions.push(mergeMcpFile(path.join(cwd, '.mcp.json'), server, { dryRun }));
       actions.push(...copySkill(path.join(cwd, '.github', 'skills', 'modelpick'), { dryRun }));
       actions.push(upsertBlock(path.join(cwd, 'AGENTS.md'), AGENTS_BLOCK, { dryRun }));
@@ -268,6 +274,12 @@ export function installAgent(agentId, options = {}) {
       break;
     }
     case 'vscode': {
+      if (global) {
+        throw new ModelPickError('VS Code MCP config is profile- or workspace-scoped.', {
+          code: 'ERR_GLOBAL_UNSUPPORTED',
+          hint: 'Run `modelpick setup vscode` in the repo, or add `.vscode/mcp.json` manually.'
+        });
+      }
       actions.push(mergeMcpFile(path.join(cwd, '.vscode', 'mcp.json'), server, { dryRun, key: 'servers', type: 'stdio' }));
       actions.push(...copySkill(path.join(cwd, '.agents', 'skills', 'modelpick'), { dryRun }));
       actions.push(upsertBlock(path.join(cwd, 'AGENTS.md'), AGENTS_BLOCK, { dryRun }));
@@ -298,6 +310,7 @@ export function detectAgents(cwd = process.cwd()) {
   if (fs.existsSync(path.join(cwd, '.cursor')) || fs.existsSync(home('.cursor'))) found.push('cursor');
   if (fs.existsSync(home('.dsh'))) found.push('dsh');
   if (fs.existsSync(home('.copilot'))) found.push('copilot');
+  if (fs.existsSync(path.join(cwd, '.vscode'))) found.push('vscode');
   if (!found.length) found.push('generic');
   return [...new Set(found)];
 }
