@@ -172,22 +172,23 @@ It writes `.cursor/mcp.json`, `.cursor/rules/modelpick.mdc`, `.cursor/skills/mod
 DSH has no `.mcp.json`. MCP servers are Cordis rows in the profile patch:
 
 ```bash
-npx -y github:Leizhidong-creator/modelpick setup dsh --global --write --profile desktop
+npx -y modelpick setup dsh --global --write --profile desktop
 ```
 
-It appends this row once and backs up the existing file first:
+It writes the portable skill to `~/.dsh/skills/modelpick/`, appends `AGENTS.md`, and adds one MCP row to `~/.dsh/profiles/desktop/cordis.patch.yml` (backing the file up first).
 
-```yaml
-- id: mcp-modelpick
-  name: '@deepseek-ai/dsh-mcp-client'
-  config:
-    serverName: modelpick
-    transport: stdio
-    command: npx
-    args: ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+**Restart DSH** after this. Then ask it:
+
+```text
+Use modelpick pick_model for a low-poly sword for Unity. Show costPerTask and the key.
 ```
 
-Restart DSH. Without `--write`, `setup dsh` prints the row instead of editing a live profile.
+Without `--write`, `setup dsh` prints the row instead of editing a live profile. The MCP server itself can be tested without DSH:
+
+```bash
+node bin/modelpick.js mcp
+# then send initialize + tools/list over stdio
+```
 
 ### GitHub Copilot CLI
 
