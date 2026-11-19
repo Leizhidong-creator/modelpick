@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-179%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-180%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-28%2F28-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>

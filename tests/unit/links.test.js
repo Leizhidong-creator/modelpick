@@ -96,3 +96,11 @@ test('the public test form page is generated', () => {
   assert.match(html, /Per-task matrix/);
   assert.match(html, /Adversarial cases/);
 });
+
+test('browser eval escapes every user-controlled field', () => {
+  const html = read('docs/eval.html');
+  assert.match(html, /function esc\(/);
+  assert.match(html, /esc\(m\.model\)/);
+  assert.match(html, /esc\(result\.task\)/);
+  assert.ok(!html.includes('<td>${m.model}</td>'));
+});

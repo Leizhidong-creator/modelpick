@@ -71,3 +71,9 @@ Do not record star counts as the only success metric. A reply that says “your 
 - https://x.com/DurgaraoGa51557/status/2123401451980611630
 - Reply to a developer who routed 2,564 coding-agent requests through a local LLM router.
 - Value-first: 184 read tokens per written token; cost per solved task with retries; invited the actual log to the CSV eval.
+
+## Targeted routing-policy reply
+
+- https://x.com/DurgaraoGa51557/status/2123401908903903331
+- Reply to a post arguing support and financial agents need different routing policies.
+- Value-first: policy boundary, hard constraints per node, cost per solved task.
