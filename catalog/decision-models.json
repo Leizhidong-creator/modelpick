@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-11-19",
+  "note": "Decision/judge models only. These are not generation models and are not ranked in the main catalog. Live API calls are opt-in and require the listed key.",
+  "models": [
+    {
+      "id": "jev-latest",
+      "name": "Jev (System One)",
+      "provider": "TypeSafe AI via Venice",
+      "endpoint": "https://api.venice.ai/api/v1/decisions",
+      "env": ["VENICE_API_KEY"],
+      "pricing": {
+        "unit": "mtok",
+        "input": 0.042,
+        "output": 0,
+        "currency": "USD"
+      },
+      "limits": {
+        "contextTokens": 64000,
+        "stateTokens": 32000,
+        "questions": 1000,
+        "images": 4
+      },
+      "questionTypes": ["noul", "choice", "score"],
+      "modalities": ["text", "image"],
+      "status": "beta",
+      "notes": "Typed decisions with probabilities and confidence. Anonymized privacy on Venice. Up to 32K state tokens and 64K total.",
+      "sources": [
+        {
+          "name": "Venice: Jev model page",
+          "url": "https://docs.venice.ai/models/jev",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "Venice: Typed decisions guide",
+          "url": "https://docs.venice.ai/guides/features/decisions",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "gemini-decision-1",
+      "name": "Gemini Decision 1",
+      "provider": "Google",
+      "endpoint": "https://generativelanguage.googleapis.com/v1beta/decisions",
+      "env": ["GEMINI_API_KEY"],
+      "pricing": {
+        "unit": "mtok",
+        "input": 0.1,
+        "output": 0,
+        "currency": "USD"
+      },
+      "limits": {
+        "contextTokens": 262144,
+        "questions": 1000
+      },
+      "questionTypes": ["noul", "choice", "score"],
+      "modalities": ["text", "image", "audio", "video", "pdf"],
+      "status": "beta",
+      "notes": "One multimodal input, up to 1,000 independent questions, 150-250ms end-to-end vendor latency, zero output tokens billed.",
+      "sources": [
+        {
+          "name": "Google: Gemini Decisions API",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "Apidog: Gemini Decisions API pricing and limits",
+          "url": "https://apidog.com/blog/gemini-decisions-api/",
+          "readAt": "2026-11-19"
+        }
+      ]
+    }
+  ]
+}

@@ -10,7 +10,7 @@ import { makeStyle } from './format.js';
 
 const COMMANDS = new Set([
   'pick', 'choose', 'recommend', 'plan', 'compare', 'models', 'list', 'tasks',
-  'setup', 'mcp', 'doctor', 'keys', 'update', 'bench', 'add-model', 'show', 'decide', 'verify', 'eval', 'version', 'help'
+  'setup', 'mcp', 'doctor', 'keys', 'update', 'bench', 'add-model', 'show', 'decide', 'judges', 'verify', 'eval', 'version', 'help'
 ]);
 
 const ALIASES = { choose: 'pick', recommend: 'pick', list: 'models' };
@@ -56,6 +56,7 @@ ${b('MAINTAIN')}
                      (--example prints a template, --remove <slug> deletes)
   show <model>       Endpoint, auth, SDK, curl example, and evidence for one model
   decide <task>      Build a portable decision packet for any judge/decision model
+  judges             List Jev, Gemini Decision 1, and their exact API setup
   verify             Verify catalog, evidence, benchmark, and package hashes
   eval <file>        Analyze your own pass/fail runs with Wilson intervals
 
@@ -212,6 +213,11 @@ export async function main(argv) {
       case 'decide': {
         const { runDecide } = await import('../commands/decide.js');
         await runDecide(ctx);
+        break;
+      }
+      case 'judges': {
+        const { runJudges } = await import('../commands/judges.js');
+        await runJudges(ctx);
         break;
       }
       case 'verify': {

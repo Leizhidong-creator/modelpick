@@ -46,10 +46,29 @@ A **judge model** can look at the shortlist, the task, and the constraints and r
 | Strong general judge | Claude Fable 5.2 | best overall quality on the current board |
 | Structured-output judge | GPT-6.2 Astra | strong instruction following and JSON |
 | Cheap judge | DeepSeek V4.1 Flash | ~2% of frontier cost; useful for high-volume calibration |
-| Decision-tuned / router model | Google's decision-model line and similar selection models | trained for choice, not generation |
+| Typed decision model | **Jev (System One)** | closed-set `noul` / `choice` / `score` with probabilities and confidence |
+| Typed decision model | **Gemini Decision 1** | 1–1,000 independent questions over one multimodal input, zero output tokens billed |
 | Ensemble | three of the above | majority/Borda; catches single-judge bias |
 
 No provider is endorsed. The judge list is catalog data, not a partnership claim.
+
+## Decision-model endpoints (catalog data)
+
+`modelpick judges` prints this table. These are **not generation models** and are not ranked in the main model catalog.
+
+| Model | API | Price | Limits | Key | Status |
+|---|---|---|---|---|---|
+| **Jev (System One)** | `POST https://api.venice.ai/api/v1/decisions`, model `jev-latest` | **$0.042 / 1M input**, output free | 32K state, 64K total, 4 images, 1,000 questions | `VENICE_API_KEY` | beta |
+| **Gemini Decision 1** | `POST https://generativelanguage.googleapis.com/v1beta/decisions`, model `gemini-decision-1` | **$0.10 / 1M input**, zero output | 262,144-token context, 1,000 questions; text/image/audio/video/PDF | `GEMINI_API_KEY` | beta |
+
+Sources checked **2026-11-19**:
+
+- https://docs.venice.ai/models/jev
+- https://docs.venice.ai/guides/features/decisions
+- https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/
+- https://apidog.com/blog/gemini-decisions-api/
+
+Both are decision APIs, not chat models. A live call needs the provider key; the repository ships the packet and the catalog row, not a bundled key or a default live call.
 
 ## Protocol
 

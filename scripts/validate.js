@@ -37,6 +37,21 @@ check('task schema', () => {
   return 'valid';
 });
 
+
+check('decision models', () => {
+  const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'catalog', 'decision-models.json'), 'utf8'));
+  if (data.schemaVersion !== 1) throw new Error('schemaVersion must be 1');
+  if (!Array.isArray(data.models) || data.models.length !== 2) throw new Error('expected two models');
+  for (const model of data.models) {
+    for (const key of ['id', 'name', 'provider', 'endpoint', 'env', 'pricing', 'limits', 'questionTypes', 'modalities', 'sources']) {
+      if (!(key in model)) throw new Error(`${model.id ?? '?'} missing ${key}`);
+    }
+    if (!model.endpoint.startsWith('https://')) throw new Error(`${model.id} endpoint must be https`);
+    if (!model.sources.length || model.sources.some((s) => !s.url.startsWith('https://') || !s.readAt)) throw new Error(`${model.id} needs sourced prices`);
+  }
+  return `${data.models.length} judge models`;
+});
+
 check('policy', () => {
   validatePolicy(loadPolicy());
   return 'valid';
