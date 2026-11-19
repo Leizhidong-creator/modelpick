@@ -60,7 +60,9 @@
     "validate": "node scripts/validate.js",
     "check": "node scripts/check.js",
     "assets": "python scripts/make_assets.py",
-    "prepare": "node scripts/validate.js"
+    "prepare": "node scripts/validate.js",
+    "smoke:live": "node scripts/live_smoke.js",
+    "test:form": "node scripts/test_form.js"
   },
   "keywords": [
     "ai",

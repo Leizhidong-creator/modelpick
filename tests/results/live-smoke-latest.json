@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "live-smoke",
+  "generatedAt": "2026-11-19T10:40:24.028Z",
+  "note": "Free/public endpoints only. No API keys are used or stored. These are connectivity/format checks, not model quality measurements.",
+  "cases": [
+    {
+      "name": "pollinations-text",
+      "ok": true,
+      "ms": 844,
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "body": "4"
+    },
+    {
+      "name": "pollinations-image",
+      "ok": true,
+      "ms": 840,
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 1876
+    },
+    {
+      "name": "github-models",
+      "ok": true,
+      "ms": 1196,
+      "status": 200,
+      "contentType": "text/plain",
+      "body": "OK\r\n"
+    },
+    {
+      "name": "ollama-local",
+      "ok": false,
+      "ms": 5,
+      "error": "fetch failed"
+    }
+  ]
+}
