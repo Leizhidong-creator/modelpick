@@ -86,7 +86,7 @@ const html = `<!doctype html>
   <div class="stat"><b>${Math.round((holdout.metrics?.top1 ?? 0) * 100)}%</b><span>held-out top-1</span></div>
   <div class="stat"><b>${Math.round((value.aggregate?.value?.qualityParity ?? 0) * 100)}%</b><span>value quality parity</span></div>
 </div>
-<p class="note">This is a decision benchmark, not an independent model-output benchmark. Media quality is an expert prior. Live smoke proves transport and response format, not quality.</p>
+<p class="note">This is a decision benchmark, not an independent model-output benchmark. Image/video quality is arena-informed; 3D/audio remain expert priors. Live smoke proves transport and response format, not quality.</p>
 
 <h2>Per-task matrix</h2>
 <table><thead><tr><th>Task</th><th class="num">Eligible</th><th>Top model</th><th class="num">Quality</th><th class="num">Cost / task</th><th>Value pick</th><th class="num">Value cost</th></tr></thead><tbody>

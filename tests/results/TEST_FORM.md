@@ -1,6 +1,6 @@
 # Test form
 
-Generated: 2026-11-19T11:06:27.411Z
+Generated: 2026-11-19T11:08:46.871Z
 
 This is the human-readable evidence sheet. Machine-readable results are in `tests/results/*.json`.
 
@@ -117,7 +117,7 @@ This is connectivity and response-format evidence, not a model-quality benchmark
 |---|---|---|
 | Best value per node | decision benchmark + held-out + value simulation | not a live output benchmark |
 | Key-aware fallback | availability + setup tests | not a real provider call |
-| Media costs | unit pricing + sources | media quality is an expert prior |
+| Media costs | unit pricing + sources | image/video quality is arena-informed; 3D/audio remain expert priors |
 | Connects to agents | setup integration tests | not every client version |
 | No key storage | security tests + code review | not a formal audit |
 

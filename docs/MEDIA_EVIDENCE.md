@@ -54,6 +54,47 @@ Veo 3.1 was rated 95, above Seedance 2.5 (93), but the arena puts it **#26**, 19
 
 `qualityConfidence` is `mixed` for video as well.
 
+
+## Image-to-3D
+
+Source: [benchmark.ai image-to-3D](https://www.benchmark.ai/image-to-3d), updated 2026-10-06. 357 fixed input images, 70,331 pairwise human matches.
+
+| Rank | Model | Score | 95% CI |
+|---:|---|---:|---:|
+| 1 | Hi3D v3.0 | 1378 | ±18 |
+| 2 | Meshy v7.1 | 1313 | ±17 |
+| 3 | Meshy v7 | 1301 | ±17 |
+| 4 | Tripo H3.1 | 1270 | ±17 |
+| 5 | Hunyuan3D 3.1 Pro | 1156 | ±16 |
+| 6 | Seed3D 2.0 | 1111 | ±16 |
+| 7 | TRELLIS.2 | 1019 | ±16 |
+
+### Why I did not change the 3D scores
+
+The catalog task is **text-to-3D** (`3d-gen`); this leaderboard is **image-to-3D**. They share geometry/appearance quality, but the input contract is different. Changing a text-to-3D prior from an image-to-3D leaderboard would be a category error.
+
+What it does tell me:
+
+- Meshy 7.1 (#2) is not a weak fallback; it is a strong geometry model.
+- Tripo H3.1 (#4) is credible but not the clear quality leader.
+- Hunyuan3D 3.1 Pro (#5) is behind Tripo, not ahead.
+- TRELLIS.2 (#7) is a cheap research option, not a hero model.
+
+The catalog notes now reference this evidence; the scores stay unchanged until a text-to-3D comparison exists. That is a deliberate “evidence recorded, not over-applied” decision.
+
+## Text-to-speech
+
+Source: [TTS Arena V2](https://pass.io/index/board/tts-arena-v2), read 2026-11-19. 44 models, Elo.
+
+| Rank | Model | Elo |
+|---:|---|---:|
+| 8 | Eleven v3 | 1556 |
+| 19 | Eleven Flash v2.5 | 1529 |
+| 20 | Eleven Multilingual v2 | 1523 |
+| 31 | Kokoro | 1477 |
+
+The catalog has **Eleven v4** and **Voxtral TTS 3**, neither of which is on this board. The family signal is consistent (Eleven is strong but not #1), but there is no row-level comparison for the exact catalog SKUs. No score change.
+
 ## Media confidence
 
 `recommend` now returns:

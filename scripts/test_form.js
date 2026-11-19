@@ -122,7 +122,7 @@ const lines = [
   '|---|---|---|',
   '| Best value per node | decision benchmark + held-out + value simulation | not a live output benchmark |',
   '| Key-aware fallback | availability + setup tests | not a real provider call |',
-  '| Media costs | unit pricing + sources | media quality is an expert prior |',
+  '| Media costs | unit pricing + sources | image/video quality is arena-informed; 3D/audio remain expert priors |',
   '| Connects to agents | setup integration tests | not every client version |',
   '| No key storage | security tests + code review | not a formal audit |',
   '',
