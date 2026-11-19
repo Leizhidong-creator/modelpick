@@ -21,7 +21,7 @@
     "minCostMultiple": 2.5
   },
   "value": {
-    "qualityTolerance": 6,
+    "qualityTolerance": 8,
     "description": "A value pick is the cheapest model within 6 quality points of the best eligible model. This is price-performance, not the cheapest model."
   },
   "confidence": {

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadCatalog } from '../../src/core/catalog.js';
+import { loadPolicy } from '../../src/core/policy.js';
 import {
   qualityFor,
   attemptsFor,
@@ -113,5 +114,18 @@ test('video duration requirement filters short generators', () => {
   const ranked = rankModels(catalog, video, { constraints: { minDurationSec: 30 }, limit: 10 });
   assert.ok(ranked.candidates.length > 0);
   assert.ok(ranked.candidates.every((candidate) => ['kling-4.0', 'seedance-2.5'].includes(candidate.slug)));
+});
+
+test('value pick is the cheapest model inside the policy quality band', () => {
+  const tolerance = loadPolicy().value.qualityTolerance;
+  for (const task of [coding, image, video, catalog.taskById.get('tts')]) {
+    const ranked = rankModels(catalog, task, { limit: 50 });
+    const best = Math.max(...ranked.all.map((item) => item.quality));
+    const band = ranked.all.filter((item) => item.quality >= best - tolerance);
+    assert.ok(band.length > 0);
+    const cheapest = band.reduce((min, item) => (item.costPerTask < min.costPerTask ? item : min), band[0]);
+    assert.equal(ranked.value.slug, cheapest.slug, task.id);
+    assert.ok(ranked.value.quality >= best - tolerance, `${task.id} value outside band`);
+  }
 });
 

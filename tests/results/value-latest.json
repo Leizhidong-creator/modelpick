@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "value-simulation",
-  "generatedAt": "2026-11-19T08:32:23.379Z",
+  "generatedAt": "2026-11-19T08:40:02.653Z",
   "trialsPerTask": 4000,
   "parityThreshold": 0.9,
   "tasks": [
@@ -342,17 +342,17 @@
           "parityPass": true
         },
         "value": {
-          "model": "eleven-v4",
-          "name": "Eleven v4",
-          "quality": 95,
-          "firstPass": 0.943,
-          "solved": 4000,
-          "solveRate": 1,
-          "spent": 339.520000000001,
-          "costPerSolved": 0.08488000000000025,
-          "attemptsMean": 1.061,
-          "qualityParity": 1,
-          "costRatio": 1.001,
+          "model": "voxtral-tts-3",
+          "name": "Voxtral TTS 3",
+          "quality": 88,
+          "firstPass": 0.862,
+          "solved": 3998,
+          "solveRate": 0.9995,
+          "spent": 60.293999999997865,
+          "costPerSolved": 0.015081040520259596,
+          "attemptsMean": 1.1595,
+          "qualityParity": 0.914,
+          "costRatio": 0.178,
           "parityPass": true
         },
         "balanced": {
@@ -362,9 +362,9 @@
           "firstPass": 0.862,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 59.72199999999795,
-          "costPerSolved": 0.014930499999999488,
-          "attemptsMean": 1.1485,
+          "spent": 59.78699999999794,
+          "costPerSolved": 0.014946749999999485,
+          "attemptsMean": 1.14975,
           "qualityParity": 0.914,
           "costRatio": 0.176,
           "parityPass": true
@@ -376,8 +376,8 @@
           "firstPass": null,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 61.144999999999186,
-          "costPerSolved": 0.015286249999999797,
+          "spent": 61.105999999999156,
+          "costPerSolved": 0.015276499999999789,
           "attemptsMean": null,
           "qualityParity": null,
           "costRatio": 0.18,
@@ -404,11 +404,11 @@
       "parityPassShare": 0.8
     },
     "value": {
-      "firstPass": 0.91,
+      "firstPass": 0.894,
       "solveRate": 1,
-      "costPerSolved": 0.2702,
-      "qualityParity": 0.972,
-      "costRatio": 0.58,
+      "costPerSolved": 0.2563,
+      "qualityParity": 0.954,
+      "costRatio": 0.416,
       "parityPassShare": 1
     },
     "balanced": {

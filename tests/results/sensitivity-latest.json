@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "sensitivity",
-  "generatedAt": "2026-11-19T08:30:06.839Z",
+  "generatedAt": "2026-11-19T08:38:58.205Z",
   "toleranceRows": [
     {
       "tolerance": 3,
@@ -50,106 +50,6 @@
           "cost": 0.08488,
           "costRatio": 5.629,
           "label": "tolerance 3"
-        }
-      ]
-    },
-    {
-      "tolerance": 5,
-      "picks": [
-        {
-          "task": "coding-agent",
-          "value": "claude-fable-5.2",
-          "quality": 92.32,
-          "qualityGap": 0,
-          "cost": 0.642403,
-          "costRatio": 3.687,
-          "label": "tolerance 5"
-        },
-        {
-          "task": "image-gen",
-          "value": "nano-banana-2.1",
-          "quality": 93.65,
-          "qualityGap": 2.3,
-          "cost": 0.036254,
-          "costRatio": 1.079,
-          "label": "tolerance 5"
-        },
-        {
-          "task": "video-gen",
-          "value": "kling-4.0",
-          "quality": 94,
-          "qualityGap": 1,
-          "cost": 0.84309,
-          "costRatio": 1.415,
-          "label": "tolerance 5"
-        },
-        {
-          "task": "3d-gen",
-          "value": "tripo-h3.1",
-          "quality": 94,
-          "qualityGap": 0,
-          "cost": 0.2148,
-          "costRatio": 1,
-          "label": "tolerance 5"
-        },
-        {
-          "task": "tts",
-          "value": "eleven-v4",
-          "quality": 95,
-          "qualityGap": 0,
-          "cost": 0.08488,
-          "costRatio": 5.629,
-          "label": "tolerance 5"
-        }
-      ]
-    },
-    {
-      "tolerance": 6,
-      "picks": [
-        {
-          "task": "coding-agent",
-          "value": "gemini-4-carbon",
-          "quality": 87.3,
-          "qualityGap": 5,
-          "cost": 0.174245,
-          "costRatio": 1,
-          "label": "tolerance 6"
-        },
-        {
-          "task": "image-gen",
-          "value": "seedream-5.5",
-          "quality": 90.65,
-          "qualityGap": 5.3,
-          "cost": 0.0336,
-          "costRatio": 1,
-          "label": "tolerance 6"
-        },
-        {
-          "task": "video-gen",
-          "value": "kling-4.0",
-          "quality": 94,
-          "qualityGap": 1,
-          "cost": 0.84309,
-          "costRatio": 1.415,
-          "label": "tolerance 6"
-        },
-        {
-          "task": "3d-gen",
-          "value": "tripo-h3.1",
-          "quality": 94,
-          "qualityGap": 0,
-          "cost": 0.2148,
-          "costRatio": 1,
-          "label": "tolerance 6"
-        },
-        {
-          "task": "tts",
-          "value": "eleven-v4",
-          "quality": 95,
-          "qualityGap": 0,
-          "cost": 0.08488,
-          "costRatio": 5.629,
-          "label": "tolerance 6"
         }
       ]
     },
@@ -296,11 +196,11 @@
         },
         {
           "task": "tts",
-          "value": "eleven-v4",
-          "quality": 95,
-          "qualityGap": 0,
-          "cost": 0.08336,
-          "costRatio": 5.798,
+          "value": "voxtral-tts-3",
+          "quality": 88,
+          "qualityGap": 7,
+          "cost": 0.014378,
+          "costRatio": 1,
           "label": "retry 0.8"
         }
       ]
@@ -346,11 +246,11 @@
         },
         {
           "task": "tts",
-          "value": "eleven-v4",
-          "quality": 95,
-          "qualityGap": 0,
-          "cost": 0.08488,
-          "costRatio": 5.629,
+          "value": "voxtral-tts-3",
+          "quality": 88,
+          "qualityGap": 7,
+          "cost": 0.01508,
+          "costRatio": 1,
           "label": "retry 1.15"
         }
       ]
@@ -396,11 +296,11 @@
         },
         {
           "task": "tts",
-          "value": "eleven-v4",
-          "quality": 95,
-          "qualityGap": 0,
-          "cost": 0.08648,
-          "costRatio": 5.453,
+          "value": "voxtral-tts-3",
+          "quality": 88,
+          "qualityGap": 7,
+          "cost": 0.01586,
+          "costRatio": 1,
           "label": "retry 1.5"
         }
       ]

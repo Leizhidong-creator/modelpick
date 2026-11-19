@@ -15,7 +15,7 @@ const DEFAULTS = {
     privacy: { quality: 0.55, cost: 0.2, speed: 0.1, context: 0.15 }
   },
   anchors: { costPresetMultiplier: 0.5, qualityPresetMultiplier: 2, minCostMultiple: 2.5 },
-  value: { qualityTolerance: 6 },
+  value: { qualityTolerance: 8 },
   confidence: { highTags: ['frontier', 'benchmarked'], default: 'medium' }
 };
 

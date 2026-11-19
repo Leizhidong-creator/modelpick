@@ -10,7 +10,7 @@ import { rankModels } from '../src/core/score.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TASKS = ['coding-agent', 'image-gen', 'video-gen', '3d-gen', 'tts'];
-const TOLERANCES = [3, 5, 6, 8, 10];
+const TOLERANCES = [3, 8, 10];
 const RETRIES = [0.8, 1.15, 1.5];
 
 const catalog = loadCatalog({ preferCache: false });
@@ -73,7 +73,7 @@ fs.writeFileSync(path.join(ROOT, 'tests', 'results', 'sensitivity-latest.json'),
 console.log('\n  Tolerance sensitivity (value pick)');
 console.log('  task            tol=3                tol=6                tol=10');
 for (let i = 0; i < TASKS.length; i += 1) {
-  const cells = TOLERANCES.filter((t) => [3, 6, 10].includes(t)).map((t) => {
+  const cells = TOLERANCES.filter((t) => [3, 8, 10].includes(t)).map((t) => {
     const row = toleranceRows.find((item) => item.tolerance === t);
     const pick = row.picks[i];
     return `${pick.value} $${pick.cost.toFixed(3)}`;

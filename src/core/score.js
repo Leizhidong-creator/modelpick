@@ -338,7 +338,7 @@ export function rankModels(catalog, task, options = {}) {
   const bestQuality = Math.max(...ranked.map((item) => item.quality));
   const cheapest = Math.min(...ranked.map((item) => item.costPerTask));
   const fastest = Math.min(...ranked.map((item) => item.latencySec));
-  const tolerance = options.valueTolerance ?? loadPolicy().value?.qualityTolerance ?? 6;
+  const tolerance = options.valueTolerance ?? loadPolicy().value?.qualityTolerance ?? 8;
   const leader = ranked[0];
   // Value is the cheapest model within tolerance of the best quality. If the
   // band is empty, fall back to the top recommendation rather than an arbitrary

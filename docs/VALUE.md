@@ -36,7 +36,7 @@ The retry curve is a model, not a measurement. It is shown on every result and t
 
 1. Filter to eligible models (modality, capability, context, budget, openness, keys).
 2. Find the best quality \(Q^*\).
-3. Keep models with \(Q \ge Q^* - 6\).
+3. Keep models with \(Q \ge Q^* - 8\).
 4. Pick the lowest \(C\) in that band. If the band is empty, fall back to the top recommendation.
 
 Two properties matter:
@@ -55,12 +55,12 @@ Two properties matter:
 | Strategy | First-pass | Cost / solved | Quality parity | Cost vs frontier | Parity ≥90% |
 |---|---:|---:|---:|---:|---:|
 | Frontier always | 93.7% | $0.6417 | 100.0% | 100.0% | 100% |
-| **Value pick** | **91.0%** | **$0.2702** | **97.2%** | **58.0%** | **100%** |
+| **Value pick** | **89.4%** | **$0.2563** | **95.4%** | **41.6%** | **100%** |
 | Cheapest always | 87.6% | $0.2060 | 93.5% | 39.1% | 80% |
 | Task default (balanced) | 88.3% | $0.2077 | 94.2% | 39.6% | 80% |
 | Per-trial oracle | — | $0.1952 | 100.0% | 37.7% | 100% |
 
-**Reading it:** the value pick keeps **97.2% of frontier first-pass quality at 58% of the cost**, and clears the 90%-parity bar on all five tasks. The cheapest strategy saves 19 cost points but loses 3.7 quality points and fails the parity bar on two of five tasks. That is the trade the product exists to make explicit.
+**Reading it:** the value pick keeps **95.4% of frontier first-pass quality at 41.6% of the cost**, and clears the 90%-parity bar on all five tasks. The cheapest strategy saves 2.5 cost points but loses 1.9 quality points and fails the parity bar on two of five tasks. That is the trade the product exists to make explicit.
 
 This is a **synthetic sanity check**, not a live model eval. It validates the arithmetic and the definition. The decision benchmark (`bench/run.js`) is the separate test of whether the labels agree with the router.
 
@@ -68,13 +68,13 @@ This is a **synthetic sanity check**, not a live model eval. It validates the ar
 
 `node bench/sensitivity.js` varies the two assumptions users cannot see: the quality band and the retry multiplier.
 
-| Task | band ±3 | band ±6 (default) | band ±10 |
+| Task | band ±3 | band ±8 (default) | band ±10 |
 |---|---|---|---|
 | coding-agent | Claude Fable 5.2 $0.642 | Gemini 4 Carbon $0.174 | Gemini 4 Carbon $0.174 |
 | image-gen | Nano Banana 2.1 $0.036 | Seedream 5.5 $0.034 | Seedream 5.5 $0.034 |
 | video-gen | Kling 4.0 $0.843 | Kling 4.0 $0.843 | Veo 3.1 Fast $0.596 |
 | 3d-gen | Tripo H3.1 $0.215 | Tripo H3.1 $0.215 | Tripo H3.1 $0.215 |
-| tts | Eleven v4 $0.085 | Eleven v4 $0.085 | Voxtral TTS 3 $0.015 |
+| tts | Eleven v4 $0.085 | Voxtral TTS 3 $0.015 | Voxtral TTS 3 $0.015 |
 
 - **Value pick flips across bands: 4/5 tasks.** The definition is sensitive; the UI always shows the band and the quality gap.
 - **Value pick flips across retry multipliers 0.8/1.15/1.5: 0/5 tasks.** Cost ranking is robust to the retry assumption in this catalog.
