@@ -103,6 +103,24 @@ export async function runVerify(ctx) {
   }
   add('hashes', Object.keys(hashes).length === 4 ? 'pass' : 'fail', 'catalog/policy hashes available', JSON.stringify(hashes));
 
+  const checksumFile = path.join(ROOT, 'catalog', 'checksums.json');
+  if (fs.existsSync(checksumFile)) {
+    const manifest = readJson(checksumFile);
+    const mismatched = [];
+    for (const [file, expected] of Object.entries(manifest?.files ?? {})) {
+      const absolute = path.join(ROOT, file);
+      if (!fs.existsSync(absolute) || sha256(absolute) !== expected) mismatched.push(file);
+    }
+    add(
+      'integrity',
+      mismatched.length === 0 ? 'pass' : 'fail',
+      'catalog matches the shipped checksums',
+      mismatched.length ? `changed: ${mismatched.join(', ')}` : `${Object.keys(manifest?.files ?? {}).length} files`
+    );
+  } else {
+    add('integrity', 'warn', 'catalog/checksums.json missing', 'run node scripts/checksums.js');
+  }
+
   const receipt = {
     schemaVersion: '1.0',
     kind: 'verification-receipt',

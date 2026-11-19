@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google" content="notranslate" />
   <title>ModelPick — the model router for AI agents</title>
   <meta name="description" content="Pick the right model at every step. Cost per solved task across coding, image, video, 3D, and audio. Zero dependencies, MCP-native." />
   <meta property="og:title" content="ModelPick — stop paying frontier prices for non-frontier work" />
@@ -25,7 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="notranslate">
   <nav class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#"><span class="logo">MP</span> ModelPick</a>
@@ -35,7 +36,7 @@
         <a href="#agents">Agents</a>
         <a href="#benchmark">Benchmark</a>
         <a href="#extend">Extend</a>
-        <a href="#film">Film</a>
+        <a href="#video">Video</a>
         <a class="nav-cta" href="https://github.com/Leizhidong-creator/modelpick">GitHub ↗</a>
       </div>
     </div>
@@ -45,8 +46,8 @@
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow"><span class="dot"></span> v0.1 · catalog 2026.11.19 · MIT</div>
-        <h1>Stop paying <span class="muted">frontier prices</span> for <span class="accent">non-frontier work.</span></h1>
-        <p class="lede">Your agent is model-blind. ModelPick picks the right model at <strong>every node</strong> — coding, image, video, 3D, audio — and prices it in <strong>cost per solved task</strong>, not tokens.</p>
+        <h1>Stop overpaying for <span class="accent">simple steps.</span></h1>
+        <p class="lede">Your agent uses one model for everything. ModelPick picks the model, shows the real cost, and gives you the key — for coding, image, video, 3D, and audio.</p>
         <div class="install">
           <span class="prompt">$</span>
           <code id="hero-cmd">npx -y github:Leizhidong-creator/modelpick pick "3D sword"</code>
@@ -54,14 +55,14 @@
         </div>
         <div class="hero-actions">
           <a class="btn primary" href="https://github.com/Leizhidong-creator/modelpick">Star on GitHub</a>
-          <a class="btn" href="#film">Watch the film</a>
+          <a class="btn" href="#video">Watch the video</a>
           <a class="btn" href="#agents">Install for your agent</a>
           <a class="btn" href="https://github.com/Leizhidong-creator/modelpick#30-second-quickstart">Docs</a>
         </div>
         <div class="hero-meta">
           <span><i></i> zero dependencies</span>
           <span><i></i> no key needed</span>
-          <span><i></i> 41 models · 20 nodes</span>
+          <span><i></i> 40 models · 20 nodes</span>
         </div>
       </div>
 
@@ -93,18 +94,18 @@ cost <span class="cy">$0.21</span> / usable asset
 
   <div class="strip">
     <div class="wrap strip-inner">
-      <div class="stat"><b>41</b><span>models · 18 providers</span></div>
+      <div class="stat"><b>40</b><span>models · 18 providers</span></div>
       <div class="stat"><b>20</b><span>task nodes · 5 modalities</span></div>
       <div class="stat"><b>0</b><span>runtime dependencies</span></div>
-      <div class="stat"><b>0.5ms</b><span>p95 decision latency</span></div>
+      <div class="stat"><b>1.1ms</b><span>p95 decision latency</span></div>
     </div>
   </div>
 
-  <section id="film" style="padding-top:56px;padding-bottom:20px">
+  <section id="video" style="padding-top:56px;padding-bottom:20px">
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="kicker">93 seconds</div>
+          <div class="kicker">Intro video</div>
           <h2>Not the cheapest. The best value.</h2>
         </div>
         <p>The problem, the 3D decision, the five-model video plan, and the evidence — with English voiceover. Captions in the repo.</p>
@@ -123,7 +124,7 @@ cost <span class="cy">$0.21</span> / usable asset
       <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="kicker">The bill is not the token price</div>
+            <div class="kicker">The cheapest token is not the cheapest task</div>
             <h2>Cheap tokens, expensive work.</h2>
           </div>
           <p>A model that is 10× cheaper per token but needs 1.8× the attempts and 2× the output is not 10× cheaper. ModelPick computes the denominator that matters.</p>
@@ -179,7 +180,7 @@ cost <span class="cy">$0.21</span> / usable asset
           <h3>The launch video plan</h3>
           <p>Script → keyframes → clips → voiceover → music. Each step gets a different model, a cost estimate, and a setup block. The total is priced before you render a frame.</p>
           <ul class="checklist">
-            <li>Hard constraints, not vibes: duration, audio, references, resolution</li>
+            <li>Hard constraints first: duration, audio, references, resolution</li>
             <li>Alternatives with the quality and cost trade-off spelled out</li>
             <li>Retries included; provider price and read date attached</li>
             <li>Works offline; no key required to decide</li>
@@ -222,33 +223,35 @@ cost <span class="cy">$0.21</span> / usable asset
         <div class="section-head">
           <div>
             <div class="kicker">Install</div>
-            <h2>Where you already work.</h2>
+            <h2>Set up your agent.</h2>
           </div>
-          <p>One command writes the MCP config and the skill. Idempotent, backed up, and it never clobbers your other servers.</p>
+          <p>Pick an agent. Copy the command. Restart it. The config below is what gets written — no hidden step.</p>
         </div>
-        <div class="agents">
-          <div class="agent"><b>Claude Code</b><span>setup claude-code</span></div>
-          <div class="agent"><b>Codex CLI</b><span>setup codex</span></div>
-          <div class="agent"><b>Cursor</b><span>setup cursor</span></div>
-          <div class="agent"><b>DeepSeek Harness</b><span>setup dsh</span></div>
-          <div class="agent"><b>Copilot CLI</b><span>setup copilot</span></div>
+        <div class="agents" role="tablist" aria-label="Agent setup">
+          <button class="agent active" data-agent="claude" role="tab" aria-selected="true"><b>Claude Code</b><span>claude-code</span></button>
+          <button class="agent" data-agent="codex" role="tab" aria-selected="false"><b>Codex CLI</b><span>codex</span></button>
+          <button class="agent" data-agent="cursor" role="tab" aria-selected="false"><b>Cursor</b><span>cursor</span></button>
+          <button class="agent" data-agent="dsh" role="tab" aria-selected="false"><b>DeepSeek Harness</b><span>dsh</span></button>
+          <button class="agent" data-agent="copilot" role="tab" aria-selected="false"><b>Copilot CLI</b><span>copilot</span></button>
         </div>
-        <div class="split" style="margin-top:28px">
-          <div class="code-card">
-            <div class="code-head"><span>claude code</span><span>plugin marketplace</span></div>
-            <pre>/plugin marketplace add Leizhidong-creator/modelpick
-/plugin install modelpick@modelpick</pre>
+        <div class="agent-panel">
+          <div class="agent-panel-head">
+            <div>
+              <h3 id="agent-name">Claude Code</h3>
+              <p id="agent-note">Project MCP config, skill, and a CLAUDE.md block.</p>
+            </div>
+            <button class="agent-copy" data-copy="#agent-code">Copy config</button>
           </div>
-          <div class="code-card">
-            <div class="code-head"><span>any mcp client</span><span>stdio</span></div>
-            <pre>{
-  "mcpServers": {
-    "modelpick": {
-      "command": "npx",
-      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
-    }
-  }
-}</pre>
+          <div class="agent-grid">
+            <div class="code-card">
+              <div class="code-head"><span id="agent-file">.mcp.json</span><span id="agent-kind">project</span></div>
+              <pre id="agent-code"></pre>
+            </div>
+            <div class="agent-steps">
+              <div class="step"><span>1</span><div><b>Run this</b><code id="agent-command"></code></div></div>
+              <div class="step"><span>2</span><div><b>Restart the agent</b><p id="agent-restart"></p></div></div>
+              <div class="step"><span>3</span><div><b>Ask it</b><code id="agent-ask">pick a model for a 3D sword for Unity</code></div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -258,8 +261,8 @@ cost <span class="cy">$0.21</span> / usable asset
       <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="kicker">Benchmark, not vibes</div>
-            <h2>Decisions you can audit.</h2>
+            <div class="kicker">Tested, not guessed</div>
+            <h2>Every pick has a test.</h2>
           </div>
           <p>115 development runs and 35 held-out runs. Every pick, constraint, and price perturbation is in the repo.</p>
         </div>
@@ -275,7 +278,7 @@ cost <span class="cy">$0.21</span> / usable asset
                 <tr><td>Top-3 acceptable</td><td>100%</td><td>100%</td><td>≥92%</td></tr>
                 <tr><td>Hard constraints</td><td>100%</td><td>100%</td><td>100%</td></tr>
                 <tr><td>Price stability</td><td>100%</td><td>100%</td><td>≥80%</td></tr>
-                <tr><td>p95 latency</td><td>0.5ms</td><td>0.5ms</td><td>≤300ms</td></tr>
+                <tr><td>p95 latency</td><td>1.1ms</td><td>1.1ms</td><td>≤300ms</td></tr>
               </tbody>
             </table>
             <p class="note">Decision benchmark, not a model-output benchmark. Quality labels are expert-authored; media scores are priors. Full methodology and known gaps in the repo.</p>
@@ -323,7 +326,7 @@ plans.json    multi-step workflows
     <section class="cta">
       <div class="wrap">
         <div class="kicker">Free, MIT, no telemetry</div>
-        <h2>Make your agent model-aware.</h2>
+        <h2>Use it from your agent.</h2>
         <p>One command. No signup. No key needed to decide. If it saves you money, star the repo — that is the whole distribution plan.</p>
         <div class="install">
           <span class="prompt">$</span>

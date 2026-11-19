@@ -11,7 +11,9 @@ const steps = [
   ['holdout', [path.join(ROOT, 'bench', 'holdout.js')]],
   ['value', [path.join(ROOT, 'bench', 'value.js')]],
   ['adversarial', [path.join(ROOT, 'tests', 'adversarial', 'run.js')]],
-  ['verify', [path.join(ROOT, 'bin', 'modelpick.js'), 'verify']]
+  ['verify', [path.join(ROOT, 'bin', 'modelpick.js'), 'verify', '--receipt', path.join(ROOT, 'tests', 'results', 'verify-latest.json')]],
+  ['applicability', [path.join(ROOT, 'scripts', 'applicability.js')]],
+  ['scorecard', [path.join(ROOT, 'bench', 'scorecard.js')]]
 ];
 
 let failed = false;

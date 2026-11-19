@@ -31,7 +31,7 @@ The cheap model is 53× cheaper and 23.5 points worse. The interesting row is th
 **4/**
 So I built **ModelPick**: a CLI + MCP server that picks a model per node.
 
-20 nodes. 41 models. 18 providers.
+20 nodes. 40 models. 18 providers.
 text · image · video · 3D · audio.
 
 `npx -y github:Leizhidong-creator/modelpick pick "3D sword for a Unity game"`

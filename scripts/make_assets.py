@@ -138,7 +138,7 @@ def social_preview():
     draw.text((76, 344), "The model router for AI agents.", font=font(21), fill=DIM)
     draw.text((76, 374), "Coding, image, video, 3D, audio — one call.", font=font(21), fill=DIM)
 
-    chips = ["cost per solved task", "41 models", "20 nodes", "5 agents"]
+    chips = ["cost per solved task", "40 models", "20 nodes", "5 agents"]
     x = 76
     for chip in chips:
         bbox = draw.textbbox((0, 0), chip, font=font(14, True))

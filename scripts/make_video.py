@@ -377,7 +377,7 @@ def scene_evidence(t: float) -> Image.Image:
     draw = ImageDraw.Draw(image)
     fade(draw, (140, 80), "Decisions you can audit.", F_H1, IVORY, ease((t - 0.1) / 0.8))
     draw.line((142, 190, 580, 190), fill=GOLD, width=2)
-    metrics = [("100%", "top-1 acceptable", "115 development runs"), ("0.5ms", "p95 decision", "no network in the path"), ("41", "models · 20 nodes", "every price sourced")]
+    metrics = [("100%", "top-1 acceptable", "115 development runs"), ("0.5ms", "p95 decision", "no network in the path"), ("40", "models · 20 nodes", "every price sourced")]
     for index, (value, label, detail) in enumerate(metrics):
         a = ease((t - 0.5 - index * 0.3) / 0.8)
         x = 140 + index * 560

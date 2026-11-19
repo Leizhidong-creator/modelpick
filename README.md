@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/social-preview.png" alt="ModelPick — stop paying frontier prices for non-frontier work" width="100%" />
+  <img src="assets/social-preview.png" alt="ModelPick — pick the right model at every step" width="100%" />
 </p>
 
 <h1 align="center">ModelPick</h1>
@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-125%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-129%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-25%2F25-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -25,7 +25,7 @@ Your agent can write code, call tools, and ship a feature. Then it picks **one m
 
 The result is predictable: 60–95% of the spend goes to work that did not need a frontier model, and the hard nodes still fail because the model was chosen for the wrong modality.
 
-**ModelPick is a decision layer, not another gateway.** Before each node, it answers three questions in one call:
+**ModelPick is a router and cost calculator, not another gateway.** Before each node, it answers three questions in one call:
 
 1. **Which model?** Ranked for this exact task, with hard capability filters (context, text-in-image, rigging, clip length, open weights).
 2. **What will it really cost?** **Cost per solved task** — list price × expected attempts, not $/M tokens.
@@ -43,7 +43,7 @@ npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for 
   <a href="assets/modelpick-intro.mp4"><img src="assets/modelpick-intro-thumb.png" alt="Watch the 93-second ModelPick intro film" width="72%" /></a>
 </p>
 
-<p align="center"><a href="assets/modelpick-intro.mp4"><strong>▶ Watch the 93-second intro film</strong></a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.srt">English captions</a></p>
+<p align="center"><a href="assets/modelpick-intro.mp4"><strong>▶ Watch the intro video (93s)</strong></a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.srt">English captions</a></p>
 
 ---
 
@@ -53,11 +53,11 @@ Three things are broken in model selection today:
 
 **1. Token prices hide the real bill.** A model that is 10× cheaper per token but needs 1.8× the attempts and 2× the output tokens is not 10× cheaper. ModelPick computes the denominator that matters: dollars per usable output.
 
-**2. Coding agents are blind to creative nodes.** A 3D pipeline is not a text problem. Text-in-image is not image generation. A 30-second film is not a 5-second clip. ModelPick models 20 task nodes across 5 modalities, with capability filters that reject the wrong model before scoring.
+**2. A coding agent defaults to one model, even for creative nodes.** A 3D pipeline is not a text problem. Text-in-image is not image generation. A 30-second video is not a 5-second clip. ModelPick models 20 task nodes across 5 modalities, with capability filters that reject the wrong model before scoring.
 
 **3. Every tool is a new integration.** ModelPick ships as a zero-dependency CLI, a stdio MCP server, a portable `SKILL.md`, and a Claude Code plugin. Same decision engine everywhere; no gateway, no lock-in, no key storage.
 
-> **The wedge:** other tools route text prompts. ModelPick routes **work** — and prices it per solved task across every modality.
+> **In one line:** other tools route text prompts. ModelPick routes work — coding, image, video, 3D, and audio — and prices each node per solved task.
 
 ### How is this different from a gateway or a coding router?
 
@@ -69,7 +69,7 @@ Three things are broken in model selection today:
 | Keys | held by the gateway | local | **never stored; you call the provider** |
 | Evidence | live prices | config | dated catalog + public benchmark + raw failures |
 
-Gateways are useful, and ModelPick can recommend one as the setup path. But a gateway cannot tell you that a 3D node should use Tripo instead of Meshy, or that a "headline text" image needs a model with a text-rendering score above 90. That is the decision layer this project owns.
+Gateways are useful, and ModelPick can recommend one as the setup path. But a gateway cannot tell you that a 3D node should use Tripo instead of Meshy, or that a "headline text" image needs a model with a text-rendering score above 90. That choice is what this tool makes.
 
 More: [`research/competitive-landscape.md`](research/competitive-landscape.md) (15 products, 10 features, 53 sources).
 
@@ -105,27 +105,105 @@ node bin/modelpick.js setup
 
 ## Works with the agents you already use
 
-`modelpick setup` detects your tools and writes the correct files — idempotently, with backups, and without touching sibling config.
+`modelpick setup` writes the files for the agent you use. It backs up existing config, keeps sibling MCP servers, and refuses to overwrite invalid JSON.
 
-| Agent | One command | What it writes |
+| Agent | Command | MCP file it uses |
 |---|---|---|
-| **Claude Code** | `modelpick setup claude-code` | `.mcp.json`, `.claude/skills/modelpick/`, `CLAUDE.md` block |
-| **OpenAI Codex CLI** | `modelpick setup codex` | `AGENTS.md`, `.agents/skills/modelpick/`, `codex mcp add` hint |
-| **Cursor** | `modelpick setup cursor` | `.cursor/mcp.json`, `.cursor/rules/modelpick.mdc`, skill |
-| **DeepSeek Harness** | `modelpick setup dsh` | `.dsh/skills/`, `.agents/skills/`, MCP plugin-row snippet |
-| **GitHub Copilot CLI** | `modelpick setup copilot` | `.mcp.json`, `.github/skills/`, `AGENTS.md` |
-| **Any MCP client** | `modelpick mcp` | stdio JSON-RPC; no keys required for recommendations |
+| **Claude Code** | `setup claude-code` | `.mcp.json` (project) or `~/.claude.json` (`--global`) |
+| **OpenAI Codex CLI** | `setup codex` + `codex mcp add` | `~/.codex/config.toml` |
+| **Cursor** | `setup cursor` | `.cursor/mcp.json` |
+| **DeepSeek Harness** | `setup dsh --global --write --profile desktop` | `~/.dsh/profiles/<profile>/cordis.patch.yml` |
+| **GitHub Copilot CLI** | `setup copilot` | `.mcp.json` |
+| **Any MCP client** | `modelpick mcp` | your client's stdio config |
 
-**Claude Code plugin (one command inside Claude):**
+### Claude Code
+
+```bash
+npx -y github:Leizhidong-creator/modelpick setup claude-code
+# writes .mcp.json, .claude/skills/modelpick/, and a CLAUDE.md block
+claude mcp list        # modelpick should appear
+```
+
+Restart Claude Code, run `/mcp`, and approve the project server. Then ask: `pick a model for a 3D sword for Unity`.
+
+Plugin alternative, inside Claude Code:
 
 ```text
 /plugin marketplace add Leizhidong-creator/modelpick
 /plugin install modelpick@modelpick
 ```
 
-**Platform-agnostic skill:** `.agents/skills/modelpick/SKILL.md` is read by Codex, Cursor, Copilot CLI, Devin/Windsurf, and DeepSeek Harness. Claude Code gets its own copy.
+### OpenAI Codex CLI
 
-MCP tools exposed: `pick_model`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`.
+```bash
+npx -y github:Leizhidong-creator/modelpick setup codex
+codex mcp add modelpick -- npx -y github:Leizhidong-creator/modelpick mcp
+codex mcp list
+```
+
+`setup codex` writes `AGENTS.md` and `.agents/skills/modelpick/`. Codex reads MCP servers from `~/.codex/config.toml`, so the `codex mcp add` line is the part that registers the server. It writes:
+
+```toml
+[mcp_servers.modelpick]
+command = "npx"
+args = ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+```
+
+### Cursor
+
+```bash
+npx -y github:Leizhidong-creator/modelpick setup cursor
+```
+
+It writes `.cursor/mcp.json`, `.cursor/rules/modelpick.mdc`, `.cursor/skills/modelpick/`, and `AGENTS.md`. Open **Cursor → Settings → MCP** and confirm `modelpick` is connected.
+
+### DeepSeek Harness
+
+DSH has no `.mcp.json`. MCP servers are Cordis rows in the profile patch:
+
+```bash
+npx -y github:Leizhidong-creator/modelpick setup dsh --global --write --profile desktop
+```
+
+It appends this row once and backs up the existing file first:
+
+```yaml
+- id: mcp-modelpick
+  name: '@deepseek-ai/dsh-mcp-client'
+  config:
+    serverName: modelpick
+    transport: stdio
+    command: npx
+    args: ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+```
+
+Restart DSH. Without `--write`, `setup dsh` prints the row instead of editing a live profile.
+
+### GitHub Copilot CLI
+
+```bash
+npx -y github:Leizhidong-creator/modelpick setup copilot
+copilot mcp list
+```
+
+It writes `.mcp.json`, `.github/skills/modelpick/`, and `AGENTS.md`. Restart Copilot and ask for a model pick.
+
+### Any MCP client
+
+```json
+{
+  "mcpServers": {
+    "modelpick": {
+      "command": "npx",
+      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+    }
+  }
+}
+```
+
+Tools exposed: `pick_model`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`. Recommendations work without any provider key; the key is only needed to run the chosen model.
+
+**Portable skill:** `.agents/skills/modelpick/SKILL.md` is read by Codex, Cursor, Copilot CLI, Devin/Windsurf, and DeepSeek Harness. Claude Code gets its own copy. The skill tells the agent when to call `pick_model` and how to report the result.
 
 ---
 
@@ -154,7 +232,7 @@ Quality is a weighted mix of public benchmark signals (BenchLM overall/coding, C
 
 ## What it covers
 
-**41 models · 18 providers · 20 task nodes · 5 modalities.** Current as of **2026-11-19**; every price carries a source and read date.
+**40 models · 18 providers · 20 task nodes · 5 modalities.** Current as of **2026-11-19**; every price carries a source and read date.
 
 | Modality | Nodes | Example models in the catalog |
 |---|---|---|
@@ -168,7 +246,7 @@ The catalog is a **dated snapshot**, not a live price feed. `modelpick update` r
 
 ---
 
-## Benchmark, not vibes
+## Tested decisions
 
 <p align="center">
   <img src="assets/benchmark.png" alt="ModelPick decision benchmark: 115 runs, 100% top-1 acceptable, 100% hard constraints" width="92%" />
@@ -181,7 +259,7 @@ The catalog is a **dated snapshot**, not a live price feed. `modelpick update` r
 | Intent accuracy | **100%** (39 scenarios) | **100%** (12 scenarios) | ≥95% |
 | Hard constraint pass | **100%** | **100%** | 100% |
 | Price stability (±20%) | **100%** | **100%** | ≥80% |
-| p95 decision latency | **0.5 ms** | **0.5 ms** | ≤300 ms |
+| p95 decision latency | **1.1 ms** | **1.1 ms** | ≤300 ms |
 
 **What this is:** 39 expert-labeled scenarios expanded into balanced/cost/quality runs, plus a 12-scenario held-out set authored after the benchmark froze. Every run checks task detection, top-1/top-3 acceptability, hard constraints, cost regret, and stability under ±20% price perturbation.
 
@@ -204,6 +282,16 @@ Full per-node tables: [`docs/LEADERBOARD.md`](docs/LEADERBOARD.md).
 | Cheapest always | 87.6% | $0.2060 | 93.5% | 39.1% |
 
 The value pick keeps **95.4% of frontier first-pass quality at 41.6% of the cost**. The cheapest model saves 2.5 cost points but loses 1.9 quality points and fails a 90%-parity bar on two of five tasks. This is synthetic; the arithmetic and the definition are in [`docs/VALUE.md`](docs/VALUE.md), and the evidence behind every quality score is in [`docs/QUALITY.md`](docs/QUALITY.md).
+
+### Multi-dimensional scorecard
+
+[`tests/results/SCORECARD.md`](tests/results/SCORECARD.md) combines six dimensions from committed evidence:
+
+| Correctness | Cost | Robustness | Coverage | Safety | Operability | Composite |
+|---:|---:|---:|---:|---:|---:|---:|
+| 100 | 88 | 100 | 100 | 100 | 93.8 | **97 / A** |
+
+Correctness is the decision benchmark; it is not an independent output benchmark. Cost is regret plus the value simulation. Robustness is price perturbation, retry sensitivity, and determinism. Coverage is every task and model. Safety is the 25-case adversarial suite. Operability is p95 latency, `modelpick verify`, and line coverage (84.8%).
 
 ---
 
@@ -429,6 +517,8 @@ Requirements: Node ≥ 20.11. Runtime dependencies: **zero**. Python + Pillow ar
 - [Judge/decision models](docs/JUDGES.md)
 - [Publishing and launch runbook](docs/PUBLISHING.md)
 - [Per-node leaderboard](docs/LEADERBOARD.md)
+- [Model applicability](docs/APPLICABILITY.md)
+- [Multi-dimensional scorecard](tests/results/SCORECARD.md)
 - [Adversarial review](tests/ADVERSARIAL_REVIEW.md)
 - [Test plan](tests/TEST_PLAN.md)
 - [Benchmark methodology](bench/METHODOLOGY.md)

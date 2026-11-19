@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { loadCatalog, validateCatalog, validateTasks, catalogStats } from '../src/core/catalog.js';
 import { loadPolicy, validatePolicy } from '../src/core/policy.js';
@@ -76,6 +77,17 @@ check('skill files exist', () => {
     if (!fs.existsSync(path.join(ROOT, file))) throw new Error(`missing ${file}`);
   }
   return `${files.length} copies`;
+});
+
+check('catalog checksums', () => {
+  const manifestPath = path.join(ROOT, 'catalog', 'checksums.json');
+  if (!fs.existsSync(manifestPath)) throw new Error('missing catalog/checksums.json; run node scripts/checksums.js');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  for (const [file, expected] of Object.entries(manifest.files)) {
+    const actual = crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, file))).digest('hex');
+    if (actual !== expected) throw new Error(`${file} changed; run node scripts/checksums.js`);
+  }
+  return `${Object.keys(manifest.files).length} files`;
 });
 
 for (const item of checks) {

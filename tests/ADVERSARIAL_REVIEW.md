@@ -44,7 +44,7 @@
 | A10 | Constraints | 2M context | no eligible + near misses | `NO_ELIGIBLE_MODEL` | PASS |
 | A11 | Constraints | Unknown optimize | rejected | exit 1 | PASS |
 | A12 | Catalog | Invalid overrides JSON | no silent ignore | `ERR_OVERRIDES_INVALID` | PASS |
-| A13 | Catalog | Corrupt cache | fallback to bundled | 41 models | PASS |
+| A13 | Catalog | Corrupt cache | fallback to bundled | 40 models | PASS |
 | A14 | Catalog | Duplicate slug | rejected | `ERR_INVALID_CATALOG` | PASS |
 | A15 | Secrets | Secret in env | never printed | no leak | PASS |
 | A16 | Setup | Dry run | zero writes | none | PASS |
@@ -66,7 +66,7 @@
 |---|---|---|
 | "Cost per solved task" | Formula, cache-aware pricing, attempts model, tests | Not measured pass@1; attempts are a model |
 | "100% top-1 acceptable" | 115 dev runs + 35 held-out runs | Labels are expert-authored, not independent |
-| "41 models, 20 nodes" | Catalog + data tests | Coverage ≠ quality of every model |
+| "40 models, 20 nodes" | Catalog + data tests | Coverage ≠ quality of every model |
 | "0 runtime dependencies" | `package.json` + CI | Dev tooling still has Python/Pillow for assets |
 | "No keys stored / no telemetry" | code + tests | Host agent could log env, outside our control |
 | "Works with Claude/Codex/Cursor/DSH" | installers + exact file formats | Not end-to-end tested inside every vendor UI on every OS |

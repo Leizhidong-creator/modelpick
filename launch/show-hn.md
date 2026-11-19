@@ -33,7 +33,7 @@ It writes the MCP config and skill for Claude Code, Codex CLI, Cursor, DeepSeek 
 
 What is in the repo:
 
-- 41 models, 18 providers, 20 task nodes. Catalog dated 2026-11-19 with a source and read date per model.
+- 40 models, 18 providers, 20 task nodes. Catalog dated 2026-11-19 with a source and read date per model.
 - 95 tests, CI on Ubuntu/Windows/macOS × Node 20/22/24.
 - A 39-scenario decision benchmark (115 runs) and a 12-scenario held-out set (35 runs), with raw JSON and failures in `tests/results/`.
 - Claude Code plugin, portable `.agents/skills` skill, MCP server with 6 tools.

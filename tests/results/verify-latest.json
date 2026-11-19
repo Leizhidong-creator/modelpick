@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "verification-receipt",
+  "generatedAt": "2026-11-19T08:56:04.181Z",
+  "ok": true,
+  "warnings": 0,
+  "version": "0.1.0",
+  "node": "24.15.0",
+  "checks": [
+    {
+      "id": "node",
+      "status": "pass",
+      "message": "Node 24.15.0",
+      "detail": "requires >= 20.11"
+    },
+    {
+      "id": "package",
+      "status": "pass",
+      "message": "modelpick@0.1.0"
+    },
+    {
+      "id": "dependencies",
+      "status": "pass",
+      "message": "zero runtime dependencies"
+    },
+    {
+      "id": "catalog-schema",
+      "status": "pass",
+      "message": "catalog + policy schema valid"
+    },
+    {
+      "id": "catalog-invariants",
+      "status": "pass",
+      "message": "slugs, prices, evidence, weights, plans"
+    },
+    {
+      "id": "coverage",
+      "status": "pass",
+      "message": "40 models · 20 tasks · 18 providers"
+    },
+    {
+      "id": "evidence",
+      "status": "pass",
+      "message": "every model has an HTTPS source",
+      "detail": ""
+    },
+    {
+      "id": "task-coverage",
+      "status": "pass",
+      "message": "every task has at least two compatible models",
+      "detail": ""
+    },
+    {
+      "id": "decision-benchmark",
+      "status": "pass",
+      "message": "115 dev runs · top-1 100%",
+      "detail": "no failures"
+    },
+    {
+      "id": "held-out",
+      "status": "pass",
+      "message": "held-out top-1 100%",
+      "detail": "35 runs"
+    },
+    {
+      "id": "value-simulation",
+      "status": "pass",
+      "message": "quality parity 95.4% · cost 41.6% of frontier"
+    },
+    {
+      "id": "hashes",
+      "status": "pass",
+      "message": "catalog/policy hashes available",
+      "detail": "{\"catalog/models.json\":\"87f4f6059fa31da3\",\"catalog/tasks.json\":\"615a36c478beb172\",\"catalog/policy.json\":\"7d8c0c6c5745dd91\",\"package.json\":\"68e1903f84abd1a0\"}"
+    },
+    {
+      "id": "integrity",
+      "status": "pass",
+      "message": "catalog matches the shipped checksums",
+      "detail": "3 files"
+    }
+  ],
+  "hashes": {
+    "catalog/models.json": "87f4f6059fa31da3",
+    "catalog/tasks.json": "615a36c478beb172",
+    "catalog/policy.json": "7d8c0c6c5745dd91",
+    "package.json": "68e1903f84abd1a0"
+  }
+}

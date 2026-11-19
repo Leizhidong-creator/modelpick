@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "sha256",
+  "generatedAt": "2026-11-19T08:54:51.630Z",
+  "files": {
+    "catalog/models.json": "87f4f6059fa31da353808a281417f7a68e156be6dfa75ebc4931e3b59e32f25c",
+    "catalog/tasks.json": "615a36c478beb172f35361af477a6976468ea439a5765bc60ddb0e4e43561fdf",
+    "catalog/policy.json": "7d8c0c6c5745dd917dedb240dc6e3d9cbf86882e3d6f4f05dc09431aa8592228"
+  }
+}

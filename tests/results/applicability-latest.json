@@ -1,0 +1,1385 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "model-applicability",
+  "generatedAt": "2026-11-19T08:56:04.305Z",
+  "catalog": "2026.11.19",
+  "totals": {
+    "models": 40,
+    "tasks": 20,
+    "neverTop3": 15,
+    "neverTop1": 29,
+    "tasksWithoutTop1": 0,
+    "tasksUnderTwo": 0
+  },
+  "models": [
+    {
+      "slug": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "provider": "Google",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "coding-agent",
+        "code-review",
+        "refactor",
+        "debugging",
+        "planning",
+        "long-context",
+        "research",
+        "writing",
+        "translation",
+        "extraction",
+        "classification",
+        "data-analysis",
+        "computer-use"
+      ],
+      "top1": [
+        "coding-agent",
+        "code-review",
+        "refactor",
+        "debugging",
+        "planning",
+        "data-analysis",
+        "computer-use"
+      ],
+      "top3": [
+        "coding-agent",
+        "code-review",
+        "refactor",
+        "debugging",
+        "planning",
+        "long-context",
+        "research",
+        "writing",
+        "data-analysis",
+        "computer-use"
+      ],
+      "bestTask": "computer-use",
+      "bestScore": 87.8,
+      "bestQuality": 91.31,
+      "bestCost": 0.080992,
+      "eligibleCount": 13,
+      "top1Count": 7,
+      "top3Count": 10,
+      "qualityForBestTask": 91.31
+    },
+    {
+      "slug": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "provider": "OpenAI",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "long-context",
+        "research",
+        "writing",
+        "translation",
+        "extraction",
+        "classification"
+      ],
+      "top1": [
+        "research",
+        "translation"
+      ],
+      "top3": [
+        "long-context",
+        "research",
+        "writing",
+        "translation"
+      ],
+      "bestTask": "writing",
+      "bestScore": 80.1,
+      "bestQuality": 81.24,
+      "bestCost": 0.019581,
+      "eligibleCount": 6,
+      "top1Count": 2,
+      "top3Count": 4,
+      "qualityForBestTask": 81.24
+    },
+    {
+      "slug": "claude-haiku-5.5",
+      "name": "Claude Haiku 5.5",
+      "provider": "Anthropic",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "extraction",
+        "classification"
+      ],
+      "top1": [
+        "extraction",
+        "classification"
+      ],
+      "top3": [
+        "extraction",
+        "classification"
+      ],
+      "bestTask": "classification",
+      "bestScore": 73.6,
+      "bestQuality": 70.91,
+      "bestCost": 0.0008,
+      "eligibleCount": 2,
+      "top1Count": 2,
+      "top3Count": 2,
+      "qualityForBestTask": 70.91
+    },
+    {
+      "slug": "nano-banana-2.1",
+      "name": "Nano Banana 2.1",
+      "provider": "Google",
+      "modality": "image",
+      "openWeights": false,
+      "eligible": [
+        "image-gen",
+        "image-edit"
+      ],
+      "top1": [
+        "image-gen",
+        "image-edit"
+      ],
+      "top3": [
+        "image-gen",
+        "image-edit"
+      ],
+      "bestTask": "image-edit",
+      "bestScore": 88.1,
+      "bestQuality": 93.8,
+      "bestCost": 0.036187,
+      "eligibleCount": 2,
+      "top1Count": 2,
+      "top3Count": 2,
+      "qualityForBestTask": 93.8
+    },
+    {
+      "slug": "gpt-6.2-sol",
+      "name": "GPT-6.2 Sol",
+      "provider": "OpenAI",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "code-review",
+        "refactor",
+        "debugging",
+        "planning",
+        "long-context",
+        "research",
+        "writing",
+        "translation",
+        "extraction",
+        "classification",
+        "data-analysis",
+        "computer-use"
+      ],
+      "top1": [
+        "writing"
+      ],
+      "top3": [
+        "code-review",
+        "refactor",
+        "debugging",
+        "planning",
+        "writing",
+        "translation",
+        "data-analysis",
+        "computer-use"
+      ],
+      "bestTask": "code-review",
+      "bestScore": 83.9,
+      "bestQuality": 85.81,
+      "bestCost": 0.087116,
+      "eligibleCount": 12,
+      "top1Count": 1,
+      "top3Count": 8,
+      "qualityForBestTask": 85.81
+    },
+    {
+      "slug": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "provider": "Google",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "long-context",
+        "research",
+        "writing",
+        "translation",
+        "extraction",
+        "classification"
+      ],
+      "top1": [
+        "long-context"
+      ],
+      "top3": [
+        "long-context",
+        "research",
+        "translation"
+      ],
+      "bestTask": "long-context",
+      "bestScore": 79.7,
+      "bestQuality": 86.42,
+      "bestCost": 0.64701,
+      "eligibleCount": 6,
+      "top1Count": 1,
+      "top3Count": 3,
+      "qualityForBestTask": 86.42
+    },
+    {
+      "slug": "lyria-3.5",
+      "name": "Lyria 3.5",
+      "provider": "Google",
+      "modality": "audio",
+      "openWeights": false,
+      "eligible": [
+        "music"
+      ],
+      "top1": [
+        "music"
+      ],
+      "top3": [
+        "music"
+      ],
+      "bestTask": "music",
+      "bestScore": 79.6,
+      "bestQuality": 90,
+      "bestCost": 0.0904,
+      "eligibleCount": 1,
+      "top1Count": 1,
+      "top3Count": 1,
+      "qualityForBestTask": 90
+    },
+    {
+      "slug": "tripo-h3.1",
+      "name": "Tripo H3.1",
+      "provider": "Tripo",
+      "modality": "3d",
+      "openWeights": false,
+      "eligible": [
+        "3d-gen"
+      ],
+      "top1": [
+        "3d-gen"
+      ],
+      "top3": [
+        "3d-gen"
+      ],
+      "bestTask": "3d-gen",
+      "bestScore": 80.6,
+      "bestQuality": 94,
+      "bestCost": 0.2148,
+      "eligibleCount": 1,
+      "top1Count": 1,
+      "top3Count": 1,
+      "qualityForBestTask": 94
+    },
+    {
+      "slug": "veo-3.1-fast",
+      "name": "Veo 3.1 Fast",
+      "provider": "Google Vertex AI",
+      "modality": "video",
+      "openWeights": false,
+      "eligible": [
+        "video-gen"
+      ],
+      "top1": [
+        "video-gen"
+      ],
+      "top3": [
+        "video-gen"
+      ],
+      "bestTask": "video-gen",
+      "bestScore": 78.1,
+      "bestQuality": 86,
+      "bestCost": 0.596,
+      "eligibleCount": 1,
+      "top1Count": 1,
+      "top3Count": 1,
+      "qualityForBestTask": 86
+    },
+    {
+      "slug": "voxtral-small-transcribe-3",
+      "name": "Voxtral Small Transcribe 3",
+      "provider": "Mistral AI",
+      "modality": "audio",
+      "openWeights": false,
+      "eligible": [
+        "stt"
+      ],
+      "top1": [
+        "stt"
+      ],
+      "top3": [
+        "stt"
+      ],
+      "bestTask": "stt",
+      "bestScore": 83.7,
+      "bestQuality": 90,
+      "bestCost": 0.0452,
+      "eligibleCount": 1,
+      "top1Count": 1,
+      "top3Count": 1,
+      "qualityForBestTask": 90
+    },
+    {
+      "slug": "voxtral-tts-3",
+      "name": "Voxtral TTS 3",
+      "provider": "Mistral AI",
+      "modality": "audio",
+      "openWeights": false,
+      "eligible": [
+        "tts"
+      ],
+      "top1": [
+        "tts"
+      ],
+      "top3": [
+        "tts"
+      ],
+      "bestTask": "tts",
+      "bestScore": 87.9,
+      "bestQuality": 88,
+      "bestCost": 0.01508,
+      "eligibleCount": 1,
+      "top1Count": 1,
+      "top3Count": 1,
+      "qualityForBestTask": 88
+    },
+    {
+      "slug": "claude-sonnet-5.5",
+      "name": "Claude Sonnet 5.5",
+      "provider": "Anthropic",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "code-review",
+        "refactor",
+        "debugging",
+        "planning",
+        "long-context",
+        "research",
+        "writing",
+        "translation",
+        "extraction",
+        "classification",
+        "data-analysis"
+      ],
+      "top1": [],
+      "top3": [
+        "code-review",
+        "refactor",
+        "debugging",
+        "planning",
+        "data-analysis"
+      ],
+      "bestTask": "code-review",
+      "bestScore": 80.2,
+      "bestQuality": 81.07,
+      "bestCost": 0.093166,
+      "eligibleCount": 11,
+      "top1Count": 0,
+      "top3Count": 5,
+      "qualityForBestTask": 81.07
+    },
+    {
+      "slug": "claude-opus-5.5",
+      "name": "Claude Opus 5.5",
+      "provider": "Anthropic",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "coding-agent",
+        "code-review",
+        "refactor",
+        "debugging",
+        "planning",
+        "long-context",
+        "research",
+        "writing",
+        "translation",
+        "extraction",
+        "classification",
+        "data-analysis",
+        "computer-use"
+      ],
+      "top1": [],
+      "top3": [
+        "coding-agent",
+        "computer-use"
+      ],
+      "bestTask": "code-review",
+      "bestScore": 76.4,
+      "bestQuality": 85.62,
+      "bestCost": 0.174668,
+      "eligibleCount": 13,
+      "top1Count": 0,
+      "top3Count": 2,
+      "qualityForBestTask": 85.62
+    },
+    {
+      "slug": "deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "provider": "DeepSeek",
+      "modality": "text",
+      "openWeights": true,
+      "eligible": [
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [
+        "extraction",
+        "classification"
+      ],
+      "bestTask": "classification",
+      "bestScore": 68.1,
+      "bestQuality": 74.18,
+      "bestCost": 0.001068,
+      "eligibleCount": 2,
+      "top1Count": 0,
+      "top3Count": 2,
+      "qualityForBestTask": 74.18
+    },
+    {
+      "slug": "gpt-image-2",
+      "name": "GPT Image 2.6",
+      "provider": "OpenAI",
+      "modality": "image",
+      "openWeights": false,
+      "eligible": [
+        "image-gen",
+        "image-edit"
+      ],
+      "top1": [],
+      "top3": [
+        "image-gen",
+        "image-edit"
+      ],
+      "bestTask": "image-gen",
+      "bestScore": 73.9,
+      "bestQuality": 94,
+      "bestCost": 0.056922,
+      "eligibleCount": 2,
+      "top1Count": 0,
+      "top3Count": 2,
+      "qualityForBestTask": 94
+    },
+    {
+      "slug": "gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "provider": "OpenAI",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [
+        "extraction",
+        "classification"
+      ],
+      "bestTask": "classification",
+      "bestScore": 73.3,
+      "bestQuality": 68.86,
+      "bestCost": 0.000829,
+      "eligibleCount": 2,
+      "top1Count": 0,
+      "top3Count": 2,
+      "qualityForBestTask": 68.86
+    },
+    {
+      "slug": "seedream-5.5",
+      "name": "Seedream 5.5",
+      "provider": "fal.ai (ByteDance)",
+      "modality": "image",
+      "openWeights": false,
+      "eligible": [
+        "image-gen",
+        "image-edit"
+      ],
+      "top1": [],
+      "top3": [
+        "image-gen",
+        "image-edit"
+      ],
+      "bestTask": "image-edit",
+      "bestScore": 87,
+      "bestQuality": 91.2,
+      "bestCost": 0.03339,
+      "eligibleCount": 2,
+      "top1Count": 0,
+      "top3Count": 2,
+      "qualityForBestTask": 91.2
+    },
+    {
+      "slug": "gpt-6.2-astra",
+      "name": "GPT-6.2 Astra",
+      "provider": "OpenAI",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "coding-agent",
+        "code-review",
+        "refactor",
+        "debugging",
+        "planning",
+        "long-context",
+        "research",
+        "writing",
+        "translation",
+        "extraction",
+        "classification",
+        "data-analysis",
+        "computer-use"
+      ],
+      "top1": [],
+      "top3": [
+        "coding-agent"
+      ],
+      "bestTask": "writing",
+      "bestScore": 74.4,
+      "bestQuality": 91.64,
+      "bestCost": 0.135883,
+      "eligibleCount": 13,
+      "top1Count": 0,
+      "top3Count": 1,
+      "qualityForBestTask": 91.64
+    },
+    {
+      "slug": "eleven-v4",
+      "name": "Eleven v4",
+      "provider": "ElevenLabs",
+      "modality": "audio",
+      "openWeights": false,
+      "eligible": [
+        "tts"
+      ],
+      "top1": [],
+      "top3": [
+        "tts"
+      ],
+      "bestTask": "tts",
+      "bestScore": 57,
+      "bestQuality": 95,
+      "bestCost": 0.08488,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 1,
+      "qualityForBestTask": 95
+    },
+    {
+      "slug": "gpt-transcribe",
+      "name": "GPT Transcribe",
+      "provider": "OpenAI",
+      "modality": "audio",
+      "openWeights": false,
+      "eligible": [
+        "stt"
+      ],
+      "top1": [],
+      "top3": [
+        "stt"
+      ],
+      "bestTask": "stt",
+      "bestScore": 70.4,
+      "bestQuality": 94,
+      "bestCost": 0.04833,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 1,
+      "qualityForBestTask": 94
+    },
+    {
+      "slug": "kling-4.0",
+      "name": "Kling 4.0",
+      "provider": "fal.ai (Kling)",
+      "modality": "video",
+      "openWeights": false,
+      "eligible": [
+        "video-gen"
+      ],
+      "top1": [],
+      "top3": [
+        "video-gen"
+      ],
+      "bestTask": "video-gen",
+      "bestScore": 69.3,
+      "bestQuality": 94,
+      "bestCost": 0.84309,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 1,
+      "qualityForBestTask": 94
+    },
+    {
+      "slug": "meshy-7.1",
+      "name": "Meshy 7.1",
+      "provider": "Meshy",
+      "modality": "3d",
+      "openWeights": false,
+      "eligible": [
+        "3d-gen"
+      ],
+      "top1": [],
+      "top3": [
+        "3d-gen"
+      ],
+      "bestTask": "3d-gen",
+      "bestScore": 65,
+      "bestQuality": 91,
+      "bestCost": 1.338,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 1,
+      "qualityForBestTask": 91
+    },
+    {
+      "slug": "minimax-music-3",
+      "name": "MiniMax Music 3",
+      "provider": "MiniMax",
+      "modality": "audio",
+      "openWeights": false,
+      "eligible": [
+        "music"
+      ],
+      "top1": [],
+      "top3": [
+        "music"
+      ],
+      "bestTask": "music",
+      "bestScore": 67.6,
+      "bestQuality": 84,
+      "bestCost": 0.147,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 1,
+      "qualityForBestTask": 84
+    },
+    {
+      "slug": "trellis-2",
+      "name": "TRELLIS 2",
+      "provider": "fal.ai (Microsoft Research)",
+      "modality": "3d",
+      "openWeights": true,
+      "eligible": [
+        "3d-gen"
+      ],
+      "top1": [],
+      "top3": [
+        "3d-gen"
+      ],
+      "bestTask": "3d-gen",
+      "bestScore": 69.6,
+      "bestQuality": 82,
+      "bestCost": 0.3783,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 1,
+      "qualityForBestTask": 82
+    },
+    {
+      "slug": "veo-3.1",
+      "name": "Veo 3.1",
+      "provider": "Google Vertex AI",
+      "modality": "video",
+      "openWeights": false,
+      "eligible": [
+        "video-gen"
+      ],
+      "top1": [],
+      "top3": [
+        "video-gen"
+      ],
+      "bestTask": "video-gen",
+      "bestScore": 67.5,
+      "bestQuality": 95,
+      "bestCost": 2.122,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 1,
+      "qualityForBestTask": 95
+    },
+    {
+      "slug": "claude-fable-5.2",
+      "name": "Claude Fable 5.2",
+      "provider": "Anthropic",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "coding-agent",
+        "code-review",
+        "refactor",
+        "debugging",
+        "planning",
+        "long-context",
+        "research",
+        "writing",
+        "translation",
+        "extraction",
+        "classification",
+        "data-analysis",
+        "computer-use"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "writing",
+      "bestScore": 75.8,
+      "bestQuality": 94.72,
+      "bestCost": 0.130814,
+      "eligibleCount": 13,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 94.72
+    },
+    {
+      "slug": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "provider": "Google",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "long-context",
+        "research",
+        "writing",
+        "translation",
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "writing",
+      "bestScore": 76.7,
+      "bestQuality": 80.88,
+      "bestCost": 0.039377,
+      "eligibleCount": 6,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 80.88
+    },
+    {
+      "slug": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
+      "provider": "Moonshot AI",
+      "modality": "text",
+      "openWeights": true,
+      "eligible": [
+        "long-context",
+        "research",
+        "translation",
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "long-context",
+      "bestScore": 69.1,
+      "bestQuality": 81.64,
+      "bestCost": 0.933248,
+      "eligibleCount": 5,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 81.64
+    },
+    {
+      "slug": "gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "provider": "OpenAI",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "research",
+        "translation",
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "research",
+      "bestScore": 59,
+      "bestQuality": 76.32,
+      "bestCost": 0.705686,
+      "eligibleCount": 4,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 76.32
+    },
+    {
+      "slug": "kimi-k3",
+      "name": "Kimi K3",
+      "provider": "Moonshot AI",
+      "modality": "text",
+      "openWeights": true,
+      "eligible": [
+        "translation",
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "translation",
+      "bestScore": 50.4,
+      "bestQuality": 70.35,
+      "bestCost": 0.109224,
+      "eligibleCount": 3,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 70.35
+    },
+    {
+      "slug": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "provider": "DeepSeek",
+      "modality": "text",
+      "openWeights": true,
+      "eligible": [
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "extraction",
+      "bestScore": 39.2,
+      "bestQuality": 66.85,
+      "bestCost": 0.035303,
+      "eligibleCount": 2,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 66.85
+    },
+    {
+      "slug": "gemini-3.8-flash",
+      "name": "Gemini 3.8 Flash",
+      "provider": "Google",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "extraction",
+      "bestScore": 44.6,
+      "bestQuality": 62.94,
+      "bestCost": 0.04876,
+      "eligibleCount": 2,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 62.94
+    },
+    {
+      "slug": "glm-5.3",
+      "name": "GLM-5.3",
+      "provider": "Z.ai",
+      "modality": "text",
+      "openWeights": true,
+      "eligible": [
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "extraction",
+      "bestScore": 37.4,
+      "bestQuality": 61.11,
+      "bestCost": 0.08571,
+      "eligibleCount": 2,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 61.11
+    },
+    {
+      "slug": "grok-4.6",
+      "name": "Grok 4.6",
+      "provider": "xAI",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "extraction",
+      "bestScore": 40.5,
+      "bestQuality": 65.86,
+      "bestCost": 0.111105,
+      "eligibleCount": 2,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 65.86
+    },
+    {
+      "slug": "nano-banana-pro",
+      "name": "Nano Banana Pro",
+      "provider": "Google",
+      "modality": "image",
+      "openWeights": false,
+      "eligible": [
+        "image-gen",
+        "image-edit"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "image-edit",
+      "bestScore": 65.2,
+      "bestQuality": 96.8,
+      "bestCost": 0.139092,
+      "eligibleCount": 2,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 96.8
+    },
+    {
+      "slug": "qwen3.8-max",
+      "name": "Qwen3.8 Max",
+      "provider": "Alibaba Cloud",
+      "modality": "text",
+      "openWeights": false,
+      "eligible": [
+        "extraction",
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "extraction",
+      "bestScore": 39.8,
+      "bestQuality": 63.46,
+      "bestCost": 0.115144,
+      "eligibleCount": 2,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 63.46
+    },
+    {
+      "slug": "glm-5.3-flash",
+      "name": "GLM-5.3-Flash",
+      "provider": "Z.ai",
+      "modality": "text",
+      "openWeights": true,
+      "eligible": [
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "classification",
+      "bestScore": 65.3,
+      "bestQuality": 65.79,
+      "bestCost": 0.001197,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 65.79
+    },
+    {
+      "slug": "hunyuan3d-3.1-pro",
+      "name": "Hunyuan3D 3.1 Pro",
+      "provider": "fal.ai (Tencent Hunyuan)",
+      "modality": "3d",
+      "openWeights": true,
+      "eligible": [
+        "3d-gen"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "3d-gen",
+      "bestScore": 59.2,
+      "bestQuality": 91,
+      "bestCost": 0.585375,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 91
+    },
+    {
+      "slug": "minimax-m3.1-flash",
+      "name": "MiniMax-M3.1-Flash",
+      "provider": "MiniMax",
+      "modality": "text",
+      "openWeights": true,
+      "eligible": [
+        "classification"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "classification",
+      "bestScore": 64.8,
+      "bestQuality": 67.59,
+      "bestCost": 0.0012,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 67.59
+    },
+    {
+      "slug": "seedance-2.5",
+      "name": "Seedance 2.5",
+      "provider": "fal.ai (ByteDance)",
+      "modality": "video",
+      "openWeights": false,
+      "eligible": [
+        "video-gen"
+      ],
+      "top1": [],
+      "top3": [],
+      "bestTask": "video-gen",
+      "bestScore": 64.8,
+      "bestQuality": 93,
+      "bestCost": 2.57312,
+      "eligibleCount": 1,
+      "top1Count": 0,
+      "top3Count": 0,
+      "qualityForBestTask": 93
+    }
+  ],
+  "tasks": [
+    {
+      "task": "coding-agent",
+      "label": "Agentic coding",
+      "modality": "text",
+      "eligible": 4,
+      "top1": "gemini-4-carbon",
+      "top1Quality": 87.3,
+      "top1Cost": 0.174245,
+      "bestQuality": 92.32,
+      "top3": [
+        "gemini-4-carbon",
+        "claude-opus-5.5",
+        "gpt-6.2-astra"
+      ]
+    },
+    {
+      "task": "code-review",
+      "label": "Code review",
+      "modality": "text",
+      "eligible": 6,
+      "top1": "gemini-4-carbon",
+      "top1Quality": 85.29,
+      "top1Cost": 0.087772,
+      "bestQuality": 91.78,
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ]
+    },
+    {
+      "task": "refactor",
+      "label": "Large refactor",
+      "modality": "text",
+      "eligible": 6,
+      "top1": "gemini-4-carbon",
+      "top1Quality": 86.32,
+      "top1Cost": 0.193481,
+      "bestQuality": 91.84,
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ]
+    },
+    {
+      "task": "debugging",
+      "label": "Debugging",
+      "modality": "text",
+      "eligible": 6,
+      "top1": "gemini-4-carbon",
+      "top1Quality": 85.53,
+      "top1Cost": 0.13152,
+      "bestQuality": 92,
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ]
+    },
+    {
+      "task": "planning",
+      "label": "Planning & architecture",
+      "modality": "text",
+      "eligible": 6,
+      "top1": "gemini-4-carbon",
+      "top1Quality": 86.71,
+      "top1Cost": 0.068558,
+      "bestQuality": 94.04,
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ]
+    },
+    {
+      "task": "long-context",
+      "label": "Long-context analysis",
+      "modality": "text",
+      "eligible": 10,
+      "top1": "gemini-4-hydrogen",
+      "top1Quality": 86.42,
+      "top1Cost": 0.64701,
+      "bestQuality": 93.26,
+      "top3": [
+        "gemini-4-hydrogen",
+        "gemini-4-carbon",
+        "gpt-6.1-terra"
+      ]
+    },
+    {
+      "task": "research",
+      "label": "Research synthesis",
+      "modality": "text",
+      "eligible": 11,
+      "top1": "gpt-6.1-terra",
+      "top1Quality": 80.57,
+      "top1Cost": 0.163834,
+      "bestQuality": 93.75,
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gemini-4-carbon"
+      ]
+    },
+    {
+      "task": "writing",
+      "label": "Writing & copy",
+      "modality": "text",
+      "eligible": 9,
+      "top1": "gpt-6.2-sol",
+      "top1Quality": 87.92,
+      "top1Cost": 0.03566,
+      "bestQuality": 94.72,
+      "top3": [
+        "gpt-6.2-sol",
+        "gemini-4-carbon",
+        "gpt-6.1-terra"
+      ]
+    },
+    {
+      "task": "translation",
+      "label": "Translation",
+      "modality": "text",
+      "eligible": 12,
+      "top1": "gpt-6.1-terra",
+      "top1Quality": 80.55,
+      "top1Cost": 0.030912,
+      "bestQuality": 94.4,
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "task": "extraction",
+      "label": "Structured extraction",
+      "modality": "text",
+      "eligible": 20,
+      "top1": "claude-haiku-5.5",
+      "top1Quality": 62.41,
+      "top1Cost": 0.006569,
+      "bestQuality": 92.3,
+      "top3": [
+        "claude-haiku-5.5",
+        "gpt-6-luna",
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "task": "classification",
+      "label": "Classification & tagging",
+      "modality": "text",
+      "eligible": 22,
+      "top1": "claude-haiku-5.5",
+      "top1Quality": 70.91,
+      "top1Cost": 0.0008,
+      "bestQuality": 85.4,
+      "top3": [
+        "claude-haiku-5.5",
+        "gpt-6-luna",
+        "deepseek-v4.1-flash"
+      ]
+    },
+    {
+      "task": "data-analysis",
+      "label": "Data analysis",
+      "modality": "text",
+      "eligible": 6,
+      "top1": "gemini-4-carbon",
+      "top1Quality": 85.7,
+      "top1Cost": 0.145436,
+      "bestQuality": 92.32,
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ]
+    },
+    {
+      "task": "computer-use",
+      "label": "Computer & browser use",
+      "modality": "text",
+      "eligible": 5,
+      "top1": "gemini-4-carbon",
+      "top1Quality": 91.31,
+      "top1Cost": 0.080992,
+      "bestQuality": 91.84,
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-opus-5.5"
+      ]
+    },
+    {
+      "task": "image-gen",
+      "label": "Image generation",
+      "modality": "image",
+      "eligible": 4,
+      "top1": "nano-banana-2.1",
+      "top1Quality": 93.65,
+      "top1Cost": 0.036254,
+      "bestQuality": 96,
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ]
+    },
+    {
+      "task": "image-edit",
+      "label": "Image editing",
+      "modality": "image",
+      "eligible": 4,
+      "top1": "nano-banana-2.1",
+      "top1Quality": 93.8,
+      "top1Cost": 0.036187,
+      "bestQuality": 96.8,
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ]
+    },
+    {
+      "task": "video-gen",
+      "label": "Video generation",
+      "modality": "video",
+      "eligible": 4,
+      "top1": "veo-3.1-fast",
+      "top1Quality": 86,
+      "top1Cost": 0.596,
+      "bestQuality": 95,
+      "top3": [
+        "veo-3.1-fast",
+        "kling-4.0",
+        "veo-3.1"
+      ]
+    },
+    {
+      "task": "3d-gen",
+      "label": "3D asset generation",
+      "modality": "3d",
+      "eligible": 4,
+      "top1": "tripo-h3.1",
+      "top1Quality": 94,
+      "top1Cost": 0.2148,
+      "bestQuality": 94,
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "meshy-7.1"
+      ]
+    },
+    {
+      "task": "tts",
+      "label": "Text to speech",
+      "modality": "audio",
+      "eligible": 2,
+      "top1": "voxtral-tts-3",
+      "top1Quality": 88,
+      "top1Cost": 0.01508,
+      "bestQuality": 95,
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ]
+    },
+    {
+      "task": "stt",
+      "label": "Speech to text",
+      "modality": "audio",
+      "eligible": 2,
+      "top1": "voxtral-small-transcribe-3",
+      "top1Quality": 90,
+      "top1Cost": 0.0452,
+      "bestQuality": 94,
+      "top3": [
+        "voxtral-small-transcribe-3",
+        "gpt-transcribe"
+      ]
+    },
+    {
+      "task": "music",
+      "label": "Music generation",
+      "modality": "audio",
+      "eligible": 2,
+      "top1": "lyria-3.5",
+      "top1Quality": 90,
+      "top1Cost": 0.0904,
+      "bestQuality": 90,
+      "top3": [
+        "lyria-3.5",
+        "minimax-music-3"
+      ]
+    }
+  ],
+  "gaps": {
+    "neverTop3": [
+      "claude-fable-5.2",
+      "gemini-4-argon",
+      "kimi-k3.1-pro",
+      "gpt-5.6-sol",
+      "kimi-k3",
+      "deepseek-v4-pro",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "grok-4.6",
+      "nano-banana-pro",
+      "qwen3.8-max",
+      "glm-5.3-flash",
+      "hunyuan3d-3.1-pro",
+      "minimax-m3.1-flash",
+      "seedance-2.5"
+    ],
+    "neverTop1": [
+      "claude-sonnet-5.5",
+      "claude-opus-5.5",
+      "deepseek-v4.1-flash",
+      "gpt-image-2",
+      "gpt-6-luna",
+      "seedream-5.5",
+      "gpt-6.2-astra",
+      "eleven-v4",
+      "gpt-transcribe",
+      "kling-4.0",
+      "meshy-7.1",
+      "minimax-music-3",
+      "trellis-2",
+      "veo-3.1",
+      "claude-fable-5.2",
+      "gemini-4-argon",
+      "kimi-k3.1-pro",
+      "gpt-5.6-sol",
+      "kimi-k3",
+      "deepseek-v4-pro",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "grok-4.6",
+      "nano-banana-pro",
+      "qwen3.8-max",
+      "glm-5.3-flash",
+      "hunyuan3d-3.1-pro",
+      "minimax-m3.1-flash",
+      "seedance-2.5"
+    ],
+    "tasksWithoutTop1": [],
+    "tasksUnderTwo": []
+  }
+}

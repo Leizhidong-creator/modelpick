@@ -5,7 +5,7 @@
 An open-source decision layer for AI agents. It recommends the best model/API at each workflow node and computes **cost per solved task** across text, image, video, 3D, and audio. It does not proxy traffic and does not store keys.
 
 - GitHub: https://github.com/Leizhidong-creator/modelpick
-- Catalog: 41 models, 18 providers, 20 nodes, dated 2026-11-19
+- Catalog: 40 models, 18 providers, 20 nodes, dated 2026-11-19
 - Surfaces: CLI, MCP server, portable skill, Claude Code plugin
 - License: MIT
 

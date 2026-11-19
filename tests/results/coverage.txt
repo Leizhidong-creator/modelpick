@@ -1,0 +1,185 @@
+✔ agent flow: pick 3D -> setup -> plan video (10.4229ms)
+✔ recommendation latency stays below 50ms p95 over 200 calls (153.2322ms)
+✔ decision benchmark passes all thresholds (96.8112ms)
+✔ add-model --example prints a valid template (279.8251ms)
+✔ add-model writes overrides and the model becomes routable (1027.264ms)
+✔ add-model rejects an incomplete model without writing (210.9545ms)
+✔ add-model --remove deletes a custom model (712.4014ms)
+✔ version and help are fast and clean (600.3222ms)
+✔ tasks lists all 20 nodes as JSON (300.9062ms)
+✔ models filters by modality and task (587.1166ms)
+✔ pick returns a complete agent-ready recommendation (266.586ms)
+✔ pick respects open-weights and budget constraints (481.8683ms)
+✔ no eligible model returns a structured error and exit code 3 (166.4884ms)
+✔ plan returns a multi-step route with a total (156.7069ms)
+✔ compare exposes cost per solved task (140.2564ms)
+✔ doctor and keys return machine-readable diagnostics without secrets (309.2307ms)
+✔ update imports a local snapshot and validates it (167.3286ms)
+✔ invalid optimize is rejected with a helpful hint (178.8154ms)
+✔ decide --json returns a complete, self-contained decision packet (289.582ms)
+✔ a verdict is applied locally and reported (649.0393ms)
+✔ an invented slug in a verdict is rejected, not silently ignored (277.5425ms)
+✔ a missing verdict file is a structured error (233.8187ms)
+✔ MCP initializes with tools capability and instructions (248.4252ms)
+✔ pick_model returns a compact, useful payload (263.0507ms)
+✔ pick_model accepts an external verdict and reports it (589.6341ms)
+✔ plan_workflow returns every step and a total (242.123ms)
+✔ get_setup and list_models work (213.7434ms)
+✔ unknown tool returns a JSON-RPC error, not a crash (209.6923ms)
+✔ explain_task maps natural language (216.284ms)
+✔ server keeps stdout clean JSON and logs to stderr (166.0021ms)
+✔ generic setup writes MCP, skill, and AGENTS.md once (635.3359ms)
+✔ setup preserves sibling MCP servers (321.4782ms)
+✔ setup refuses to clobber invalid JSON (242.622ms)
+✔ dry run writes nothing (168.2109ms)
+✔ claude-code setup writes project MCP + skill + CLAUDE.md (186.254ms)
+✔ dsh setup writes both skill roots and AGENTS.md (238.4696ms)
+✔ unknown agent is rejected before writing (195.7252ms)
+✔ DSH MCP row is written once, with a backup (45.8138ms)
+✔ DSH dry-run does not create a profile file (3.8849ms)
+✔ verify returns a machine-readable receipt (395.7205ms)
+✔ verify --receipt writes the receipt to a caller path (291.2082ms)
+✔ verify --strict exits non-zero when a warning exists (298.2113ms)
+✔ every task has a top-1 and at least two eligible models (0.9704ms)
+✔ every model is eligible for at least one task (0.3622ms)
+✔ top-3 placements cover a meaningful share of the catalog (0.6237ms)
+✔ every task winner has a source and a setup path (0.1424ms)
+✔ project keys and OpenRouter are treated as available (1.6245ms)
+✔ a provider that requires two env vars is not ready with one (0.4007ms)
+✔ recommend exposes the best model the user can actually run (12.8672ms)
+✔ availableOnly filters out models without a key (4.3444ms)
+✔ no keys is not an error (1.2984ms)
+✔ catalog loads with expected shape (2.4177ms)
+✔ validateCatalog rejects duplicate slugs (1.6907ms)
+✔ validateCatalog rejects a non-positive text price (1.5795ms)
+✔ validateCatalog rejects quality above 100 (2.3438ms)
+✔ validateTasks rejects weights that do not sum to one (1.6574ms)
+✔ findModel resolves slug, id, name and prefix (0.3636ms)
+✔ all slugs are unique and URL safe (0.7409ms)
+✔ every model has a positive price and a source (2.7113ms)
+✔ release dates are not in the future (0.1699ms)
+✔ every task has at least two compatible models (0.2185ms)
+✔ every model is reachable by at least one task (0.2183ms)
+✔ price confidence is one of verified or estimated (0.1242ms)
+✔ open-weight models are marked consistently (0.1822ms)
+✔ catalog snapshot is not stale (0.3919ms)
+✔ shouldJudge only fires on a close top two (2.424ms)
+✔ judge prompt contains only allowed slugs and the output contract (0.4218ms)
+✔ parseVerdict accepts fenced JSON and rejects duplicates, missing, invented slugs (1.9892ms)
+✔ aggregateVerdicts uses Borda and reports agreement (0.8609ms)
+✔ applyVerdict reorders only within the shortlist and caps movement (1.2117ms)
+✔ a judge cannot introduce a model outside the shortlist (0.3616ms)
+✔ README local links point at real files (12.233ms)
+✔ launch kit links point at real files (34.0848ms)
+✔ video deliverables exist and are non-empty (1.1066ms)
+✔ site assets mirror the README assets (2.2424ms)
+✔ policy is loaded from data, not hard-coded (0.7115ms)
+✔ user policy override changes routing without code changes (91.0462ms)
+✔ a custom model can be added through overrides.json (32.1318ms)
+✔ catalog can be validated from a different directory (7.6889ms)
+✔ qualityFor weights capability scores and is bounded (2.056ms)
+✔ attempts increase monotonically as quality falls (0.2904ms)
+✔ cache hits reduce text cost (0.1997ms)
+✔ media unit cost multiplies units and picks the default variant (0.3271ms)
+✔ context window is a hard filter for long-context work (0.5814ms)
+✔ open-weight constraint is enforced (2.7534ms)
+✔ budget constraint is enforced and reports over-budget rejects (0.8205ms)
+✔ cost preset never costs more than balanced preset (0.6531ms)
+✔ quality preset never has lower quality than balanced preset (0.3874ms)
+✔ scores stay inside 0-100 and every finalist has a setup block (0.4322ms)
+✔ media tasks exclude models that lack the required output capability (0.5394ms)
+✔ text-in-image requirement filters weak renderers (0.1941ms)
+✔ rigging requirement filters models without rigging (0.2269ms)
+✔ video duration requirement filters short generators (0.1932ms)
+✔ value pick is the cheapest model inside the policy quality band (0.6297ms)
+✔ keys never prints secret values (255.3289ms)
+✔ prompt-injection text is treated as data, not executed (257.6169ms)
+✔ path traversal in task id is rejected (237.172ms)
+✔ unknown command exits with usage error (226.1192ms)
+✔ --no-color disables ANSI even when forced (184.1662ms)
+✔ detects coding-agent: implement OAuth login across the Next.js app (7.1847ms)
+✔ detects code-review: review this 600-line PR for security issues (3.6978ms)
+✔ detects refactor: refactor the billing service out of the monorepo (0.9959ms)
+✔ detects debugging: fix this race condition from the stack trace (0.5807ms)
+✔ detects planning: plan the architecture for a multi-tenant product (0.3431ms)
+✔ detects long-context: read this 400-page document in one pass (0.3951ms)
+✔ detects research: deep research the EU AI Act compliance market (0.3123ms)
+✔ detects writing: write a launch post for our developer tool (0.2859ms)
+✔ detects translation: translate the onboarding flow into Japanese (1.6036ms)
+✔ detects extraction: extract line items from 5,000 invoices into JSON (0.5453ms)
+✔ detects classification: classify 2 million support tickets by urgency (0.5233ms)
+✔ detects data-analysis: analyze this 2GB CSV and find churn drivers (0.4519ms)
+✔ detects computer-use: automate this browser checkout flow (0.4663ms)
+✔ detects image-gen: generate a hero image for a landing page (0.601ms)
+✔ detects image-edit: remove the background from this product photo (0.8012ms)
+✔ detects video-gen: animate this product photo into a 5 second clip (0.7734ms)
+✔ detects 3d-gen: create a stylized 3D sword for a Unity game (0.5208ms)
+✔ detects tts: narrate this 60 second script with a warm voice (0.9106ms)
+✔ detects stt: transcribe this 45 minute podcast (0.2352ms)
+✔ detects music: generate a lo-fi background track (0.1928ms)
+✔ detects 3d-gen: 帮我生成一个3D游戏资产 (2.3851ms)
+✔ detects image-gen: 生成一张产品海报 (0.3029ms)
+✔ detects translation: 把这段视频翻译成日语并配音 (7.5387ms)
+✔ detects refactor: 重构这个大型代码库 (1.802ms)
+✔ detects video-gen: 做一个30秒的产品宣传片 (0.931ms)
+✔ unknown text returns no task (2.8534ms)
+✔ ambiguous text exposes runner-up candidates (2.5827ms)
+✔ parseIntent extracts cost, open weights, budget and exclusions (4.1681ms)
+✔ findTask accepts ids, labels and prefixes (0.4264ms)
+✔ resolveTask throws actionable errors (3.0899ms)
+ℹ tests 129
+ℹ suites 0
+ℹ pass 129
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3666.0119
+ℹ start of coverage report
+ℹ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ℹ file              | line % | branch % | funcs % | uncovered lines
+ℹ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ℹ bench             |        |          |         | 
+ℹ  run.js           |  95.74 |    65.06 |   89.74 | 246-251 254-258
+ℹ bin               |        |          |         | 
+ℹ  modelpick.js     |  71.43 |   100.00 |    0.00 | 5-6
+ℹ src               |        |          |         | 
+ℹ  cli              |        |          |         | 
+ℹ   format.js       |  60.90 |    30.99 |   77.78 | 15 30-31 66-67 92-95 122-124 131-134 136-138 143 156-170 182-191 195-197 199-200 202-207 229-232 238-242 245-246 254-277 280-295 298-312
+ℹ   main.js         |  91.38 |    47.06 |  100.00 | 127-129 177-180 197-200 207-210 222-226
+ℹ  commands         |        |          |         | 
+ℹ   add-model.js    |  80.13 |    37.50 |   72.73 | 62-67 91-92 97-98 104-106 124-128 132-136 139-140 146-150
+ℹ   compare.js      |  50.00 |    40.00 |  100.00 | 9-14 18-27 33
+ℹ   decide.js       |  54.55 |    22.22 |   50.00 | 8-12 23-27 33-42
+ℹ   doctor.js       |  84.15 |    41.67 |   77.78 | 30-32 41-42 72-79
+ℹ   keys.js         |  72.34 |    88.89 |   71.43 | 34-46
+ℹ   models.js       |  81.40 |    53.85 |   60.00 | 15-16 37-42
+ℹ   pick.js         |  80.39 |    28.57 |  100.00 | 10-15 39-42
+ℹ   plan.js         |  61.76 |    40.00 |  100.00 | 9-14 27-33
+ℹ   setup.js        |  75.44 |    50.00 |   75.00 | 5-9 24-25 47 51-56
+ℹ   tasks.js        |  75.76 |    75.00 |   66.67 | 25-32
+ℹ   update.js       |  47.92 |    22.22 |   50.00 | 8-21 30-37 39-43 48-52 72-75 82-95
+ℹ   verify.js       |  89.86 |    34.62 |   86.67 | 18-19 46-47 54-55 80-81 87-88 96-97 136-137
+ℹ  core             |        |          |         | 
+ℹ   availability.js |  84.31 |    94.12 |   83.33 | 44-51
+ℹ   catalog.js      |  85.83 |    59.81 |  100.00 | 58-59 61-62 65-66 71-72 74-75 98-99 125-127 153-163 169-173 180-184
+ℹ   config.js       |  86.90 |    78.57 |   80.00 | 44-45 49-55 58-59
+ℹ   connect.js      |  93.33 |    90.63 |   84.21 | 201-215 254-255
+ℹ   decision.js     |  93.33 |    60.00 |  100.00 | 58-62
+ℹ   errors.js       |  93.55 |    75.00 |   66.67 | 30-31
+ℹ   judge.js        |  98.45 |    86.00 |  100.00 | 68-69
+ℹ   policy.js       |  95.00 |    68.75 |   83.33 | 44-45 79-80
+ℹ   recommend.js    |  95.68 |    70.45 |   96.67 | 17-18 261-264 298-306
+ℹ   score.js        |  94.89 |    80.10 |   93.18 | 61-63 443 447-448 451-468
+ℹ   tasks.js        |  87.82 |    91.67 |   93.75 | 99-103 143-156
+ℹ  integrations     |        |          |         | 
+ℹ   index.js        |  79.48 |    46.51 |   78.57 | 29-31 39-51 177-179 190-200 202-213 224-226 234-239 248-251
+ℹ  util             |        |          |         | 
+ℹ   ansi.js         |  80.00 |    53.57 |   90.00 | 14-15 62 72-73 78-85 89-94
+ℹ   args.js         |  67.24 |    80.77 |   50.00 | 28-30 58-65 74-82 90-94 99-107 112-115
+ℹ tests             |        |          |         | 
+ℹ  helpers.js       |  92.00 |    72.73 |   81.82 | 35-36 62-63 77-78 91-92
+ℹ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ℹ all files         |  84.79 |    64.45 |   86.36 | 
+ℹ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ℹ end of coverage report

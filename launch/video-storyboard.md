@@ -1,4 +1,4 @@
-# ModelPick intro film — script and storyboard
+# ModelPick intro video — script and storyboard
 
 **Master:** `assets/modelpick-intro.mp4` · 93.5s · 1920×1080 · 24fps · H.264 + AAC
 **Captions:** `assets/modelpick-intro.srt` (English, not burned in)
@@ -9,7 +9,7 @@
 
 ## Why this cut
 
-Apple/Google product films earn attention by **removing** things: no feature list, no logo sting every five seconds, no "excited to announce." This film has eight scenes and one argument:
+Apple/Google product videos earn attention by **removing** things: no feature list, no logo sting every five seconds, no "excited to announce." This film has eight scenes and one argument:
 
 > Your agent picks one model for everything. That is a decision problem. ModelPick makes the decision at each node, prices it per solved task, and picks the best value — not the cheapest.
 
@@ -25,7 +25,7 @@ The product appears at 30s, after the problem is felt. The benchmark appears at 
 | 4 | 00:30.2–00:47.5 | Inside Claude Code, ask for a game-ready 3D asset. ModelPick compares Tripo, Hunyuan, and Meshy, applies the constraints, and returns one recommendation with the real cost. Twenty-one cents per usable asset. | Terminal: `modelpick pick "3D sword for a Unity game"` → Tripo H3.1, 94 quality, $0.21. Side panel: quality / cost / attempts / `TRIPO_API_KEY`. |
 | 5 | 00:47.5–01:00.5 | For a launch video, it plans the whole pipeline. Script, keyframes, clips, voice, music. Five models, one budget, before a single frame renders. | Five nodes: script $0.03, keyframes $0.04, clips $0.60, voice $0.02, music $0.09. Total $0.77. |
 | 6 | 01:00.5–01:13.5 | One command installs it into Codex, Cursor, DeepSeek Harness, or Copilot. A CLI, an MCP server, and a skill. No gateway. No keys stored. | Three columns: CLI / MCP / SKILL. Agent chips. "No gateway · no keys stored." |
-| 7 | 01:13.5–01:23.5 | Every price has a source. Every decision is benchmarked. And the entire catalog is a JSON file you can change. | 100% top-1, 0.5ms p95, 41 models. Four 100% bars. |
+| 7 | 01:13.5–01:23.5 | Every price has a source. Every decision is benchmarked. And the entire catalog is a JSON file you can change. | 100% top-1, 1.1ms p95, 40 models. Four 100% bars. |
 | 8 | 01:23.5–01:33.5 | ModelPick. Stop paying frontier prices for non-frontier work. Open source. MIT. On GitHub. | Logo, tagline, `github.com/Leizhidong-creator/modelpick`, install command. |
 
 Full text is in `assets/modelpick-intro.srt`.

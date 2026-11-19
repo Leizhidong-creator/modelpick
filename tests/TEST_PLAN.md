@@ -18,7 +18,7 @@ Evidence lives in `tests/results/` (JSON + HTML) and `tests/evidence/` (images +
 
 ## Dimensions
 
-### 1. Unit logic — 83 tests
+### 1. Unit logic — 87 tests
 
 | Area | File | What is asserted |
 |---|---|---|
@@ -32,11 +32,11 @@ Evidence lives in `tests/results/` (JSON + HTML) and `tests/evidence/` (images +
 | Judge | `tests/unit/judge.test.js` | prompt blindness, strict JSON, invented slug rejection, Borda, movement cap |
 | Links | `tests/unit/links.test.js` | README/launch links resolve, video assets exist, site mirrors assets |
 
-Result: **83/83 pass**.
+Result: **87/87 pass**.
 
 ### 2. Data integrity
 
-- 41 models, 20 tasks, 18 providers, 7 workflows.
+- 40 models, 20 tasks, 18 providers, 7 workflows.
 - Every model has ≥1 HTTPS source with a read date.
 - No duplicate slugs or ids.
 - Every task has ≥2 compatible models.
@@ -61,7 +61,7 @@ Result: **39/39 pass**.
 `tests/e2e/agent-flow.test.js`:
 
 - Pick a 3D node, get a setup block, stay under $1.
-- 200 recommendations, p95 <50 ms (measured ~0.5 ms).
+- 200 recommendations, p95 <50 ms (measured ~1.1 ms).
 - Full decision benchmark passes thresholds.
 
 ### 5. Adversarial / security
@@ -131,7 +131,7 @@ The CLI avoids POSIX-only shell assumptions; setup uses absolute `node` paths on
 | Hard constraints | 100% | 100% | 100% |
 | Median cost regret | 0.00 | 0.00 | reported |
 | Price stability | 100% | 100% | ≥80% |
-| p95 latency | 0.5 ms | 0.5 ms | ≤300 ms |
+| p95 latency | 1.1 ms | 1.1 ms | ≤300 ms |
 
 Full methodology and limitations: `bench/METHODOLOGY.md`. Raw runs: `tests/results/benchmark-latest.json`, `holdout-latest.json`, `value-latest.json`, `sensitivity-latest.json`.
 

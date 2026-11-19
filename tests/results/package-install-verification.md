@@ -30,7 +30,7 @@ $ npx modelpick pick "3D sword for Unity" --json
 | Check | Result |
 |---|---|
 | `bin` link works after install | pass (`npx modelpick version` → `0.1.0`) |
-| Catalog is packaged | pass (`catalog/models.json` present, 41 models) |
+| Catalog is packaged | pass (`catalog/models.json` present, 40 models) |
 | Assets are packaged | pass (`assets/modelpick-intro.mp4`, 13.6 MB) |
 | README-linked docs are packaged | pass (`launch/`, `tests/*.md`, `research/hf-evidence.json`) |
 | `pick --json` works from the installed package | pass |
@@ -47,7 +47,7 @@ $ npx modelpick verify --no-color
   ✓ dependencies         zero runtime dependencies
   ✓ catalog-schema       catalog + policy schema valid
   ✓ catalog-invariants   slugs, prices, evidence, weights, plans
-  ✓ coverage             41 models · 20 tasks · 18 providers
+  ✓ coverage             40 models · 20 tasks · 18 providers
   ✓ evidence             every model has an HTTPS source
   ✓ task-coverage        every task has at least two compatible models
   ✓ decision-benchmark   115 dev runs · top-1 100%

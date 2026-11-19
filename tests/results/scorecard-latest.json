@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "multi-dimensional-scorecard",
+  "generatedAt": "2026-11-19T08:56:04.468Z",
+  "catalog": {
+    "version": "2026.11.19",
+    "models": 40,
+    "tasks": 20,
+    "providers": 18
+  },
+  "composite": 96.9,
+  "grade": "A",
+  "weights": 100,
+  "dimensions": [
+    {
+      "id": "correctness",
+      "label": "Correctness",
+      "weight": 25,
+      "score": 100,
+      "target": 90,
+      "evidence": "benchmark-latest.json + holdout-latest.json",
+      "metrics": {
+        "top1": 1,
+        "top3": 1,
+        "intent": 1,
+        "constraints": 1
+      }
+    },
+    {
+      "id": "cost",
+      "label": "Cost efficiency",
+      "weight": 20,
+      "score": 88,
+      "target": 80,
+      "evidence": "benchmark regret + value-latest.json",
+      "metrics": {
+        "medianCostRegret": 0,
+        "qualityParity": 0.954,
+        "costRatio": 0.416
+      }
+    },
+    {
+      "id": "robustness",
+      "label": "Robustness",
+      "weight": 15,
+      "score": 100,
+      "target": 90,
+      "evidence": "priceStability + sensitivity-latest.json + determinism",
+      "metrics": {
+        "priceStability": 1,
+        "retryFlips": 0,
+        "deterministic": true
+      }
+    },
+    {
+      "id": "coverage",
+      "label": "Coverage",
+      "weight": 15,
+      "score": 100,
+      "target": 95,
+      "evidence": "catalog + task requirements",
+      "metrics": {
+        "taskCoverage": 1,
+        "modelCoverage": 1,
+        "modalityCoverage": 1
+      }
+    },
+    {
+      "id": "safety",
+      "label": "Safety",
+      "weight": 15,
+      "score": 100,
+      "target": 100,
+      "evidence": "adversarial-latest.json",
+      "metrics": {
+        "adversarialPass": 1,
+        "cases": 25
+      }
+    },
+    {
+      "id": "operability",
+      "label": "Operability",
+      "weight": 10,
+      "score": 93.4,
+      "target": 90,
+      "evidence": "p95 latency + verify receipt + line coverage",
+      "metrics": {
+        "p95Ms": 1,
+        "verifyOk": true,
+        "coverage": 84.79
+      }
+    }
+  ],
+  "failures": [],
+  "caveat": "Decision benchmark, not a live output benchmark. Cost, coverage, safety, and operability are measured from committed evidence; quality labels are expert-authored."
+}
