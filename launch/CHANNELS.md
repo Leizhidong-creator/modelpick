@@ -25,6 +25,10 @@ The product is ready; the next bottleneck is distribution. This is the channel m
 | Official MCP Registry | Requires npm package or OCI image | Blocked on npm 2FA; use `server.json` after publish |
 | Awesome Remote MCP | Remote-only servers | Not applicable: ModelPick is local stdio |
 
+## BizBot review
+
+Read [`BIZBOT-REVIEW.md`](BIZBOT-REVIEW.md). The useful part is intent signals + queue + CRM; the automated unsolicited conversation part is not used.
+
 ## Next — human channels
 
 | Channel | Requirement | Action |
