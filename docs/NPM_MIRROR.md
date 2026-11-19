@@ -24,6 +24,8 @@ This is not `npm install modelpick` from the public registry. It is a registry-s
 
 ## Limits
 
+- This is a static mirror; if you installed an earlier revision of the same version, clear the npm cache once: `npm cache clean --force`. New installs are unaffected.
+
 - You must pass `--registry`; it does not change the user's global registry.
 - Only `modelpick` is served.
 - The public npm registry is still the long-term path.
