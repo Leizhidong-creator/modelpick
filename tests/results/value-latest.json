@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "value-simulation",
-  "generatedAt": "2026-11-19T11:00:55.850Z",
+  "generatedAt": "2026-11-19T11:04:09.266Z",
   "trialsPerTask": 4000,
   "parityThreshold": 0.9,
   "tasks": [
@@ -86,15 +86,15 @@
       "label": "Image generation",
       "strategies": {
         "frontier": {
-          "model": "nano-banana-pro",
-          "name": "Nano Banana Pro",
-          "quality": 96,
-          "firstPass": 0.954,
+          "model": "gpt-image-2",
+          "name": "GPT Image 2.6",
+          "quality": 94,
+          "firstPass": 0.931,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 563.0680000000203,
-          "costPerSolved": 0.14076700000000508,
-          "attemptsMean": 1.0505,
+          "spent": 227.7409999999903,
+          "costPerSolved": 0.05693524999999757,
+          "attemptsMean": 1.07425,
           "qualityParity": 1,
           "costRatio": 1,
           "parityPass": true
@@ -106,11 +106,11 @@
           "firstPass": 0.892,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 133.8900000000043,
-          "costPerSolved": 0.03347250000000108,
-          "attemptsMean": 1.11575,
-          "qualityParity": 0.935,
-          "costRatio": 0.238,
+          "spent": 133.9800000000043,
+          "costPerSolved": 0.03349500000000108,
+          "attemptsMean": 1.1165,
+          "qualityParity": 0.958,
+          "costRatio": 0.588,
           "parityPass": true
         },
         "value": {
@@ -120,11 +120,11 @@
           "firstPass": 0.892,
           "solved": 3999,
           "solveRate": 0.99975,
-          "spent": 134.49000000000433,
-          "costPerSolved": 0.033630907726932814,
-          "attemptsMean": 1.12075,
-          "qualityParity": 0.935,
-          "costRatio": 0.239,
+          "spent": 134.52000000000433,
+          "costPerSolved": 0.033638409602401685,
+          "attemptsMean": 1.121,
+          "qualityParity": 0.958,
+          "costRatio": 0.591,
           "parityPass": true
         },
         "balanced": {
@@ -137,8 +137,8 @@
           "spent": 144.9504000000165,
           "costPerSolved": 0.036246661665420475,
           "attemptsMean": 1.0785,
-          "qualityParity": 0.972,
-          "costRatio": 0.257,
+          "qualityParity": 0.996,
+          "costRatio": 0.637,
           "parityPass": true
         },
         "oracle": {
@@ -148,11 +148,11 @@
           "firstPass": null,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 122.15460000000458,
-          "costPerSolved": 0.030538650000001145,
+          "spent": 122.07560000000461,
+          "costPerSolved": 0.030518900000001153,
           "attemptsMean": null,
           "qualityParity": null,
-          "costRatio": 0.217,
+          "costRatio": 0.536,
           "parityPass": null
         }
       }
@@ -388,9 +388,9 @@
   ],
   "aggregate": {
     "frontier": {
-      "firstPass": 0.937,
+      "firstPass": 0.932,
       "solveRate": 1,
-      "costPerSolved": 0.6417,
+      "costPerSolved": 0.625,
       "qualityParity": 1,
       "costRatio": 1,
       "parityPassShare": 1
@@ -399,24 +399,24 @@
       "firstPass": 0.876,
       "solveRate": 1,
       "costPerSolved": 0.206,
-      "qualityParity": 0.935,
-      "costRatio": 0.391,
+      "qualityParity": 0.94,
+      "costRatio": 0.461,
       "parityPassShare": 0.8
     },
     "value": {
       "firstPass": 0.894,
       "solveRate": 1,
       "costPerSolved": 0.2563,
-      "qualityParity": 0.954,
-      "costRatio": 0.416,
+      "qualityParity": 0.959,
+      "costRatio": 0.486,
       "parityPassShare": 1
     },
     "balanced": {
       "firstPass": 0.883,
       "solveRate": 1,
       "costPerSolved": 0.2077,
-      "qualityParity": 0.942,
-      "costRatio": 0.396,
+      "qualityParity": 0.947,
+      "costRatio": 0.472,
       "parityPassShare": 0.8
     },
     "oracle": {
@@ -424,7 +424,7 @@
       "solveRate": 1,
       "costPerSolved": 0.1952,
       "qualityParity": 1,
-      "costRatio": 0.377,
+      "costRatio": 0.441,
       "parityPassShare": 1
     }
   },

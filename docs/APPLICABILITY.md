@@ -40,7 +40,7 @@ Every model must be eligible for at least one node. A model with no top-3 finish
 | Gemini 3.8 Flash | Google | 2 | 0 | 0 | extraction | 62.9 |
 | GLM-5.3 | Z.ai | 2 | 0 | 0 | extraction | 61.1 |
 | Grok 4.6 | xAI | 2 | 0 | 0 | extraction | 65.9 |
-| Nano Banana Pro | Google | 2 | 0 | 0 | image-edit | 96.8 |
+| Nano Banana Pro | Google | 2 | 0 | 0 | image-edit | 92.6 |
 | Qwen3.8 Max | Alibaba Cloud | 2 | 0 | 0 | extraction | 63.5 |
 | GLM-5.3-Flash | Z.ai | 1 | 0 | 0 | classification | 65.8 |
 | Hunyuan3D 3.1 Pro | fal.ai (Tencent Hunyuan) | 1 | 0 | 0 | 3d-gen | 91 |

@@ -1,6 +1,6 @@
 # Quality evidence
 
-Every recommendation carries a `qualityConfidence` block. Text models are `benchmark-backed` (public leaderboard scores, still not a live output benchmark). Image, video, 3D, and audio models are `expert prior` — the score is a curated prior, not an independent measurement. The field is additive in `schemaVersion: 1.0`. and confidence
+Every recommendation carries a `qualityConfidence` block. Text models are `benchmark-backed` (public leaderboard scores, still not a live output benchmark). Image models are `mixed` (public arena + prior). Video, 3D, and audio models are `expert prior` — the score is a curated prior, not an independent measurement. The field is additive in `schemaVersion: 1.0`. and confidence
 
 ModelPick does not have a proprietary eval lab. It has a **source hierarchy**, a dated catalog, and an explicit confidence level. This page records what each score is based on and where it is weak.
 

@@ -148,7 +148,7 @@
         "openrouter": "anthropic/claude-haiku-5-5",
         "openrouterModel": "anthropic/claude-haiku-5-5"
       },
-      "notes": "CursorBench 48.4 at $0.10/$0.50 — exceptional agentic value.",
+      "notes": "CursorBench 48.4 at $0.10/$0.50 \u2014 exceptional agentic value.",
       "sources": [
         {
           "name": "models.dev",
@@ -461,7 +461,7 @@
         "openrouter": "deepseek/deepseek-flash",
         "openrouterModel": "deepseek/deepseek-flash"
       },
-      "notes": "CursorBench 47.7 — near Sonnet 5.5 agentic coding at ~1/13 the price; 1M context.",
+      "notes": "CursorBench 47.7 \u2014 near Sonnet 5.5 agentic coding at ~1/13 the price; 1M context.",
       "sources": [
         {
           "name": "models.dev",
@@ -1067,12 +1067,17 @@
         "apiModel": "gpt-image-2.6-sunburst",
         "apiModelNote": "Sunburst is the quality tier; Flare is the faster sibling at the same token rates."
       },
-      "notes": "Token-priced; ~$0.053 at medium 1024² and $0.211 at high. Strong edit consistency and prompt adherence; no 4K SKU.",
+      "notes": "Token-priced; ~$0.053 at medium 1024\u00b2 and $0.211 at high. Strong edit consistency and prompt adherence; no 4K SKU.",
       "sources": [
         {
           "name": "Lumenfall",
           "url": "https://lumenfall.ai/models/openai/gpt-image-2/providers",
           "readAt": "2026-11-19"
+        },
+        {
+          "name": "Artificial Analysis text-to-image leaderboard",
+          "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+          "readAt": "2026-11-18"
         }
       ]
     },
@@ -1503,7 +1508,7 @@
         "openrouter": "openai/gpt-6.2-sol",
         "openrouterModel": "openai/gpt-6.2-sol"
       },
-      "notes": "BenchLM overall 84.79 at $2/$10 — the value frontier.",
+      "notes": "BenchLM overall 84.79 at $2/$10 \u2014 the value frontier.",
       "sources": [
         {
           "name": "models.dev",
@@ -1880,7 +1885,7 @@
       },
       "access": {
         "apiModel": "kling/v4/text-to-video",
-        "apiModelNote": "fal endpoint; resolution defaults to 1080p — set 720p explicitly to halve cost."
+        "apiModelNote": "fal endpoint; resolution defaults to 1080p \u2014 set 720p explicitly to halve cost."
       },
       "notes": "Native 30s takes, multi-keyframe control, strong motion. No audio and no 4K on this endpoint; lips are not synced.",
       "sources": [
@@ -1936,7 +1941,7 @@
       "access": {
         "apiModel": "lyria-3.5"
       },
-      "notes": "$0.08 per full song — the cheapest production music option in the catalog.",
+      "notes": "$0.08 per full song \u2014 the cheapest production music option in the catalog.",
       "sources": [
         {
           "name": "BenchLM media pricing",
@@ -2235,6 +2240,11 @@
           "name": "BenchLM media pricing",
           "url": "https://benchlm.ai/media-pricing",
           "readAt": "2026-11-19"
+        },
+        {
+          "name": "Artificial Analysis text-to-image leaderboard",
+          "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+          "readAt": "2026-11-18"
         }
       ]
     },
@@ -2278,10 +2288,10 @@
         ]
       },
       "quality": {
-        "overall": 96,
-        "imageGen": 96,
-        "imageEdit": 97,
-        "textInImage": 97
+        "overall": 91,
+        "imageGen": 91,
+        "imageEdit": 92,
+        "textInImage": 96
       },
       "speed": {
         "latencySec": 20
@@ -2303,12 +2313,17 @@
       "access": {
         "apiModel": "gemini-3-pro-image"
       },
-      "notes": "Best text rendering and 4K output; use when the image must contain accurate type or brand assets.",
+      "notes": "Text rendering and 4K are still best-in-class; overall prior lowered to 91 after Artificial Analysis T2I ranked it #18 (1119 Elo), below Nano Banana 2.1 (#8, 1176) and GPT Image 2 high (#6, 1192). Use for type/brand assets, not as the default hero model.",
       "sources": [
         {
           "name": "BenchLM media pricing",
           "url": "https://benchlm.ai/media-pricing",
           "readAt": "2026-11-19"
+        },
+        {
+          "name": "Artificial Analysis text-to-image leaderboard",
+          "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+          "readAt": "2026-11-18"
         }
       ]
     },
@@ -2535,6 +2550,11 @@
           "name": "fal.ai",
           "url": "https://fal.ai/models/bytedance/seedream/v5.5/text-to-image",
           "readAt": "2026-11-19"
+        },
+        {
+          "name": "Artificial Analysis text-to-image leaderboard",
+          "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+          "readAt": "2026-11-18"
         }
       ]
     },
@@ -2633,16 +2653,16 @@
         "confidence": "verified",
         "variants": [
           {
-            "label": "text · standard",
+            "label": "text \u00b7 standard",
             "amount": 0.2,
             "default": true
           },
           {
-            "label": "text · untextured",
+            "label": "text \u00b7 untextured",
             "amount": 0.1
           },
           {
-            "label": "image · standard",
+            "label": "image \u00b7 standard",
             "amount": 0.3
           },
           {
@@ -2757,7 +2777,7 @@
       },
       "access": {
         "apiModel": "veo-3.1-generate-001",
-        "apiModelNote": "Vertex only — Veo is no longer served by the Gemini API."
+        "apiModelNote": "Vertex only \u2014 Veo is no longer served by the Gemini API."
       },
       "notes": "Reference-quality native audio/dialogue, 4K, 8s clips. Vertex project + IAM required. $2.00 for 5s with audio.",
       "sources": [
@@ -2835,7 +2855,7 @@
         "apiModel": "veo-3.1-fast-generate-001",
         "apiModelNote": "Vertex only."
       },
-      "notes": "Same family, 4× cheaper than Veo 3.1 at 720p. The right default for iterating before a hero render.",
+      "notes": "Same family, 4\u00d7 cheaper than Veo 3.1 at 720p. The right default for iterating before a hero render.",
       "sources": [
         {
           "name": "BenchLM media pricing",
@@ -2942,7 +2962,7 @@
       "access": {
         "apiModel": "voxtral-mini-tts-3-0"
       },
-      "notes": "$13 per 1M characters (~$0.013/1K) — 6× cheaper than Eleven v4 with solid quality.",
+      "notes": "$13 per 1M characters (~$0.013/1K) \u2014 6\u00d7 cheaper than Eleven v4 with solid quality.",
       "sources": [
         {
           "name": "BenchLM media pricing",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "verification-receipt",
-  "generatedAt": "2026-11-19T11:00:58.494Z",
+  "generatedAt": "2026-11-19T11:04:11.887Z",
   "ok": true,
   "warnings": 0,
   "version": "0.1.0",
@@ -65,13 +65,13 @@
     {
       "id": "value-simulation",
       "status": "pass",
-      "message": "quality parity 95.4% · cost 41.6% of frontier"
+      "message": "quality parity 95.9% · cost 48.6% of frontier"
     },
     {
       "id": "hashes",
       "status": "pass",
       "message": "catalog/policy hashes available",
-      "detail": "{\"catalog/models.json\":\"87f4f6059fa31da3\",\"catalog/tasks.json\":\"615a36c478beb172\",\"catalog/policy.json\":\"7d8c0c6c5745dd91\",\"package.json\":\"079f6e5e18f909ce\"}"
+      "detail": "{\"catalog/models.json\":\"dc0f5bff0fd8aae9\",\"catalog/tasks.json\":\"615a36c478beb172\",\"catalog/policy.json\":\"7d8c0c6c5745dd91\",\"package.json\":\"079f6e5e18f909ce\"}"
     },
     {
       "id": "integrity",
@@ -81,7 +81,7 @@
     }
   ],
   "hashes": {
-    "catalog/models.json": "87f4f6059fa31da3",
+    "catalog/models.json": "dc0f5bff0fd8aae9",
     "catalog/tasks.json": "615a36c478beb172",
     "catalog/policy.json": "7d8c0c6c5745dd91",
     "package.json": "079f6e5e18f909ce"

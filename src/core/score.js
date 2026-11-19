@@ -25,7 +25,15 @@ function round(value, digits = 4) {
 }
 
 export function qualityConfidenceFor(model) {
-  const media = ['image', 'video', '3d', 'audio'].includes(model?.modality);
+  const modality = model?.modality;
+  if (modality === 'image') {
+    return {
+      level: 'mixed',
+      label: 'arena + prior',
+      note: 'Image ranking is informed by a public arena; other media dimensions remain expert priors.'
+    };
+  }
+  const media = ['video', '3d', 'audio'].includes(modality);
   return media
     ? {
         level: 'prior',

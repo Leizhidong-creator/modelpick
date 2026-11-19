@@ -134,5 +134,6 @@ test('value pick is the cheapest model inside the policy quality band', () => {
 test('quality confidence distinguishes benchmarked text from media priors', () => {
   assert.equal(qualityConfidenceFor({ modality: 'text' }).level, 'benchmark');
   assert.equal(qualityConfidenceFor({ modality: '3d' }).level, 'prior');
+  assert.equal(qualityConfidenceFor({ modality: 'image' }).level, 'mixed');
   assert.match(qualityConfidenceFor({ modality: 'video' }).note, /prior/);
 });

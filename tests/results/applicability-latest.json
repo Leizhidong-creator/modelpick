@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "model-applicability",
-  "generatedAt": "2026-11-19T11:00:58.645Z",
+  "generatedAt": "2026-11-19T11:04:12.052Z",
   "catalog": "2026.11.19",
   "totals": {
     "models": 40,
@@ -921,13 +921,13 @@
       "top1": [],
       "top3": [],
       "bestTask": "image-edit",
-      "bestScore": 65.2,
-      "bestQuality": 96.8,
-      "bestCost": 0.139092,
+      "bestScore": 62.5,
+      "bestQuality": 92.6,
+      "bestCost": 0.146462,
       "eligibleCount": 2,
       "top1Count": 0,
       "top3Count": 0,
-      "qualityForBestTask": 96.8
+      "qualityForBestTask": 92.6
     },
     {
       "slug": "qwen3.8-max",
@@ -1235,7 +1235,7 @@
       "top1": "nano-banana-2.1",
       "top1Quality": 93.65,
       "top1Cost": 0.036254,
-      "bestQuality": 96,
+      "bestQuality": 94,
       "top3": [
         "nano-banana-2.1",
         "seedream-5.5",
@@ -1250,7 +1250,7 @@
       "top1": "nano-banana-2.1",
       "top1Quality": 93.8,
       "top1Cost": 0.036187,
-      "bestQuality": 96.8,
+      "bestQuality": 93.8,
       "top3": [
         "nano-banana-2.1",
         "seedream-5.5",

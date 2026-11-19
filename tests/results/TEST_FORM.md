@@ -1,6 +1,6 @@
 # Test form
 
-Generated: 2026-11-19T11:01:03.468Z
+Generated: 2026-11-19T11:04:22.191Z
 
 This is the human-readable evidence sheet. Machine-readable results are in `tests/results/*.json`.
 
@@ -24,7 +24,7 @@ This is the human-readable evidence sheet. Machine-readable results are in `test
 
 - Dev runs: 115 (top-1 100%, top-3 100%)
 - Held-out runs: 35 (top-1 100%, top-3 100%)
-- Value simulation: quality parity 95% at 42% of frontier cost
+- Value simulation: quality parity 96% at 49% of frontier cost
 
 ## 3. Per-task matrix (20 rows)
 

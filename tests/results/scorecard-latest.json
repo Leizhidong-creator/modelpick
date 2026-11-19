@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
   "kind": "multi-dimensional-scorecard",
-  "generatedAt": "2026-11-19T11:00:58.825Z",
+  "generatedAt": "2026-11-19T11:04:12.235Z",
   "catalog": {
     "version": "2026.11.19",
     "models": 40,
     "tasks": 20,
     "providers": 18
   },
-  "composite": 97.6,
+  "composite": 97.3,
   "grade": "A",
   "weights": 100,
   "dimensions": [
@@ -30,13 +30,13 @@
       "id": "cost",
       "label": "Cost efficiency",
       "weight": 20,
-      "score": 88,
+      "score": 86.4,
       "target": 80,
       "evidence": "benchmark regret + value-latest.json",
       "metrics": {
         "medianCostRegret": 0,
-        "qualityParity": 0.954,
-        "costRatio": 0.416
+        "qualityParity": 0.959,
+        "costRatio": 0.486
       }
     },
     {
@@ -85,7 +85,7 @@
       "target": 90,
       "evidence": "p95 latency + verify receipt + line coverage",
       "metrics": {
-        "p95Ms": 1,
+        "p95Ms": 0.9,
         "verifyOk": true,
         "coverage": 90.02
       }
