@@ -7,13 +7,13 @@
     "0.1.1": {
       "dist": {
         "tarball": "https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.1/modelpick-0.1.1.tgz",
-        "integrity": "sha512-wANfts0SBIe97SIJvVfEH2iCIFhdOYKIbKrXFEViT4tBeRRnx/NHuZjkL+DRqbilmr3Oma3OCUxLZLOt0Q09xQ=="
+        "integrity": "sha512-zLC127M2ES4T/LDD87tFqyGmcKP6aSxLuIABeWLhD8B1AEbClT7bunideuR35ZKRJqTxOyGax/naIhANFYLDGQ=="
       },
       "version": "0.1.1",
       "license": "MIT",
       "dependencies": {},
       "name": "modelpick",
-      "description": "Pick the right model at every step of an AI agent workflow \u2014 with cost per solved task, not guesswork.",
+      "description": "Pick the right model at every step of an AI agent workflow — with cost per solved task, not guesswork.",
       "engines": {
         "node": ">=20.11"
       },
