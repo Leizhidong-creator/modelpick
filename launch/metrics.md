@@ -23,3 +23,8 @@ Do not record star counts as the only success metric. A reply that says “your 
 - Commented on DigiBanks99/lopen#51 (model routing design): https://github.com/DigiBanks99/lopen/issues/51#issuecomment-7007416128
 - Commented on jim-at-jibba/agent-os#4 (planner/executor/verifier routing): https://github.com/jim-at-jibba/agent-os/issues/4#issuecomment-7007430751
 - Both comments lead with a concrete design, disclose ModelPick, and do not ask for a star.
+
+## More GitHub outreach
+
+- michael-muir/software-factory#20 (model router epic): https://github.com/michael-muir/software-factory/issues/20#issuecomment-7007576626
+- 8gi-foundation/8gent-code#73 (role-based routing): https://github.com/8gi-foundation/8gent-code/issues/73#issuecomment-7007577565
