@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "multi-dimensional-scorecard",
-  "generatedAt": "2026-11-19T11:06:22.664Z",
+  "generatedAt": "2026-11-19T11:15:37.646Z",
   "catalog": {
     "version": "2026.11.19",
     "models": 40,
@@ -87,7 +87,7 @@
       "metrics": {
         "p95Ms": 1.1,
         "verifyOk": true,
-        "coverage": 90.02
+        "coverage": 90.04
       }
     }
   ],

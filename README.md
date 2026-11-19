@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-174%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-175%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-28%2F28-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -95,6 +95,12 @@ git clone https://github.com/Leizhidong-creator/modelpick
 cd modelpick
 node bin/modelpick.js pick "refactor this 40k-line repo, cheapest that works"
 node bin/modelpick.js setup
+```
+
+NPM mirror (no npm auth required):
+
+```bash
+npm install modelpick --registry=https://leizhidong-creator.github.io/modelpick/npm/
 ```
 
 Offline tarball (no npm auth required):
@@ -534,6 +540,7 @@ Requirements: Node ≥ 20.11. Runtime dependencies: **zero**. Python + Pillow ar
 - [Media evidence: the first independent correction](docs/MEDIA_EVIDENCE.md)
 - [Bring your own eval](docs/EVALS.md)
 - [Self-hosting](docs/SELF_HOST.md)
+- [NPM mirror](docs/NPM_MIRROR.md)
 - [Live endpoint evidence](docs/LIVE_TESTING.md)
 - [Ecosystem and embedding](docs/ECOSYSTEM.md)
 - [Judge/decision models](docs/JUDGES.md)
