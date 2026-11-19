@@ -297,7 +297,6 @@ def scene_claude(t: float) -> Image.Image:
             draw.text((1326, y), label, font=F_SMALL, fill=DIM)
             draw.text((1326, y + 34), value, font=F(42, True), fill=IVORY)
             y += 122
-    fade(draw, (140, 950), "Not a leaderboard. A decision with a receipt.", F_BODY, DIM, ease((t - 3.4) / 1.0))
     return image
 
 
@@ -387,7 +386,6 @@ def scene_install(t: float) -> Image.Image:
         for offset, line in enumerate(body.split("\n")):
             draw.text((1080, y + 34 + offset * 30), line, font=F_MONO_SMALL, fill=TEXT if index < 2 else CYAN)
         y += 150
-    fade(draw, (1040, 890), "One command. The config is shown before you run it.", F_SMALL, DIM, ease((t - 2.4) / 0.8))
     return image
 
 
@@ -411,7 +409,6 @@ def scene_evidence(t: float) -> Image.Image:
         rounded(draw, (330, y + 6, 330 + int(1210 * value), y + 28), 3, GREEN)
         draw.text((1570, y), "100%", font=F_MONO_SMALL, fill=GREEN)
         y += 58
-    fade(draw, (140, 930), "Raw runs, failures, and methodology in the repo.", F_BODY, DIM, ease((t - 3.0) / 0.8))
     return image
 
 

@@ -1,11 +1,11 @@
 # ModelPick intro video — script and storyboard
 
-**Master:** `assets/modelpick-intro.mp4` · 93.5s · 1920×1080 · 24fps · H.264 + AAC · no camera motion (stable frames + 0.45s crossfades)
-**Captions:** `assets/modelpick-intro.bilingual.srt` (English + 中文), burned in and also provided as SRT
+**Master:** `assets/modelpick-intro.mp4` · 93.5s · 1920×1080 · 25fps · H.264 + AAC · CSS/JS motion, no camera motion
+**Captions:** English + 中文, burned in from the HTML timeline; `assets/modelpick-intro.bilingual.srt` is the downloadable transcript
 **Poster:** `assets/modelpick-intro-thumb.png`
 **Voice:** local Kokoro neural TTS, `am_michael`, speed 0.93 — measured, low, keynote pace. No cloud voice, no key.
 **Music:** generated A-minor synth pad, ducked under the voice, no percussion.
-**Direction:** one idea per scene, slow fades, no whooshes, no stock footage. Product truth is shown in monospace; emotion is carried by the voice and the cut.
+**Direction:** one idea per scene, slow fades, no whooshes, no stock footage. Product truth is shown in monospace; motion carries the cut: terminal typing, card springs, tab cycling, metric count-ups, and a slow background drift.
 
 ## Why this cut
 
@@ -53,21 +53,20 @@ Full text is in `assets/modelpick-intro.srt`.
 
 ## Regenerate
 
+The master is a browser-rendered motion piece: `video/intro.html` (CSS/JS timeline, terminal typing, card springs, agent tab cycling, count-ups) recorded with Playwright and muxed with the existing voice track.
+
 ```bash
-python -m pip install -r scripts/requirements-video.txt
-# One-time model download (~354 MB):
-#   assets/_tts/kokoro-v1.0.onnx
-#   assets/_tts/voices-v1.0.bin
-python scripts/make_video.py
-# Faster visual-only pass (reuses the existing voice/music mix):
-python scripts/render_stills.py
+# 1. Record the 93.5s timeline at 1920x1080
+NODE_PATH=<playwright node_modules> node scripts/record_intro.cjs
+
+# 2. The recorder writes a .webm with a white sync lead; trim after the lead
+#    and mux the narration. The exact lead is printed by the frame check.
+ffmpeg -ss <lead> -i <recording>.webm -i assets/modelpick-intro.mp4 \
+  -map 0:v:0 -map 1:a:0 -c:v libx264 -crf 20 -c:a aac -shortest \
+  assets/modelpick-intro.mp4
 ```
 
-Outputs: `assets/modelpick-intro.mp4`, `.srt`, `-thumb.png`.
-
-The final master uses the **static-still pass** (`MP_STATIC=1 python scripts/render_stills.py`): one fully composed still per scene, 0.45s crossfades, and no camera push, drift, or cycling grain. That removes the frame-to-frame shimmer the first cut had. It is deliberately a clean product overview, not a live screen recording. `make_video.py` is the full-motion renderer for a future cut.
-
-The voice is **local** Kokoro `am_michael` at 0.93 speed. No cloud TTS, no API key, no per-render cost. The model files are not committed; the rendered film is.
+`scripts/make_video.py` and `render_stills.py` remain as the Pillow fallback. The voice is **local** Kokoro `am_michael` at 0.93 speed. No cloud TTS, no API key, no per-render cost.
 
 ## Alternate cuts
 

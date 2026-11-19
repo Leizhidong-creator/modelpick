@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
   "kind": "multi-dimensional-scorecard",
-  "generatedAt": "2026-11-19T09:12:34.933Z",
+  "generatedAt": "2026-11-19T09:32:27.090Z",
   "catalog": {
     "version": "2026.11.19",
     "models": 40,
     "tasks": 20,
     "providers": 18
   },
-  "composite": 97,
+  "composite": 96.9,
   "grade": "A",
   "weights": 100,
   "dimensions": [
@@ -81,11 +81,11 @@
       "id": "operability",
       "label": "Operability",
       "weight": 10,
-      "score": 93.8,
+      "score": 93.4,
       "target": 90,
       "evidence": "p95 latency + verify receipt + line coverage",
       "metrics": {
-        "p95Ms": 0.9,
+        "p95Ms": 1,
         "verifyOk": true,
         "coverage": 84.79
       }

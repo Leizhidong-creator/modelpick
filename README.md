@@ -17,7 +17,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
 
-<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/">Website</a> · <a href="assets/modelpick-intro.mp4">intro video (93s)</a> · <a href="docs/VALUE.md">How value is defined</a> · <a href="docs/ECOSYSTEM.md">Ecosystem</a></p>
+<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/">Website</a> · <a href="https://leizhidong-creator.github.io/modelpick/#video">intro video (93s)</a> · <a href="docs/VALUE.md">How value is defined</a> · <a href="docs/ECOSYSTEM.md">Ecosystem</a></p>
 
 ---
 
@@ -40,10 +40,10 @@ npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for 
 </p>
 
 <p align="center">
-  <a href="assets/modelpick-intro.mp4"><img src="assets/modelpick-intro-thumb.png" alt="Watch the ModelPick intro video" width="72%" /></a>
+  <a href="https://leizhidong-creator.github.io/modelpick/#video"><img src="assets/modelpick-intro-thumb.png" alt="Watch the ModelPick intro video" width="72%" /></a>
 </p>
 
-<p align="center"><a href="assets/modelpick-intro.mp4"><strong>▶ Watch the intro video (93s)</strong></a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
+<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.0/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
 
 ---
 
@@ -95,6 +95,12 @@ git clone https://github.com/Leizhidong-creator/modelpick
 cd modelpick
 node bin/modelpick.js pick "refactor this 40k-line repo, cheapest that works"
 node bin/modelpick.js setup
+```
+
+Offline tarball (no npm auth required):
+
+```bash
+npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.0/modelpick-0.1.0.tgz
 ```
 
 <p align="center">

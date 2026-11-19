@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ModelPick intro</title>
+<style>
+  :root {
+    --bg: #070a0e;
+    --ivory: #f5efe4;
+    --gold: #c9a96e;
+    --cyan: #39c5cf;
+    --green: #3fb950;
+    --dim: #8b9aaa;
+    --line: #263442;
+    --panel: #0d141c;
+    --panel2: #111a24;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--ivory);
+    -webkit-font-smoothing: antialiased;
+  }
+  .stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+  .bg {
+    position: absolute; inset: -20%;
+    background:
+      radial-gradient(700px 500px at 78% 18%, rgba(57,197,207,.13), transparent 70%),
+      radial-gradient(900px 600px at 18% 88%, rgba(201,169,110,.08), transparent 70%),
+      #070a0e;
+    animation: drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes drift {
+    from { transform: translate3d(-1.5%, -1%, 0) scale(1.02); }
+    to { transform: translate3d(1.5%, 1%, 0) scale(1.05); }
+  }
+  .vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,.55) 100%);
+    pointer-events: none;
+  }
+  .scene {
+    position: absolute; inset: 0; padding: 82px 100px 150px;
+    opacity: 0; transform: translateY(18px) scale(.995);
+    transition: opacity .65s cubic-bezier(.22,.61,.36,1), transform .65s cubic-bezier(.22,.61,.36,1);
+    pointer-events: none;
+  }
+  .scene.active { opacity: 1; transform: none; z-index: 2; }
+  .scene.leaving { opacity: 0; transform: translateY(-10px) scale(1.004); z-index: 1; }
+  .kicker { font: 600 18px/1.2 "Consolas", monospace; letter-spacing: .18em; color: var(--gold); text-transform: uppercase; }
+  h1, h2, .serif { font-family: "Bodoni MT", "Georgia", serif; font-weight: 700; letter-spacing: -.01em; }
+  h1 { font-size: 92px; line-height: .95; margin: 18px 0 0; }
+  h2 { font-size: 68px; line-height: 1.02; margin: 12px 0 0; }
+  .rule { width: 300px; height: 2px; background: var(--gold); margin: 26px 0; transform-origin: left; transform: scaleX(0); transition: transform .8s .15s cubic-bezier(.22,.61,.36,1); }
+  .active .rule { transform: scaleX(1); }
+  .muted { color: var(--dim); }
+  .cyan { color: var(--cyan); }
+  .gold { color: var(--gold); }
+  .green { color: var(--green); }
+  .mono { font-family: "Consolas", "Courier New", monospace; }
+
+  /* 1. terminal / open */
+  .open-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 60px; align-items: center; height: 760px; }
+  .open-copy .small { font: 400 20px/1.5 "Segoe UI"; color: var(--dim); margin-top: 22px; max-width: 620px; }
+  .terminal {
+    background: #0a1118; border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.45);
+    transform: translateY(20px); opacity: 0; transition: all .7s .2s cubic-bezier(.22,.61,.36,1);
+  }
+  .active .terminal { transform: none; opacity: 1; }
+  .term-head { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--dim); font: 13px "Consolas"; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .term-body { padding: 22px 24px; font: 19px/1.72 "Consolas"; color: #c9d4df; white-space: normal; }
+  .term-body .cmd { color: #fff; }
+  .term-body .ok { color: var(--green); }
+  .term-body .cy { color: var(--cyan); }
+  .term-body .dim { color: var(--dim); }
+  .line { display: block; opacity: 0; transform: translateY(6px); }
+  .active .line { animation: lineIn .45s both; animation-delay: var(--d, .4s); }
+  @keyframes lineIn { to { opacity: 1; transform: none; } }
+  .cursor { display: inline-block; width: 9px; height: 20px; background: var(--cyan); vertical-align: -3px; animation: blink 1s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* 2. cost cards */
+  .cost-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 44px; }
+  .card {
+    border: 1px solid var(--line); border-radius: 10px; padding: 26px 28px; background: rgba(13,20,28,.82);
+    opacity: 0; transform: translateY(26px); transition: all .6s cubic-bezier(.22,.61,.36,1);
+  }
+  .active .card { opacity: 1; transform: none; transition-delay: var(--d, .2s); }
+  .card .label { font: 600 14px "Consolas"; letter-spacing: .12em; color: var(--gold); }
+  .card .model { font-family: "Bodoni MT", Georgia, serif; font-size: 38px; margin-top: 18px; }
+  .card .price { font-family: "Bodoni MT", Georgia, serif; font-size: 62px; color: var(--gold); margin-top: 22px; }
+  .card .unit { font-size: 16px; color: var(--dim); margin-top: 2px; }
+  .cost-foot { margin-top: 54px; font-family: "Bodoni MT", Georgia, serif; font-size: 46px; opacity: 0; transform: translateY(12px); transition: all .7s .9s; }
+  .active .cost-foot { opacity: 1; transform: none; }
+  .cost-sub { color: var(--dim); font-size: 20px; margin-top: 12px; opacity: 0; transition: opacity .7s 1.2s; }
+  .active .cost-sub { opacity: 1; }
+
+  /* 3. brand */
+  .brand-wrap { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 30px; }
+  .logo {
+    width: 116px; height: 116px; border-radius: 8px; background: var(--cyan); color: #061014;
+    display: grid; place-items: center; font: 800 46px "Segoe UI"; transform: scale(.8); opacity: 0; transition: all .7s cubic-bezier(.22,.61,.36,1);
+  }
+  .active .logo { transform: none; opacity: 1; }
+  .wordmark {
+    font-family: "Bodoni MT", Georgia, serif; font-size: 96px; letter-spacing: .12em; margin-top: 34px;
+    opacity: 0; transform: translateY(12px); transition: all .8s .15s;
+  }
+  .active .wordmark { opacity: 1; transform: none; }
+  .brand-rule { width: 0; height: 2px; background: var(--gold); margin: 26px 0 24px; transition: width .9s .3s cubic-bezier(.22,.61,.36,1); }
+  .active .brand-rule { width: 420px; }
+  .tagline { font-family: "Bodoni MT", Georgia, serif; font-size: 54px; color: var(--gold); opacity: 0; transform: translateY(10px); transition: all .7s .5s; }
+  .active .tagline { opacity: 1; transform: none; }
+  .brand-sub { font-size: 22px; color: var(--dim); margin-top: 14px; opacity: 0; transition: opacity .7s .8s; }
+  .active .brand-sub { opacity: 1; }
+  .brand-proof { font: 18px "Consolas"; color: var(--green); margin-top: 42px; opacity: 0; transition: opacity .7s 1.1s; }
+  .active .brand-proof { opacity: 1; }
+
+  /* 4. decision */
+  .decision-grid { display: grid; grid-template-columns: 1.18fr .82fr; gap: 36px; align-items: start; margin-top: 28px; }
+  .decision-grid .terminal { transition-delay: .2s; }
+  .metric-card { border: 1px solid var(--line); border-radius: 10px; padding: 26px 28px; background: rgba(13,20,28,.84); opacity: 0; transform: translateX(20px); transition: all .7s .9s; }
+  .active .metric-card { opacity: 1; transform: none; }
+  .metric { margin-bottom: 24px; }
+  .metric .k { font: 14px "Segoe UI"; color: var(--dim); }
+  .metric .v { font-family: "Bodoni MT", Georgia, serif; font-size: 44px; margin-top: 6px; }
+  .metric .v.gold { color: var(--gold); }
+
+  /* 5. pipeline */
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 46px; }
+  .step {
+    border: 1px solid var(--line); border-radius: 8px; padding: 20px; background: rgba(13,20,28,.82); min-height: 270px;
+    opacity: 0; transform: translateY(26px); transition: all .55s cubic-bezier(.22,.61,.36,1);
+  }
+  .active .step { opacity: 1; transform: none; transition-delay: var(--d); }
+  .step .num { font: 15px "Consolas"; color: var(--cyan); }
+  .step .name { font: 600 17px "Segoe UI"; letter-spacing: .08em; margin-top: 28px; }
+  .step .model { font: 19px "Consolas"; color: #c9d4df; margin-top: 58px; }
+  .step .price { font-family: "Bodoni MT", Georgia, serif; font-size: 44px; color: var(--gold); margin-top: 40px; }
+  .flow-total { font-family: "Bodoni MT", Georgia, serif; font-size: 58px; margin-top: 44px; opacity: 0; transform: translateY(12px); transition: all .7s 1.4s; }
+  .active .flow-total { opacity: 1; transform: none; }
+  .flow-sub { color: var(--dim); font-size: 20px; margin-top: 10px; opacity: 0; transition: opacity .7s 1.7s; }
+  .active .flow-sub { opacity: 1; }
+
+  /* 6. agents */
+  .agent-tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 30px; }
+  .agent-tab { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; background: rgba(13,20,28,.75); opacity: .45; transition: all .35s; }
+  .agent-tab.active { opacity: 1; border-color: var(--cyan); background: rgba(57,197,207,.08); box-shadow: 0 0 0 1px rgba(57,197,207,.2); }
+  .agent-tab b { display: block; font-size: 17px; }
+  .agent-tab span { display: block; font: 12px "Consolas"; color: var(--dim); margin-top: 3px; }
+  .agent-body { display: grid; grid-template-columns: 1.08fr .92fr; gap: 26px; margin-top: 26px; }
+  .agent-code { border: 1px solid var(--line); border-radius: 10px; background: #0a1118; overflow: hidden; }
+  .agent-code .head { padding: 12px 16px; border-bottom: 1px solid var(--line); font: 14px "Consolas"; color: var(--gold); display: flex; justify-content: space-between; }
+  .agent-code pre { margin: 0; padding: 18px 20px; font: 18px/1.65 "Consolas"; color: #c9d4df; white-space: pre-wrap; }
+  .agent-code pre .k { color: var(--cyan); }
+  .agent-steps { display: grid; gap: 14px; }
+  .astep { display: grid; grid-template-columns: 26px 1fr; gap: 10px; opacity: 0; transform: translateY(8px); transition: all .5s; }
+  .active .astep { opacity: 1; transform: none; transition-delay: var(--d); }
+  .astep .n { color: var(--cyan); font: 16px "Consolas"; }
+  .astep b { font-size: 15px; letter-spacing: .08em; color: var(--gold); }
+  .astep code { display: block; margin-top: 4px; font: 15px/1.5 "Consolas"; color: #c9d4df; white-space: pre-wrap; }
+
+  /* 7. evidence */
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-top: 40px; }
+  .big { font-family: "Bodoni MT", Georgia, serif; font-size: 112px; color: var(--gold); line-height: 1; }
+  .big-label { font-family: "Bodoni MT", Georgia, serif; font-size: 38px; margin-top: 14px; }
+  .big-sub { color: var(--dim); font-size: 18px; margin-top: 8px; }
+  .bars { margin-top: 46px; display: grid; gap: 18px; }
+  .bar-row { display: grid; grid-template-columns: 130px 1fr 70px; gap: 14px; align-items: center; color: var(--dim); font: 14px "Consolas"; }
+  .bar-track { height: 12px; background: #16212c; border-radius: 9px; overflow: hidden; }
+  .bar-fill { height: 100%; width: 0; background: var(--green); border-radius: 9px; transition: width 1.2s .4s cubic-bezier(.22,.61,.36,1); }
+  .active .bar-fill { width: var(--w); }
+
+  /* 8. CTA */
+  .cta-wrap { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 24px; }
+  .cta-logo { width: 96px; height: 96px; border-radius: 8px; background: var(--cyan); color: #061014; display: grid; place-items: center; font: 800 38px "Segoe UI"; transform: scale(.85); opacity: 0; transition: all .7s; }
+  .active .cta-logo { transform: none; opacity: 1; }
+  .cta-word { font-family: "Bodoni MT", Georgia, serif; font-size: 82px; letter-spacing: .1em; margin-top: 26px; opacity: 0; transition: opacity .7s .15s; }
+  .active .cta-word { opacity: 1; }
+  .cta-line { width: 0; height: 2px; background: var(--gold); margin: 24px 0; transition: width .9s .3s; }
+  .active .cta-line { width: 380px; }
+  .cta-tag { font-family: "Bodoni MT", Georgia, serif; font-size: 44px; opacity: 0; transition: opacity .7s .4s; }
+  .active .cta-tag { opacity: 1; }
+  .cta-url { font: 26px "Consolas"; color: var(--cyan); margin-top: 34px; opacity: 0; transition: opacity .7s .6s; }
+  .active .cta-url { opacity: 1; }
+  .cta-sub { color: var(--dim); font-size: 18px; margin-top: 14px; opacity: 0; transition: opacity .7s .8s; }
+  .active .cta-sub { opacity: 1; }
+  .cta-install { font: 18px "Consolas"; color: var(--green); margin-top: 30px; opacity: 0; transition: opacity .7s 1s; }
+  .active .cta-install { opacity: 1; }
+
+  /* captions */
+  .captions {
+    position: absolute; left: 0; right: 0; bottom: 28px; z-index: 20;
+    display: flex; flex-direction: column; align-items: center; gap: 3px; pointer-events: none;
+  }
+  .cap {
+    display: inline-block; max-width: 1500px; text-align: center;
+    padding: 5px 16px; border-radius: 5px; background: rgba(3,6,9,.82);
+    transition: opacity .22s ease, transform .22s ease;
+  }
+  .cap.en { font: 600 27px/1.3 "Segoe UI", Arial; color: #fff; }
+  .cap.zh { font: 400 24px/1.35 "Microsoft YaHei", "Segoe UI"; color: #dbe6ef; }
+  .cap.hidden { opacity: 0; transform: translateY(4px); }
+  #sync { position: absolute; inset: 0; background: #fff; z-index: 99; pointer-events: none; }
+  #sync.gone { opacity: 0; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div id="sync"></div>
+  <div class="bg"></div>
+  <div class="vignette"></div>
+
+  <!-- 1 -->
+  <section class="scene" data-start="0" data-end="7.5" id="s-open">
+    <div class="open-grid">
+      <div class="open-copy">
+        <div class="kicker">The agent era</div>
+        <h1>Your agent can build almost anything.</h1>
+        <div class="rule"></div>
+        <div class="small">But it still picks one model for everything. Coding, image, video, 3D, audio — same model, same price.</div>
+      </div>
+      <div class="terminal">
+        <div class="term-head"><span class="dot" style="background:#f85149"></span><span class="dot" style="background:#d29922"></span><span class="dot" style="background:#3fb950"></span><span style="margin-left:8px">claude — modelpick</span></div>
+        <div class="term-body">
+          <span class="line" style="--d:.2s"><span class="cmd">$ claude "make a game-ready 3D sword"</span></span>
+          <span class="line" style="--d:.8s" id="open-type"></span>
+          <span class="line" style="--d:1.4s"><span class="cy">3D asset generation</span> <span class="dim">· high confidence</span></span>
+          <span class="line" style="--d:1.9s"><span class="ok">Tripo H3.1</span> <span class="dim">·</span> quality 94 <span class="dim">·</span> $0.21 / usable asset</span>
+          <span class="line" style="--d:2.5s"><span class="dim">#2 Hunyuan3D 3.1 Pro  $0.59</span></span>
+          <span class="line" style="--d:2.9s"><span class="dim">#3 Meshy 7.1          $1.34</span></span>
+          <span class="line" style="--d:3.4s"><span class="dim">connect: export TRIPO_API_KEY=...</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="scene" data-start="7.5" data-end="18" id="s-cost">
+    <div class="kicker">The cheapest token is not the cheapest task</div>
+    <h1>The bill is not the token price.</h1>
+    <div class="cost-grid">
+      <div class="card" style="--d:.2s"><div class="label">CLASSIFY A TICKET</div><div class="model">frontier model</div><div class="price">$0.64</div><div class="unit">per solved task</div></div>
+      <div class="card" style="--d:.45s"><div class="label">GENERATE A PROP</div><div class="model">hero 3D model</div><div class="price">$1.34</div><div class="unit">per usable asset</div></div>
+      <div class="card" style="--d:.7s"><div class="label">DRAFT A THUMBNAIL</div><div class="model">studio image model</div><div class="price">$0.14</div><div class="unit">per image</div></div>
+    </div>
+    <div class="cost-foot">Most of that spend is wasted.</div>
+    <div class="cost-sub">The model is capable. The choice is wrong.</div>
+  </section>
+
+  <!-- 3 -->
+  <section class="scene" data-start="18" data-end="30.17" id="s-brand">
+    <div class="brand-wrap">
+      <div class="logo">MP</div>
+      <div class="wordmark">MODELPICK</div>
+      <div class="brand-rule"></div>
+      <div class="tagline">Not the cheapest. The best value.</div>
+      <div class="brand-sub">Best price-performance at every node, priced per solved task.</div>
+      <div class="brand-proof">5.5 quality points below the best, at 27% of the cost.</div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="scene" data-start="30.17" data-end="47.55" id="s-decision">
+    <div class="kicker">Claude Code</div>
+    <h2>A 3D asset, decided before it renders.</h2>
+    <div class="rule"></div>
+    <div class="decision-grid">
+      <div class="terminal">
+        <div class="term-head"><span class="dot" style="background:#f85149"></span><span class="dot" style="background:#d29922"></span><span class="dot" style="background:#3fb950"></span><span style="margin-left:8px">claude — modelpick</span></div>
+        <div class="term-body">
+          <span class="line" style="--d:.2s"><span class="cmd">$ modelpick pick "3D sword for a Unity game"</span></span>
+          <span class="line" style="--d:.8s" id="decision-type"></span>
+          <span class="line" style="--d:1.4s"><span class="cy">3D asset generation</span> <span class="dim">· high confidence</span></span>
+          <span class="line" style="--d:1.9s"><span class="ok">Tripo H3.1</span> <span class="dim">·</span> Tripo</span>
+          <span class="line" style="--d:2.1s">quality 94 <span class="dim">·</span> <span class="ok">cost $0.21 / usable asset</span></span>
+          <span class="line" style="--d:2.4s"><span class="dim">$0.20 raw × 1.07 attempts</span></span>
+          <span class="line" style="--d:2.9s"><span class="dim">#2 Hunyuan3D 3.1 Pro  $0.59</span></span>
+          <span class="line" style="--d:3.2s"><span class="dim">#3 Meshy 7.1          $1.34</span></span>
+          <span class="line" style="--d:3.7s"><span class="dim">connect: export TRIPO_API_KEY=...</span></span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric"><div class="k">QUALITY</div><div class="v">94 / 100</div></div>
+        <div class="metric"><div class="k">COST</div><div class="v gold">$0.21</div></div>
+        <div class="metric"><div class="k">ATTEMPTS</div><div class="v">1.07</div></div>
+        <div class="metric" style="margin-bottom:0"><div class="k">SETUP</div><div class="v" style="font-size:32px">TRIPO_API_KEY</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="scene" data-start="47.55" data-end="60.55" id="s-plan">
+    <div class="kicker">One plan</div>
+    <h2>Five models. One budget.</h2>
+    <div class="rule"></div>
+    <div class="steps">
+      <div class="step" style="--d:.2s"><div class="num">01</div><div class="name">SCRIPT</div><div class="model">Gemini 4 Hydrogen</div><div class="price">$0.03</div></div>
+      <div class="step" style="--d:.35s"><div class="num">02</div><div class="name">KEYFRAMES</div><div class="model">Nano Banana 2.1</div><div class="price">$0.04</div></div>
+      <div class="step" style="--d:.5s"><div class="num">03</div><div class="name">CLIPS</div><div class="model">Veo 3.1 Fast</div><div class="price">$0.60</div></div>
+      <div class="step" style="--d:.65s"><div class="num">04</div><div class="name">VOICE</div><div class="model">Voxtral TTS 3</div><div class="price">$0.02</div></div>
+      <div class="step" style="--d:.8s"><div class="num">05</div><div class="name">MUSIC</div><div class="model">Lyria 3.5</div><div class="price">$0.09</div></div>
+    </div>
+    <div class="flow-total">Total  $0.77</div>
+    <div class="flow-sub">Before a single frame renders.</div>
+  </section>
+
+  <!-- 6 -->
+  <section class="scene" data-start="60.55" data-end="73.55" id="s-agent">
+    <div class="kicker">Install</div>
+    <h2>Set up your agent.</h2>
+    <div class="rule"></div>
+    <div class="agent-tabs" id="agent-tabs">
+      <div class="agent-tab"><b>Claude Code</b><span>setup claude-code</span></div>
+      <div class="agent-tab"><b>Codex CLI</b><span>setup codex</span></div>
+      <div class="agent-tab"><b>Cursor</b><span>setup cursor</span></div>
+      <div class="agent-tab"><b>DeepSeek Harness</b><span>setup dsh</span></div>
+      <div class="agent-tab"><b>Copilot CLI</b><span>setup copilot</span></div>
+    </div>
+    <div class="agent-body">
+      <div class="agent-code">
+        <div class="head"><span id="agent-file">~/.codex/config.toml</span><span id="agent-kind">global</span></div>
+        <pre id="agent-code"></pre>
+      </div>
+      <div class="agent-steps">
+        <div class="astep" style="--d:.5s"><div class="n">1</div><div><b>RUN THIS</b><code id="agent-command"></code></div></div>
+        <div class="astep" style="--d:.7s"><div class="n">2</div><div><b>RESTART</b><code id="agent-restart"></code></div></div>
+        <div class="astep" style="--d:.9s"><div class="n">3</div><div><b>ASK IT</b><code>pick a model for a 3D sword for Unity</code></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="scene" data-start="73.55" data-end="83.55" id="s-proof">
+    <div class="kicker">Tested, not guessed</div>
+    <h2>Every pick has a test.</h2>
+    <div class="rule"></div>
+    <div class="metrics">
+      <div><div class="big" data-count="100" data-suffix="%">0%</div><div class="big-label">top-1</div><div class="big-sub">115 development runs</div></div>
+      <div><div class="big" data-count="1.1" data-suffix="ms" data-decimals="1">0ms</div><div class="big-label">p95 decision</div><div class="big-sub">no network in the path</div></div>
+      <div><div class="big" data-count="40" data-suffix="">0</div><div class="big-label">models</div><div class="big-sub">20 task nodes · 18 providers</div></div>
+    </div>
+    <div class="bars">
+      <div class="bar-row"><span>top-1</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><span>100%</span></div>
+      <div class="bar-row"><span>top-3</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><span>100%</span></div>
+      <div class="bar-row"><span>constraints</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><span>100%</span></div>
+      <div class="bar-row"><span>stability</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><span>100%</span></div>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="scene" data-start="83.55" data-end="93.6" id="s-cta">
+    <div class="cta-wrap">
+      <div class="cta-logo">MP</div>
+      <div class="cta-word">MODELPICK</div>
+      <div class="cta-line"></div>
+      <div class="cta-tag">Stop paying frontier prices<br />for non-frontier work.</div>
+      <div class="cta-url">github.com/Leizhidong-creator/modelpick</div>
+      <div class="cta-sub">Open source · MIT · zero runtime dependencies</div>
+      <div class="cta-install">npx -y github:Leizhidong-creator/modelpick pick "your task"</div>
+    </div>
+  </section>
+
+  <div class="captions">
+    <div class="cap en" id="cap-en"></div>
+    <div class="cap zh" id="cap-zh"></div>
+  </div>
+</div>
+
+<script>
+  const scenes = [...document.querySelectorAll('.scene')];
+  const capEn = document.getElementById('cap-en');
+  const capZh = document.getElementById('cap-zh');
+  const tabs = [...document.querySelectorAll('.agent-tab')];
+  const agentFile = document.getElementById('agent-file');
+  const agentKind = document.getElementById('agent-kind');
+  const agentCode = document.getElementById('agent-code');
+  const agentCommand = document.getElementById('agent-command');
+  const agentRestart = document.getElementById('agent-restart');
+  const agents = [
+    {
+      file: '.mcp.json', kind: 'project',
+      code: '{\n  "mcpServers": {\n    "modelpick": {\n      "command": "npx",\n      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]\n    }\n  }\n}',
+      command: 'npx -y github:Leizhidong-creator/modelpick setup claude-code',
+      restart: 'claude mcp list'
+    },
+    {
+      file: '~/.codex/config.toml', kind: 'global',
+      code: '[mcp_servers.modelpick]\ncommand = "npx"\nargs = ["-y",\n  "github:Leizhidong-creator/modelpick",\n  "mcp"]',
+      command: 'npx -y github:Leizhidong-creator/modelpick setup codex --global --write',
+      restart: 'codex mcp list'
+    },
+    {
+      file: '.cursor/mcp.json', kind: 'project',
+      code: '{\n  "mcpServers": {\n    "modelpick": {\n      "command": "npx",\n      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]\n    }\n  }\n}',
+      command: 'npx -y github:Leizhidong-creator/modelpick setup cursor',
+      restart: 'Cursor → Settings → MCP'
+    },
+    {
+      file: '~/.dsh/profiles/desktop/cordis.patch.yml', kind: 'profile',
+      code: "- id: mcp-modelpick\n  name: '@deepseek-ai/dsh-mcp-client'\n  config:\n    serverName: modelpick\n    transport: stdio\n    command: npx\n    args: [\"-y\", \"github:Leizhidong-creator/modelpick\", \"mcp\"]",
+      command: 'npx -y github:Leizhidong-creator/modelpick setup dsh --global --write',
+      restart: 'restart DSH'
+    },
+    {
+      file: '.mcp.json', kind: 'project',
+      code: '{\n  "mcpServers": {\n    "modelpick": {\n      "command": "npx",\n      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]\n    }\n  }\n}',
+      command: 'npx -y github:Leizhidong-creator/modelpick setup copilot',
+      restart: 'copilot mcp list'
+    }
+  ];
+  const captions = [
+    [0, 2.82, 'Your agent can build almost anything.', '你的 Agent 几乎什么都能做。'],
+    [2.82, 5.44, 'But it still picks one model for everything.', '但它还是用同一个模型包办所有任务。'],
+    [7.81, 11.31, 'A frontier model to classify a support ticket,', '一个全能模型，却用来给客服工单分类，'],
+    [11.31, 14.40, 'to generate a barrel prop, to draft a thumbnail.', '生成油桶道具、做缩略图。'],
+    [14.40, 16.89, 'Most of that spend is wasted.', '大部分钱都花错了地方。'],
+    [18.09, 21.60, 'This is ModelPick. A decision layer that picks the best value', 'ModelPick 只做一件事：挑出最合适的模型——'],
+    [21.60, 23.27, 'at every node.', '在每个节点。'],
+    [23.49, 26.20, 'Not the cheapest — the best price-performance,', '不是最便宜，而是性价比最高，'],
+    [26.20, 29.35, 'and prices it in cost per solved task.', '并且按成功任务来算钱。'],
+    [30.15, 35.80, 'Inside Claude Code, ask for a game-ready 3D asset. ModelPick', '在 Claude Code 里要一把 Unity 可用的 3D 剑。ModelPick'],
+    [35.80, 40.00, 'compares Tripo, Hunyuan, and Meshy, applies the constraints,', '会对比 Tripo、混元、Meshy，套用约束，'],
+    [40.00, 43.21, 'and returns one recommendation with the real cost.', '给出一个带真实成本的推荐。'],
+    [44.71, 46.93, 'Twenty-one cents per usable asset.', '每个可用资产 0.21 美元。'],
+    [47.67, 51.05, 'For a launch video, it plans the whole pipeline.', '做一条发布视频，它会把整条流水线排好。'],
+    [51.05, 54.17, 'Script, keyframes, clips, voice, music.', '脚本、关键帧、视频、配音、音乐。'],
+    [54.17, 58.13, 'Five models, one budget, before a single frame renders.', '五个模型，一个预算，在渲染第一帧前就定好。'],
+    [60.58, 63.50, 'One command installs it into Codex, Cursor,', '一条命令接进 Codex、Cursor，'],
+    [63.50, 66.10, 'DeepSeek Harness, or Copilot.', '以及 DeepSeek Harness、Copilot。'],
+    [66.10, 69.60, 'A CLI, an MCP server, and a skill.', 'CLI、MCP 和 skill 都有。'],
+    [69.60, 71.78, 'No gateway. No keys stored.', '不需要网关，也不保存密钥。'],
+    [73.54, 78.36, 'Every price has a source. Every decision is benchmarked.', '每个价格都有出处，每个推荐都有测试。'],
+    [78.36, 82.34, 'And the entire catalog is a JSON file you can change.', '整个目录就是一个你能改的 JSON 文件。'],
+    [83.62, 88.12, 'ModelPick. Stop paying frontier prices for non-frontier work.', 'ModelPick。别再拿最贵的模型做最简单的事。'],
+    [88.54, 91.18, 'Open source. MIT. On GitHub.', '开源，MIT，GitHub 见。']
+  ];
+
+  const start = performance.now();
+  const sync = document.getElementById('sync');
+  setTimeout(() => sync.classList.add('gone'), 700);
+  let lastScene = null;
+  let lastCap = -1;
+  let tabIndex = -1;
+  let lastCount = -1;
+
+  function setScene(index) {
+    if (index === lastScene) return;
+    for (let i = 0; i < scenes.length; i++) {
+      const s = scenes[i];
+      s.classList.toggle('active', i === index);
+      s.classList.toggle('leaving', i === lastScene && i !== index);
+    }
+    lastScene = index;
+  }
+
+  function updateCaptions(t) {
+    let index = -1;
+    for (let i = 0; i < captions.length; i++) {
+      if (t >= captions[i][0] && t < captions[i][1]) { index = i; break; }
+    }
+    if (index === lastCap) return;
+    lastCap = index;
+    if (index < 0) {
+      capEn.textContent = '';
+      capZh.textContent = '';
+      capEn.classList.add('hidden');
+      capZh.classList.add('hidden');
+    } else {
+      capEn.textContent = captions[index][2];
+      capZh.textContent = captions[index][3];
+      capEn.classList.remove('hidden');
+      capZh.classList.remove('hidden');
+    }
+  }
+
+  function typeInto(el, text, t, startAt, speed) {
+    if (!el) return;
+    const n = Math.max(0, Math.min(text.length, Math.floor((t - startAt) * speed)));
+    el.textContent = text.slice(0, n);
+  }
+
+  function updateDynamic(t) {
+    // Opening typed line.
+    if (t >= 0.8 && t < 7.5) typeInto(document.getElementById('open-type'), '  →  comparing 40 models...\n  →  best value: Tripo H3.1', t, 0.8, 34);
+    // Decision typed line.
+    if (t >= 30.7 && t < 47.55) typeInto(document.getElementById('decision-type'), '  →  checking price, quality, retries...', t, 30.7, 38);
+    // Agent tabs cycle every 2.2s.
+    if (t >= 60.8 && t < 73.55) {
+      const idx = Math.min(agents.length - 1, Math.floor((t - 60.8) / 2.2));
+      if (idx !== tabIndex) {
+        tabIndex = idx;
+        tabs.forEach((tab, i) => tab.classList.toggle('active', i === idx));
+        const a = agents[idx];
+        agentFile.textContent = a.file;
+        agentKind.textContent = a.kind;
+        agentCode.textContent = a.code;
+        agentCommand.textContent = a.command;
+        agentRestart.textContent = a.restart;
+      }
+    }
+    // Count-up metrics.
+    if (t >= 73.8 && t < 83.55) {
+      const p = Math.min(1, (t - 73.8) / 1.6);
+      for (const el of document.querySelectorAll('[data-count]')) {
+        const target = Number(el.dataset.count);
+        const decimals = Number(el.dataset.decimals || 0);
+        const value = target * p;
+        el.textContent = value.toFixed(decimals) + (el.dataset.suffix || '');
+      }
+    }
+  }
+
+  function loop(now) {
+    const t = (now - start) / 1000;
+    const index = Math.max(0, scenes.findIndex((s) => t >= Number(s.dataset.start) && t < Number(s.dataset.end)));
+    setScene(index);
+    updateCaptions(t);
+    updateDynamic(t);
+    if (t < 93.6) requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+</script>
+</body>
+</html>
