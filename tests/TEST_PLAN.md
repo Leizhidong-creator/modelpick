@@ -18,7 +18,7 @@ Evidence lives in `tests/results/` (JSON + HTML) and `tests/evidence/` (images +
 
 ## Dimensions
 
-### 1. Unit logic — 107 tests
+### 1. Unit logic — 109 tests
 
 | Area | File | What is asserted |
 |---|---|---|
@@ -32,7 +32,7 @@ Evidence lives in `tests/results/` (JSON + HTML) and `tests/evidence/` (images +
 | Judge | `tests/unit/judge.test.js` | prompt blindness, strict JSON, invented slug rejection, Borda, movement cap |
 | Links | `tests/unit/links.test.js` | README/launch links resolve, video assets exist, site mirrors assets |
 
-Result: **107/107 pass**.
+Result: **109/109 pass**.
 
 ### 2. Data integrity
 

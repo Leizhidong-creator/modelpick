@@ -32,6 +32,62 @@ ${rows}
 </main></body></html>`;
 }
 
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let field = '';
+  let quoted = false;
+  for (let i = 0; i < text.length; i += 1) {
+    const ch = text[i];
+    if (quoted) {
+      if (ch === '"' && text[i + 1] === '"') { field += '"'; i += 1; }
+      else if (ch === '"') quoted = false;
+      else field += ch;
+      continue;
+    }
+    if (ch === '"') { quoted = true; continue; }
+    if (ch === ',') { row.push(field); field = ''; continue; }
+    if (ch === '\n') { row.push(field); rows.push(row); row = []; field = ''; continue; }
+    if (ch !== '\r') field += ch;
+  }
+  if (field || row.length) { row.push(field); rows.push(row); }
+  return rows.filter((entry) => entry.some((cell) => cell.trim() !== ''));
+}
+
+function csvToInput(text, taskOverride) {
+  const rows = parseCsv(text);
+  if (rows.length < 2) throw new Error('CSV needs a header and at least one run');
+  const header = rows[0].map((cell) => cell.trim().toLowerCase());
+  const index = (name) => header.indexOf(name);
+  const need = ['model', 'passed'];
+  for (const key of need) if (index(key) < 0) throw new Error(`CSV header needs ${key}`);
+  const taskIndex = index('task');
+  const runs = rows.slice(1).map((row, i) => {
+    const get = (name) => (index(name) >= 0 ? String(row[index(name)] ?? '').trim() : '');
+    const rawPassed = get('passed').toLowerCase();
+    if (!['true', 'false', '1', '0', 'yes', 'no'].includes(rawPassed)) {
+      throw new Error(`Row ${i + 2}: passed must be true/false`);
+    }
+    const passed = rawPassed === 'true' || rawPassed === '1' || rawPassed === 'yes';
+    const costText = get('cost');
+    const qualityText = get('quality');
+    const attemptsText = get('attempts');
+    return {
+      task: taskIndex >= 0 ? get('task') : taskOverride,
+      model: get('model'),
+      passed,
+      cost: costText === '' ? null : Number(costText),
+      attempts: attemptsText === '' ? 1 : Number(attemptsText),
+      quality: qualityText === '' ? null : Number(qualityText)
+    };
+  });
+  const task = taskOverride || (taskIndex >= 0 ? runs[0].task : null);
+  if (!task) throw new Error('CSV has no task column; pass --task <task-id>');
+  for (const run of runs) if (!run.task) run.task = task;
+  return { task, runs };
+}
+
 export async function runEval(ctx) {
   const file = ctx.positionals[0];
   if (!file) {
@@ -42,7 +98,10 @@ export async function runEval(ctx) {
   }
   let input;
   try {
-    input = JSON.parse(fs.readFileSync(path.resolve(file), 'utf8'));
+    const raw = fs.readFileSync(path.resolve(file), 'utf8');
+    input = /\.csv$/i.test(file) || ctx.flags.csv
+      ? csvToInput(raw, ctx.options.task)
+      : JSON.parse(raw);
   } catch (error) {
     throw new ModelPickError(`Could not read eval file: ${file}`, {
       code: 'ERR_EVAL_READ',

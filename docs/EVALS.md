@@ -42,7 +42,7 @@ The `models` grouped form is also accepted:
 }
 ```
 
-## Run
+## CSV input\n\nA CSV with `task,model,passed,cost,attempts,quality` also works:\n\n```bash\nmodelpick eval evals.csv --json\nmodelpick eval evals.csv --task coding-agent --html report.html\n```\n\n`passed` accepts `true/false/1/0/yes/no`. Empty `cost` is treated as missing, not zero.\n\n## Run
 
 ```bash
 modelpick eval evals.json

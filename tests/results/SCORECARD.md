@@ -1,6 +1,6 @@
 # ModelPick multi-dimensional scorecard
 
-Generated: 2026-11-19T12:20:33.820Z
+Generated: 2026-11-19T12:27:13.764Z
 
 **Composite: 96.8/100 · grade A**
 
@@ -43,7 +43,7 @@ Generated: 2026-11-19T12:20:33.820Z
 ### Operability — 100/100
 - `p95Ms`: 1.3
 - `verifyOk`: true
-- `coverage`: 90.12
+- `coverage`: 90.02
 
 ## What this does not measure
 
