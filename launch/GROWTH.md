@@ -23,6 +23,10 @@ Every asset should answer one of these:
 4. **Try?** One command, no key required to get a recommendation.
 5. **Star?** If it saves one wrong model choice, star the repo.
 
+## Copy teardown
+
+Read [`COPY-TEARDOWN.md`](COPY-TEARDOWN.md) before writing another post. It has the hook patterns, thread skeleton, YouTube titles, and the phrases to delete.
+
 ## X: reply-first, not broadcast-first
 
 A new account with 0 followers has no distribution. The first 100 impressions come from replies to people already discussing the problem.
