@@ -32,3 +32,5 @@ npx -y github:Leizhidong-creator/modelpick setup claude-code
 ```
 
 MIT. No telemetry. No key storage. No gateway.
+
+- Published to the Official MCP Registry as `io.github.Leizhidong-creator/modelpick@0.1.1`.

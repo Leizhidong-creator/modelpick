@@ -83,3 +83,11 @@ Do not record star counts as the only success metric. A reply that says “your 
 - https://x.com/DurgaraoGa51557/status/2123402250181865903
 - Reply to a benchmark post about a 63%-cheaper model.
 - Value-first: one benchmark is not one solved task; 20% failure means 1.25 attempts; asked whether it still wins after retries.
+
+## Official npm 0.1.1 + MCP Registry
+
+- `modelpick@0.1.1` live: https://www.npmjs.com/package/modelpick
+- Clean install verified: `0.1.1`, `verify: ok`, `server.json` present.
+- Official MCP Registry entry published and active:
+  https://registry.modelcontextprotocol.io/v0/servers?search=modelpick
+- `mcp-publisher validate server.json` -> valid; `publish` -> successfully published.

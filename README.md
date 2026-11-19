@@ -90,6 +90,8 @@ npx -y modelpick setup claude-code
 
 Official npm package: https://www.npmjs.com/package/modelpick
 
+MCP Registry: https://registry.modelcontextprotocol.io/v0/servers?search=modelpick
+
 Fallbacks if the registry is unavailable:
 
 ```bash
