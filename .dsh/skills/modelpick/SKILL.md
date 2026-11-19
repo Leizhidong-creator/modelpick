@@ -9,7 +9,7 @@ metadata:
 
 # ModelPick
 
-You are working with an agent that can call many models. The expensive mistake is not picking a bad model once 鈥?it is picking a frontier model for every node, or picking a model the user cannot actually call.
+You are working with an agent that can call many models. The expensive mistake is not picking a bad model once — it is picking a frontier model for every node, or picking a model the user cannot actually call.
 
 ## When to use this skill
 
@@ -45,7 +45,7 @@ Do **not** call it on every turn or for trivial edits. One call per node is the 
 
 5. Before calling the provider, use `recommendation.connection` (or call `get_setup`) for the endpoint, auth header, SDK, curl example, and API model id. Never print or store the key value.
 
-6. In your final answer, state the model and the **cost per solved task**, not the token price. Example: `Tripo H3.1 鈥?$0.21 per usable asset (1.07 expected attempts)`.
+6. In your final answer, state the model and the **cost per solved task**, not the token price. Example: `Tripo H3.1 — $0.21 per usable asset (1.07 expected attempts)`.
 
 ## Rules
 
@@ -68,3 +68,16 @@ npx -y github:Leizhidong-creator/modelpick show tripo-h3.1 --json
 
 The JSON has the same shape as the MCP tool.
 
+## Second opinion from a judge / decision model
+
+If the user wants a second opinion, or the top two candidates are close:
+
+1. Call `get_decision_packet` with the same query. It returns `allowedSlugs`, `candidates`, and a self-contained `prompt`.
+2. Send `prompt` to any judge/decision model the user trusts.
+3. Call `pick_model` again with `verdict` set to the judge JSON.
+
+A verdict can only reorder the shortlist by two positions; it cannot add a model or override a hard constraint. Do not invent a verdict.
+
+## Your own eval
+
+If the user has pass/fail data, run `modelpick eval evals.json --json`. It reports observed pass rate, a Wilson 95% interval, and cost per solved task. Do not treat a small sample as a ranking change.

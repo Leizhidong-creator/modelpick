@@ -55,3 +55,19 @@ test('site assets mirror the README assets', () => {
     assert.ok(fs.existsSync(path.join(ROOT, 'docs', 'assets', file)), `docs/assets/${file} missing`);
   }
 });
+
+test('skill copies contain no mojibake and mention the decision packet', () => {
+  const files = [
+    'skills/modelpick/SKILL.md',
+    '.agents/skills/modelpick/SKILL.md',
+    '.claude/skills/modelpick/SKILL.md',
+    '.dsh/skills/modelpick/SKILL.md',
+    'plugins/modelpick/skills/modelpick/SKILL.md'
+  ];
+  for (const file of files) {
+    const text = read(file);
+    assert.ok(!text.includes('鈥'), `${file} has mojibake`);
+    assert.ok(!text.includes('\uFFFD'), `${file} has a replacement character`);
+    assert.ok(text.includes('get_decision_packet'), `${file} does not mention get_decision_packet`);
+  }
+});
