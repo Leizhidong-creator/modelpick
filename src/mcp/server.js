@@ -1,4 +1,7 @@
 import readline from 'node:readline';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { loadCatalog, catalogStats, findModel } from '../core/catalog.js';
 import { recommend, plan, compare } from '../core/recommend.js';
 import { buildDecisionPacket } from '../core/decision.js';
@@ -8,7 +11,8 @@ import { modelAvailability } from '../core/availability.js';
 import { connectionFor } from '../core/connect.js';
 
 const PROTOCOL_VERSION = '2025-06-18';
-const SERVER_INFO = { name: 'modelpick', version: '0.1.0' };
+const PKG = JSON.parse(fs.readFileSync(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../package.json'), 'utf8'));
+const SERVER_INFO = { name: 'modelpick', version: PKG.version };
 
 const TOOLS = [
   {

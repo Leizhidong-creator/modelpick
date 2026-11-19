@@ -43,7 +43,7 @@ npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for 
   <a href="https://leizhidong-creator.github.io/modelpick/#video"><img src="assets/modelpick-intro-thumb.png" alt="Watch the ModelPick intro video" width="72%" /></a>
 </p>
 
-<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.1/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
+<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.2/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
 
 ---
 
@@ -104,7 +104,7 @@ npm install modelpick --registry=https://leizhidong-creator.github.io/modelpick/
 # offline release tarball
 
 ```bash
-npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.1/modelpick-0.1.1.tgz
+npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.2/modelpick-0.1.2.tgz
 ```
 
 <p align="center">

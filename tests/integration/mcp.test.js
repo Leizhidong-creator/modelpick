@@ -16,6 +16,7 @@ test('MCP initializes with tools capability and instructions', async () => {
   const initialized = responses.get(1).result;
   assert.equal(initialized.protocolVersion, '2025-06-18');
   assert.equal(initialized.serverInfo.name, 'modelpick');
+  assert.equal(initialized.serverInfo.version, JSON.parse(fs.readFileSync('package.json', 'utf8')).version);
   assert.ok(initialized.instructions.includes('pick_model'));
   const tools = responses.get(2).result.tools;
   assert.equal(tools.length, 7);

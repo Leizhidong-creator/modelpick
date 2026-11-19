@@ -45,5 +45,5 @@ Rebuild it from the packed tarball and update the release asset before changing 
 ## Verification
 
 ```bash
-node -e "const j=JSON.parse(require('fs').readFileSync('docs/npm/modelpick','utf8')); console.log(j['dist-tags'].latest, j.versions['0.1.1'].dist.integrity)"
+node -e "const j=JSON.parse(require('fs').readFileSync('docs/npm/modelpick','utf8')); console.log(j['dist-tags'].latest, j.versions['0.1.2'].dist.integrity)"
 ```
