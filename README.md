@@ -535,6 +535,7 @@ Requirements: Node ≥ 20.11. Runtime dependencies: **zero**. Python + Pillow ar
 - [Ecosystem and embedding](docs/ECOSYSTEM.md)
 - [Judge/decision models](docs/JUDGES.md)
 - [Publishing and launch runbook](docs/PUBLISHING.md)
+- [Growth playbook](launch/GROWTH.md)
 - [Per-node leaderboard](docs/LEADERBOARD.md)
 - [Model applicability](docs/APPLICABILITY.md)
 - [Multi-dimensional scorecard](tests/results/SCORECARD.md)

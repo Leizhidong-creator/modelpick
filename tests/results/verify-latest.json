@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "verification-receipt",
-  "generatedAt": "2026-11-19T10:01:17.398Z",
+  "generatedAt": "2026-11-19T10:08:33.182Z",
   "ok": true,
   "warnings": 0,
   "version": "0.1.0",
@@ -71,7 +71,7 @@
       "id": "hashes",
       "status": "pass",
       "message": "catalog/policy hashes available",
-      "detail": "{\"catalog/models.json\":\"87f4f6059fa31da3\",\"catalog/tasks.json\":\"615a36c478beb172\",\"catalog/policy.json\":\"7d8c0c6c5745dd91\",\"package.json\":\"c27a3925bcdc87db\"}"
+      "detail": "{\"catalog/models.json\":\"87f4f6059fa31da3\",\"catalog/tasks.json\":\"615a36c478beb172\",\"catalog/policy.json\":\"7d8c0c6c5745dd91\",\"package.json\":\"ddb43ce01e69fab9\"}"
     },
     {
       "id": "integrity",
@@ -84,6 +84,6 @@
     "catalog/models.json": "87f4f6059fa31da3",
     "catalog/tasks.json": "615a36c478beb172",
     "catalog/policy.json": "7d8c0c6c5745dd91",
-    "package.json": "c27a3925bcdc87db"
+    "package.json": "ddb43ce01e69fab9"
   }
 }

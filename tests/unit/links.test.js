@@ -48,6 +48,10 @@ test('video deliverables exist and are non-empty', () => {
     const stat = fs.statSync(path.join(ROOT, file));
     assert.ok(stat.size > 1000, `${file} is too small`);
   }
+  for (const file of ['short-cost.mp4', 'short-3d.mp4', 'short-pipeline.mp4', 'short-proof.mp4']) {
+    const stat = fs.statSync(path.join(ROOT, 'launch', 'shorts', file));
+    assert.ok(stat.size > 300000, `launch/shorts/${file} is too small`);
+  }
 });
 
 test('docs local links point at real files', () => {

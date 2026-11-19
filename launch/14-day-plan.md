@@ -1,6 +1,6 @@
 # 14-day launch plan
 
-**D1 = Tuesday 2026-11-24.** Times are dual: Asia/Shanghai (CST) / US Pacific (PT). One person, zero budget. The goal is not a spike; it is 100+ weekly active installs that produce a recommendation.
+**D1 = Tuesday 2026-11-24.** Full channel plan: [`GROWTH.md`](GROWTH.md). Times are dual: Asia/Shanghai (CST) / US Pacific (PT). One person, zero budget. The goal is not a spike; it is 100+ weekly active installs that produce a recommendation.
 
 ## Before D1 (D-3 → D-1)
 

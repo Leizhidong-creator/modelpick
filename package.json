@@ -1,7 +1,7 @@
 {
   "name": "modelpick",
   "version": "0.1.0",
-  "description": "Pick the right model at every step of an AI agent workflow — with cost per solved task, not guesswork.",
+  "description": "Pick the right model at every step of an AI agent workflow \u2014 with cost per solved task, not guesswork.",
   "type": "module",
   "bin": {
     "modelpick": "./bin/modelpick.js"
@@ -23,8 +23,8 @@
     "skills",
     "plugins",
     "types",
+    "launch/*.md",
     "docs/*.md",
-    "launch",
     "research/*.md",
     "research/hf-evidence.json",
     "tests/*.md",
