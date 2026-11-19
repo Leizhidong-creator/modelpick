@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "version": "2026.11.19",
+  "description": "Held-out scenarios authored after the development benchmark froze. Run once, report honestly.",
+  "scenarios": [
+    {
+      "id": "holdout-java-migration",
+      "query": "migrate a 120k-line Java monolith to Kotlin, quality first",
+      "task": "coding-agent",
+      "accept": [
+        "claude-fable-5.2",
+        "gemini-4-carbon",
+        "claude-opus-5-5",
+        "claude-sonnet-5-5"
+      ],
+      "note": "Large multi-file migration."
+    },
+    {
+      "id": "holdout-double-charge",
+      "query": "find why the payment webhook sometimes double-charges customers",
+      "task": "debugging",
+      "accept": [
+        "claude-fable-5.2",
+        "claude-opus-5-5",
+        "gpt-6.2-astra",
+        "gemini-4-carbon",
+        "gpt-6.2-sol"
+      ],
+      "note": "Non-deterministic production bug."
+    },
+    {
+      "id": "holdout-terraform-review",
+      "query": "review this Terraform diff for security and blast radius",
+      "task": "code-review",
+      "accept": [
+        "claude-fable-5.2",
+        "claude-opus-5-5",
+        "gpt-6.2-astra",
+        "gemini-4-carbon",
+        "gpt-6.2-sol"
+      ],
+      "note": "Infra review."
+    },
+    {
+      "id": "holdout-interview-synthesis",
+      "query": "summarize 60 customer interviews into a positioning doc",
+      "task": "research",
+      "accept": [
+        "claude-fable-5.2",
+        "gpt-6.2-astra",
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-opus-5-5",
+        "gpt-6.1-terra"
+      ],
+      "note": "Synthesis, not transcription."
+    },
+    {
+      "id": "holdout-review-sentiment",
+      "query": "classify 500k product reviews by sentiment, cheapest",
+      "task": "classification",
+      "accept": [
+        "claude-haiku-5.5",
+        "gpt-6-luna",
+        "deepseek-v4.1-flash",
+        "gemini-3.8-flash",
+        "minimax-m3.1-flash"
+      ],
+      "note": "High-volume classification.",
+      "modes": [
+        "balanced",
+        "cost"
+      ]
+    },
+    {
+      "id": "holdout-hero-no-text",
+      "query": "generate a 16:9 hero image with no text for a fintech site",
+      "task": "image-gen",
+      "accept": [
+        "nano-banana-2.1",
+        "nano-banana-pro",
+        "gpt-image-2",
+        "seedream-5.5"
+      ],
+      "note": "Explicit no-text requirement; text filter must not fire."
+    },
+    {
+      "id": "holdout-studio-portrait",
+      "query": "make this selfie look like a studio portrait, keep identity",
+      "task": "image-edit",
+      "accept": [
+        "nano-banana-2.1",
+        "nano-banana-pro",
+        "gpt-image-2",
+        "seedream-5.5"
+      ],
+      "note": "Identity-preserving edit."
+    },
+    {
+      "id": "holdout-six-second-loop",
+      "query": "generate a 6 second seamless loop for a loading screen",
+      "task": "video-gen",
+      "accept": [
+        "veo-3.1-fast",
+        "veo-3.1",
+        "kling-4.0",
+        "seedance-2.5"
+      ],
+      "note": "Short looping clip; duration filter must allow 6s."
+    },
+    {
+      "id": "holdout-clay-render",
+      "query": "turn a clay render into a game-ready 3D barrel with PBR",
+      "task": "3d-gen",
+      "accept": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "note": "Image-to-3D, PBR."
+    },
+    {
+      "id": "holdout-dead-code",
+      "query": "read this 300k-token codebase and find dead code",
+      "task": "long-context",
+      "accept": [
+        "gemini-4-carbon",
+        "gemini-4-hydrogen",
+        "gemini-4-argon",
+        "claude-fable-5.2",
+        "kimi-k3.1-pro",
+        "gpt-6.1-terra"
+      ],
+      "note": "Long context but not 400K."
+    },
+    {
+      "id": "holdout-radio-spot",
+      "query": "voice a 30 second radio spot, cheap",
+      "task": "tts",
+      "accept": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "note": "Cost-aware voiceover."
+    },
+    {
+      "id": "holdout-webinar",
+      "query": "transcribe a 2 hour webinar with timestamps",
+      "task": "stt",
+      "accept": [
+        "gpt-transcribe",
+        "voxtral-small-transcribe-3"
+      ],
+      "note": "Long-form transcription."
+    }
+  ]
+}

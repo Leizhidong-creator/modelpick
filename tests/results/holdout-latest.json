@@ -1,0 +1,739 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-11-19T07:13:26.213Z",
+  "catalogVersion": "2026.11.19",
+  "scenarios": 12,
+  "runs": 35,
+  "metrics": {
+    "intentAccuracy": 1,
+    "top1": 1,
+    "top3": 1,
+    "constraintPass": 1,
+    "medianCostRegret": 0,
+    "p95Ms": 0.6,
+    "priceStability": 1
+  },
+  "thresholds": {
+    "intentAccuracy": 0.95,
+    "top1": 0.75,
+    "top3": 0.92,
+    "constraintPass": 1,
+    "p95Ms": 300,
+    "priceStability": 0.8
+  },
+  "passed": true,
+  "intentFailures": [],
+  "failures": [],
+  "details": [
+    {
+      "scenario": "holdout-java-migration",
+      "mode": "balanced",
+      "task": "coding-agent",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-opus-5.5",
+        "gpt-6.2-astra"
+      ],
+      "costPerTask": 0.174245,
+      "quality": 87.3,
+      "elapsedMs": 3.81,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-java-migration",
+      "mode": "cost",
+      "task": "coding-agent",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-opus-5.5",
+        "claude-fable-5.2"
+      ],
+      "costPerTask": 0.174245,
+      "quality": 87.3,
+      "elapsedMs": 0.56,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-java-migration",
+      "mode": "quality",
+      "task": "coding-agent",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-fable-5.2",
+        "claude-opus-5.5"
+      ],
+      "costPerTask": 0.174245,
+      "quality": 87.3,
+      "elapsedMs": 0.26,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-double-charge",
+      "mode": "balanced",
+      "task": "debugging",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.13152,
+      "quality": 85.53,
+      "elapsedMs": 0.3,
+      "costRegret": 0.009254569731571318,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-double-charge",
+      "mode": "cost",
+      "task": "debugging",
+      "chosen": "gpt-6.2-sol",
+      "chosenName": "GPT-6.2 Sol",
+      "top3": [
+        "gpt-6.2-sol",
+        "gemini-4-carbon",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.130314,
+      "quality": 86.16,
+      "elapsedMs": 0.23,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-double-charge",
+      "mode": "quality",
+      "task": "debugging",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-fable-5.2"
+      ],
+      "costPerTask": 0.13152,
+      "quality": 85.53,
+      "elapsedMs": 0.19,
+      "costRegret": 0.009254569731571318,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-terraform-review",
+      "mode": "balanced",
+      "task": "code-review",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.087772,
+      "quality": 85.29,
+      "elapsedMs": 0.55,
+      "costRegret": 0.0075301896322145625,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-terraform-review",
+      "mode": "cost",
+      "task": "code-review",
+      "chosen": "gpt-6.2-sol",
+      "chosenName": "GPT-6.2 Sol",
+      "top3": [
+        "gpt-6.2-sol",
+        "gemini-4-carbon",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.087116,
+      "quality": 85.81,
+      "elapsedMs": 0.34,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-terraform-review",
+      "mode": "quality",
+      "task": "code-review",
+      "chosen": "claude-fable-5.2",
+      "chosenName": "Claude Fable 5.2",
+      "top3": [
+        "claude-fable-5.2",
+        "gpt-6.2-astra",
+        "gemini-4-carbon"
+      ],
+      "costPerTask": 0.319939,
+      "quality": 91.78,
+      "elapsedMs": 0.2,
+      "costRegret": 2.672563019422379,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-interview-synthesis",
+      "mode": "balanced",
+      "task": "research",
+      "chosen": "gpt-6.1-terra",
+      "chosenName": "GPT-6.1 Terra",
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gemini-4-carbon"
+      ],
+      "costPerTask": 0.163834,
+      "quality": 80.57,
+      "elapsedMs": 0.62,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-interview-synthesis",
+      "mode": "cost",
+      "task": "research",
+      "chosen": "gpt-6.1-terra",
+      "chosenName": "GPT-6.1 Terra",
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gemini-4-carbon"
+      ],
+      "costPerTask": 0.163834,
+      "quality": 80.57,
+      "elapsedMs": 0.22,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-interview-synthesis",
+      "mode": "quality",
+      "task": "research",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-fable-5.2",
+        "gpt-6.2-sol"
+      ],
+      "costPerTask": 0.291288,
+      "quality": 88.96,
+      "elapsedMs": 0.18,
+      "costRegret": 0.7779459697010387,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-review-sentiment",
+      "mode": "balanced",
+      "task": "classification",
+      "chosen": "claude-haiku-5.5",
+      "chosenName": "Claude Haiku 5.5",
+      "top3": [
+        "claude-haiku-5.5",
+        "gpt-6-luna",
+        "deepseek-v4.1-flash"
+      ],
+      "costPerTask": 0.0008,
+      "quality": 70.91,
+      "elapsedMs": 0.47,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-review-sentiment",
+      "mode": "cost",
+      "task": "classification",
+      "chosen": "claude-haiku-5.5",
+      "chosenName": "Claude Haiku 5.5",
+      "top3": [
+        "claude-haiku-5.5",
+        "gpt-6-luna",
+        "deepseek-v4.1-flash"
+      ],
+      "costPerTask": 0.0008,
+      "quality": 70.91,
+      "elapsedMs": 0.2,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-hero-no-text",
+      "mode": "balanced",
+      "task": "image-gen",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036254,
+      "quality": 93.65,
+      "elapsedMs": 0.53,
+      "costRegret": 0.07898809523809534,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-hero-no-text",
+      "mode": "cost",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "nano-banana-2.1",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.15,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-hero-no-text",
+      "mode": "quality",
+      "task": "image-gen",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036254,
+      "quality": 93.65,
+      "elapsedMs": 0.06,
+      "costRegret": 0.07898809523809534,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-studio-portrait",
+      "mode": "balanced",
+      "task": "image-edit",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036187,
+      "quality": 93.8,
+      "elapsedMs": 0.07,
+      "costRegret": 0.08376759508834962,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-studio-portrait",
+      "mode": "cost",
+      "task": "image-edit",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "nano-banana-2.1",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.03339,
+      "quality": 91.2,
+      "elapsedMs": 0.08,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-studio-portrait",
+      "mode": "quality",
+      "task": "image-edit",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "nano-banana-pro"
+      ],
+      "costPerTask": 0.036187,
+      "quality": 93.8,
+      "elapsedMs": 0.05,
+      "costRegret": 0.08376759508834962,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-six-second-loop",
+      "mode": "balanced",
+      "task": "video-gen",
+      "chosen": "veo-3.1-fast",
+      "chosenName": "Veo 3.1 Fast",
+      "top3": [
+        "veo-3.1-fast",
+        "kling-4.0",
+        "veo-3.1"
+      ],
+      "costPerTask": 0.596,
+      "quality": 86,
+      "elapsedMs": 0.41,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-six-second-loop",
+      "mode": "cost",
+      "task": "video-gen",
+      "chosen": "veo-3.1-fast",
+      "chosenName": "Veo 3.1 Fast",
+      "top3": [
+        "veo-3.1-fast",
+        "kling-4.0",
+        "veo-3.1"
+      ],
+      "costPerTask": 0.596,
+      "quality": 86,
+      "elapsedMs": 0.11,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-six-second-loop",
+      "mode": "quality",
+      "task": "video-gen",
+      "chosen": "kling-4.0",
+      "chosenName": "Kling 4.0",
+      "top3": [
+        "kling-4.0",
+        "veo-3.1",
+        "veo-3.1-fast"
+      ],
+      "costPerTask": 0.84309,
+      "quality": 94,
+      "elapsedMs": 0.32,
+      "costRegret": 0.41458053691275176,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-clay-render",
+      "mode": "balanced",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.18,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-clay-render",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "hunyuan3d-3.1-pro"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.09,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-clay-render",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.17,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-dead-code",
+      "mode": "balanced",
+      "task": "long-context",
+      "chosen": "gemini-4-hydrogen",
+      "chosenName": "Gemini 4 Hydrogen",
+      "top3": [
+        "gemini-4-hydrogen",
+        "gemini-4-carbon",
+        "gpt-6.1-terra"
+      ],
+      "costPerTask": 0.64701,
+      "quality": 86.42,
+      "elapsedMs": 0.25,
+      "costRegret": 0.3694144838212634,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-dead-code",
+      "mode": "cost",
+      "task": "long-context",
+      "chosen": "gpt-6.1-terra",
+      "chosenName": "GPT-6.1 Terra",
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gemini-4-carbon"
+      ],
+      "costPerTask": 0.472472,
+      "quality": 80.02,
+      "elapsedMs": 0.17,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-dead-code",
+      "mode": "quality",
+      "task": "long-context",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-fable-5.2",
+        "gpt-6.2-astra"
+      ],
+      "costPerTask": 0.80808,
+      "quality": 91.41,
+      "elapsedMs": 0.15,
+      "costRegret": 0.7103235747303545,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-radio-spot",
+      "mode": "balanced",
+      "task": "tts",
+      "chosen": "voxtral-tts-3",
+      "chosenName": "Voxtral TTS 3",
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "costPerTask": 0.01508,
+      "quality": 88,
+      "elapsedMs": 0.09,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-radio-spot",
+      "mode": "cost",
+      "task": "tts",
+      "chosen": "voxtral-tts-3",
+      "chosenName": "Voxtral TTS 3",
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "costPerTask": 0.01508,
+      "quality": 88,
+      "elapsedMs": 0.07,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-radio-spot",
+      "mode": "quality",
+      "task": "tts",
+      "chosen": "eleven-v4",
+      "chosenName": "Eleven v4",
+      "top3": [
+        "eleven-v4",
+        "voxtral-tts-3"
+      ],
+      "costPerTask": 0.08488,
+      "quality": 95,
+      "elapsedMs": 0.03,
+      "costRegret": 4.628647214854111,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-webinar",
+      "mode": "balanced",
+      "task": "stt",
+      "chosen": "voxtral-small-transcribe-3",
+      "chosenName": "Voxtral Small Transcribe 3",
+      "top3": [
+        "voxtral-small-transcribe-3",
+        "gpt-transcribe"
+      ],
+      "costPerTask": 0.0452,
+      "quality": 90,
+      "elapsedMs": 0.18,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-webinar",
+      "mode": "cost",
+      "task": "stt",
+      "chosen": "voxtral-small-transcribe-3",
+      "chosenName": "Voxtral Small Transcribe 3",
+      "top3": [
+        "voxtral-small-transcribe-3",
+        "gpt-transcribe"
+      ],
+      "costPerTask": 0.0452,
+      "quality": 90,
+      "elapsedMs": 0.11,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "holdout-webinar",
+      "mode": "quality",
+      "task": "stt",
+      "chosen": "gpt-transcribe",
+      "chosenName": "GPT Transcribe",
+      "top3": [
+        "gpt-transcribe",
+        "voxtral-small-transcribe-3"
+      ],
+      "costPerTask": 0.04833,
+      "quality": 94,
+      "elapsedMs": 0.08,
+      "costRegret": 0.06924778761061949,
+      "reasons": [],
+      "pass": true
+    }
+  ],
+  "intent": [
+    {
+      "id": "holdout-java-migration",
+      "expected": "coding-agent",
+      "detected": "coding-agent",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-double-charge",
+      "expected": "debugging",
+      "detected": "debugging",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-terraform-review",
+      "expected": "code-review",
+      "detected": "code-review",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-interview-synthesis",
+      "expected": "research",
+      "detected": "research",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-review-sentiment",
+      "expected": "classification",
+      "detected": "classification",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-hero-no-text",
+      "expected": "image-gen",
+      "detected": "image-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-studio-portrait",
+      "expected": "image-edit",
+      "detected": "image-edit",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-six-second-loop",
+      "expected": "video-gen",
+      "detected": "video-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-clay-render",
+      "expected": "3d-gen",
+      "detected": "3d-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-dead-code",
+      "expected": "long-context",
+      "detected": "long-context",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-radio-spot",
+      "expected": "tts",
+      "detected": "tts",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "holdout-webinar",
+      "expected": "stt",
+      "detected": "stt",
+      "confidence": "high",
+      "pass": true
+    }
+  ]
+}

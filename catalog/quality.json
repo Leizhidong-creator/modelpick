@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "readAt": "2026-11-19",
+  "source": "https://models.dev/api.json",
+  "models": [
+    {
+      "id": "anthropic/claude-fable-5-2",
+      "slug": "claude-fable-5.2",
+      "quality": { "overall": 92.8, "coding": 89.6, "codingAgent": 96, "reasoning": 94, "longContext": 93, "writing": 96, "multimodal": 88, "cheapWork": 62 },
+      "speed": { "outputTps": 45, "ttftMs": 1600 },
+      "tags": ["frontier", "best-coding", "agentic", "vision", "tools"],
+      "notes": "BenchLM overall leader (92.8) and coding #1 (89.6); CursorBench 60.0."
+    },
+    {
+      "id": "openai/gpt-6.2-astra",
+      "slug": "gpt-6.2-astra",
+      "quality": { "overall": 89.61, "coding": 88, "codingAgent": 90, "reasoning": 96, "longContext": 90, "writing": 93, "multimodal": 92, "cheapWork": 58 },
+      "speed": { "outputTps": 55, "ttftMs": 1400 },
+      "tags": ["frontier", "best-reasoning", "computer-use", "vision", "tools"],
+      "notes": "BenchLM overall 89.61; strongest reasoning and computer-use profile."
+    },
+    {
+      "id": "anthropic/claude-opus-5-5",
+      "slug": "claude-opus-5.5",
+      "quality": { "overall": 85.82, "coding": 82.9, "codingAgent": 93, "reasoning": 89, "longContext": 87, "writing": 92, "multimodal": 86, "cheapWork": 58 },
+      "speed": { "outputTps": 50, "ttftMs": 1500 },
+      "tags": ["frontier", "coding", "agentic", "vision"],
+      "notes": "BenchLM coding #3 (82.9); CursorBench 57.8."
+    },
+    {
+      "id": "google/gemini-4-carbon",
+      "slug": "gemini-4-carbon",
+      "quality": { "overall": 85.03, "coding": 83.3, "codingAgent": 94, "reasoning": 88, "longContext": 96, "writing": 86, "multimodal": 94, "cheapWork": 70 },
+      "speed": { "outputTps": 95, "ttftMs": 900 },
+      "tags": ["frontier", "best-value-frontier", "long-context", "multimodal", "cursorbench-1"],
+      "notes": "BenchLM coding #2 (83.3); CursorBench leader (60.4); 1M context."
+    },
+    {
+      "id": "openai/gpt-6.2-sol",
+      "slug": "gpt-6.2-sol",
+      "quality": { "overall": 84.79, "coding": 83, "codingAgent": 85, "reasoning": 90, "longContext": 87, "writing": 90, "multimodal": 89, "cheapWork": 66 },
+      "speed": { "outputTps": 70, "ttftMs": 1100 },
+      "tags": ["frontier", "balanced", "vision", "tools"],
+      "notes": "BenchLM overall 84.79 at $2/$10 — the value frontier."
+    },
+    {
+      "id": "anthropic/claude-sonnet-5-5",
+      "slug": "claude-sonnet-5.5",
+      "quality": { "overall": 80.6, "coding": 79, "codingAgent": 90, "reasoning": 84, "longContext": 84, "writing": 89, "multimodal": 84, "cheapWork": 68 },
+      "speed": { "outputTps": 65, "ttftMs": 1200 },
+      "tags": ["coding", "agentic", "balanced", "vision"],
+      "notes": "BenchLM overall 80.6; CursorBench 55.5; strong agent loop at mid price."
+    },
+    {
+      "id": "google/gemini-4-argon",
+      "slug": "gemini-4-argon",
+      "quality": { "overall": 79.21, "coding": 75, "codingAgent": 84, "reasoning": 82, "longContext": 92, "writing": 82, "multimodal": 90, "cheapWork": 74 },
+      "speed": { "outputTps": 100, "ttftMs": 800 },
+      "tags": ["long-context", "multimodal", "fast"],
+      "notes": "BenchLM overall 79.21; CursorBench 52.9."
+    },
+    {
+      "id": "google/gemini-4-hydrogen",
+      "slug": "gemini-4-hydrogen",
+      "quality": { "overall": 79.09, "coding": 75, "codingAgent": 85, "reasoning": 82, "longContext": 92, "writing": 82, "multimodal": 89, "cheapWork": 78 },
+      "speed": { "outputTps": 110, "ttftMs": 750 },
+      "tags": ["best-value", "long-context", "multimodal", "fast"],
+      "notes": "Almost Argon quality at $1.50/$7.50; CursorBench 54.3."
+    },
+    {
+      "id": "openai/gpt-6.1-terra",
+      "slug": "gpt-6.1-terra",
+      "quality": { "overall": 77.1, "coding": 75, "codingAgent": 77, "reasoning": 82, "longContext": 80, "writing": 84, "multimodal": 82, "cheapWork": 80 },
+      "speed": { "outputTps": 90, "ttftMs": 850 },
+      "tags": ["value", "vision", "tools"],
+      "notes": "BenchLM overall 77.1 at $1/$5."
+    },
+    {
+      "id": "moonshotai/kimi-k3.1-pro",
+      "slug": "kimi-k3.1-pro",
+      "quality": { "overall": 71.2, "coding": 70, "codingAgent": 72, "reasoning": 78, "longContext": 88, "writing": 78, "multimodal": 76, "cheapWork": 72 },
+      "speed": { "outputTps": 55, "ttftMs": 1500 },
+      "tags": ["open-weights", "long-context", "value"],
+      "notes": "BenchLM overall 71.2; highest-ranked open-weight model on BenchLM coding."
+    },
+    {
+      "id": "openai/gpt-5.6-sol",
+      "slug": "gpt-5.6-sol",
+      "quality": { "overall": 70.89, "coding": 68, "codingAgent": 80, "reasoning": 78, "longContext": 76, "writing": 82, "multimodal": 82, "cheapWork": 66 },
+      "speed": { "outputTps": 80, "ttftMs": 1000 },
+      "tags": ["agentic", "vision"],
+      "notes": "BenchLM overall 70.89; CursorBench 41.7."
+    },
+    {
+      "id": "moonshotai/kimi-k3",
+      "slug": "kimi-k3",
+      "quality": { "overall": 66.69, "coding": 64, "codingAgent": 66, "reasoning": 74, "longContext": 82, "writing": 74, "multimodal": 72, "cheapWork": 70 },
+      "speed": { "outputTps": 55, "ttftMs": 1400 },
+      "tags": ["open-weights", "long-context"],
+      "notes": "BenchLM overall 66.69; open weights."
+    },
+    {
+      "id": "xai/grok-4.6",
+      "slug": "grok-4.6",
+      "quality": { "overall": 64.72, "coding": 62, "codingAgent": 68, "reasoning": 72, "longContext": 74, "writing": 70, "multimodal": 76, "cheapWork": 76 },
+      "speed": { "outputTps": 75, "ttftMs": 1000 },
+      "tags": ["fast", "vision", "value"],
+      "notes": "BenchLM overall 64.72 at $2/$6; CursorBench 46.3."
+    },
+    {
+      "id": "google/gemini-3.8-flash",
+      "slug": "gemini-3.8-flash",
+      "quality": { "overall": 64.38, "coding": 58, "codingAgent": 62, "reasoning": 65, "longContext": 80, "writing": 66, "multimodal": 78, "cheapWork": 86 },
+      "speed": { "outputTps": 150, "ttftMs": 600 },
+      "tags": ["cheap", "fast", "long-context", "high-volume"],
+      "notes": "BenchLM overall 64.38 at $0.75/$3.75."
+    },
+    {
+      "id": "alibaba/qwen3.8-max",
+      "slug": "qwen3.8-max",
+      "quality": { "overall": 63.41, "coding": 59, "codingAgent": 63, "reasoning": 68, "longContext": 82, "writing": 68, "multimodal": 72, "cheapWork": 74 },
+      "speed": { "outputTps": 80, "ttftMs": 900 },
+      "tags": ["long-context", "value", "multilingual"],
+      "notes": "BenchLM overall 63.41; strong Chinese and 1M context."
+    },
+    {
+      "id": "deepseek/deepseek-flash",
+      "slug": "deepseek-v4.1-flash",
+      "quality": { "overall": 63.85, "coding": 62, "codingAgent": 86, "reasoning": 73, "longContext": 80, "writing": 70, "multimodal": 68, "cheapWork": 96 },
+      "speed": { "outputTps": 90, "ttftMs": 800 },
+      "tags": ["open-weights", "best-value-coding", "agentic", "cheap", "long-context"],
+      "notes": "CursorBench 47.7 — near Sonnet 5.5 agentic coding at ~1/13 the price; 1M context."
+    },
+    {
+      "id": "anthropic/claude-haiku-5-5",
+      "slug": "claude-haiku-5.5",
+      "quality": { "overall": 62.82, "coding": 60, "codingAgent": 84, "reasoning": 64, "longContext": 64, "writing": 74, "multimodal": 70, "cheapWork": 94 },
+      "speed": { "outputTps": 120, "ttftMs": 600 },
+      "tags": ["cheap", "fast", "agentic", "high-volume"],
+      "notes": "CursorBench 48.4 at $0.10/$0.50 — exceptional agentic value."
+    },
+    {
+      "id": "deepseek/deepseek-v4-pro",
+      "slug": "deepseek-v4-pro",
+      "quality": { "overall": 62.7, "coding": 64, "codingAgent": 70, "reasoning": 78, "longContext": 78, "writing": 74, "multimodal": 70, "cheapWork": 82 },
+      "speed": { "outputTps": 60, "ttftMs": 1200 },
+      "tags": ["open-weights", "reasoning", "value", "long-context"],
+      "notes": "BenchLM overall 62.7; reasoning-heavy open-weight option."
+    },
+    {
+      "id": "zai/glm-5.3",
+      "slug": "glm-5.3",
+      "quality": { "overall": 60.22, "coding": 58, "codingAgent": 64, "reasoning": 66, "longContext": 78, "writing": 70, "multimodal": 66, "cheapWork": 72 },
+      "speed": { "outputTps": 70, "ttftMs": 1000 },
+      "tags": ["open-weights", "long-context", "value"],
+      "notes": "BenchLM overall 60.22; CursorBench 42.6."
+    },
+    {
+      "id": "zai/glm-5.3-flash",
+      "slug": "glm-5.3-flash",
+      "quality": { "overall": 57.07, "coding": 54, "codingAgent": 58, "reasoning": 61, "longContext": 74, "writing": 64, "multimodal": 60, "cheapWork": 88 },
+      "speed": { "outputTps": 130, "ttftMs": 650 },
+      "tags": ["open-weights", "cheap", "fast"],
+      "notes": "BenchLM overall 57.07; sub-$0.40/M blended."
+    },
+    {
+      "id": "minimax/MiniMax-M3.1-Flash",
+      "slug": "minimax-m3.1-flash",
+      "quality": { "overall": 58.17, "coding": 53, "codingAgent": 60, "reasoning": 62, "longContext": 76, "writing": 62, "multimodal": 60, "cheapWork": 92 },
+      "speed": { "outputTps": 110, "ttftMs": 700 },
+      "tags": ["cheap", "fast", "long-context", "high-volume"],
+      "notes": "BenchLM overall 58.17 at $0.15/$0.60 with 1M context."
+    },
+    {
+      "id": "openai/gpt-6-luna",
+      "slug": "gpt-6-luna",
+      "quality": { "overall": 61.23, "coding": 55, "codingAgent": 58, "reasoning": 63, "longContext": 72, "writing": 66, "multimodal": 68, "cheapWork": 90 },
+      "speed": { "outputTps": 140, "ttftMs": 600 },
+      "tags": ["cheap", "fast", "high-volume"],
+      "notes": "BenchLM overall 61.23 at $0.10/$0.50."
+    },
+    {
+      "id": "mistral/mistral-large-4",
+      "slug": "mistral-large-4",
+      "quality": { "overall": 51.48, "coding": 46, "codingAgent": 48, "reasoning": 52, "longContext": 66, "writing": 62, "multimodal": 56, "cheapWork": 62 },
+      "speed": { "outputTps": 80, "ttftMs": 900 },
+      "tags": ["eu-hosted", "value"],
+      "notes": "BenchLM overall 51.48; EU-hosted option."
+    }
+  ]
+}

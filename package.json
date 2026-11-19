@@ -1,0 +1,75 @@
+{
+  "name": "modelpick",
+  "version": "0.1.0",
+  "description": "Pick the right model at every step of an AI agent workflow — with cost per solved task, not guesswork.",
+  "type": "module",
+  "bin": {
+    "modelpick": "./bin/modelpick.js"
+  },
+  "main": "./src/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./catalog": "./catalog/models.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bin",
+    "src",
+    "catalog",
+    "skills",
+    "plugins",
+    "types",
+    "docs",
+    "bench",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "test": "node --test \"tests/**/*.test.js\"",
+    "test:unit": "node --test \"tests/unit/*.test.js\"",
+    "test:integration": "node --test \"tests/integration/*.test.js\"",
+    "test:e2e": "node --test \"tests/e2e/*.test.js\"",
+    "bench": "node bench/run.js",
+    "bench:holdout": "node bench/holdout.js",
+    "validate": "node scripts/validate.js",
+    "check": "node scripts/check.js",
+    "assets": "python scripts/make_assets.py",
+    "prepare": "node scripts/validate.js"
+  },
+  "keywords": [
+    "ai",
+    "llm",
+    "model-routing",
+    "model-selection",
+    "mcp",
+    "model-context-protocol",
+    "claude-code",
+    "codex",
+    "cursor",
+    "deepseek-harness",
+    "agents",
+    "cost-optimization",
+    "image-generation",
+    "video-generation",
+    "3d-generation"
+  ],
+  "author": "Leizhidong-creator",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leizhidong-creator/modelpick.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Leizhidong-creator/modelpick/issues"
+  },
+  "homepage": "https://github.com/Leizhidong-creator/modelpick#readme",
+  "funding": []
+}

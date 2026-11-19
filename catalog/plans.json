@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "plans": [
+    {
+      "id": "game-asset",
+      "label": "Game-ready 3D asset",
+      "blurb": "Concept art → 3D mesh with PBR materials, ready for a game engine.",
+      "keywords": [["3d game asset", 5], ["game asset", 4], ["3d character", 4], ["3d prop", 4], ["游戏资产", 4], ["3d 角色", 4], ["三维资产", 4]],
+      "steps": [
+        { "id": "concept", "task": "image-gen", "brief": "Generate a clean orthographic concept sheet on a neutral background." },
+        { "id": "mesh", "task": "3d-gen", "brief": "Turn the concept into a textured GLB; check topology and scale.", "dependsOn": "concept" }
+      ]
+    },
+    {
+      "id": "product-launch-video",
+      "label": "Product launch video",
+      "blurb": "Script → keyframes → clips → voiceover → music, with a model choice at every step.",
+      "keywords": [["launch video", 5], ["product video", 4], ["commercial", 3], ["ad video", 4], ["广告片", 4], ["产品视频", 4], ["宣传片", 4]],
+      "steps": [
+        { "id": "script", "task": "writing", "brief": "Write a 30-second script with shot list and on-screen text." },
+        { "id": "keyframes", "task": "image-gen", "brief": "Generate 4 consistent keyframes from the shot list." },
+        { "id": "clips", "task": "video-gen", "brief": "Animate each keyframe into a 5-second clip.", "dependsOn": "keyframes" },
+        { "id": "voice", "task": "tts", "brief": "Narrate the script in a brand-appropriate voice.", "dependsOn": "script" },
+        { "id": "music", "task": "music", "brief": "Generate a bed track that matches the edit.", "optional": true }
+      ]
+    },
+    {
+      "id": "landing-page",
+      "label": "Landing page",
+      "blurb": "Visual direction → copy → production code.",
+      "keywords": [["landing page", 4], ["marketing site", 4], ["homepage", 3], ["官网", 4], ["落地页", 4]],
+      "steps": [
+        { "id": "visual", "task": "image-gen", "brief": "Explore two visual directions and a hero image." },
+        { "id": "copy", "task": "writing", "brief": "Write the hero, proof, and CTA copy." },
+        { "id": "build", "task": "coding-agent", "brief": "Implement the page with responsive layout and accessibility.", "dependsOn": "visual" }
+      ]
+    },
+    {
+      "id": "podcast-clips",
+      "label": "Podcast clip factory",
+      "blurb": "Transcribe → find the best moments → cut and caption.",
+      "keywords": [["podcast clip", 5], ["podcast", 3], ["播客", 4], ["剪辑", 3], ["字幕", 3]],
+      "steps": [
+        { "id": "transcribe", "task": "stt", "brief": "Transcribe with speaker labels and timestamps." },
+        { "id": "select", "task": "long-context", "brief": "Find the 5 strongest 45-second moments with hooks.", "dependsOn": "transcribe" },
+        { "id": "captions", "task": "translation", "brief": "Produce bilingual, platform-ready captions.", "dependsOn": "select", "optional": true }
+      ]
+    },
+    {
+      "id": "app-from-scratch",
+      "label": "Ship a feature",
+      "blurb": "Plan → implement → review → debug, using a different model where each is strongest.",
+      "keywords": [["build an app", 4], ["new feature", 3], ["from scratch", 3], ["build a saas", 4], ["开发一个应用", 4], ["从零", 3]],
+      "steps": [
+        { "id": "plan", "task": "planning", "brief": "Write the spec, data model, and milestones." },
+        { "id": "implement", "task": "coding-agent", "brief": "Implement the feature end to end.", "dependsOn": "plan" },
+        { "id": "review", "task": "code-review", "brief": "Adversarial review for correctness and security.", "dependsOn": "implement" },
+        { "id": "debug", "task": "debugging", "brief": "Fix anything the review or tests surface.", "dependsOn": "review", "optional": true }
+      ]
+    },
+    {
+      "id": "research-report",
+      "label": "Research report",
+      "blurb": "Deep research → synthesis → charts → editing.",
+      "keywords": [["research report", 5], ["market report", 4], ["研究报告", 4], ["行业报告", 4]],
+      "steps": [
+        { "id": "research", "task": "research", "brief": "Collect primary sources and extract claims with citations." },
+        { "id": "synthesize", "task": "writing", "brief": "Write the argument, not a summary." },
+        { "id": "visuals", "task": "image-gen", "brief": "Generate a cover and 2 supporting visuals.", "optional": true }
+      ]
+    },
+    {
+      "id": "localize-video",
+      "label": "Localize a video",
+      "blurb": "Transcribe → translate → dub, keeping timing natural.",
+      "keywords": [["localize video", 5], ["dub", 4], ["subtitle", 3], ["视频本地化", 4], ["配音", 3]],
+      "steps": [
+        { "id": "transcribe", "task": "stt", "brief": "Transcribe with word-level timestamps." },
+        { "id": "translate", "task": "translation", "brief": "Translate with timing-aware line breaks.", "dependsOn": "transcribe" },
+        { "id": "dub", "task": "tts", "brief": "Synthesize the dub and check pacing.", "dependsOn": "translate" }
+      ]
+    }
+  ]
+}

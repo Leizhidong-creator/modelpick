@@ -1,0 +1,51 @@
+name: Model or price update
+description: A model is missing, a price moved, or an API id changed.
+title: "[catalog] "
+labels: ["catalog"]
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Model name and provider
+      placeholder: "Nano Banana 2.1 — Google"
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: First-party source URL
+      description: A pricing or docs page, not a blog post.
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Date you read the source
+      placeholder: "2026-11-19"
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change?
+      description: Include the exact price, unit, context window, and model id.
+    validations:
+      required: true
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Price confidence
+      options:
+        - verified (first-party or marketplace page)
+        - estimated (derived or secondary source)
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I included a source URL and read date.
+          required: true
+        - label: This is not a promotional or free-tier price.
+          required: true

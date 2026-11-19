@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 1,
+  "version": "2026.11.19",
+  "description": "Expert-labeled decision scenarios. Each run is expanded into balanced, cost, and quality variants (3 × 40 = 120 evaluations).",
+  "scenarios": [
+    {
+      "id": "code-oauth",
+      "query": "implement OAuth login across the Next.js app and add tests",
+      "task": "coding-agent",
+      "accept": [
+        "claude-fable-5.2",
+        "gemini-4-carbon",
+        "claude-opus-5-5",
+        "claude-sonnet-5-5",
+        "deepseek-v4.1-flash"
+      ],
+      "note": "Multi-file implementation; agentic coding is the dominant signal."
+    },
+    {
+      "id": "code-race",
+      "query": "fix this race condition from the stack trace, fastest",
+      "task": "debugging",
+      "accept": [
+        "claude-fable-5.2",
+        "claude-opus-5-5",
+        "gpt-6.2-astra",
+        "gemini-4-carbon",
+        "gpt-6.2-sol"
+      ],
+      "note": "Debugging rewards reasoning over raw code volume."
+    },
+    {
+      "id": "code-review-security",
+      "query": "review this 600-line PR for security issues",
+      "task": "code-review",
+      "accept": [
+        "claude-fable-5.2",
+        "claude-opus-5-5",
+        "gpt-6.2-astra",
+        "gemini-4-carbon",
+        "gpt-6.2-sol"
+      ],
+      "note": "Security review needs a high quality floor."
+    },
+    {
+      "id": "code-monorepo-refactor",
+      "query": "refactor our monorepo to split out the billing service, cheapest that works",
+      "task": "refactor",
+      "accept": [
+        "claude-sonnet-5-5",
+        "gemini-4-carbon",
+        "deepseek-v4.1-flash",
+        "claude-haiku-5.5"
+      ],
+      "note": "Cost-aware refactor; cheap agentic models are acceptable."
+    },
+    {
+      "id": "plan-multitenant",
+      "query": "plan the architecture for a multi-tenant analytics product",
+      "task": "planning",
+      "accept": [
+        "claude-fable-5.2",
+        "gpt-6.2-astra",
+        "claude-opus-5-5",
+        "gpt-6.2-sol",
+        "gemini-4-carbon"
+      ],
+      "note": "Architecture is reasoning-heavy."
+    },
+    {
+      "id": "context-400-page-pdf",
+      "query": "read this 400-page document in one pass and summarize the financial risks",
+      "task": "long-context",
+      "accept": [
+        "gemini-4-carbon",
+        "gemini-4-hydrogen",
+        "gemini-4-argon",
+        "claude-fable-5.2",
+        "kimi-k3.1-pro",
+        "gpt-6.1-terra"
+      ],
+      "note": "Needs ~400K context; 128K models must be rejected."
+    },
+    {
+      "id": "research-eu-ai-act",
+      "query": "deep research the 2026 EU AI Act compliance market",
+      "task": "research",
+      "accept": [
+        "claude-fable-5.2",
+        "gpt-6.2-astra",
+        "gemini-4-carbon",
+        "kimi-k3.1-pro",
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen"
+      ],
+      "note": "Synthesis over many sources."
+    },
+    {
+      "id": "writing-launch-post",
+      "query": "write a launch post for our developer tool",
+      "task": "writing",
+      "accept": [
+        "claude-fable-5.2",
+        "claude-opus-5-5",
+        "gpt-6.2-astra",
+        "gpt-6.2-sol",
+        "claude-sonnet-5-5",
+        "gpt-6.1-terra"
+      ],
+      "note": "Voice and structure matter."
+    },
+    {
+      "id": "translation-onboarding",
+      "query": "translate the onboarding flow into Japanese and German",
+      "task": "translation",
+      "accept": [
+        "claude-fable-5.2",
+        "gpt-6.2-astra",
+        "gemini-4-carbon",
+        "qwen3.8-max",
+        "claude-sonnet-5-5",
+        "gemini-4-hydrogen",
+        "gpt-6.1-terra"
+      ],
+      "note": "Multilingual quality."
+    },
+    {
+      "id": "extract-invoices",
+      "query": "extract line items from 5,000 invoices into JSON",
+      "task": "extraction",
+      "accept": [
+        "claude-haiku-5.5",
+        "gemini-4-hydrogen",
+        "deepseek-v4.1-flash",
+        "gpt-6.1-terra",
+        "gpt-6.2-sol",
+        "gpt-6-luna"
+      ],
+      "note": "Structured output at volume; cache and price matter.",
+      "modes": [
+        "balanced",
+        "cost"
+      ]
+    },
+    {
+      "id": "classify-tickets",
+      "query": "classify 2 million support tickets by urgency, cheapest",
+      "task": "classification",
+      "accept": [
+        "claude-haiku-5.5",
+        "gpt-6-luna",
+        "deepseek-v4.1-flash",
+        "gemini-3.8-flash",
+        "minimax-m3.1-flash",
+        "gemini-4-carbon",
+        "gemini-4-hydrogen"
+      ],
+      "note": "High volume; quality floor can be lower.",
+      "modes": [
+        "balanced",
+        "cost"
+      ]
+    },
+    {
+      "id": "data-churn",
+      "query": "analyze this 2GB CSV and find the churn drivers",
+      "task": "data-analysis",
+      "accept": [
+        "claude-fable-5.2",
+        "gpt-6.2-astra",
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "kimi-k3.1-pro",
+        "gemini-4-hydrogen"
+      ],
+      "note": "Reasoning plus code execution."
+    },
+    {
+      "id": "computer-checkout",
+      "query": "automate this browser checkout flow and handle the 3DS prompt",
+      "task": "computer-use",
+      "accept": [
+        "gpt-6.2-astra",
+        "gemini-4-carbon",
+        "claude-fable-5.2",
+        "claude-opus-5-5"
+      ],
+      "note": "Vision + tool use + recovery."
+    },
+    {
+      "id": "image-hero-coffee",
+      "query": "generate a hero image for a coffee subscription landing page",
+      "task": "image-gen",
+      "accept": [
+        "nano-banana-2.1",
+        "nano-banana-pro",
+        "gpt-image-2",
+        "seedream-5.5"
+      ],
+      "note": "General image generation."
+    },
+    {
+      "id": "image-headline-text",
+      "query": "make a product thumbnail with the headline text 'Fresh Roast'",
+      "task": "image-gen",
+      "accept": [
+        "nano-banana-pro",
+        "gpt-image-2",
+        "seedream-5.5"
+      ],
+      "note": "Text-in-image quality is the constraint."
+    },
+    {
+      "id": "image-remove-bg",
+      "query": "remove the background from this product photo",
+      "task": "image-edit",
+      "accept": [
+        "nano-banana-2.1",
+        "nano-banana-pro",
+        "gpt-image-2",
+        "seedream-5.5"
+      ],
+      "note": "Editing capability required."
+    },
+    {
+      "id": "image-recolor-jacket",
+      "query": "recolor the jacket to red in this photo, keep the face identical",
+      "task": "image-edit",
+      "accept": [
+        "nano-banana-2.1",
+        "nano-banana-pro",
+        "gpt-image-2",
+        "seedream-5.5"
+      ],
+      "note": "Identity preservation."
+    },
+    {
+      "id": "image-4k-chinese-poster",
+      "query": "make a 4K poster with the title in Chinese calligraphy",
+      "task": "image-gen",
+      "accept": [
+        "nano-banana-pro",
+        "gpt-image-2",
+        "seedream-5.5"
+      ],
+      "note": "4K and precise CJK glyphs."
+    },
+    {
+      "id": "image-cheap-draft",
+      "query": "generate a quick draft image for a moodboard, cheap",
+      "task": "image-gen",
+      "accept": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "note": "Cost preset should surface Nano Banana 2.1 or Seedream."
+    },
+    {
+      "id": "image-20-social",
+      "query": "generate 20 social media images for a campaign, cheapest",
+      "task": "image-gen",
+      "accept": [
+        "seedream-5.5",
+        "nano-banana-2.1",
+        "gpt-image-2"
+      ],
+      "note": "Per-image cost dominates at volume."
+    },
+    {
+      "id": "image-consistent-character",
+      "query": "generate a consistent character across 6 comic panels",
+      "task": "image-gen",
+      "accept": [
+        "nano-banana-pro",
+        "nano-banana-2.1",
+        "seedream-5.5"
+      ],
+      "note": "Character consistency."
+    },
+    {
+      "id": "video-product-5s",
+      "query": "animate this product photo into a 5 second ad clip",
+      "task": "video-gen",
+      "accept": [
+        "veo-3.1-fast",
+        "veo-3.1",
+        "kling-4.0",
+        "seedance-2.5"
+      ],
+      "note": "Image-to-video."
+    },
+    {
+      "id": "video-cinematic-30s",
+      "query": "generate a 30 second cinematic brand film with audio",
+      "task": "video-gen",
+      "accept": [
+        "veo-3.1",
+        "kling-4.0",
+        "seedance-2.5"
+      ],
+      "note": "Quality and native audio."
+    },
+    {
+      "id": "video-cheap-teaser",
+      "query": "draft a 5 second teaser, cheap",
+      "task": "video-gen",
+      "accept": [
+        "veo-3.1-fast",
+        "seedance-2.5",
+        "kling-4.0"
+      ],
+      "note": "Cost preset."
+    },
+    {
+      "id": "video-dialogue-1080p",
+      "query": "generate a 1080p product video with a person speaking dialogue",
+      "task": "video-gen",
+      "accept": [
+        "kling-4.0",
+        "veo-3.1",
+        "seedance-2.5"
+      ],
+      "note": "Lip sync and dialogue."
+    },
+    {
+      "id": "video-lipsync-still",
+      "query": "make a 10 second video from this still with lip sync",
+      "task": "video-gen",
+      "accept": [
+        "kling-4.0",
+        "veo-3.1",
+        "seedance-2.5"
+      ],
+      "note": "Longer take + lip sync."
+    },
+    {
+      "id": "3d-sword",
+      "query": "create a stylized 3D sword for a Unity game",
+      "task": "3d-gen",
+      "accept": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "note": "Game-ready prop."
+    },
+    {
+      "id": "3d-rigged-character",
+      "query": "turn this character concept into a rigged 3D model",
+      "task": "3d-gen",
+      "accept": [
+        "tripo-h3.1",
+        "meshy-7.1"
+      ],
+      "note": "Rigging is required; Hunyuan lacks a native rig."
+    },
+    {
+      "id": "3d-barrel-cheap",
+      "query": "create a 3D barrel prop, cheapest",
+      "task": "3d-gen",
+      "accept": [
+        "hunyuan3d-3.1-pro",
+        "tripo-h3.1",
+        "meshy-7.1"
+      ],
+      "note": "Cost preset; Hunyuan should win."
+    },
+    {
+      "id": "3d-hero-character",
+      "query": "create a 3D hero character with clean topology and PBR textures",
+      "task": "3d-gen",
+      "accept": [
+        "tripo-h3.1",
+        "meshy-7.1",
+        "hunyuan3d-3.1-pro"
+      ],
+      "note": "Topology and texture quality."
+    },
+    {
+      "id": "3d-hundred-assets",
+      "query": "build an image-to-3D pipeline for 100 game props, keep cost below $5 total",
+      "task": "3d-gen",
+      "accept": [
+        "hunyuan3d-3.1-pro",
+        "tripo-h3.1"
+      ],
+      "note": "Budget constraint: $0.05/asset."
+    },
+    {
+      "id": "tts-warm-narration",
+      "query": "narrate this 60 second script with a warm female voice",
+      "task": "tts",
+      "accept": [
+        "eleven-v4",
+        "voxtral-tts-3"
+      ],
+      "note": "Expressive narration."
+    },
+    {
+      "id": "tts-cheap-bulk",
+      "query": "narrate 200 product descriptions, cheapest",
+      "task": "tts",
+      "accept": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "note": "Cost preset."
+    },
+    {
+      "id": "stt-podcast",
+      "query": "transcribe this 45 minute podcast with speaker labels",
+      "task": "stt",
+      "accept": [
+        "gpt-transcribe",
+        "voxtral-small-transcribe-3"
+      ],
+      "note": "Long-form transcription."
+    },
+    {
+      "id": "stt-noisy-call",
+      "query": "transcribe a noisy customer call cheaply",
+      "task": "stt",
+      "accept": [
+        "voxtral-small-transcribe-3",
+        "gpt-transcribe"
+      ],
+      "note": "Cost vs accuracy."
+    },
+    {
+      "id": "music-lofi",
+      "query": "generate a lo-fi background track for a coding video",
+      "task": "music",
+      "accept": [
+        "lyria-3.5"
+      ],
+      "note": "Only music-capable model must win; TTS/STT must be excluded."
+    },
+    {
+      "id": "music-brand-song",
+      "query": "generate a full song for a brand video",
+      "task": "music",
+      "accept": [
+        "lyria-3.5"
+      ],
+      "note": "Music capability filter."
+    },
+    {
+      "id": "pipeline-narrated-tutorial",
+      "query": "convert this tutorial into a narrated video",
+      "task": "video-gen",
+      "accept": [
+        "veo-3.1-fast",
+        "veo-3.1",
+        "kling-4.0",
+        "seedance-2.5"
+      ],
+      "note": "Single-node detection; plan is tested separately."
+    },
+    {
+      "id": "pipeline-sketch-to-game",
+      "query": "make a playable 3D game prop from a sketch",
+      "task": "3d-gen",
+      "accept": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "note": "Image-to-3D."
+    }
+  ]
+}

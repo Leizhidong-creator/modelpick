@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "modelpick",
+  "version": "0.1.0",
+  "description": "Pick the right model at every step — with cost per solved task, across text, image, video, 3D, and audio.",
+  "author": {
+    "name": "Lei Zhidong",
+    "url": "https://github.com/Leizhidong-creator"
+  },
+  "homepage": "https://github.com/Leizhidong-creator/modelpick",
+  "repository": "https://github.com/Leizhidong-creator/modelpick",
+  "license": "MIT"
+}

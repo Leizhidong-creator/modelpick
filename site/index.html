@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ModelPick — the model router for AI agents</title>
+  <meta name="description" content="Pick the right model at every step. Cost per solved task across coding, image, video, 3D, and audio. Zero dependencies, MCP-native." />
+  <meta property="og:title" content="ModelPick — stop paying frontier prices for non-frontier work" />
+  <meta property="og:description" content="The model router for AI agents. One MCP call returns the best model, cost per solved task, and the key to connect." />
+  <meta property="og:image" content="./assets/social-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2339c5cf'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='24' font-weight='700' text-anchor='middle' fill='%23070b10'%3EMP%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#"><span class="logo">MP</span> ModelPick</a>
+      <div class="nav-links">
+        <a href="#why">Why</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#agents">Agents</a>
+        <a href="#benchmark">Benchmark</a>
+        <a href="#extend">Extend</a>
+        <a class="nav-cta" href="https://github.com/Leizhidong-creator/modelpick">GitHub ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> v0.1 · catalog 2026.11.19 · MIT</div>
+        <h1>Stop paying <span class="muted">frontier prices</span> for <span class="accent">non-frontier work.</span></h1>
+        <p class="lede">Your agent is model-blind. ModelPick picks the right model at <strong>every node</strong> — coding, image, video, 3D, audio — and prices it in <strong>cost per solved task</strong>, not tokens.</p>
+        <div class="install">
+          <span class="prompt">$</span>
+          <code id="hero-cmd">npx -y github:Leizhidong-creator/modelpick pick "3D sword"</code>
+          <button class="copy" data-copy="#hero-cmd">copy</button>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://github.com/Leizhidong-creator/modelpick">Star on GitHub</a>
+          <a class="btn" href="#agents">Install for your agent</a>
+          <a class="btn" href="https://github.com/Leizhidong-creator/modelpick#30-second-quickstart">Docs</a>
+        </div>
+        <div class="hero-meta">
+          <span><i></i> zero dependencies</span>
+          <span><i></i> no key needed</span>
+          <span><i></i> 41 models · 20 nodes</span>
+        </div>
+      </div>
+
+      <div class="terminal-card">
+        <div class="terminal-bar">
+          <span class="tdot" style="background:#ff5f56"></span>
+          <span class="tdot" style="background:#ffbd2e"></span>
+          <span class="tdot" style="background:#27c93f"></span>
+          <span class="title">modelpick — bash</span>
+        </div>
+        <div class="terminal-body">
+          <div class="cmd"><span id="typed">modelpick pick "3D sword for a Unity game"</span><span class="cursor"></span></div>
+          <div class="out"><span class="cy">3D asset generation</span> · high confidence
+
+<span style="color:#e6edf3;font-weight:600">Tripo H3.1</span> <span style="color:#8b98a5">· Tripo</span>
+quality <span class="ok">94</span>   score <span class="ok">80.6</span>/100
+cost <span class="cy">$0.21</span> / usable asset
+<span style="color:#8b98a5">$0.20 raw × 1.07 attempts</span>
+
+<span style="color:#8b98a5">#2</span> Hunyuan3D 3.1 Pro   <span class="cy">$0.59</span> / asset
+<span style="color:#8b98a5">#3</span> Meshy 7.1          <span class="cy">$1.34</span> / asset
+
+<span class="ok">saves 6.2×</span> vs Meshy 7.1
+<span style="color:#8b98a5">connect: export TRIPO_API_KEY=...</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="strip">
+    <div class="wrap strip-inner">
+      <div class="stat"><b>41</b><span>models · 18 providers</span></div>
+      <div class="stat"><b>20</b><span>task nodes · 5 modalities</span></div>
+      <div class="stat"><b>0</b><span>runtime dependencies</span></div>
+      <div class="stat"><b>0.5ms</b><span>p95 decision latency</span></div>
+    </div>
+  </div>
+
+  <main>
+    <section id="why">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">The bill is not the token price</div>
+            <h2>Cheap tokens, expensive work.</h2>
+          </div>
+          <p>A model that is 10× cheaper per token but needs 1.8× the attempts and 2× the output is not 10× cheaper. ModelPick computes the denominator that matters.</p>
+        </div>
+        <div class="cards-3">
+          <div class="card reveal">
+            <div class="num">01 / COST</div>
+            <h3>Cost per solved task</h3>
+            <p>Price × expected attempts, cache-aware. A 48× token gap becomes a 3% cost line — and the cheap model is 27 quality points worse.</p>
+            <div class="mini">Fable 5.2 <span class="cy">$0.63</span> · Haiku 5.5 <span class="gr">$0.013</span><br />DeepSeek V4.1 Flash <span class="cy">$0.020</span></div>
+          </div>
+          <div class="card reveal">
+            <div class="num">02 / CAPABILITY</div>
+            <h3>Modality is a filter</h3>
+            <p>Text-in-image, rigging, 30s takes, lip sync, 1M context, open weights. The wrong model is rejected before it gets a score.</p>
+            <div class="mini">"headline text" → <span class="cy">minTextInImage 90</span><br />"rigged 3D model" → <span class="cy">requiresRigging</span></div>
+          </div>
+          <div class="card reveal">
+            <div class="num">03 / INTEGRATION</div>
+            <h3>One call inside the agent</h3>
+            <p>A zero-dependency CLI, a stdio MCP server, and a portable skill. No gateway, no proxy, no key storage.</p>
+            <div class="mini">tools: <span class="cy">pick_model</span> · plan_workflow<br />surfaces: Claude · Codex · Cursor · DSH</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap demo-grid">
+        <div class="demo-shot reveal">
+          <div class="terminal-bar">
+            <span class="tdot" style="background:#ff5f56"></span>
+            <span class="tdot" style="background:#ffbd2e"></span>
+            <span class="tdot" style="background:#27c93f"></span>
+            <span class="title">modelpick plan "30s product launch video"</span>
+          </div>
+          <div class="terminal-body" style="font-size:13px">
+            <div><span class="cy">Product launch video</span> <span style="color:#8b98a5">· $0.77 estimated per run</span></div>
+            <div style="color:#8b98a5">Script → keyframes → clips → voiceover → music</div>
+            <div style="height:8px"></div>
+            <div><span style="color:#8b98a5">1</span>  Writing &amp; copy     <span style="color:#e6edf3">Gemini 4 Hydrogen</span>   <span class="ok">$0.03</span>   <span style="color:#8b98a5">q 81</span></div>
+            <div><span style="color:#8b98a5">2</span>  Image generation   <span style="color:#e6edf3">Nano Banana 2.1</span>     <span class="ok">$0.04</span>   <span style="color:#8b98a5">q 94</span></div>
+            <div><span style="color:#8b98a5">3</span>  Video generation   <span style="color:#e6edf3">Veo 3.1 Fast</span>        <span class="ok">$0.60</span>   <span style="color:#8b98a5">q 86</span></div>
+            <div><span style="color:#8b98a5">4</span>  Text to speech     <span style="color:#e6edf3">Voxtral TTS 3</span>       <span class="ok">$0.02</span>   <span style="color:#8b98a5">q 88</span></div>
+            <div><span style="color:#8b98a5">5</span>  Music generation   <span style="color:#e6edf3">Lyria 3.5</span>            <span class="ok">$0.09</span>   <span style="color:#8b98a5">q 90</span></div>
+            <div style="height:8px"></div>
+            <div><span class="ok">Total $0.77 per run</span> <span style="color:#8b98a5">· retries included</span></div>
+            <div style="color:#8b98a5">connect: GEMINI_API_KEY · FAL_KEY · MISTRAL_API_KEY</div>
+          </div>
+        </div>
+        <div class="demo-copy">
+          <div class="kicker">A model per node, not one model for everything</div>
+          <h3>The launch video plan</h3>
+          <p>Script → keyframes → clips → voiceover → music. Each step gets a different model, a cost estimate, and a setup block. The total is priced before you render a frame.</p>
+          <ul class="checklist">
+            <li>Hard constraints, not vibes: duration, audio, references, resolution</li>
+            <li>Alternatives with the quality and cost trade-off spelled out</li>
+            <li>Retries included; provider price and read date attached</li>
+            <li>Works offline; no key required to decide</li>
+          </ul>
+          <div class="install" style="margin-top:20px">
+            <span class="prompt">$</span>
+            <code id="plan-cmd">modelpick plan "30s product launch video"</code>
+            <button class="copy" data-copy="#plan-cmd">copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="coverage">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Coverage</div>
+            <h2>Every node in the agent workflow.</h2>
+          </div>
+          <p>Twenty task nodes, from a 400K-token codebase to a rigged game asset, with the two or three models that actually win each one.</p>
+        </div>
+        <div class="coverage">
+          <div class="modality"><div class="icon">⌘</div><h3>Text</h3><p>coding · review · refactor · debug · plan · long-context · research · writing · translation · extraction · classification · data · computer-use</p></div>
+          <div class="modality"><div class="icon">▧</div><h3>Image</h3><p>generation · editing · text-in-image · 4K · character consistency</p></div>
+          <div class="modality"><div class="icon">▶</div><h3>Video</h3><p>image-to-video · 30s takes · dialogue · native audio · 4K</p></div>
+          <div class="modality"><div class="icon">◇</div><h3>3D</h3><p>text-to-3D · image-to-3D · PBR · rigging · quad mesh</p></div>
+          <div class="modality"><div class="icon">◉</div><h3>Audio</h3><p>TTS · STT · voice cloning · music · timestamps</p></div>
+        </div>
+        <div class="install" style="margin-top:22px;max-width:760px">
+          <span class="prompt">$</span>
+          <code id="coverage-cmd">modelpick models --modality 3d</code>
+          <button class="copy" data-copy="#coverage-cmd">copy</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="agents">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Install</div>
+            <h2>Where you already work.</h2>
+          </div>
+          <p>One command writes the MCP config and the skill. Idempotent, backed up, and it never clobbers your other servers.</p>
+        </div>
+        <div class="agents">
+          <div class="agent"><b>Claude Code</b><span>setup claude-code</span></div>
+          <div class="agent"><b>Codex CLI</b><span>setup codex</span></div>
+          <div class="agent"><b>Cursor</b><span>setup cursor</span></div>
+          <div class="agent"><b>DeepSeek Harness</b><span>setup dsh</span></div>
+          <div class="agent"><b>Copilot CLI</b><span>setup copilot</span></div>
+        </div>
+        <div class="split" style="margin-top:28px">
+          <div class="code-card">
+            <div class="code-head"><span>claude code</span><span>plugin marketplace</span></div>
+            <pre>/plugin marketplace add Leizhidong-creator/modelpick
+/plugin install modelpick@modelpick</pre>
+          </div>
+          <div class="code-card">
+            <div class="code-head"><span>any mcp client</span><span>stdio</span></div>
+            <pre>{
+  "mcpServers": {
+    "modelpick": {
+      "command": "npx",
+      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+    }
+  }
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="benchmark">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Benchmark, not vibes</div>
+            <h2>Decisions you can audit.</h2>
+          </div>
+          <p>115 development runs and 35 held-out runs. Every pick, constraint, and price perturbation is in the repo.</p>
+        </div>
+        <div class="bench">
+          <div class="bench-shot reveal">
+            <img src="assets/benchmark.png" alt="ModelPick benchmark results" />
+          </div>
+          <div>
+            <table class="bench-table">
+              <thead><tr><th>Metric</th><th>Dev</th><th>Held-out</th><th>Target</th></tr></thead>
+              <tbody>
+                <tr><td>Top-1 acceptable</td><td>100%</td><td>100%</td><td>≥75%</td></tr>
+                <tr><td>Top-3 acceptable</td><td>100%</td><td>100%</td><td>≥92%</td></tr>
+                <tr><td>Hard constraints</td><td>100%</td><td>100%</td><td>100%</td></tr>
+                <tr><td>Price stability</td><td>100%</td><td>100%</td><td>≥80%</td></tr>
+                <tr><td>p95 latency</td><td>0.5ms</td><td>0.5ms</td><td>≤300ms</td></tr>
+              </tbody>
+            </table>
+            <p class="note">Decision benchmark, not a model-output benchmark. Quality labels are expert-authored; media scores are priors. Full methodology and known gaps in the repo.</p>
+            <div style="margin-top:18px"><a class="btn" href="https://github.com/Leizhidong-creator/modelpick/blob/main/tests/TEST_PLAN.md">Read the test plan</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="extend">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Built to change</div>
+            <h2>Change the data, not the engine.</h2>
+          </div>
+          <p>Prices move weekly. New providers appear monthly. The scoring engine, retry curve, and presets are JSON you can edit — with validation and a benchmark to catch regressions.</p>
+        </div>
+        <div class="split">
+          <div class="code-card">
+            <div class="code-head"><span>~/.modelpick/overrides.json</span><span>private models</span></div>
+            <pre>{
+  <span class="s">"models"</span>: [{
+    <span class="s">"slug"</span>: <span class="s">"my-private-model"</span>,
+    <span class="s">"pricing"</span>: { <span class="s">"unit"</span>: <span class="s">"mtok"</span>, <span class="s">"input"</span>: <span class="n">1</span>, <span class="s">"output"</span>: <span class="n">2</span> },
+    <span class="s">"quality"</span>: { <span class="s">"overall"</span>: <span class="n">88</span> }
+  }],
+  <span class="s">"policy"</span>: { <span class="s">"presets"</span>: { <span class="s">"cost"</span>: { <span class="s">"cost"</span>: <span class="n">0.65</span> } } }
+}</pre>
+          </div>
+          <div class="code-card">
+            <div class="code-head"><span>catalog/</span><span>four files, one engine</span></div>
+            <pre>models.json   prices · IDs · quality · sources
+tasks.json    20 nodes · weights · floors
+policy.json   retry curve · presets · anchors
+plans.json    multi-step workflows
+
+<span class="k">$</span> npm run validate
+<span class="k">$</span> node bench/run.js</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <div class="kicker">Free, MIT, no telemetry</div>
+        <h2>Make your agent model-aware.</h2>
+        <p>One command. No signup. No key needed to decide. If it saves you money, star the repo — that is the whole distribution plan.</p>
+        <div class="install">
+          <span class="prompt">$</span>
+          <code id="cta-cmd">npx -y github:Leizhidong-creator/modelpick pick "refactor this repo, cheapest that works"</code>
+          <button class="copy" data-copy="#cta-cmd">copy</button>
+        </div>
+        <div class="hero-actions" style="justify-content:center">
+          <a class="btn primary" href="https://github.com/Leizhidong-creator/modelpick">Star on GitHub</a>
+          <a class="btn" href="https://github.com/Leizhidong-creator/modelpick/blob/main/docs/ARCHITECTURE.md">Architecture</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>ModelPick v0.1.0 · MIT © 2026 Lei Zhidong · catalog 2026.11.19</div>
+      <div class="footer-links">
+        <a href="https://github.com/Leizhidong-creator/modelpick">GitHub</a>
+        <a href="https://github.com/Leizhidong-creator/modelpick/blob/main/docs/DATA.md">Data</a>
+        <a href="https://github.com/Leizhidong-creator/modelpick/blob/main/tests/TEST_PLAN.md">Tests</a>
+        <a href="https://github.com/Leizhidong-creator/modelpick/issues">Issues</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

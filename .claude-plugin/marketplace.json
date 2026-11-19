@@ -1,0 +1,23 @@
+{
+  "name": "modelpick",
+  "owner": {
+    "name": "Leizhidong-creator",
+    "url": "https://github.com/Leizhidong-creator"
+  },
+  "metadata": {
+    "description": "Pick the right model at every step — with cost per solved task.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "modelpick",
+      "source": "./plugins/modelpick",
+      "description": "Model selection and API-key setup for every workflow node: coding, image, video, 3D, and audio.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Lei Zhidong",
+        "url": "https://github.com/Leizhidong-creator"
+      }
+    }
+  ]
+}

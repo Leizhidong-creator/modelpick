@@ -1,0 +1,1562 @@
+{
+  "schemaVersion": 1,
+  "tasks": [
+    {
+      "id": "coding-agent",
+      "label": "Agentic coding",
+      "modality": "text",
+      "blurb": "Multi-file implementation, tool use, and long-running coding tasks.",
+      "keywords": [
+        [
+          "coding agent",
+          4
+        ],
+        [
+          "agentic coding",
+          4
+        ],
+        [
+          "implement",
+          2
+        ],
+        [
+          "write code",
+          3
+        ],
+        [
+          "build a feature",
+          3
+        ],
+        [
+          "add feature",
+          3
+        ],
+        [
+          "fix the bug",
+          3
+        ],
+        [
+          "fix bug",
+          2
+        ],
+        [
+          "unit tests",
+          2
+        ],
+        [
+          "pull request",
+          2
+        ],
+        [
+          "代码",
+          2
+        ],
+        [
+          "写代码",
+          3
+        ],
+        [
+          "开发功能",
+          3
+        ],
+        [
+          "实现功能",
+          3
+        ],
+        [
+          "修 bug",
+          3
+        ],
+        [
+          "oauth",
+          2
+        ],
+        [
+          "next.js",
+          2
+        ],
+        [
+          "java",
+          2
+        ],
+        [
+          "kotlin",
+          2
+        ],
+        [
+          "monolith",
+          2
+        ],
+        [
+          "migrate",
+          2
+        ],
+        [
+          "migration",
+          2
+        ],
+        [
+          "codebase",
+          2
+        ]
+      ],
+      "qualityMix": {
+        "coding": 0.5,
+        "codingAgent": 0.35,
+        "overall": 0.15
+      },
+      "weights": {
+        "quality": 0.55,
+        "cost": 0.25,
+        "speed": 0.1,
+        "context": 0.1
+      },
+      "workload": {
+        "inputTokens": 80000,
+        "outputTokens": 8000,
+        "cacheHit": 0.6
+      },
+      "defaults": {
+        "qualityFloor": 85,
+        "costAnchor": 0.5
+      }
+    },
+    {
+      "id": "code-review",
+      "label": "Code review",
+      "modality": "text",
+      "blurb": "Review a diff or PR for correctness, security, and maintainability.",
+      "keywords": [
+        [
+          "code review",
+          4
+        ],
+        [
+          "review this pr",
+          4
+        ],
+        [
+          "review the diff",
+          4
+        ],
+        [
+          "review my code",
+          3
+        ],
+        [
+          "security review",
+          2
+        ],
+        [
+          "代码审查",
+          4
+        ],
+        [
+          "评审代码",
+          3
+        ],
+        [
+          "review this",
+          2
+        ]
+      ],
+      "qualityMix": {
+        "coding": 0.45,
+        "reasoning": 0.35,
+        "overall": 0.2
+      },
+      "weights": {
+        "quality": 0.6,
+        "cost": 0.2,
+        "speed": 0.05,
+        "context": 0.15
+      },
+      "workload": {
+        "inputTokens": 30000,
+        "outputTokens": 3000,
+        "cacheHit": 0.3
+      },
+      "defaults": {
+        "qualityFloor": 80,
+        "costAnchor": 0.35
+      }
+    },
+    {
+      "id": "refactor",
+      "label": "Large refactor",
+      "modality": "text",
+      "blurb": "Restructure code across many files while preserving behaviour.",
+      "keywords": [
+        [
+          "refactor",
+          4
+        ],
+        [
+          "migrate the codebase",
+          4
+        ],
+        [
+          "rewrite the module",
+          3
+        ],
+        [
+          "restructure",
+          2
+        ],
+        [
+          "重构",
+          4
+        ],
+        [
+          "迁移代码",
+          3
+        ]
+      ],
+      "qualityMix": {
+        "coding": 0.55,
+        "codingAgent": 0.25,
+        "overall": 0.2
+      },
+      "weights": {
+        "quality": 0.6,
+        "cost": 0.25,
+        "speed": 0.05,
+        "context": 0.1
+      },
+      "workload": {
+        "inputTokens": 60000,
+        "outputTokens": 10000,
+        "cacheHit": 0.5
+      },
+      "defaults": {
+        "qualityFloor": 80,
+        "costAnchor": 0.6
+      }
+    },
+    {
+      "id": "debugging",
+      "label": "Debugging",
+      "modality": "text",
+      "blurb": "Find a root cause from logs, stack traces, and code.",
+      "keywords": [
+        [
+          "debug",
+          4
+        ],
+        [
+          "root cause",
+          3
+        ],
+        [
+          "stack trace",
+          3
+        ],
+        [
+          "why is this failing",
+          3
+        ],
+        [
+          "troubleshoot",
+          2
+        ],
+        [
+          "调试",
+          4
+        ],
+        [
+          "排查",
+          3
+        ],
+        [
+          "报错",
+          3
+        ],
+        [
+          "double charge",
+          4
+        ],
+        [
+          "double-charges",
+          4
+        ],
+        [
+          "payment",
+          2
+        ],
+        [
+          "intermittent",
+          3
+        ],
+        [
+          "sometimes",
+          2
+        ]
+      ],
+      "qualityMix": {
+        "coding": 0.4,
+        "reasoning": 0.4,
+        "overall": 0.2
+      },
+      "weights": {
+        "quality": 0.6,
+        "cost": 0.2,
+        "speed": 0.1,
+        "context": 0.1
+      },
+      "workload": {
+        "inputTokens": 40000,
+        "outputTokens": 6000,
+        "cacheHit": 0.4
+      },
+      "defaults": {
+        "qualityFloor": 80,
+        "costAnchor": 0.3
+      }
+    },
+    {
+      "id": "planning",
+      "label": "Planning & architecture",
+      "modality": "text",
+      "blurb": "Turn a fuzzy goal into a technical plan, spec, or architecture.",
+      "keywords": [
+        [
+          "architecture",
+          3
+        ],
+        [
+          "technical plan",
+          4
+        ],
+        [
+          "design doc",
+          4
+        ],
+        [
+          "roadmap",
+          2
+        ],
+        [
+          "break down",
+          2
+        ],
+        [
+          "方案设计",
+          4
+        ],
+        [
+          "架构设计",
+          4
+        ],
+        [
+          "技术方案",
+          3
+        ],
+        [
+          "规划",
+          2
+        ],
+        [
+          "plan a",
+          2
+        ],
+        [
+          "multi-tenant",
+          2
+        ],
+        [
+          "system design",
+          3
+        ]
+      ],
+      "qualityMix": {
+        "reasoning": 0.5,
+        "overall": 0.3,
+        "writing": 0.2
+      },
+      "weights": {
+        "quality": 0.65,
+        "cost": 0.2,
+        "speed": 0.05,
+        "context": 0.1
+      },
+      "workload": {
+        "inputTokens": 10000,
+        "outputTokens": 4000,
+        "cacheHit": 0.1
+      },
+      "defaults": {
+        "qualityFloor": 82,
+        "costAnchor": 0.2
+      }
+    },
+    {
+      "id": "long-context",
+      "label": "Long-context analysis",
+      "modality": "text",
+      "blurb": "Read a very large codebase, transcript, or document set in one pass.",
+      "keywords": [
+        [
+          "long context",
+          4
+        ],
+        [
+          "entire codebase",
+          4
+        ],
+        [
+          "whole repository",
+          4
+        ],
+        [
+          "500 page",
+          4
+        ],
+        [
+          "large document",
+          3
+        ],
+        [
+          "长文本",
+          4
+        ],
+        [
+          "整个代码库",
+          4
+        ],
+        [
+          "整份文档",
+          3
+        ],
+        [
+          "400-page document",
+          4
+        ],
+        [
+          "in one pass",
+          3
+        ],
+        [
+          "pdf",
+          1
+        ],
+        [
+          "dead code",
+          3
+        ],
+        [
+          "codebase",
+          2
+        ],
+        [
+          "300k-token",
+          4
+        ]
+      ],
+      "qualityMix": {
+        "longContext": 0.5,
+        "reasoning": 0.3,
+        "overall": 0.2
+      },
+      "weights": {
+        "quality": 0.55,
+        "cost": 0.2,
+        "speed": 0.05,
+        "context": 0.2
+      },
+      "workload": {
+        "inputTokens": 400000,
+        "outputTokens": 8000,
+        "cacheHit": 0.2,
+        "requiredContext": 400000
+      },
+      "defaults": {
+        "qualityFloor": 80,
+        "costAnchor": 0.4
+      }
+    },
+    {
+      "id": "research",
+      "label": "Research synthesis",
+      "modality": "text",
+      "blurb": "Search, read many sources, and produce a cited synthesis.",
+      "keywords": [
+        [
+          "research",
+          3
+        ],
+        [
+          "literature review",
+          4
+        ],
+        [
+          "competitive analysis",
+          3
+        ],
+        [
+          "market research",
+          3
+        ],
+        [
+          "deep research",
+          4
+        ],
+        [
+          "调研",
+          4
+        ],
+        [
+          "竞品分析",
+          3
+        ],
+        [
+          "行业研究",
+          3
+        ],
+        [
+          "customer interviews",
+          4
+        ],
+        [
+          "interview synthesis",
+          4
+        ],
+        [
+          "positioning doc",
+          4
+        ],
+        [
+          "summarize",
+          2
+        ]
+      ],
+      "qualityMix": {
+        "reasoning": 0.35,
+        "longContext": 0.25,
+        "overall": 0.25,
+        "writing": 0.15
+      },
+      "weights": {
+        "quality": 0.6,
+        "cost": 0.25,
+        "speed": 0.05,
+        "context": 0.1
+      },
+      "workload": {
+        "inputTokens": 120000,
+        "outputTokens": 6000,
+        "cacheHit": 0.2
+      },
+      "defaults": {
+        "qualityFloor": 75,
+        "costAnchor": 0.3
+      }
+    },
+    {
+      "id": "writing",
+      "label": "Writing & copy",
+      "modality": "text",
+      "blurb": "Long-form writing, launch copy, docs, and editing.",
+      "keywords": [
+        [
+          "write a blog",
+          4
+        ],
+        [
+          "landing page copy",
+          4
+        ],
+        [
+          "product description",
+          3
+        ],
+        [
+          "write an essay",
+          3
+        ],
+        [
+          "copywriting",
+          3
+        ],
+        [
+          "写文案",
+          4
+        ],
+        [
+          "写文章",
+          3
+        ],
+        [
+          "产品描述",
+          3
+        ],
+        [
+          "launch post",
+          4
+        ],
+        [
+          "write a post",
+          3
+        ]
+      ],
+      "qualityMix": {
+        "writing": 0.6,
+        "overall": 0.4
+      },
+      "weights": {
+        "quality": 0.8,
+        "cost": 0.15,
+        "speed": 0.05,
+        "context": 0
+      },
+      "workload": {
+        "inputTokens": 3000,
+        "outputTokens": 2500,
+        "cacheHit": 0.05
+      },
+      "defaults": {
+        "qualityFloor": 78,
+        "costAnchor": 0.08
+      }
+    },
+    {
+      "id": "translation",
+      "label": "Translation",
+      "modality": "text",
+      "blurb": "Translate or localize content while keeping tone and terminology.",
+      "keywords": [
+        [
+          "translate",
+          4
+        ],
+        [
+          "localize",
+          3
+        ],
+        [
+          "translation",
+          3
+        ],
+        [
+          "翻译",
+          4
+        ],
+        [
+          "本地化",
+          3
+        ]
+      ],
+      "qualityMix": {
+        "overall": 0.5,
+        "writing": 0.5
+      },
+      "weights": {
+        "quality": 0.7,
+        "cost": 0.25,
+        "speed": 0.05,
+        "context": 0
+      },
+      "workload": {
+        "inputTokens": 4000,
+        "outputTokens": 4000,
+        "cacheHit": 0
+      },
+      "defaults": {
+        "qualityFloor": 70,
+        "costAnchor": 0.03
+      }
+    },
+    {
+      "id": "extraction",
+      "label": "Structured extraction",
+      "modality": "text",
+      "blurb": "Turn messy text into reliable JSON, tables, or entities.",
+      "keywords": [
+        [
+          "extract",
+          3
+        ],
+        [
+          "parse this",
+          3
+        ],
+        [
+          "structured output",
+          3
+        ],
+        [
+          "json schema",
+          2
+        ],
+        [
+          "抽取",
+          4
+        ],
+        [
+          "结构化",
+          3
+        ],
+        [
+          "提取",
+          3
+        ]
+      ],
+      "qualityMix": {
+        "overall": 0.5,
+        "reasoning": 0.25,
+        "coding": 0.25
+      },
+      "weights": {
+        "quality": 0.55,
+        "cost": 0.35,
+        "speed": 0.1,
+        "context": 0
+      },
+      "workload": {
+        "inputTokens": 30000,
+        "outputTokens": 2000,
+        "cacheHit": 0.1
+      },
+      "defaults": {
+        "qualityFloor": 60,
+        "costAnchor": 0.02
+      }
+    },
+    {
+      "id": "classification",
+      "label": "Classification & tagging",
+      "modality": "text",
+      "blurb": "High-volume labeling, routing, moderation, and tagging.",
+      "keywords": [
+        [
+          "classify",
+          4
+        ],
+        [
+          "categorize",
+          3
+        ],
+        [
+          "tag these",
+          3
+        ],
+        [
+          "moderation",
+          2
+        ],
+        [
+          "分类",
+          4
+        ],
+        [
+          "打标签",
+          3
+        ],
+        [
+          "审核",
+          2
+        ]
+      ],
+      "qualityMix": {
+        "overall": 0.5,
+        "reasoning": 0.25,
+        "cheapWork": 0.25
+      },
+      "weights": {
+        "quality": 0.4,
+        "cost": 0.5,
+        "speed": 0.1,
+        "context": 0
+      },
+      "workload": {
+        "inputTokens": 4000,
+        "outputTokens": 300,
+        "cacheHit": 0.05
+      },
+      "defaults": {
+        "qualityFloor": 55,
+        "costAnchor": 0.003
+      }
+    },
+    {
+      "id": "data-analysis",
+      "label": "Data analysis",
+      "modality": "text",
+      "blurb": "Explore a dataset, write analysis code, and explain results.",
+      "keywords": [
+        [
+          "analyze the data",
+          4
+        ],
+        [
+          "data analysis",
+          4
+        ],
+        [
+          "dataframe",
+          3
+        ],
+        [
+          "sql query",
+          3
+        ],
+        [
+          "数据分析",
+          4
+        ],
+        [
+          "分析这份数据",
+          3
+        ],
+        [
+          "csv",
+          3
+        ]
+      ],
+      "qualityMix": {
+        "reasoning": 0.4,
+        "coding": 0.3,
+        "overall": 0.3
+      },
+      "weights": {
+        "quality": 0.6,
+        "cost": 0.25,
+        "speed": 0.05,
+        "context": 0.1
+      },
+      "workload": {
+        "inputTokens": 50000,
+        "outputTokens": 5000,
+        "cacheHit": 0.3
+      },
+      "defaults": {
+        "qualityFloor": 80,
+        "costAnchor": 0.25
+      }
+    },
+    {
+      "id": "computer-use",
+      "label": "Computer & browser use",
+      "modality": "text",
+      "blurb": "Operate a browser or desktop UI from screenshots and tool calls.",
+      "keywords": [
+        [
+          "computer use",
+          4
+        ],
+        [
+          "browser agent",
+          4
+        ],
+        [
+          "click through",
+          3
+        ],
+        [
+          "ui automation",
+          3
+        ],
+        [
+          "网页操作",
+          3
+        ],
+        [
+          "自动化操作",
+          3
+        ],
+        [
+          "browser",
+          2
+        ],
+        [
+          "checkout",
+          2
+        ],
+        [
+          "screenshot",
+          2
+        ]
+      ],
+      "qualityMix": {
+        "codingAgent": 0.3,
+        "multimodal": 0.4,
+        "overall": 0.3
+      },
+      "weights": {
+        "quality": 0.6,
+        "cost": 0.2,
+        "speed": 0.1,
+        "context": 0.1
+      },
+      "workload": {
+        "inputTokens": 30000,
+        "outputTokens": 3000,
+        "cacheHit": 0.3
+      },
+      "defaults": {
+        "qualityFloor": 85,
+        "costAnchor": 0.25
+      }
+    },
+    {
+      "id": "image-gen",
+      "label": "Image generation",
+      "modality": "image",
+      "blurb": "Create an image from a prompt: concept art, ads, thumbnails, UI.",
+      "keywords": [
+        [
+          "generate an image",
+          4
+        ],
+        [
+          "text to image",
+          4
+        ],
+        [
+          "image generation",
+          4
+        ],
+        [
+          "create a picture",
+          3
+        ],
+        [
+          "illustration",
+          3
+        ],
+        [
+          "concept art",
+          4
+        ],
+        [
+          "thumbnail",
+          3
+        ],
+        [
+          "logo",
+          3
+        ],
+        [
+          "poster",
+          3
+        ],
+        [
+          "生图",
+          4
+        ],
+        [
+          "生成图片",
+          4
+        ],
+        [
+          "文生图",
+          4
+        ],
+        [
+          "概念图",
+          4
+        ],
+        [
+          "海报",
+          3
+        ],
+        [
+          "插画",
+          3
+        ],
+        [
+          "缩略图",
+          3
+        ],
+        [
+          "hero image",
+          3
+        ],
+        [
+          "product photo",
+          3
+        ],
+        [
+          "product shot",
+          3
+        ],
+        [
+          "social media images",
+          3
+        ],
+        [
+          "character consistency",
+          4
+        ],
+        [
+          "consistent character",
+          4
+        ],
+        [
+          "draft image",
+          4
+        ],
+        [
+          "moodboard",
+          3
+        ]
+      ],
+      "qualityMix": {
+        "imageGen": 0.65,
+        "overall": 0.35
+      },
+      "weights": {
+        "quality": 0.65,
+        "cost": 0.25,
+        "speed": 0.1,
+        "context": 0
+      },
+      "workload": {
+        "units": 1,
+        "unit": "image"
+      },
+      "defaults": {
+        "qualityFloor": 60,
+        "costAnchor": 0.12
+      },
+      "requires": [
+        "imageOutput"
+      ]
+    },
+    {
+      "id": "image-edit",
+      "label": "Image editing",
+      "modality": "image",
+      "blurb": "Edit an existing image: remove objects, change style, add text.",
+      "keywords": [
+        [
+          "edit this image",
+          4
+        ],
+        [
+          "image editing",
+          4
+        ],
+        [
+          "remove the background",
+          4
+        ],
+        [
+          "inpaint",
+          3
+        ],
+        [
+          "outpaint",
+          3
+        ],
+        [
+          "change the style",
+          3
+        ],
+        [
+          "修图",
+          4
+        ],
+        [
+          "图片编辑",
+          4
+        ],
+        [
+          "抠图",
+          3
+        ],
+        [
+          "换背景",
+          3
+        ],
+        [
+          "recolor",
+          3
+        ],
+        [
+          "change the color",
+          3
+        ],
+        [
+          "selfie",
+          3
+        ],
+        [
+          "portrait",
+          2
+        ],
+        [
+          "look like",
+          2
+        ],
+        [
+          "keep identity",
+          3
+        ]
+      ],
+      "qualityMix": {
+        "imageEdit": 0.6,
+        "textInImage": 0.2,
+        "overall": 0.2
+      },
+      "weights": {
+        "quality": 0.65,
+        "cost": 0.25,
+        "speed": 0.1,
+        "context": 0
+      },
+      "workload": {
+        "units": 1,
+        "unit": "image"
+      },
+      "defaults": {
+        "qualityFloor": 60,
+        "costAnchor": 0.12
+      },
+      "requires": [
+        "imageInput",
+        "imageOutput"
+      ]
+    },
+    {
+      "id": "video-gen",
+      "label": "Video generation",
+      "modality": "video",
+      "blurb": "Generate a short clip from text or a still image.",
+      "keywords": [
+        [
+          "generate a video",
+          4
+        ],
+        [
+          "text to video",
+          4
+        ],
+        [
+          "image to video",
+          4
+        ],
+        [
+          "video generation",
+          4
+        ],
+        [
+          "commercial clip",
+          3
+        ],
+        [
+          "b-roll",
+          3
+        ],
+        [
+          "视频生成",
+          4
+        ],
+        [
+          "文生视频",
+          4
+        ],
+        [
+          "图生视频",
+          4
+        ],
+        [
+          "短视频",
+          3
+        ],
+        [
+          "animate",
+          3
+        ],
+        [
+          "teaser",
+          3
+        ],
+        [
+          "brand film",
+          4
+        ],
+        [
+          "product video",
+          4
+        ],
+        [
+          "lip sync",
+          4
+        ],
+        [
+          "narrated video",
+          4
+        ],
+        [
+          "5 second",
+          2
+        ],
+        [
+          "广告片",
+          4
+        ],
+        [
+          "产品视频",
+          4
+        ],
+        [
+          "宣传片",
+          4
+        ],
+        [
+          "second loop",
+          4
+        ],
+        [
+          "seamless loop",
+          4
+        ],
+        [
+          "loading screen",
+          3
+        ],
+        [
+          "loop",
+          3
+        ]
+      ],
+      "qualityMix": {
+        "videoGen": 0.65,
+        "overall": 0.35
+      },
+      "weights": {
+        "quality": 0.65,
+        "cost": 0.25,
+        "speed": 0.1,
+        "context": 0
+      },
+      "workload": {
+        "units": 5,
+        "unit": "second"
+      },
+      "defaults": {
+        "qualityFloor": 60,
+        "costAnchor": 1.2
+      },
+      "requires": [
+        "videoOutput"
+      ]
+    },
+    {
+      "id": "3d-gen",
+      "label": "3D asset generation",
+      "modality": "3d",
+      "blurb": "Generate a game-ready 3D asset from text or an image.",
+      "keywords": [
+        [
+          "3d model",
+          4
+        ],
+        [
+          "3d asset",
+          4
+        ],
+        [
+          "text to 3d",
+          4
+        ],
+        [
+          "image to 3d",
+          4
+        ],
+        [
+          "generate 3d",
+          4
+        ],
+        [
+          "game asset",
+          3
+        ],
+        [
+          "glb",
+          3
+        ],
+        [
+          "三维模型",
+          4
+        ],
+        [
+          "3d 模型",
+          4
+        ],
+        [
+          "游戏资产",
+          3
+        ],
+        [
+          "建模",
+          3
+        ],
+        [
+          "3d",
+          3
+        ],
+        [
+          "topology",
+          3
+        ],
+        [
+          "pbr",
+          2
+        ],
+        [
+          "game prop",
+          4
+        ],
+        [
+          "3d pipeline",
+          4
+        ],
+        [
+          "game-ready",
+          3
+        ],
+        [
+          "barrel",
+          2
+        ]
+      ],
+      "qualityMix": {
+        "threeD": 0.7,
+        "overall": 0.3
+      },
+      "weights": {
+        "quality": 0.65,
+        "cost": 0.25,
+        "speed": 0.1,
+        "context": 0
+      },
+      "workload": {
+        "units": 1,
+        "unit": "asset"
+      },
+      "defaults": {
+        "qualityFloor": 60,
+        "costAnchor": 0.4
+      },
+      "requires": [
+        "threeDOutput"
+      ]
+    },
+    {
+      "id": "tts",
+      "label": "Text to speech",
+      "modality": "audio",
+      "blurb": "Turn a script into natural narration or character voice.",
+      "keywords": [
+        [
+          "text to speech",
+          4
+        ],
+        [
+          "voiceover",
+          4
+        ],
+        [
+          "voice over",
+          3
+        ],
+        [
+          "narration",
+          3
+        ],
+        [
+          "tts",
+          4
+        ],
+        [
+          "配音",
+          4
+        ],
+        [
+          "语音合成",
+          4
+        ],
+        [
+          "旁白",
+          3
+        ],
+        [
+          "narrate",
+          4
+        ],
+        [
+          "radio spot",
+          4
+        ],
+        [
+          "voice a",
+          3
+        ]
+      ],
+      "qualityMix": {
+        "tts": 0.7,
+        "overall": 0.3
+      },
+      "weights": {
+        "quality": 0.6,
+        "cost": 0.25,
+        "speed": 0.15,
+        "context": 0
+      },
+      "workload": {
+        "units": 1,
+        "unit": "kchar"
+      },
+      "defaults": {
+        "qualityFloor": 60,
+        "costAnchor": 0.08
+      },
+      "requires": [
+        "textToSpeech"
+      ]
+    },
+    {
+      "id": "stt",
+      "label": "Speech to text",
+      "modality": "audio",
+      "blurb": "Transcribe meetings, podcasts, or calls with timestamps.",
+      "keywords": [
+        [
+          "transcribe",
+          4
+        ],
+        [
+          "speech to text",
+          4
+        ],
+        [
+          "stt",
+          4
+        ],
+        [
+          "subtitle",
+          3
+        ],
+        [
+          "captions",
+          3
+        ],
+        [
+          "转录",
+          4
+        ],
+        [
+          "语音转文字",
+          4
+        ],
+        [
+          "字幕",
+          3
+        ],
+        [
+          "webinar",
+          3
+        ],
+        [
+          "timestamps",
+          2
+        ]
+      ],
+      "qualityMix": {
+        "stt": 0.7,
+        "overall": 0.3
+      },
+      "weights": {
+        "quality": 0.6,
+        "cost": 0.25,
+        "speed": 0.15,
+        "context": 0
+      },
+      "workload": {
+        "units": 10,
+        "unit": "minute"
+      },
+      "defaults": {
+        "qualityFloor": 60,
+        "costAnchor": 0.08
+      },
+      "requires": [
+        "speechToText"
+      ]
+    },
+    {
+      "id": "music",
+      "label": "Music generation",
+      "modality": "audio",
+      "blurb": "Generate background music, jingles, or a full song.",
+      "keywords": [
+        [
+          "background music",
+          4
+        ],
+        [
+          "generate music",
+          4
+        ],
+        [
+          "soundtrack",
+          3
+        ],
+        [
+          "jingle",
+          3
+        ],
+        [
+          "配乐",
+          4
+        ],
+        [
+          "生成音乐",
+          4
+        ],
+        [
+          "背景音乐",
+          3
+        ],
+        [
+          "background track",
+          4
+        ],
+        [
+          "lo-fi",
+          3
+        ],
+        [
+          "full song",
+          4
+        ],
+        [
+          "brand song",
+          4
+        ]
+      ],
+      "qualityMix": {
+        "music": 0.7,
+        "overall": 0.3
+      },
+      "weights": {
+        "quality": 0.68,
+        "cost": 0.32,
+        "speed": 0,
+        "context": 0
+      },
+      "workload": {
+        "units": 1,
+        "unit": "song"
+      },
+      "defaults": {
+        "qualityFloor": 60,
+        "costAnchor": 0.12
+      },
+      "requires": [
+        "musicGeneration"
+      ]
+    }
+  ]
+}

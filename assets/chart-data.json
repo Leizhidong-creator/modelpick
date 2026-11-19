@@ -1,0 +1,344 @@
+{
+  "catalogVersion": "2026.11.19",
+  "series": {
+    "coding-agent": {
+      "label": "Agentic coding",
+      "modality": "text",
+      "points": [
+        {
+          "slug": "claude-haiku-5.5",
+          "name": "Claude Haiku 5.5",
+          "provider": "Anthropic",
+          "quality": 68.82,
+          "cost": 0.011973,
+          "score": 80.3,
+          "attempts": 1.559
+        },
+        {
+          "slug": "gemini-4-carbon",
+          "name": "Gemini 4 Carbon",
+          "provider": "Google",
+          "quality": 87.3,
+          "cost": 0.174245,
+          "score": 79.3,
+          "attempts": 1.171
+        },
+        {
+          "slug": "deepseek-v4.1-flash",
+          "name": "DeepSeek V4.1 Flash 1017",
+          "provider": "DeepSeek",
+          "quality": 70.68,
+          "cost": 0.014704,
+          "score": 78.8,
+          "attempts": 1.509
+        },
+        {
+          "slug": "gemini-4-hydrogen",
+          "name": "Gemini 4 Hydrogen",
+          "provider": "Google",
+          "quality": 79.11,
+          "cost": 0.146866,
+          "score": 77.5,
+          "attempts": 1.316
+        },
+        {
+          "slug": "gpt-6.1-terra",
+          "name": "GPT-6.1 Terra",
+          "provider": "OpenAI",
+          "quality": 76.02,
+          "cost": 0.102746,
+          "score": 76.6,
+          "attempts": 1.381
+        },
+        {
+          "slug": "gpt-6-luna",
+          "name": "GPT-6 Luna",
+          "provider": "OpenAI",
+          "quality": 56.98,
+          "cost": 0.015199,
+          "score": 74.8,
+          "attempts": 1.979
+        },
+        {
+          "slug": "gpt-6.2-sol",
+          "name": "GPT-6.2 Sol",
+          "provider": "OpenAI",
+          "quality": 83.97,
+          "cost": 0.182429,
+          "score": 74.5,
+          "attempts": 1.226
+        },
+        {
+          "slug": "gemini-4-argon",
+          "name": "Gemini 4 Argon",
+          "provider": "Google",
+          "quality": 78.78,
+          "cost": 0.196862,
+          "score": 73.9,
+          "attempts": 1.323
+        },
+        {
+          "slug": "claude-sonnet-5.5",
+          "name": "Claude Sonnet 5.5",
+          "provider": "Anthropic",
+          "quality": 83.09,
+          "cost": 0.184661,
+          "score": 73.3,
+          "attempts": 1.241
+        },
+        {
+          "slug": "glm-5.3-flash",
+          "name": "GLM-5.3-Flash",
+          "provider": "Z.ai",
+          "quality": 55.86,
+          "cost": 0.020797,
+          "score": 73.3,
+          "attempts": 2.031
+        },
+        {
+          "slug": "minimax-m3.1-flash",
+          "name": "MiniMax-M3.1-Flash",
+          "provider": "MiniMax",
+          "quality": 56.23,
+          "cost": 0.020784,
+          "score": 72.1,
+          "attempts": 2.014
+        },
+        {
+          "slug": "gemini-3.8-flash",
+          "name": "Gemini 3.8 Flash",
+          "provider": "Google",
+          "quality": 60.36,
+          "cost": 0.105869,
+          "score": 72,
+          "attempts": 1.838
+        },
+        {
+          "slug": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro",
+          "provider": "DeepSeek",
+          "quality": 65.91,
+          "cost": 0.062536,
+          "score": 69.9,
+          "attempts": 1.645
+        },
+        {
+          "slug": "claude-opus-5.5",
+          "name": "Claude Opus 5.5",
+          "provider": "Anthropic",
+          "quality": 86.87,
+          "cost": 0.350573,
+          "score": 65.1,
+          "attempts": 1.178
+        },
+        {
+          "slug": "kimi-k3.1-pro",
+          "name": "Kimi K3.1 Pro",
+          "provider": "Moonshot AI",
+          "quality": 70.88,
+          "cost": 0.230861,
+          "score": 62.8,
+          "attempts": 1.503
+        },
+        {
+          "slug": "glm-5.3",
+          "name": "GLM-5.3",
+          "provider": "Z.ai",
+          "quality": 60.43,
+          "cost": 0.169701,
+          "score": 62.3,
+          "attempts": 1.835
+        },
+        {
+          "slug": "grok-4.6",
+          "name": "Grok 4.6",
+          "provider": "xAI",
+          "quality": 64.51,
+          "cost": 0.22984,
+          "score": 62,
+          "attempts": 1.69
+        },
+        {
+          "slug": "qwen3.8-max",
+          "name": "Qwen3.8 Max",
+          "provider": "Alibaba Cloud",
+          "quality": 61.06,
+          "cost": 0.224564,
+          "score": 60.9,
+          "attempts": 1.811
+        },
+        {
+          "slug": "claude-fable-5.2",
+          "name": "Claude Fable 5.2",
+          "provider": "Anthropic",
+          "quality": 92.32,
+          "cost": 0.642403,
+          "score": 60.8,
+          "attempts": 1.097
+        },
+        {
+          "slug": "gpt-6.2-astra",
+          "name": "GPT-6.2 Astra",
+          "provider": "OpenAI",
+          "quality": 88.94,
+          "cost": 0.682099,
+          "score": 60.6,
+          "attempts": 1.146
+        },
+        {
+          "slug": "mistral-large-4",
+          "name": "Mistral Large 4",
+          "provider": "Mistral AI",
+          "quality": 47.52,
+          "cost": 0.107336,
+          "score": 59.7,
+          "attempts": 2.522
+        },
+        {
+          "slug": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol",
+          "provider": "OpenAI",
+          "quality": 72.63,
+          "cost": 0.448205,
+          "score": 56.9,
+          "attempts": 1.459
+        },
+        {
+          "slug": "kimi-k3",
+          "name": "Kimi K3",
+          "provider": "Moonshot AI",
+          "quality": 65.1,
+          "cost": 0.384768,
+          "score": 52.4,
+          "attempts": 1.67
+        }
+      ]
+    },
+    "image-gen": {
+      "label": "Image generation",
+      "modality": "image",
+      "points": [
+        {
+          "slug": "nano-banana-2.1",
+          "name": "Nano Banana 2.1",
+          "provider": "Google",
+          "quality": 93.65,
+          "cost": 0.036254,
+          "score": 88,
+          "attempts": 1.079
+        },
+        {
+          "slug": "seedream-5.5",
+          "name": "Seedream 5.5",
+          "provider": "ByteDance",
+          "quality": 90.65,
+          "cost": 0.0336,
+          "score": 86.6,
+          "attempts": 1.12
+        },
+        {
+          "slug": "gpt-image-2",
+          "name": "GPT Image 2.6",
+          "provider": "OpenAI",
+          "quality": 94,
+          "cost": 0.056922,
+          "score": 73.9,
+          "attempts": 1.074
+        },
+        {
+          "slug": "nano-banana-pro",
+          "name": "Nano Banana Pro",
+          "provider": "Google",
+          "quality": 96,
+          "cost": 0.140432,
+          "score": 64.7,
+          "attempts": 1.048
+        }
+      ]
+    },
+    "video-gen": {
+      "label": "Video generation",
+      "modality": "video",
+      "points": [
+        {
+          "slug": "veo-3.1-fast",
+          "name": "Veo 3.1 Fast",
+          "provider": "Google Vertex AI",
+          "quality": 86,
+          "cost": 0.596,
+          "score": 78.1,
+          "attempts": 1.192
+        },
+        {
+          "slug": "kling-4.0",
+          "name": "Kling 4.0",
+          "provider": "fal.ai (Kling)",
+          "quality": 94,
+          "cost": 0.84309,
+          "score": 69.3,
+          "attempts": 1.074
+        },
+        {
+          "slug": "veo-3.1",
+          "name": "Veo 3.1",
+          "provider": "Google Vertex AI",
+          "quality": 95,
+          "cost": 2.122,
+          "score": 67.5,
+          "attempts": 1.061
+        },
+        {
+          "slug": "seedance-2.5",
+          "name": "Seedance 2.5",
+          "provider": "ByteDance",
+          "quality": 93,
+          "cost": 2.57312,
+          "score": 64.8,
+          "attempts": 1.088
+        }
+      ]
+    },
+    "3d-gen": {
+      "label": "3D asset generation",
+      "modality": "3d",
+      "points": [
+        {
+          "slug": "tripo-h3.1",
+          "name": "Tripo H3.1",
+          "provider": "Tripo",
+          "quality": 94,
+          "cost": 0.2148,
+          "score": 80.6,
+          "attempts": 1.074
+        },
+        {
+          "slug": "trellis-2",
+          "name": "TRELLIS 2",
+          "provider": "fal.ai (Microsoft Research)",
+          "quality": 82,
+          "cost": 0.3783,
+          "score": 69.6,
+          "attempts": 1.261
+        },
+        {
+          "slug": "meshy-7.1",
+          "name": "Meshy 7.1",
+          "provider": "Meshy",
+          "quality": 91,
+          "cost": 1.338,
+          "score": 65,
+          "attempts": 1.115
+        },
+        {
+          "slug": "hunyuan3d-3.1-pro",
+          "name": "Hunyuan3D 3.1 Pro",
+          "provider": "fal.ai (Tencent Hunyuan)",
+          "quality": 91,
+          "cost": 0.585375,
+          "score": 59.2,
+          "attempts": 1.115
+        }
+      ]
+    }
+  }
+}

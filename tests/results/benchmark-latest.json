@@ -1,0 +1,2341 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-11-19T07:13:26.039Z",
+  "catalogVersion": "2026.11.19",
+  "scenarios": 39,
+  "runs": 115,
+  "metrics": {
+    "intentAccuracy": 1,
+    "top1": 1,
+    "top3": 1,
+    "constraintPass": 1,
+    "medianCostRegret": 0,
+    "p95Ms": 0.5,
+    "priceStability": 1
+  },
+  "thresholds": {
+    "intentAccuracy": 0.95,
+    "top1": 0.75,
+    "top3": 0.92,
+    "constraintPass": 1,
+    "p95Ms": 300,
+    "priceStability": 0.8
+  },
+  "passed": true,
+  "intentFailures": [],
+  "failures": [],
+  "details": [
+    {
+      "scenario": "code-oauth",
+      "mode": "balanced",
+      "task": "coding-agent",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-opus-5.5",
+        "gpt-6.2-astra"
+      ],
+      "costPerTask": 0.174245,
+      "quality": 87.3,
+      "elapsedMs": 4.23,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-oauth",
+      "mode": "cost",
+      "task": "coding-agent",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-opus-5.5",
+        "claude-fable-5.2"
+      ],
+      "costPerTask": 0.174245,
+      "quality": 87.3,
+      "elapsedMs": 0.73,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-oauth",
+      "mode": "quality",
+      "task": "coding-agent",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-fable-5.2",
+        "claude-opus-5.5"
+      ],
+      "costPerTask": 0.174245,
+      "quality": 87.3,
+      "elapsedMs": 0.29,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-race",
+      "mode": "balanced",
+      "task": "debugging",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.13152,
+      "quality": 85.53,
+      "elapsedMs": 0.31,
+      "costRegret": 0.009254569731571318,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-race",
+      "mode": "cost",
+      "task": "debugging",
+      "chosen": "gpt-6.2-sol",
+      "chosenName": "GPT-6.2 Sol",
+      "top3": [
+        "gpt-6.2-sol",
+        "gemini-4-carbon",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.130314,
+      "quality": 86.16,
+      "elapsedMs": 0.22,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-race",
+      "mode": "quality",
+      "task": "debugging",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-fable-5.2"
+      ],
+      "costPerTask": 0.13152,
+      "quality": 85.53,
+      "elapsedMs": 0.19,
+      "costRegret": 0.009254569731571318,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-review-security",
+      "mode": "balanced",
+      "task": "code-review",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.087772,
+      "quality": 85.29,
+      "elapsedMs": 0.72,
+      "costRegret": 0.0075301896322145625,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-review-security",
+      "mode": "cost",
+      "task": "code-review",
+      "chosen": "gpt-6.2-sol",
+      "chosenName": "GPT-6.2 Sol",
+      "top3": [
+        "gpt-6.2-sol",
+        "gemini-4-carbon",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.087116,
+      "quality": 85.81,
+      "elapsedMs": 0.58,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-review-security",
+      "mode": "quality",
+      "task": "code-review",
+      "chosen": "claude-fable-5.2",
+      "chosenName": "Claude Fable 5.2",
+      "top3": [
+        "claude-fable-5.2",
+        "gpt-6.2-astra",
+        "gemini-4-carbon"
+      ],
+      "costPerTask": 0.319939,
+      "quality": 91.78,
+      "elapsedMs": 0.2,
+      "costRegret": 2.672563019422379,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-monorepo-refactor",
+      "mode": "balanced",
+      "task": "refactor",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.193481,
+      "quality": 86.32,
+      "elapsedMs": 0.23,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-monorepo-refactor",
+      "mode": "cost",
+      "task": "refactor",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.193481,
+      "quality": 86.32,
+      "elapsedMs": 0.16,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "code-monorepo-refactor",
+      "mode": "quality",
+      "task": "refactor",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-fable-5.2",
+        "gpt-6.2-sol"
+      ],
+      "costPerTask": 0.193481,
+      "quality": 86.32,
+      "elapsedMs": 0.11,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "plan-multitenant",
+      "mode": "balanced",
+      "task": "planning",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.068558,
+      "quality": 86.71,
+      "elapsedMs": 0.12,
+      "costRegret": 0.023421755810655285,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "plan-multitenant",
+      "mode": "cost",
+      "task": "planning",
+      "chosen": "gpt-6.2-sol",
+      "chosenName": "GPT-6.2 Sol",
+      "top3": [
+        "gpt-6.2-sol",
+        "gemini-4-carbon",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.066989,
+      "quality": 88.44,
+      "elapsedMs": 0.38,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "plan-multitenant",
+      "mode": "quality",
+      "task": "planning",
+      "chosen": "gpt-6.2-sol",
+      "chosenName": "GPT-6.2 Sol",
+      "top3": [
+        "gpt-6.2-sol",
+        "gpt-6.2-astra",
+        "claude-fable-5.2"
+      ],
+      "costPerTask": 0.066989,
+      "quality": 88.44,
+      "elapsedMs": 0.08,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "context-400-page-pdf",
+      "mode": "balanced",
+      "task": "long-context",
+      "chosen": "gemini-4-hydrogen",
+      "chosenName": "Gemini 4 Hydrogen",
+      "top3": [
+        "gemini-4-hydrogen",
+        "gemini-4-carbon",
+        "gpt-6.1-terra"
+      ],
+      "costPerTask": 0.64701,
+      "quality": 86.42,
+      "elapsedMs": 0.36,
+      "costRegret": 0.3694144838212634,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "context-400-page-pdf",
+      "mode": "cost",
+      "task": "long-context",
+      "chosen": "gpt-6.1-terra",
+      "chosenName": "GPT-6.1 Terra",
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gemini-4-carbon"
+      ],
+      "costPerTask": 0.472472,
+      "quality": 80.02,
+      "elapsedMs": 0.3,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "context-400-page-pdf",
+      "mode": "quality",
+      "task": "long-context",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-fable-5.2",
+        "gpt-6.2-astra"
+      ],
+      "costPerTask": 0.80808,
+      "quality": 91.41,
+      "elapsedMs": 0.14,
+      "costRegret": 0.7103235747303545,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "research-eu-ai-act",
+      "mode": "balanced",
+      "task": "research",
+      "chosen": "gpt-6.1-terra",
+      "chosenName": "GPT-6.1 Terra",
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gemini-4-carbon"
+      ],
+      "costPerTask": 0.163834,
+      "quality": 80.57,
+      "elapsedMs": 0.19,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "research-eu-ai-act",
+      "mode": "cost",
+      "task": "research",
+      "chosen": "gpt-6.1-terra",
+      "chosenName": "GPT-6.1 Terra",
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gemini-4-carbon"
+      ],
+      "costPerTask": 0.163834,
+      "quality": 80.57,
+      "elapsedMs": 0.35,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "research-eu-ai-act",
+      "mode": "quality",
+      "task": "research",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "claude-fable-5.2",
+        "gpt-6.2-sol"
+      ],
+      "costPerTask": 0.291288,
+      "quality": 88.96,
+      "elapsedMs": 0.15,
+      "costRegret": 0.7779459697010387,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "writing-launch-post",
+      "mode": "balanced",
+      "task": "writing",
+      "chosen": "gpt-6.2-sol",
+      "chosenName": "GPT-6.2 Sol",
+      "top3": [
+        "gpt-6.2-sol",
+        "gemini-4-carbon",
+        "gpt-6.1-terra"
+      ],
+      "costPerTask": 0.03566,
+      "quality": 87.92,
+      "elapsedMs": 0.13,
+      "costRegret": 0.8211531586742248,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "writing-launch-post",
+      "mode": "cost",
+      "task": "writing",
+      "chosen": "gpt-6.1-terra",
+      "chosenName": "GPT-6.1 Terra",
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gpt-6.2-sol"
+      ],
+      "costPerTask": 0.019581,
+      "quality": 81.24,
+      "elapsedMs": 0.11,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "writing-launch-post",
+      "mode": "quality",
+      "task": "writing",
+      "chosen": "gpt-6.2-sol",
+      "chosenName": "GPT-6.2 Sol",
+      "top3": [
+        "gpt-6.2-sol",
+        "claude-fable-5.2",
+        "claude-opus-5.5"
+      ],
+      "costPerTask": 0.03566,
+      "quality": 87.92,
+      "elapsedMs": 0.26,
+      "costRegret": 0.8211531586742248,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "translation-onboarding",
+      "mode": "balanced",
+      "task": "translation",
+      "chosen": "gpt-6.1-terra",
+      "chosenName": "GPT-6.1 Terra",
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gpt-6.2-sol"
+      ],
+      "costPerTask": 0.030912,
+      "quality": 80.55,
+      "elapsedMs": 0.38,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "translation-onboarding",
+      "mode": "cost",
+      "task": "translation",
+      "chosen": "gpt-6.1-terra",
+      "chosenName": "GPT-6.1 Terra",
+      "top3": [
+        "gpt-6.1-terra",
+        "gemini-4-hydrogen",
+        "gpt-6.2-sol"
+      ],
+      "costPerTask": 0.030912,
+      "quality": 80.55,
+      "elapsedMs": 0.41,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "translation-onboarding",
+      "mode": "quality",
+      "task": "translation",
+      "chosen": "claude-fable-5.2",
+      "chosenName": "Claude Fable 5.2",
+      "top3": [
+        "claude-fable-5.2",
+        "gpt-6.2-astra",
+        "gpt-6.2-sol"
+      ],
+      "costPerTask": 0.205248,
+      "quality": 94.4,
+      "elapsedMs": 0.18,
+      "costRegret": 5.639751552795032,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "extract-invoices",
+      "mode": "balanced",
+      "task": "extraction",
+      "chosen": "claude-haiku-5.5",
+      "chosenName": "Claude Haiku 5.5",
+      "top3": [
+        "claude-haiku-5.5",
+        "gpt-6-luna",
+        "deepseek-v4.1-flash"
+      ],
+      "costPerTask": 0.006569,
+      "quality": 62.41,
+      "elapsedMs": 0.21,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "extract-invoices",
+      "mode": "cost",
+      "task": "extraction",
+      "chosen": "claude-haiku-5.5",
+      "chosenName": "Claude Haiku 5.5",
+      "top3": [
+        "claude-haiku-5.5",
+        "gpt-6-luna",
+        "deepseek-v4.1-flash"
+      ],
+      "costPerTask": 0.006569,
+      "quality": 62.41,
+      "elapsedMs": 0.14,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "classify-tickets",
+      "mode": "balanced",
+      "task": "classification",
+      "chosen": "claude-haiku-5.5",
+      "chosenName": "Claude Haiku 5.5",
+      "top3": [
+        "claude-haiku-5.5",
+        "gpt-6-luna",
+        "deepseek-v4.1-flash"
+      ],
+      "costPerTask": 0.0008,
+      "quality": 70.91,
+      "elapsedMs": 0.16,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "classify-tickets",
+      "mode": "cost",
+      "task": "classification",
+      "chosen": "claude-haiku-5.5",
+      "chosenName": "Claude Haiku 5.5",
+      "top3": [
+        "claude-haiku-5.5",
+        "gpt-6-luna",
+        "deepseek-v4.1-flash"
+      ],
+      "costPerTask": 0.0008,
+      "quality": 70.91,
+      "elapsedMs": 0.47,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "data-churn",
+      "mode": "balanced",
+      "task": "data-analysis",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.145436,
+      "quality": 85.7,
+      "elapsedMs": 0.14,
+      "costRegret": 0.009278343361161456,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "data-churn",
+      "mode": "cost",
+      "task": "data-analysis",
+      "chosen": "gpt-6.2-sol",
+      "chosenName": "GPT-6.2 Sol",
+      "top3": [
+        "gpt-6.2-sol",
+        "gemini-4-carbon",
+        "claude-sonnet-5.5"
+      ],
+      "costPerTask": 0.144099,
+      "quality": 86.34,
+      "elapsedMs": 0.12,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "data-churn",
+      "mode": "quality",
+      "task": "data-analysis",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-fable-5.2"
+      ],
+      "costPerTask": 0.145436,
+      "quality": 85.7,
+      "elapsedMs": 0.08,
+      "costRegret": 0.009278343361161456,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "computer-checkout",
+      "mode": "balanced",
+      "task": "computer-use",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-opus-5.5"
+      ],
+      "costPerTask": 0.080992,
+      "quality": 91.31,
+      "elapsedMs": 0.18,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "computer-checkout",
+      "mode": "cost",
+      "task": "computer-use",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-opus-5.5"
+      ],
+      "costPerTask": 0.080992,
+      "quality": 91.31,
+      "elapsedMs": 0.11,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "computer-checkout",
+      "mode": "quality",
+      "task": "computer-use",
+      "chosen": "gemini-4-carbon",
+      "chosenName": "Gemini 4 Carbon",
+      "top3": [
+        "gemini-4-carbon",
+        "gpt-6.2-sol",
+        "claude-fable-5.2"
+      ],
+      "costPerTask": 0.080992,
+      "quality": 91.31,
+      "elapsedMs": 0.07,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-hero-coffee",
+      "mode": "balanced",
+      "task": "image-gen",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036254,
+      "quality": 93.65,
+      "elapsedMs": 0.62,
+      "costRegret": 0.07898809523809534,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-hero-coffee",
+      "mode": "cost",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "nano-banana-2.1",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.13,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-hero-coffee",
+      "mode": "quality",
+      "task": "image-gen",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036254,
+      "quality": 93.65,
+      "elapsedMs": 0.05,
+      "costRegret": 0.07898809523809534,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-headline-text",
+      "mode": "balanced",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "gpt-image-2",
+        "nano-banana-pro"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.14,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-headline-text",
+      "mode": "cost",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "gpt-image-2",
+        "nano-banana-pro"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.07,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-headline-text",
+      "mode": "quality",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "gpt-image-2",
+        "nano-banana-pro"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.05,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-remove-bg",
+      "mode": "balanced",
+      "task": "image-edit",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036187,
+      "quality": 93.8,
+      "elapsedMs": 0.07,
+      "costRegret": 0.08376759508834962,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-remove-bg",
+      "mode": "cost",
+      "task": "image-edit",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "nano-banana-2.1",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.03339,
+      "quality": 91.2,
+      "elapsedMs": 0.05,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-remove-bg",
+      "mode": "quality",
+      "task": "image-edit",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "nano-banana-pro"
+      ],
+      "costPerTask": 0.036187,
+      "quality": 93.8,
+      "elapsedMs": 0.04,
+      "costRegret": 0.08376759508834962,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-recolor-jacket",
+      "mode": "balanced",
+      "task": "image-edit",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036187,
+      "quality": 93.8,
+      "elapsedMs": 0.05,
+      "costRegret": 0.08376759508834962,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-recolor-jacket",
+      "mode": "cost",
+      "task": "image-edit",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "nano-banana-2.1",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.03339,
+      "quality": 91.2,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-recolor-jacket",
+      "mode": "quality",
+      "task": "image-edit",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "nano-banana-pro"
+      ],
+      "costPerTask": 0.036187,
+      "quality": 93.8,
+      "elapsedMs": 0.04,
+      "costRegret": 0.08376759508834962,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-4k-chinese-poster",
+      "mode": "balanced",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "gpt-image-2",
+        "nano-banana-pro"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.05,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-4k-chinese-poster",
+      "mode": "cost",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "gpt-image-2",
+        "nano-banana-pro"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.05,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-4k-chinese-poster",
+      "mode": "quality",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "gpt-image-2",
+        "nano-banana-pro"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-cheap-draft",
+      "mode": "balanced",
+      "task": "image-gen",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036254,
+      "quality": 93.65,
+      "elapsedMs": 0.11,
+      "costRegret": 0.07898809523809534,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-cheap-draft",
+      "mode": "cost",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "nano-banana-2.1",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.05,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-cheap-draft",
+      "mode": "quality",
+      "task": "image-gen",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036254,
+      "quality": 93.65,
+      "elapsedMs": 0.04,
+      "costRegret": 0.07898809523809534,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-20-social",
+      "mode": "balanced",
+      "task": "image-gen",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036254,
+      "quality": 93.65,
+      "elapsedMs": 0.11,
+      "costRegret": 0.07898809523809534,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-20-social",
+      "mode": "cost",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "nano-banana-2.1",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.05,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-20-social",
+      "mode": "quality",
+      "task": "image-gen",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036254,
+      "quality": 93.65,
+      "elapsedMs": 0.04,
+      "costRegret": 0.07898809523809534,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-consistent-character",
+      "mode": "balanced",
+      "task": "image-gen",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036254,
+      "quality": 93.65,
+      "elapsedMs": 0.11,
+      "costRegret": 0.07898809523809534,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-consistent-character",
+      "mode": "cost",
+      "task": "image-gen",
+      "chosen": "seedream-5.5",
+      "chosenName": "Seedream 5.5",
+      "top3": [
+        "seedream-5.5",
+        "nano-banana-2.1",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.0336,
+      "quality": 90.65,
+      "elapsedMs": 0.05,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "image-consistent-character",
+      "mode": "quality",
+      "task": "image-gen",
+      "chosen": "nano-banana-2.1",
+      "chosenName": "Nano Banana 2.1",
+      "top3": [
+        "nano-banana-2.1",
+        "seedream-5.5",
+        "gpt-image-2"
+      ],
+      "costPerTask": 0.036254,
+      "quality": 93.65,
+      "elapsedMs": 0.05,
+      "costRegret": 0.07898809523809534,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-product-5s",
+      "mode": "balanced",
+      "task": "video-gen",
+      "chosen": "veo-3.1-fast",
+      "chosenName": "Veo 3.1 Fast",
+      "top3": [
+        "veo-3.1-fast",
+        "kling-4.0",
+        "veo-3.1"
+      ],
+      "costPerTask": 0.596,
+      "quality": 86,
+      "elapsedMs": 0.43,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-product-5s",
+      "mode": "cost",
+      "task": "video-gen",
+      "chosen": "veo-3.1-fast",
+      "chosenName": "Veo 3.1 Fast",
+      "top3": [
+        "veo-3.1-fast",
+        "kling-4.0",
+        "veo-3.1"
+      ],
+      "costPerTask": 0.596,
+      "quality": 86,
+      "elapsedMs": 0.12,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-product-5s",
+      "mode": "quality",
+      "task": "video-gen",
+      "chosen": "kling-4.0",
+      "chosenName": "Kling 4.0",
+      "top3": [
+        "kling-4.0",
+        "veo-3.1",
+        "veo-3.1-fast"
+      ],
+      "costPerTask": 0.84309,
+      "quality": 94,
+      "elapsedMs": 0.05,
+      "costRegret": 0.41458053691275176,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-cinematic-30s",
+      "mode": "balanced",
+      "task": "video-gen",
+      "chosen": "kling-4.0",
+      "chosenName": "Kling 4.0",
+      "top3": [
+        "kling-4.0",
+        "seedance-2.5"
+      ],
+      "costPerTask": 0.84309,
+      "quality": 94,
+      "elapsedMs": 0.07,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-cinematic-30s",
+      "mode": "cost",
+      "task": "video-gen",
+      "chosen": "kling-4.0",
+      "chosenName": "Kling 4.0",
+      "top3": [
+        "kling-4.0",
+        "seedance-2.5"
+      ],
+      "costPerTask": 0.84309,
+      "quality": 94,
+      "elapsedMs": 0.03,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-cinematic-30s",
+      "mode": "quality",
+      "task": "video-gen",
+      "chosen": "kling-4.0",
+      "chosenName": "Kling 4.0",
+      "top3": [
+        "kling-4.0",
+        "seedance-2.5"
+      ],
+      "costPerTask": 0.84309,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-cheap-teaser",
+      "mode": "balanced",
+      "task": "video-gen",
+      "chosen": "veo-3.1-fast",
+      "chosenName": "Veo 3.1 Fast",
+      "top3": [
+        "veo-3.1-fast",
+        "kling-4.0",
+        "veo-3.1"
+      ],
+      "costPerTask": 0.596,
+      "quality": 86,
+      "elapsedMs": 0.09,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-cheap-teaser",
+      "mode": "cost",
+      "task": "video-gen",
+      "chosen": "veo-3.1-fast",
+      "chosenName": "Veo 3.1 Fast",
+      "top3": [
+        "veo-3.1-fast",
+        "kling-4.0",
+        "veo-3.1"
+      ],
+      "costPerTask": 0.596,
+      "quality": 86,
+      "elapsedMs": 0.05,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-cheap-teaser",
+      "mode": "quality",
+      "task": "video-gen",
+      "chosen": "kling-4.0",
+      "chosenName": "Kling 4.0",
+      "top3": [
+        "kling-4.0",
+        "veo-3.1",
+        "veo-3.1-fast"
+      ],
+      "costPerTask": 0.84309,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0.41458053691275176,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-dialogue-1080p",
+      "mode": "balanced",
+      "task": "video-gen",
+      "chosen": "veo-3.1",
+      "chosenName": "Veo 3.1",
+      "top3": [
+        "veo-3.1",
+        "seedance-2.5"
+      ],
+      "costPerTask": 2.122,
+      "quality": 95,
+      "elapsedMs": 0.06,
+      "costRegret": 1.5169317629197354,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-dialogue-1080p",
+      "mode": "cost",
+      "task": "video-gen",
+      "chosen": "veo-3.1",
+      "chosenName": "Veo 3.1",
+      "top3": [
+        "veo-3.1",
+        "seedance-2.5"
+      ],
+      "costPerTask": 2.122,
+      "quality": 95,
+      "elapsedMs": 0.06,
+      "costRegret": 1.5169317629197354,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-dialogue-1080p",
+      "mode": "quality",
+      "task": "video-gen",
+      "chosen": "veo-3.1",
+      "chosenName": "Veo 3.1",
+      "top3": [
+        "veo-3.1",
+        "seedance-2.5"
+      ],
+      "costPerTask": 2.122,
+      "quality": 95,
+      "elapsedMs": 0.05,
+      "costRegret": 1.5169317629197354,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-lipsync-still",
+      "mode": "balanced",
+      "task": "video-gen",
+      "chosen": "seedance-2.5",
+      "chosenName": "Seedance 2.5",
+      "top3": [
+        "seedance-2.5"
+      ],
+      "costPerTask": 2.57312,
+      "quality": 93,
+      "elapsedMs": 0.12,
+      "costRegret": 2.0520110545730583,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-lipsync-still",
+      "mode": "cost",
+      "task": "video-gen",
+      "chosen": "seedance-2.5",
+      "chosenName": "Seedance 2.5",
+      "top3": [
+        "seedance-2.5"
+      ],
+      "costPerTask": 2.57312,
+      "quality": 93,
+      "elapsedMs": 0.04,
+      "costRegret": 2.0520110545730583,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "video-lipsync-still",
+      "mode": "quality",
+      "task": "video-gen",
+      "chosen": "seedance-2.5",
+      "chosenName": "Seedance 2.5",
+      "top3": [
+        "seedance-2.5"
+      ],
+      "costPerTask": 2.57312,
+      "quality": 93,
+      "elapsedMs": 0.03,
+      "costRegret": 2.0520110545730583,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-sword",
+      "mode": "balanced",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.13,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-sword",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "hunyuan3d-3.1-pro"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.09,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-sword",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-rigged-character",
+      "mode": "balanced",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.08,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-rigged-character",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.03,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-rigged-character",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-barrel-cheap",
+      "mode": "balanced",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.1,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-barrel-cheap",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "hunyuan3d-3.1-pro"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-barrel-cheap",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hero-character",
+      "mode": "balanced",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.07,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hero-character",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "hunyuan3d-3.1-pro"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hero-character",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hundred-assets",
+      "mode": "balanced",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.07,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hundred-assets",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "hunyuan3d-3.1-pro"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hundred-assets",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.03,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-warm-narration",
+      "mode": "balanced",
+      "task": "tts",
+      "chosen": "voxtral-tts-3",
+      "chosenName": "Voxtral TTS 3",
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "costPerTask": 0.01508,
+      "quality": 88,
+      "elapsedMs": 0.08,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-warm-narration",
+      "mode": "cost",
+      "task": "tts",
+      "chosen": "voxtral-tts-3",
+      "chosenName": "Voxtral TTS 3",
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "costPerTask": 0.01508,
+      "quality": 88,
+      "elapsedMs": 0.03,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-warm-narration",
+      "mode": "quality",
+      "task": "tts",
+      "chosen": "eleven-v4",
+      "chosenName": "Eleven v4",
+      "top3": [
+        "eleven-v4",
+        "voxtral-tts-3"
+      ],
+      "costPerTask": 0.08488,
+      "quality": 95,
+      "elapsedMs": 0.03,
+      "costRegret": 4.628647214854111,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-cheap-bulk",
+      "mode": "balanced",
+      "task": "tts",
+      "chosen": "voxtral-tts-3",
+      "chosenName": "Voxtral TTS 3",
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "costPerTask": 0.01508,
+      "quality": 88,
+      "elapsedMs": 0.03,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-cheap-bulk",
+      "mode": "cost",
+      "task": "tts",
+      "chosen": "voxtral-tts-3",
+      "chosenName": "Voxtral TTS 3",
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "costPerTask": 0.01508,
+      "quality": 88,
+      "elapsedMs": 0.02,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-cheap-bulk",
+      "mode": "quality",
+      "task": "tts",
+      "chosen": "eleven-v4",
+      "chosenName": "Eleven v4",
+      "top3": [
+        "eleven-v4",
+        "voxtral-tts-3"
+      ],
+      "costPerTask": 0.08488,
+      "quality": 95,
+      "elapsedMs": 0.02,
+      "costRegret": 4.628647214854111,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "stt-podcast",
+      "mode": "balanced",
+      "task": "stt",
+      "chosen": "voxtral-small-transcribe-3",
+      "chosenName": "Voxtral Small Transcribe 3",
+      "top3": [
+        "voxtral-small-transcribe-3",
+        "gpt-transcribe"
+      ],
+      "costPerTask": 0.0452,
+      "quality": 90,
+      "elapsedMs": 0.06,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "stt-podcast",
+      "mode": "cost",
+      "task": "stt",
+      "chosen": "voxtral-small-transcribe-3",
+      "chosenName": "Voxtral Small Transcribe 3",
+      "top3": [
+        "voxtral-small-transcribe-3",
+        "gpt-transcribe"
+      ],
+      "costPerTask": 0.0452,
+      "quality": 90,
+      "elapsedMs": 0.03,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "stt-podcast",
+      "mode": "quality",
+      "task": "stt",
+      "chosen": "gpt-transcribe",
+      "chosenName": "GPT Transcribe",
+      "top3": [
+        "gpt-transcribe",
+        "voxtral-small-transcribe-3"
+      ],
+      "costPerTask": 0.04833,
+      "quality": 94,
+      "elapsedMs": 0.02,
+      "costRegret": 0.06924778761061949,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "stt-noisy-call",
+      "mode": "balanced",
+      "task": "stt",
+      "chosen": "voxtral-small-transcribe-3",
+      "chosenName": "Voxtral Small Transcribe 3",
+      "top3": [
+        "voxtral-small-transcribe-3",
+        "gpt-transcribe"
+      ],
+      "costPerTask": 0.0452,
+      "quality": 90,
+      "elapsedMs": 0.03,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "stt-noisy-call",
+      "mode": "cost",
+      "task": "stt",
+      "chosen": "voxtral-small-transcribe-3",
+      "chosenName": "Voxtral Small Transcribe 3",
+      "top3": [
+        "voxtral-small-transcribe-3",
+        "gpt-transcribe"
+      ],
+      "costPerTask": 0.0452,
+      "quality": 90,
+      "elapsedMs": 0.02,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "stt-noisy-call",
+      "mode": "quality",
+      "task": "stt",
+      "chosen": "gpt-transcribe",
+      "chosenName": "GPT Transcribe",
+      "top3": [
+        "gpt-transcribe",
+        "voxtral-small-transcribe-3"
+      ],
+      "costPerTask": 0.04833,
+      "quality": 94,
+      "elapsedMs": 0.02,
+      "costRegret": 0.06924778761061949,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "music-lofi",
+      "mode": "balanced",
+      "task": "music",
+      "chosen": "lyria-3.5",
+      "chosenName": "Lyria 3.5",
+      "top3": [
+        "lyria-3.5",
+        "minimax-music-3"
+      ],
+      "costPerTask": 0.0904,
+      "quality": 90,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "music-lofi",
+      "mode": "cost",
+      "task": "music",
+      "chosen": "lyria-3.5",
+      "chosenName": "Lyria 3.5",
+      "top3": [
+        "lyria-3.5",
+        "minimax-music-3"
+      ],
+      "costPerTask": 0.0904,
+      "quality": 90,
+      "elapsedMs": 0.02,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "music-lofi",
+      "mode": "quality",
+      "task": "music",
+      "chosen": "lyria-3.5",
+      "chosenName": "Lyria 3.5",
+      "top3": [
+        "lyria-3.5",
+        "minimax-music-3"
+      ],
+      "costPerTask": 0.0904,
+      "quality": 90,
+      "elapsedMs": 0.02,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "music-brand-song",
+      "mode": "balanced",
+      "task": "music",
+      "chosen": "lyria-3.5",
+      "chosenName": "Lyria 3.5",
+      "top3": [
+        "lyria-3.5",
+        "minimax-music-3"
+      ],
+      "costPerTask": 0.0904,
+      "quality": 90,
+      "elapsedMs": 0.03,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "music-brand-song",
+      "mode": "cost",
+      "task": "music",
+      "chosen": "lyria-3.5",
+      "chosenName": "Lyria 3.5",
+      "top3": [
+        "lyria-3.5",
+        "minimax-music-3"
+      ],
+      "costPerTask": 0.0904,
+      "quality": 90,
+      "elapsedMs": 0.02,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "music-brand-song",
+      "mode": "quality",
+      "task": "music",
+      "chosen": "lyria-3.5",
+      "chosenName": "Lyria 3.5",
+      "top3": [
+        "lyria-3.5",
+        "minimax-music-3"
+      ],
+      "costPerTask": 0.0904,
+      "quality": 90,
+      "elapsedMs": 0.02,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "pipeline-narrated-tutorial",
+      "mode": "balanced",
+      "task": "video-gen",
+      "chosen": "veo-3.1-fast",
+      "chosenName": "Veo 3.1 Fast",
+      "top3": [
+        "veo-3.1-fast",
+        "kling-4.0",
+        "veo-3.1"
+      ],
+      "costPerTask": 0.596,
+      "quality": 86,
+      "elapsedMs": 0.05,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "pipeline-narrated-tutorial",
+      "mode": "cost",
+      "task": "video-gen",
+      "chosen": "veo-3.1-fast",
+      "chosenName": "Veo 3.1 Fast",
+      "top3": [
+        "veo-3.1-fast",
+        "kling-4.0",
+        "veo-3.1"
+      ],
+      "costPerTask": 0.596,
+      "quality": 86,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "pipeline-narrated-tutorial",
+      "mode": "quality",
+      "task": "video-gen",
+      "chosen": "kling-4.0",
+      "chosenName": "Kling 4.0",
+      "top3": [
+        "kling-4.0",
+        "veo-3.1",
+        "veo-3.1-fast"
+      ],
+      "costPerTask": 0.84309,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0.41458053691275176,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "pipeline-sketch-to-game",
+      "mode": "balanced",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "pipeline-sketch-to-game",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "hunyuan3d-3.1-pro"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.06,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "pipeline-sketch-to-game",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 0.04,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    }
+  ],
+  "intent": [
+    {
+      "id": "code-oauth",
+      "expected": "coding-agent",
+      "detected": "coding-agent",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "code-race",
+      "expected": "debugging",
+      "detected": "debugging",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "code-review-security",
+      "expected": "code-review",
+      "detected": "code-review",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "code-monorepo-refactor",
+      "expected": "refactor",
+      "detected": "refactor",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "plan-multitenant",
+      "expected": "planning",
+      "detected": "planning",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "context-400-page-pdf",
+      "expected": "long-context",
+      "detected": "long-context",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "research-eu-ai-act",
+      "expected": "research",
+      "detected": "research",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "writing-launch-post",
+      "expected": "writing",
+      "detected": "writing",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "translation-onboarding",
+      "expected": "translation",
+      "detected": "translation",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "extract-invoices",
+      "expected": "extraction",
+      "detected": "extraction",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "classify-tickets",
+      "expected": "classification",
+      "detected": "classification",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "data-churn",
+      "expected": "data-analysis",
+      "detected": "data-analysis",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "computer-checkout",
+      "expected": "computer-use",
+      "detected": "computer-use",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "image-hero-coffee",
+      "expected": "image-gen",
+      "detected": "image-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "image-headline-text",
+      "expected": "image-gen",
+      "detected": "image-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "image-remove-bg",
+      "expected": "image-edit",
+      "detected": "image-edit",
+      "confidence": "medium",
+      "pass": true
+    },
+    {
+      "id": "image-recolor-jacket",
+      "expected": "image-edit",
+      "detected": "image-edit",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "image-4k-chinese-poster",
+      "expected": "image-gen",
+      "detected": "image-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "image-cheap-draft",
+      "expected": "image-gen",
+      "detected": "image-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "image-20-social",
+      "expected": "image-gen",
+      "detected": "image-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "image-consistent-character",
+      "expected": "image-gen",
+      "detected": "image-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "video-product-5s",
+      "expected": "video-gen",
+      "detected": "video-gen",
+      "confidence": "medium",
+      "pass": true
+    },
+    {
+      "id": "video-cinematic-30s",
+      "expected": "video-gen",
+      "detected": "video-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "video-cheap-teaser",
+      "expected": "video-gen",
+      "detected": "video-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "video-dialogue-1080p",
+      "expected": "video-gen",
+      "detected": "video-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "video-lipsync-still",
+      "expected": "video-gen",
+      "detected": "video-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "3d-sword",
+      "expected": "3d-gen",
+      "detected": "3d-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "3d-rigged-character",
+      "expected": "3d-gen",
+      "detected": "3d-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "3d-barrel-cheap",
+      "expected": "3d-gen",
+      "detected": "3d-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "3d-hero-character",
+      "expected": "3d-gen",
+      "detected": "3d-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "3d-hundred-assets",
+      "expected": "3d-gen",
+      "detected": "3d-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "tts-warm-narration",
+      "expected": "tts",
+      "detected": "tts",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "tts-cheap-bulk",
+      "expected": "tts",
+      "detected": "tts",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "stt-podcast",
+      "expected": "stt",
+      "detected": "stt",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "stt-noisy-call",
+      "expected": "stt",
+      "detected": "stt",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "music-lofi",
+      "expected": "music",
+      "detected": "music",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "music-brand-song",
+      "expected": "music",
+      "detected": "music",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "pipeline-narrated-tutorial",
+      "expected": "video-gen",
+      "detected": "video-gen",
+      "confidence": "high",
+      "pass": true
+    },
+    {
+      "id": "pipeline-sketch-to-game",
+      "expected": "3d-gen",
+      "detected": "3d-gen",
+      "confidence": "high",
+      "pass": true
+    }
+  ]
+}

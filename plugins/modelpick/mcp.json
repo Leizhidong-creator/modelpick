@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "modelpick": {
+      "command": "npx",
+      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+    }
+  }
+}

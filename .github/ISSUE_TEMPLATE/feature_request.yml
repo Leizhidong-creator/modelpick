@@ -1,0 +1,36 @@
+name: Feature request
+description: A new task node, agent adapter, or decision feature.
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What decision is hard today?
+      description: Describe the workflow node, not the UI.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What should ModelPick do?
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Which surface?
+      options:
+        - CLI
+        - MCP
+        - Agent setup/skill
+        - Catalog/data
+        - Benchmark
+        - Docs/site
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: This does not require proxying model calls or storing keys.
+          required: true

@@ -1,0 +1,7 @@
+export { loadCatalog, findModel, catalogStats, validateCatalog, validateTasks, PACKAGE_ROOT } from './core/catalog.js';
+export { recommend, plan, compare } from './core/recommend.js';
+export { rankModels, qualityFor, unitCostFor, attemptsFor, workloadFor, OPTIMIZE_PRESETS } from './core/score.js';
+export { detectTask, findTask, parseIntent, resolveTask } from './core/tasks.js';
+export { startMcpServer, createMcpServer } from './mcp/server.js';
+export { installAgent, detectAgents, mcpCommand, AGENTS } from './integrations/index.js';
+export { ModelPickError } from './core/errors.js';

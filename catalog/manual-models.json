@@ -1,0 +1,1235 @@
+{
+  "schemaVersion": 1,
+  "models": [
+    {
+      "id": "google/nano-banana-2.1",
+      "slug": "nano-banana-2.1",
+      "name": "Nano Banana 2.1",
+      "provider": {
+        "id": "google",
+        "name": "Google",
+        "env": [
+          "GEMINI_API_KEY",
+          "GOOGLE_API_KEY"
+        ],
+        "keysUrl": "https://aistudio.google.com/apikey",
+        "docsUrl": "https://ai.google.dev/gemini-api/docs/image-generation",
+        "sdk": "npm i @google/genai"
+      },
+      "modality": "image",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "image",
+        "amount": 0.0336,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "1K",
+            "amount": 0.0336,
+            "default": true
+          },
+          {
+            "label": "2K",
+            "amount": 0.0504
+          },
+          {
+            "label": "4K",
+            "amount": 0.113
+          },
+          {
+            "label": "batch 1K",
+            "amount": 0.0168
+          }
+        ]
+      },
+      "quality": {
+        "overall": 93,
+        "imageGen": 94,
+        "imageEdit": 96,
+        "textInImage": 88
+      },
+      "speed": {
+        "latencySec": 8
+      },
+      "tags": [
+        "image",
+        "editing",
+        "best-value",
+        "4k",
+        "fast",
+        "character-consistency"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-06",
+      "capabilities": {
+        "imageInput": true,
+        "imageOutput": true,
+        "textInImage": true
+      },
+      "access": {
+        "apiModel": "gemini-nano-banana-2.1",
+        "apiModelNote": "First-party Gemini image model id."
+      },
+      "notes": "The price/quality default for most image work: $0.0336 at 1K, strong edits and character consistency.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/nano-banana-pro",
+      "slug": "nano-banana-pro",
+      "name": "Nano Banana Pro",
+      "provider": {
+        "id": "google",
+        "name": "Google",
+        "env": [
+          "GEMINI_API_KEY",
+          "GOOGLE_API_KEY"
+        ],
+        "keysUrl": "https://aistudio.google.com/apikey",
+        "docsUrl": "https://ai.google.dev/gemini-api/docs/image-generation",
+        "sdk": "npm i @google/genai"
+      },
+      "modality": "image",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "image",
+        "amount": 0.134,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "1K/2K",
+            "amount": 0.134,
+            "default": true
+          },
+          {
+            "label": "4K",
+            "amount": 0.24
+          },
+          {
+            "label": "batch 1K/2K",
+            "amount": 0.067
+          }
+        ]
+      },
+      "quality": {
+        "overall": 96,
+        "imageGen": 96,
+        "imageEdit": 97,
+        "textInImage": 97
+      },
+      "speed": {
+        "latencySec": 20
+      },
+      "tags": [
+        "image",
+        "best-quality",
+        "text-in-image",
+        "4k",
+        "editing"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-05-28",
+      "capabilities": {
+        "imageInput": true,
+        "imageOutput": true,
+        "textInImage": true
+      },
+      "access": {
+        "apiModel": "gemini-3-pro-image"
+      },
+      "notes": "Best text rendering and 4K output; use when the image must contain accurate type or brand assets.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "openai/gpt-image-2",
+      "slug": "gpt-image-2",
+      "name": "GPT Image 2.6",
+      "provider": {
+        "id": "openai",
+        "name": "OpenAI",
+        "env": [
+          "OPENAI_API_KEY"
+        ],
+        "keysUrl": "https://platform.openai.com/api-keys",
+        "docsUrl": "https://platform.openai.com/docs/guides/image-generation",
+        "sdk": "npm i openai"
+      },
+      "modality": "image",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "image",
+        "amount": 0.053,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "low",
+            "amount": 0.006
+          },
+          {
+            "label": "medium",
+            "amount": 0.053,
+            "default": true
+          },
+          {
+            "label": "high",
+            "amount": 0.211
+          }
+        ]
+      },
+      "quality": {
+        "overall": 94,
+        "imageGen": 94,
+        "imageEdit": 93,
+        "textInImage": 92
+      },
+      "speed": {
+        "latencySec": 26
+      },
+      "tags": [
+        "image",
+        "editing",
+        "instruction-following",
+        "4k"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-21",
+      "capabilities": {
+        "imageInput": true,
+        "imageOutput": true,
+        "textInImage": true
+      },
+      "access": {
+        "apiModel": "gpt-image-2.6-sunburst",
+        "apiModelNote": "Sunburst is the quality tier; Flare is the faster sibling at the same token rates."
+      },
+      "notes": "Token-priced; ~$0.053 at medium 1024² and $0.211 at high. Strong edit consistency and prompt adherence; no 4K SKU.",
+      "sources": [
+        {
+          "name": "Lumenfall",
+          "url": "https://lumenfall.ai/models/openai/gpt-image-2/providers",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "bytedance/seedream-4.5",
+      "slug": "seedream-5.5",
+      "name": "Seedream 5.5",
+      "provider": {
+        "id": "bytedance",
+        "name": "ByteDance",
+        "env": [
+          "BYTEPLUS_API_KEY"
+        ],
+        "keysUrl": "https://console.byteplus.com",
+        "docsUrl": "https://docs.byteplus.com/en/docs/ModelArk/Seedream",
+        "sdk": "REST"
+      },
+      "modality": "image",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "image",
+        "amount": 0.03,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "1K/1.5K",
+            "amount": 0.03,
+            "default": true
+          },
+          {
+            "label": "2K",
+            "amount": 0.0405
+          }
+        ]
+      },
+      "quality": {
+        "overall": 90,
+        "imageGen": 91,
+        "imageEdit": 92,
+        "textInImage": 90
+      },
+      "speed": {
+        "latencySec": 8
+      },
+      "tags": [
+        "image",
+        "editing",
+        "fast",
+        "text-in-image",
+        "value"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-01",
+      "capabilities": {
+        "imageInput": true,
+        "imageOutput": true,
+        "textInImage": true
+      },
+      "access": {
+        "apiModel": "bytedance/seedream/v5.5",
+        "apiModelNote": "fal route; BytePlus model id may differ."
+      },
+      "notes": "Cheapest credible 2K image at $0.03; transparent PNG, configurable dimensions, layerize variant. No 4K on fal.",
+      "sources": [
+        {
+          "name": "fal.ai",
+          "url": "https://fal.ai/models/bytedance/seedream/v5.5/text-to-image",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/veo-3.1",
+      "slug": "veo-3.1",
+      "name": "Veo 3.1",
+      "provider": {
+        "id": "google-vertex",
+        "name": "Google Vertex AI",
+        "env": [
+          "GOOGLE_CLOUD_PROJECT",
+          "GOOGLE_APPLICATION_CREDENTIALS"
+        ],
+        "keysUrl": "https://console.cloud.google.com/iam-admin/serviceaccounts",
+        "docsUrl": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate",
+        "sdk": "npm i @google-cloud/aiplatform"
+      },
+      "modality": "video",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "second",
+        "amount": 0.4,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "720p/1080p audio",
+            "amount": 0.4,
+            "default": true
+          },
+          {
+            "label": "4K audio",
+            "amount": 0.6
+          },
+          {
+            "label": "720p silent",
+            "amount": 0.2
+          }
+        ]
+      },
+      "quality": {
+        "overall": 95,
+        "videoGen": 95
+      },
+      "speed": {
+        "latencySec": 120
+      },
+      "tags": [
+        "video",
+        "best-quality",
+        "native-audio",
+        "4k",
+        "cinematic"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-08-15",
+      "capabilities": {
+        "imageInput": true,
+        "videoOutput": true,
+        "nativeAudio": true,
+        "maxDurationSec": 8,
+        "lipSync": true,
+        "cinematic": true
+      },
+      "access": {
+        "apiModel": "veo-3.1-generate-001",
+        "apiModelNote": "Vertex only — Veo is no longer served by the Gemini API."
+      },
+      "notes": "Reference-quality native audio/dialogue, 4K, 8s clips. Vertex project + IAM required. $2.00 for 5s with audio.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/veo-3.1-fast",
+      "slug": "veo-3.1-fast",
+      "name": "Veo 3.1 Fast",
+      "provider": {
+        "id": "google-vertex",
+        "name": "Google Vertex AI",
+        "env": [
+          "GOOGLE_CLOUD_PROJECT",
+          "GOOGLE_APPLICATION_CREDENTIALS"
+        ],
+        "keysUrl": "https://console.cloud.google.com/iam-admin/serviceaccounts",
+        "docsUrl": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate",
+        "sdk": "npm i @google-cloud/aiplatform"
+      },
+      "modality": "video",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "second",
+        "amount": 0.1,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "720p audio",
+            "amount": 0.1,
+            "default": true
+          },
+          {
+            "label": "1080p audio",
+            "amount": 0.12
+          },
+          {
+            "label": "4K audio",
+            "amount": 0.3
+          }
+        ]
+      },
+      "quality": {
+        "overall": 86,
+        "videoGen": 86
+      },
+      "speed": {
+        "latencySec": 60
+      },
+      "tags": [
+        "video",
+        "best-value",
+        "draft",
+        "native-audio"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-08-15",
+      "capabilities": {
+        "imageInput": true,
+        "videoOutput": true,
+        "nativeAudio": true,
+        "maxDurationSec": 8,
+        "lipSync": false,
+        "cinematic": false
+      },
+      "access": {
+        "apiModel": "veo-3.1-fast-generate-001",
+        "apiModelNote": "Vertex only."
+      },
+      "notes": "Same family, 4× cheaper than Veo 3.1 at 720p. The right default for iterating before a hero render.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "fal/kling-4.0",
+      "slug": "kling-4.0",
+      "name": "Kling 4.0",
+      "provider": {
+        "id": "fal",
+        "name": "fal.ai (Kling)",
+        "env": [
+          "FAL_KEY"
+        ],
+        "keysUrl": "https://fal.ai/dashboard/keys",
+        "docsUrl": "https://fal.ai/models/kling/v4/text-to-video",
+        "sdk": "npm i @fal-ai/client"
+      },
+      "modality": "video",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "second",
+        "amount": 0.157,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "720p",
+            "amount": 0.157,
+            "default": true
+          },
+          {
+            "label": "1080p",
+            "amount": 0.235
+          }
+        ]
+      },
+      "quality": {
+        "overall": 94,
+        "videoGen": 94
+      },
+      "speed": {
+        "latencySec": 300
+      },
+      "tags": [
+        "video",
+        "long-takes",
+        "reference"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-15",
+      "capabilities": {
+        "imageInput": true,
+        "videoInput": true,
+        "videoOutput": true,
+        "nativeAudio": false,
+        "maxDurationSec": 30,
+        "lipSync": false,
+        "cinematic": true
+      },
+      "access": {
+        "apiModel": "kling/v4/text-to-video",
+        "apiModelNote": "fal endpoint; resolution defaults to 1080p — set 720p explicitly to halve cost."
+      },
+      "notes": "Native 30s takes, multi-keyframe control, strong motion. No audio and no 4K on this endpoint; lips are not synced.",
+      "sources": [
+        {
+          "name": "AIReiter",
+          "url": "https://aireiter.com/blog/kling-4-0-api-pricing-fal-cost-vs-seedance-vidu",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "bytedance/seedance-2.5",
+      "slug": "seedance-2.5",
+      "name": "Seedance 2.5",
+      "provider": {
+        "id": "bytedance",
+        "name": "ByteDance",
+        "env": [
+          "BYTEPLUS_API_KEY"
+        ],
+        "keysUrl": "https://console.byteplus.com",
+        "docsUrl": "https://docs.byteplus.com/en/docs/ModelArk/Seedance",
+        "sdk": "REST"
+      },
+      "modality": "video",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "second",
+        "amount": 0.473,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "480p",
+            "amount": 0.2205
+          },
+          {
+            "label": "720p",
+            "amount": 0.473,
+            "default": true
+          },
+          {
+            "label": "1080p",
+            "amount": 1.164
+          },
+          {
+            "label": "4K",
+            "amount": 1.84
+          }
+        ]
+      },
+      "quality": {
+        "overall": 93,
+        "videoGen": 93
+      },
+      "speed": {
+        "latencySec": 150
+      },
+      "tags": [
+        "video",
+        "references",
+        "multi-shot",
+        "value"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-09-10",
+      "capabilities": {
+        "imageInput": true,
+        "videoInput": true,
+        "videoOutput": true,
+        "nativeAudio": true,
+        "maxDurationSec": 30,
+        "lipSync": true,
+        "cinematic": true
+      },
+      "access": {
+        "apiModel": "seedance-2-5",
+        "apiModelNote": "ModelArk id; billing is per generated video token, so per-second figures are estimates."
+      },
+      "notes": "30s, 4K, synchronized audio; strongest cinematic look above $0.20/s. Most expensive at 1080p+.",
+      "sources": [
+        {
+          "name": "Seedance API guide",
+          "url": "https://www.seeddance.io/blog/seedance-2-5-api-guide",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "tripo/tripo-3.0",
+      "slug": "tripo-h3.1",
+      "name": "Tripo H3.1",
+      "provider": {
+        "id": "tripo",
+        "name": "Tripo",
+        "env": [
+          "TRIPO_API_KEY"
+        ],
+        "keysUrl": "https://platform.tripo3d.ai/api-keys",
+        "docsUrl": "https://developers.tripo3d.ai/en/docs",
+        "sdk": "REST / MCP"
+      },
+      "modality": "3d",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "asset",
+        "amount": 0.2,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "text · standard",
+            "amount": 0.2,
+            "default": true
+          },
+          {
+            "label": "text · untextured",
+            "amount": 0.1
+          },
+          {
+            "label": "image · standard",
+            "amount": 0.3
+          },
+          {
+            "label": "HD texture",
+            "amount": 0.3
+          },
+          {
+            "label": "plus quad mesh",
+            "amount": 0.25
+          }
+        ]
+      },
+      "quality": {
+        "overall": 94,
+        "threeD": 94
+      },
+      "speed": {
+        "latencySec": 60
+      },
+      "tags": [
+        "3d",
+        "best-topology",
+        "rigging",
+        "quad-mesh",
+        "pbr",
+        "game-ready"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-03-01",
+      "capabilities": {
+        "imageInput": true,
+        "threeDOutput": true,
+        "rigging": true,
+        "pbr": true
+      },
+      "access": {
+        "apiModel": "tripo3d/h3.1/text-to-3d",
+        "apiModelNote": "fal route; Tripo direct uses the same H3.1 generation endpoint."
+      },
+      "notes": "Cheapest usable game asset at $0.10; quad/retopo mesh +$0.05, HD texture $0.30, auto-rig separate.",
+      "sources": [
+        {
+          "name": "Tripo pricing",
+          "url": "https://developers.tripo3d.ai/en/pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "tencent/hunyuan3d-3.5",
+      "slug": "hunyuan3d-3.1-pro",
+      "name": "Hunyuan3D 3.1 Pro",
+      "provider": {
+        "id": "fal",
+        "name": "fal.ai (Tencent Hunyuan)",
+        "env": [
+          "FAL_KEY"
+        ],
+        "keysUrl": "https://fal.ai/dashboard/keys",
+        "docsUrl": "https://fal.ai/models/fal-ai/hunyuan-3d/v3.1/pro/image-to-3d",
+        "sdk": "npm i @fal-ai/client"
+      },
+      "modality": "3d",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "asset",
+        "amount": 0.525,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "geometry + PBR",
+            "amount": 0.525,
+            "default": true
+          },
+          {
+            "label": "geometry only",
+            "amount": 0.375
+          },
+          {
+            "label": "geometry + PBR + multiview",
+            "amount": 0.675
+          }
+        ]
+      },
+      "quality": {
+        "overall": 91,
+        "threeD": 91
+      },
+      "speed": {
+        "latencySec": 90
+      },
+      "tags": [
+        "3d",
+        "open-weights",
+        "best-value",
+        "pbr",
+        "8k-texture",
+        "rapid"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-09-01",
+      "capabilities": {
+        "imageInput": true,
+        "threeDOutput": true,
+        "pbr": true,
+        "selfHost": true
+      },
+      "access": {
+        "apiModel": "fal-ai/hunyuan-3d/v3.1/pro/image-to-3d",
+        "apiModelNote": "fal route; Tencent Cloud also sells 3D generation directly."
+      },
+      "notes": "Strong geometry at a mid price, custom face count, PBR add-on. No native rigging.",
+      "sources": [
+        {
+          "name": "fal.ai",
+          "url": "https://fal.ai/models/fal-ai/hunyuan-3d/v3.1/pro/image-to-3d",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "meshy/meshy-7.1",
+      "slug": "meshy-7.1",
+      "name": "Meshy 7.1",
+      "provider": {
+        "id": "meshy",
+        "name": "Meshy",
+        "env": [
+          "MESHY_API_KEY"
+        ],
+        "keysUrl": "https://www.meshy.ai/settings/api",
+        "docsUrl": "https://docs.meshy.ai/en/api/text-to-3d",
+        "sdk": "REST"
+      },
+      "modality": "3d",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "asset",
+        "amount": 1.2,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "textured",
+            "amount": 1.2,
+            "default": true
+          },
+          {
+            "label": "untextured",
+            "amount": 0.8
+          },
+          {
+            "label": "texture + rig + animation",
+            "amount": 1.52
+          }
+        ]
+      },
+      "quality": {
+        "overall": 91,
+        "threeD": 91
+      },
+      "speed": {
+        "latencySec": 60
+      },
+      "tags": [
+        "3d",
+        "texturing",
+        "animation",
+        "game-ready",
+        "pbr"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-09-01",
+      "capabilities": {
+        "imageInput": true,
+        "threeDOutput": true,
+        "rigging": true,
+        "animation": true,
+        "pbr": true
+      },
+      "access": {
+        "apiModel": "meshy-7.1",
+        "apiModelNote": "30 credits per textured image-to-3D request; dollar cost depends on your credit pack."
+      },
+      "notes": "Only mainstream pipeline with texture + auto-rig + animation in one call. $1.20 textured; rig +$0.20, animation +$0.12.",
+      "sources": [
+        {
+          "name": "fal.ai",
+          "url": "https://fal.ai/models/meshy/v7.1/text-to-3d",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "elevenlabs/eleven-v4",
+      "slug": "eleven-v4",
+      "name": "Eleven v4",
+      "provider": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "env": [
+          "ELEVENLABS_API_KEY"
+        ],
+        "keysUrl": "https://elevenlabs.io/app/settings/api-keys",
+        "docsUrl": "https://elevenlabs.io/docs",
+        "sdk": "npm i @elevenlabs/elevenlabs-js"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "kchar",
+        "amount": 0.08,
+        "currency": "USD",
+        "confidence": "verified"
+      },
+      "quality": {
+        "overall": 95,
+        "tts": 95
+      },
+      "speed": {
+        "latencySec": 3
+      },
+      "tags": [
+        "audio",
+        "tts",
+        "best-quality",
+        "voice-clone",
+        "multilingual"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-06-01",
+      "capabilities": {
+        "textToSpeech": true,
+        "voiceCloning": true
+      },
+      "access": {
+        "apiModel": "eleven_v4",
+        "apiModelNote": "Turbo is eleven_v4_turbo at $0.04/1k chars."
+      },
+      "notes": "$0.08 per 1K characters; best expressiveness and cloning. Turbo is half price for drafts.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "mistral/voxtral-tts-3",
+      "slug": "voxtral-tts-3",
+      "name": "Voxtral TTS 3",
+      "provider": {
+        "id": "mistral",
+        "name": "Mistral AI",
+        "env": [
+          "MISTRAL_API_KEY"
+        ],
+        "keysUrl": "https://console.mistral.ai/api-keys",
+        "docsUrl": "https://docs.mistral.ai",
+        "sdk": "npm i @mistralai/mistralai"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "kchar",
+        "amount": 0.013,
+        "currency": "USD",
+        "confidence": "verified"
+      },
+      "quality": {
+        "overall": 88,
+        "tts": 88
+      },
+      "speed": {
+        "latencySec": 2
+      },
+      "tags": [
+        "audio",
+        "tts",
+        "best-value",
+        "fast",
+        "multilingual"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-20",
+      "capabilities": {
+        "textToSpeech": true
+      },
+      "access": {
+        "apiModel": "voxtral-mini-tts-3-0"
+      },
+      "notes": "$13 per 1M characters (~$0.013/1K) — 6× cheaper than Eleven v4 with solid quality.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "openai/gpt-transcribe",
+      "slug": "gpt-transcribe",
+      "name": "GPT Transcribe",
+      "provider": {
+        "id": "openai",
+        "name": "OpenAI",
+        "env": [
+          "OPENAI_API_KEY"
+        ],
+        "keysUrl": "https://platform.openai.com/api-keys",
+        "docsUrl": "https://platform.openai.com/docs/guides/speech-to-text",
+        "sdk": "npm i openai"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "minute",
+        "amount": 0.0045,
+        "currency": "USD",
+        "confidence": "verified"
+      },
+      "quality": {
+        "overall": 94,
+        "stt": 94
+      },
+      "speed": {
+        "latencySec": 30
+      },
+      "tags": [
+        "audio",
+        "stt",
+        "best-quality",
+        "timestamps",
+        "multilingual"
+      ],
+      "openWeights": false,
+      "releaseDate": "2025-09-11",
+      "capabilities": {
+        "speechToText": true
+      },
+      "access": {
+        "apiModel": "gpt-transcribe"
+      },
+      "notes": "$0.0045/min with strong noisy-audio and multilingual accuracy.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "mistral/voxtral-small-transcribe-3",
+      "slug": "voxtral-small-transcribe-3",
+      "name": "Voxtral Small Transcribe 3",
+      "provider": {
+        "id": "mistral",
+        "name": "Mistral AI",
+        "env": [
+          "MISTRAL_API_KEY"
+        ],
+        "keysUrl": "https://console.mistral.ai/api-keys",
+        "docsUrl": "https://docs.mistral.ai",
+        "sdk": "npm i @mistralai/mistralai"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "minute",
+        "amount": 0.004,
+        "currency": "USD",
+        "confidence": "verified"
+      },
+      "quality": {
+        "overall": 90,
+        "stt": 90
+      },
+      "speed": {
+        "latencySec": 20
+      },
+      "tags": [
+        "audio",
+        "stt",
+        "value",
+        "multilingual"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-20",
+      "capabilities": {
+        "speechToText": true
+      },
+      "access": {
+        "apiModel": "voxtral-small-transcribe-3-0"
+      },
+      "notes": "$0.004/min, slightly cheaper than GPT Transcribe with lower latency.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/lyria-3.5",
+      "slug": "lyria-3.5",
+      "name": "Lyria 3.5",
+      "provider": {
+        "id": "google",
+        "name": "Google",
+        "env": [
+          "GEMINI_API_KEY",
+          "GOOGLE_API_KEY"
+        ],
+        "keysUrl": "https://aistudio.google.com/apikey",
+        "docsUrl": "https://ai.google.dev/gemini-api/docs/music-generation",
+        "sdk": "npm i @google/genai"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "song",
+        "amount": 0.08,
+        "currency": "USD",
+        "confidence": "verified"
+      },
+      "quality": {
+        "overall": 90,
+        "music": 90
+      },
+      "speed": {
+        "latencySec": 30
+      },
+      "tags": [
+        "audio",
+        "music",
+        "best-value",
+        "full-song"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-09-11",
+      "capabilities": {
+        "musicGeneration": true
+      },
+      "access": {
+        "apiModel": "lyria-3.5"
+      },
+      "notes": "$0.08 per full song — the cheapest production music option in the catalog.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "microsoft/trellis-2",
+      "slug": "trellis-2",
+      "name": "TRELLIS 2",
+      "provider": {
+        "id": "fal",
+        "name": "fal.ai (Microsoft Research)",
+        "env": [
+          "FAL_KEY"
+        ],
+        "keysUrl": "https://fal.ai/dashboard/keys",
+        "docsUrl": "https://fal.ai/models/fal-ai/trellis-2",
+        "sdk": "npm i @fal-ai/client"
+      },
+      "modality": "3d",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "asset",
+        "amount": 0.3,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "1024p",
+            "amount": 0.3,
+            "default": true
+          },
+          {
+            "label": "512p",
+            "amount": 0.25
+          },
+          {
+            "label": "1536p",
+            "amount": 0.35
+          }
+        ]
+      },
+      "quality": {
+        "overall": 82,
+        "threeD": 82
+      },
+      "speed": {
+        "latencySec": 45
+      },
+      "tags": [
+        "3d",
+        "open-weights",
+        "self-host",
+        "budget"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-04-01",
+      "capabilities": {
+        "imageInput": true,
+        "threeDOutput": true,
+        "selfHost": true
+      },
+      "access": {
+        "apiModel": "fal-ai/trellis-2",
+        "apiModelNote": "Open model; self-host for zero per-asset fee."
+      },
+      "notes": "Open-weight 3D model, self-hostable. Weaker textures/PBR than commercial tiers but the cheapest path at scale.",
+      "sources": [
+        {
+          "name": "fal.ai",
+          "url": "https://fal.ai/models/fal-ai/trellis-2",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "minimax/music-3",
+      "slug": "minimax-music-3",
+      "name": "MiniMax Music 3",
+      "provider": {
+        "id": "minimax",
+        "name": "MiniMax",
+        "env": [
+          "MINIMAX_API_KEY"
+        ],
+        "keysUrl": "https://platform.minimaxi.com/user-center/basic-information/interface-key",
+        "docsUrl": "https://platform.minimaxi.com/docs",
+        "sdk": "REST"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "song",
+        "amount": 0.12,
+        "currency": "USD",
+        "confidence": "estimated",
+        "variants": [
+          {
+            "label": "60s",
+            "amount": 0.12,
+            "default": true
+          }
+        ]
+      },
+      "quality": {
+        "overall": 84,
+        "music": 84
+      },
+      "speed": {
+        "latencySec": 25
+      },
+      "tags": [
+        "audio",
+        "music",
+        "value",
+        "commercial-safe"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-08-01",
+      "capabilities": {
+        "musicGeneration": true
+      },
+      "access": {
+        "apiModel": "music-3",
+        "apiModelNote": "Billed per second (~$0.002/s); a 60s track is about $0.12."
+      },
+      "notes": "Volume music option at roughly $0.002/s (~$0.12/min), commercial-safe. Quality below Lyria but cheaper at length.",
+      "sources": [
+        {
+          "name": "creative model research",
+          "url": "https://platform.minimaxi.com/docs",
+          "readAt": "2026-11-19"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+!.env.example
+coverage/
+dist/
+tmp/
+.tmp/
+site/dist/
+tests/tmp/
+tests/results/*.local.json
+*.tgz
+.vscode/
+.idea/

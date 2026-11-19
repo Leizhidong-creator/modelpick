@@ -1,0 +1,53 @@
+name: Bug report
+description: Something broke, or a recommendation looks wrong.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. For a wrong recommendation, include the exact query, flags, and the JSON output — that is usually enough to reproduce.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Include the command and the output.
+      placeholder: |
+        $ modelpick pick "..." --json
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: modelpick version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node version and OS
+      placeholder: "Node 24.15.0, Windows 11"
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: modelpick doctor --json
+      render: json
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues.
+          required: true
+        - label: I removed any API keys from the output.
+          required: true

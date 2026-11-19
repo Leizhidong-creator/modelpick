@@ -1,0 +1,13 @@
+{
+  "name": "modelpick",
+  "version": "0.1.0",
+  "description": "Pick the right model at every step — with cost per solved task.",
+  "author": {
+    "name": "Lei Zhidong",
+    "url": "https://github.com/Leizhidong-creator"
+  },
+  "homepage": "https://github.com/Leizhidong-creator/modelpick",
+  "repository": "https://github.com/Leizhidong-creator/modelpick",
+  "license": "MIT",
+  "keywords": ["model-routing", "mcp", "agents", "cost"]
+}

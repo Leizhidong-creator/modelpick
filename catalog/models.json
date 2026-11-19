@@ -1,0 +1,3029 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026.11.19",
+  "updatedAt": "2026-11-19T00:00:00Z",
+  "currency": "USD",
+  "disclaimer": "Prices and model IDs are a snapshot. Provider prices change; run `modelpick update` or check the linked source before committing budget.",
+  "models": [
+    {
+      "id": "anthropic/claude-fable-5-2",
+      "slug": "claude-fable-5.2",
+      "name": "Claude Fable 5.2",
+      "provider": {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "env": [
+          "ANTHROPIC_API_KEY"
+        ],
+        "keysUrl": "https://console.anthropic.com/settings/keys",
+        "docsUrl": "https://docs.anthropic.com/en/api/getting-started",
+        "sdk": "npm i @anthropic-ai/sdk"
+      },
+      "modality": "text",
+      "contextWindow": 1000000,
+      "maxOutput": 128000,
+      "pricing": {
+        "unit": "mtok",
+        "input": 8,
+        "output": 40,
+        "cachedInput": 0.2,
+        "cacheWrite": 10,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 92.8,
+        "coding": 89.6,
+        "codingAgent": 96,
+        "reasoning": 94,
+        "longContext": 93,
+        "writing": 96,
+        "multimodal": 88,
+        "cheapWork": 62
+      },
+      "speed": {
+        "outputTps": 45,
+        "ttftMs": 1600
+      },
+      "tags": [
+        "frontier",
+        "best-coding",
+        "agentic",
+        "vision",
+        "tools"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-11-09",
+      "knowledge": "2026-06",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "claude-fable-5-2",
+        "openrouter": "anthropic/claude-fable-5-2",
+        "openrouterModel": "anthropic/claude-fable-5-2"
+      },
+      "notes": "BenchLM overall leader (92.8) and coding #1 (89.6); CursorBench 60.0.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/anthropic/claude-fable-5-2",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "anthropic/claude-haiku-5-5",
+      "slug": "claude-haiku-5.5",
+      "name": "Claude Haiku 5.5",
+      "provider": {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "env": [
+          "ANTHROPIC_API_KEY"
+        ],
+        "keysUrl": "https://console.anthropic.com/settings/keys",
+        "docsUrl": "https://docs.anthropic.com/en/api/getting-started",
+        "sdk": "npm i @anthropic-ai/sdk"
+      },
+      "modality": "text",
+      "contextWindow": 1000000,
+      "maxOutput": 128000,
+      "pricing": {
+        "unit": "mtok",
+        "input": 0.1,
+        "output": 0.5,
+        "cachedInput": 0.01,
+        "cacheWrite": 0.125,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 62.82,
+        "coding": 60,
+        "codingAgent": 84,
+        "reasoning": 64,
+        "longContext": 64,
+        "writing": 74,
+        "multimodal": 70,
+        "cheapWork": 94
+      },
+      "speed": {
+        "outputTps": 120,
+        "ttftMs": 600
+      },
+      "tags": [
+        "cheap",
+        "fast",
+        "agentic",
+        "high-volume"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-07",
+      "knowledge": "2026-06",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "claude-haiku-5-5",
+        "openrouter": "anthropic/claude-haiku-5-5",
+        "openrouterModel": "anthropic/claude-haiku-5-5"
+      },
+      "notes": "CursorBench 48.4 at $0.10/$0.50 — exceptional agentic value.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/anthropic/claude-haiku-5-5",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "anthropic/claude-opus-5-5",
+      "slug": "claude-opus-5.5",
+      "name": "Claude Opus 5.5",
+      "provider": {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "env": [
+          "ANTHROPIC_API_KEY"
+        ],
+        "keysUrl": "https://console.anthropic.com/settings/keys",
+        "docsUrl": "https://docs.anthropic.com/en/api/getting-started",
+        "sdk": "npm i @anthropic-ai/sdk"
+      },
+      "modality": "text",
+      "contextWindow": 1000000,
+      "maxOutput": 128000,
+      "pricing": {
+        "unit": "mtok",
+        "input": 4,
+        "output": 20,
+        "cachedInput": 0.2,
+        "cacheWrite": 5,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 85.82,
+        "coding": 82.9,
+        "codingAgent": 93,
+        "reasoning": 89,
+        "longContext": 87,
+        "writing": 92,
+        "multimodal": 86,
+        "cheapWork": 58
+      },
+      "speed": {
+        "outputTps": 50,
+        "ttftMs": 1500
+      },
+      "tags": [
+        "frontier",
+        "coding",
+        "agentic",
+        "vision"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-09-22",
+      "knowledge": "2026-06",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "claude-opus-5-5",
+        "openrouter": "anthropic/claude-opus-5-5",
+        "openrouterModel": "anthropic/claude-opus-5-5"
+      },
+      "notes": "BenchLM coding #3 (82.9); CursorBench 57.8.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/anthropic/claude-opus-5-5",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "anthropic/claude-sonnet-5-5",
+      "slug": "claude-sonnet-5.5",
+      "name": "Claude Sonnet 5.5",
+      "provider": {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "env": [
+          "ANTHROPIC_API_KEY"
+        ],
+        "keysUrl": "https://console.anthropic.com/settings/keys",
+        "docsUrl": "https://docs.anthropic.com/en/api/getting-started",
+        "sdk": "npm i @anthropic-ai/sdk"
+      },
+      "modality": "text",
+      "contextWindow": 1000000,
+      "maxOutput": 128000,
+      "pricing": {
+        "unit": "mtok",
+        "input": 2,
+        "output": 10,
+        "cachedInput": 0.1,
+        "cacheWrite": 2.5,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 80.6,
+        "coding": 79,
+        "codingAgent": 90,
+        "reasoning": 84,
+        "longContext": 84,
+        "writing": 89,
+        "multimodal": 84,
+        "cheapWork": 68
+      },
+      "speed": {
+        "outputTps": 65,
+        "ttftMs": 1200
+      },
+      "tags": [
+        "coding",
+        "agentic",
+        "balanced",
+        "vision"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-09-28",
+      "knowledge": "2026-06",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "claude-sonnet-5-5",
+        "openrouter": "anthropic/claude-sonnet-5-5",
+        "openrouterModel": "anthropic/claude-sonnet-5-5"
+      },
+      "notes": "BenchLM overall 80.6; CursorBench 55.5; strong agent loop at mid price.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/anthropic/claude-sonnet-5-5",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "deepseek/deepseek-v4-pro",
+      "slug": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "provider": {
+        "id": "deepseek",
+        "name": "DeepSeek",
+        "env": [
+          "DEEPSEEK_API_KEY"
+        ],
+        "keysUrl": "https://platform.deepseek.com/api_keys",
+        "docsUrl": "https://api-docs.deepseek.com",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1048576,
+      "maxOutput": 393216,
+      "pricing": {
+        "unit": "mtok",
+        "input": 0.66,
+        "output": 1.98,
+        "cachedInput": 0.022,
+        "cacheWrite": null,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 62.7,
+        "coding": 64,
+        "codingAgent": 70,
+        "reasoning": 78,
+        "longContext": 78,
+        "writing": 74,
+        "multimodal": 70,
+        "cheapWork": 82
+      },
+      "speed": {
+        "outputTps": 60,
+        "ttftMs": 1200
+      },
+      "tags": [
+        "open-weights",
+        "reasoning",
+        "value",
+        "long-context"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-08-13",
+      "knowledge": null,
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": false,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": false,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": true
+      },
+      "access": {
+        "apiModel": "deepseek-v4-pro",
+        "openrouter": "deepseek/deepseek-v4-pro",
+        "openrouterModel": "deepseek/deepseek-v4-pro"
+      },
+      "notes": "BenchLM overall 62.7; reasoning-heavy open-weight option.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "deepseek/deepseek-flash",
+      "slug": "deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "provider": {
+        "id": "deepseek",
+        "name": "DeepSeek",
+        "env": [
+          "DEEPSEEK_API_KEY"
+        ],
+        "keysUrl": "https://platform.deepseek.com/api_keys",
+        "docsUrl": "https://api-docs.deepseek.com",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1048576,
+      "maxOutput": 393216,
+      "pricing": {
+        "unit": "mtok",
+        "input": 0.15,
+        "output": 0.6,
+        "cachedInput": 0.003,
+        "cacheWrite": null,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 63.85,
+        "coding": 62,
+        "codingAgent": 86,
+        "reasoning": 73,
+        "longContext": 80,
+        "writing": 70,
+        "multimodal": 68,
+        "cheapWork": 96
+      },
+      "speed": {
+        "outputTps": 90,
+        "ttftMs": 800
+      },
+      "tags": [
+        "open-weights",
+        "best-value-coding",
+        "agentic",
+        "cheap",
+        "long-context"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-10-17",
+      "knowledge": "2025-05",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": false,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": true
+      },
+      "access": {
+        "apiModel": "deepseek-flash",
+        "openrouter": "deepseek/deepseek-flash",
+        "openrouterModel": "deepseek/deepseek-flash"
+      },
+      "notes": "CursorBench 47.7 — near Sonnet 5.5 agentic coding at ~1/13 the price; 1M context.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/deepseek/deepseek-flash",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "elevenlabs/eleven-v4",
+      "slug": "eleven-v4",
+      "name": "Eleven v4",
+      "provider": {
+        "id": "elevenlabs",
+        "name": "ElevenLabs",
+        "env": [
+          "ELEVENLABS_API_KEY"
+        ],
+        "keysUrl": "https://elevenlabs.io/app/settings/api-keys",
+        "docsUrl": "https://elevenlabs.io/docs",
+        "sdk": "npm i @elevenlabs/elevenlabs-js"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "kchar",
+        "amount": 0.08,
+        "currency": "USD",
+        "confidence": "verified"
+      },
+      "quality": {
+        "overall": 95,
+        "tts": 95
+      },
+      "speed": {
+        "latencySec": 3
+      },
+      "tags": [
+        "audio",
+        "tts",
+        "best-quality",
+        "voice-clone",
+        "multilingual"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-06-01",
+      "capabilities": {
+        "textToSpeech": true,
+        "voiceCloning": true
+      },
+      "access": {
+        "apiModel": "eleven_v4",
+        "apiModelNote": "Turbo is eleven_v4_turbo at $0.04/1k chars."
+      },
+      "notes": "$0.08 per 1K characters; best expressiveness and cloning. Turbo is half price for drafts.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-3.8-flash",
+      "slug": "gemini-3.8-flash",
+      "name": "Gemini 3.8 Flash",
+      "provider": {
+        "id": "google",
+        "name": "Google",
+        "env": [
+          "GEMINI_API_KEY",
+          "GOOGLE_API_KEY"
+        ],
+        "keysUrl": "https://aistudio.google.com/apikey",
+        "docsUrl": "https://ai.google.dev/gemini-api/docs",
+        "sdk": "npm i @google/genai"
+      },
+      "modality": "text",
+      "contextWindow": 1048576,
+      "maxOutput": 65536,
+      "pricing": {
+        "unit": "mtok",
+        "input": 0.75,
+        "output": 3.75,
+        "cachedInput": 0.075,
+        "cacheWrite": null,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 64.38,
+        "coding": 58,
+        "codingAgent": 62,
+        "reasoning": 65,
+        "longContext": 80,
+        "writing": 66,
+        "multimodal": 78,
+        "cheapWork": 86
+      },
+      "speed": {
+        "outputTps": 150,
+        "ttftMs": 600
+      },
+      "tags": [
+        "cheap",
+        "fast",
+        "long-context",
+        "high-volume"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-09-02",
+      "knowledge": null,
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": true,
+        "videoInput": true,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "gemini-3.8-flash",
+        "openrouter": "google/gemini-3.8-flash",
+        "openrouterModel": "google/gemini-3.8-flash"
+      },
+      "notes": "BenchLM overall 64.38 at $0.75/$3.75.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/google/gemini-3.8-flash",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-4-argon",
+      "slug": "gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "provider": {
+        "id": "google",
+        "name": "Google",
+        "env": [
+          "GEMINI_API_KEY",
+          "GOOGLE_API_KEY"
+        ],
+        "keysUrl": "https://aistudio.google.com/apikey",
+        "docsUrl": "https://ai.google.dev/gemini-api/docs",
+        "sdk": "npm i @google/genai"
+      },
+      "modality": "text",
+      "contextWindow": 1048576,
+      "maxOutput": 32768,
+      "pricing": {
+        "unit": "mtok",
+        "input": 2,
+        "output": 10,
+        "cachedInput": 0.1,
+        "cacheWrite": null,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 79.21,
+        "coding": 75,
+        "codingAgent": 84,
+        "reasoning": 82,
+        "longContext": 92,
+        "writing": 82,
+        "multimodal": 90,
+        "cheapWork": 74
+      },
+      "speed": {
+        "outputTps": 100,
+        "ttftMs": 800
+      },
+      "tags": [
+        "long-context",
+        "multimodal",
+        "fast"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-13",
+      "knowledge": "2026-03",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": true,
+        "videoInput": true,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "gemini-4-argon",
+        "openrouter": "google/gemini-4-argon",
+        "openrouterModel": "google/gemini-4-argon"
+      },
+      "notes": "BenchLM overall 79.21; CursorBench 52.9.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/google/gemini-4-argon",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-4-carbon",
+      "slug": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "provider": {
+        "id": "google",
+        "name": "Google",
+        "env": [
+          "GEMINI_API_KEY",
+          "GOOGLE_API_KEY"
+        ],
+        "keysUrl": "https://aistudio.google.com/apikey",
+        "docsUrl": "https://ai.google.dev/gemini-api/docs",
+        "sdk": "npm i @google/genai"
+      },
+      "modality": "text",
+      "contextWindow": 1048576,
+      "maxOutput": 32768,
+      "pricing": {
+        "unit": "mtok",
+        "input": 2,
+        "output": 10,
+        "cachedInput": 0.1,
+        "cacheWrite": null,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 85.03,
+        "coding": 83.3,
+        "codingAgent": 94,
+        "reasoning": 88,
+        "longContext": 96,
+        "writing": 86,
+        "multimodal": 94,
+        "cheapWork": 70
+      },
+      "speed": {
+        "outputTps": 95,
+        "ttftMs": 900
+      },
+      "tags": [
+        "frontier",
+        "best-value-frontier",
+        "long-context",
+        "multimodal",
+        "cursorbench-1"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-11-10",
+      "knowledge": "2026-03",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": true,
+        "videoInput": true,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "gemini-4-carbon",
+        "openrouter": "google/gemini-4-carbon",
+        "openrouterModel": "google/gemini-4-carbon"
+      },
+      "notes": "BenchLM coding #2 (83.3); CursorBench leader (60.4); 1M context.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/google/gemini-4-carbon",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-4-hydrogen",
+      "slug": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "provider": {
+        "id": "google",
+        "name": "Google",
+        "env": [
+          "GEMINI_API_KEY",
+          "GOOGLE_API_KEY"
+        ],
+        "keysUrl": "https://aistudio.google.com/apikey",
+        "docsUrl": "https://ai.google.dev/gemini-api/docs",
+        "sdk": "npm i @google/genai"
+      },
+      "modality": "text",
+      "contextWindow": 1048576,
+      "maxOutput": 65536,
+      "pricing": {
+        "unit": "mtok",
+        "input": 1.5,
+        "output": 7.5,
+        "cachedInput": 0.075,
+        "cacheWrite": null,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 79.09,
+        "coding": 75,
+        "codingAgent": 85,
+        "reasoning": 82,
+        "longContext": 92,
+        "writing": 82,
+        "multimodal": 89,
+        "cheapWork": 78
+      },
+      "speed": {
+        "outputTps": 110,
+        "ttftMs": 750
+      },
+      "tags": [
+        "best-value",
+        "long-context",
+        "multimodal",
+        "fast"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-11-12",
+      "knowledge": "2026-03",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": true,
+        "videoInput": true,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "gemini-4-hydrogen",
+        "openrouter": "google/gemini-4-hydrogen",
+        "openrouterModel": "google/gemini-4-hydrogen"
+      },
+      "notes": "Almost Argon quality at $1.50/$7.50; CursorBench 54.3.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/google/gemini-4-hydrogen",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "zai/glm-5.3",
+      "slug": "glm-5.3",
+      "name": "GLM-5.3",
+      "provider": {
+        "id": "zai",
+        "name": "Z.ai",
+        "env": [
+          "ZAI_API_KEY",
+          "ZHIPU_API_KEY"
+        ],
+        "keysUrl": "https://z.ai/manage-apikey/apikey-list",
+        "docsUrl": "https://docs.z.ai",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1000000,
+      "maxOutput": 131072,
+      "pricing": {
+        "unit": "mtok",
+        "input": 1.4,
+        "output": 4.4,
+        "cachedInput": 0.26,
+        "cacheWrite": 0,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 60.22,
+        "coding": 58,
+        "codingAgent": 64,
+        "reasoning": 66,
+        "longContext": 78,
+        "writing": 70,
+        "multimodal": 66,
+        "cheapWork": 72
+      },
+      "speed": {
+        "outputTps": 70,
+        "ttftMs": 1000
+      },
+      "tags": [
+        "open-weights",
+        "long-context",
+        "value"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-08-14",
+      "knowledge": null,
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": false,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": false,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": true
+      },
+      "access": {
+        "apiModel": "glm-5.3",
+        "openrouter": "zai/glm-5.3",
+        "openrouterModel": "zai/glm-5.3"
+      },
+      "notes": "BenchLM overall 60.22; CursorBench 42.6.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/zai/glm-5.3",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "zai/glm-5.3-flash",
+      "slug": "glm-5.3-flash",
+      "name": "GLM-5.3-Flash",
+      "provider": {
+        "id": "zai",
+        "name": "Z.ai",
+        "env": [
+          "ZAI_API_KEY",
+          "ZHIPU_API_KEY"
+        ],
+        "keysUrl": "https://z.ai/manage-apikey/apikey-list",
+        "docsUrl": "https://docs.z.ai",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1000000,
+      "maxOutput": 131072,
+      "pricing": {
+        "unit": "mtok",
+        "input": 0.15,
+        "output": 0.5,
+        "cachedInput": 0.03,
+        "cacheWrite": 0,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 57.07,
+        "coding": 54,
+        "codingAgent": 58,
+        "reasoning": 61,
+        "longContext": 74,
+        "writing": 64,
+        "multimodal": 60,
+        "cheapWork": 88
+      },
+      "speed": {
+        "outputTps": 130,
+        "ttftMs": 650
+      },
+      "tags": [
+        "open-weights",
+        "cheap",
+        "fast"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-08-26",
+      "knowledge": null,
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": true,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": true
+      },
+      "access": {
+        "apiModel": "glm-5.3-flash",
+        "openrouter": "zai/glm-5.3-flash",
+        "openrouterModel": "zai/glm-5.3-flash"
+      },
+      "notes": "BenchLM overall 57.07; sub-$0.40/M blended.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/zai/glm-5.3-flash",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "openai/gpt-image-2",
+      "slug": "gpt-image-2",
+      "name": "GPT Image 2.6",
+      "provider": {
+        "id": "openai",
+        "name": "OpenAI",
+        "env": [
+          "OPENAI_API_KEY"
+        ],
+        "keysUrl": "https://platform.openai.com/api-keys",
+        "docsUrl": "https://platform.openai.com/docs/guides/image-generation",
+        "sdk": "npm i openai"
+      },
+      "modality": "image",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "image",
+        "amount": 0.053,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "low",
+            "amount": 0.006
+          },
+          {
+            "label": "medium",
+            "amount": 0.053,
+            "default": true
+          },
+          {
+            "label": "high",
+            "amount": 0.211
+          }
+        ]
+      },
+      "quality": {
+        "overall": 94,
+        "imageGen": 94,
+        "imageEdit": 93,
+        "textInImage": 92
+      },
+      "speed": {
+        "latencySec": 26
+      },
+      "tags": [
+        "image",
+        "editing",
+        "instruction-following",
+        "4k"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-21",
+      "capabilities": {
+        "imageInput": true,
+        "imageOutput": true,
+        "textInImage": true
+      },
+      "access": {
+        "apiModel": "gpt-image-2.6-sunburst",
+        "apiModelNote": "Sunburst is the quality tier; Flare is the faster sibling at the same token rates."
+      },
+      "notes": "Token-priced; ~$0.053 at medium 1024² and $0.211 at high. Strong edit consistency and prompt adherence; no 4K SKU.",
+      "sources": [
+        {
+          "name": "Lumenfall",
+          "url": "https://lumenfall.ai/models/openai/gpt-image-2/providers",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "openai/gpt-transcribe",
+      "slug": "gpt-transcribe",
+      "name": "GPT Transcribe",
+      "provider": {
+        "id": "openai",
+        "name": "OpenAI",
+        "env": [
+          "OPENAI_API_KEY"
+        ],
+        "keysUrl": "https://platform.openai.com/api-keys",
+        "docsUrl": "https://platform.openai.com/docs/guides/speech-to-text",
+        "sdk": "npm i openai"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "minute",
+        "amount": 0.0045,
+        "currency": "USD",
+        "confidence": "verified"
+      },
+      "quality": {
+        "overall": 94,
+        "stt": 94
+      },
+      "speed": {
+        "latencySec": 30
+      },
+      "tags": [
+        "audio",
+        "stt",
+        "best-quality",
+        "timestamps",
+        "multilingual"
+      ],
+      "openWeights": false,
+      "releaseDate": "2025-09-11",
+      "capabilities": {
+        "speechToText": true
+      },
+      "access": {
+        "apiModel": "gpt-transcribe"
+      },
+      "notes": "$0.0045/min with strong noisy-audio and multilingual accuracy.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "openai/gpt-5.6-sol",
+      "slug": "gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "provider": {
+        "id": "openai",
+        "name": "OpenAI",
+        "env": [
+          "OPENAI_API_KEY"
+        ],
+        "keysUrl": "https://platform.openai.com/api-keys",
+        "docsUrl": "https://platform.openai.com/docs",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1050000,
+      "maxOutput": 128000,
+      "pricing": {
+        "unit": "mtok",
+        "input": 4,
+        "output": 20,
+        "cachedInput": 0.4,
+        "cacheWrite": 5,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 70.89,
+        "coding": 68,
+        "codingAgent": 80,
+        "reasoning": 78,
+        "longContext": 76,
+        "writing": 82,
+        "multimodal": 82,
+        "cheapWork": 66
+      },
+      "speed": {
+        "outputTps": 80,
+        "ttftMs": 1000
+      },
+      "tags": [
+        "agentic",
+        "vision"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-07-09",
+      "knowledge": "2026-02-16",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "gpt-5.6-sol",
+        "openrouter": "openai/gpt-5.6-sol",
+        "openrouterModel": "openai/gpt-5.6-sol"
+      },
+      "notes": "BenchLM overall 70.89; CursorBench 41.7.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/openai/gpt-5.6-sol",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "openai/gpt-6-luna",
+      "slug": "gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "provider": {
+        "id": "openai",
+        "name": "OpenAI",
+        "env": [
+          "OPENAI_API_KEY"
+        ],
+        "keysUrl": "https://platform.openai.com/api-keys",
+        "docsUrl": "https://platform.openai.com/docs",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1050000,
+      "maxOutput": 128000,
+      "pricing": {
+        "unit": "mtok",
+        "input": 0.1,
+        "output": 0.5,
+        "cachedInput": 0.01,
+        "cacheWrite": 0.125,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 61.23,
+        "coding": 55,
+        "codingAgent": 58,
+        "reasoning": 63,
+        "longContext": 72,
+        "writing": 66,
+        "multimodal": 68,
+        "cheapWork": 90
+      },
+      "speed": {
+        "outputTps": 140,
+        "ttftMs": 600
+      },
+      "tags": [
+        "cheap",
+        "fast",
+        "high-volume"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-09-22",
+      "knowledge": "2026-05-18",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "gpt-6-luna",
+        "openrouter": "openai/gpt-6-luna",
+        "openrouterModel": "openai/gpt-6-luna"
+      },
+      "notes": "BenchLM overall 61.23 at $0.10/$0.50.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/openai/gpt-6-luna",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "openai/gpt-6.1-terra",
+      "slug": "gpt-6.1-terra",
+      "name": "GPT-6.1 Terra",
+      "provider": {
+        "id": "openai",
+        "name": "OpenAI",
+        "env": [
+          "OPENAI_API_KEY"
+        ],
+        "keysUrl": "https://platform.openai.com/api-keys",
+        "docsUrl": "https://platform.openai.com/docs",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1050000,
+      "maxOutput": 128000,
+      "pricing": {
+        "unit": "mtok",
+        "input": 1,
+        "output": 5,
+        "cachedInput": 0.05,
+        "cacheWrite": 1.25,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 77.1,
+        "coding": 75,
+        "codingAgent": 77,
+        "reasoning": 82,
+        "longContext": 80,
+        "writing": 84,
+        "multimodal": 82,
+        "cheapWork": 80
+      },
+      "speed": {
+        "outputTps": 90,
+        "ttftMs": 850
+      },
+      "tags": [
+        "value",
+        "vision",
+        "tools"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-26",
+      "knowledge": "2026-06-01",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "gpt-6.1-terra",
+        "openrouter": "openai/gpt-6.1-terra",
+        "openrouterModel": "openai/gpt-6.1-terra"
+      },
+      "notes": "BenchLM overall 77.1 at $1/$5.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/openai/gpt-6.1-terra",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "openai/gpt-6.2-astra",
+      "slug": "gpt-6.2-astra",
+      "name": "GPT-6.2 Astra",
+      "provider": {
+        "id": "openai",
+        "name": "OpenAI",
+        "env": [
+          "OPENAI_API_KEY"
+        ],
+        "keysUrl": "https://platform.openai.com/api-keys",
+        "docsUrl": "https://platform.openai.com/docs",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1050000,
+      "maxOutput": 128000,
+      "pricing": {
+        "unit": "mtok",
+        "input": 8,
+        "output": 40,
+        "cachedInput": 0.4,
+        "cacheWrite": 10,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 89.61,
+        "coding": 88,
+        "codingAgent": 90,
+        "reasoning": 96,
+        "longContext": 90,
+        "writing": 93,
+        "multimodal": 92,
+        "cheapWork": 58
+      },
+      "speed": {
+        "outputTps": 55,
+        "ttftMs": 1400
+      },
+      "tags": [
+        "frontier",
+        "best-reasoning",
+        "computer-use",
+        "vision",
+        "tools"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-11-17",
+      "knowledge": "2026-05-18",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "gpt-6.2-astra",
+        "openrouter": "openai/gpt-6.2-astra",
+        "openrouterModel": "openai/gpt-6.2-astra"
+      },
+      "notes": "BenchLM overall 89.61; strongest reasoning and computer-use profile.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/openai/gpt-6.2-astra",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "openai/gpt-6.2-sol",
+      "slug": "gpt-6.2-sol",
+      "name": "GPT-6.2 Sol",
+      "provider": {
+        "id": "openai",
+        "name": "OpenAI",
+        "env": [
+          "OPENAI_API_KEY"
+        ],
+        "keysUrl": "https://platform.openai.com/api-keys",
+        "docsUrl": "https://platform.openai.com/docs",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1050000,
+      "maxOutput": 128000,
+      "pricing": {
+        "unit": "mtok",
+        "input": 2,
+        "output": 10,
+        "cachedInput": 0.1,
+        "cacheWrite": 2.5,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 84.79,
+        "coding": 83,
+        "codingAgent": 85,
+        "reasoning": 90,
+        "longContext": 87,
+        "writing": 90,
+        "multimodal": 89,
+        "cheapWork": 66
+      },
+      "speed": {
+        "outputTps": 70,
+        "ttftMs": 1100
+      },
+      "tags": [
+        "frontier",
+        "balanced",
+        "vision",
+        "tools"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-11-17",
+      "knowledge": "2026-06-01",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "gpt-6.2-sol",
+        "openrouter": "openai/gpt-6.2-sol",
+        "openrouterModel": "openai/gpt-6.2-sol"
+      },
+      "notes": "BenchLM overall 84.79 at $2/$10 — the value frontier.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/openai/gpt-6.2-sol",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "xai/grok-4.6",
+      "slug": "grok-4.6",
+      "name": "Grok 4.6",
+      "provider": {
+        "id": "xai",
+        "name": "xAI",
+        "env": [
+          "XAI_API_KEY"
+        ],
+        "keysUrl": "https://console.x.ai",
+        "docsUrl": "https://docs.x.ai",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 500000,
+      "maxOutput": 500000,
+      "pricing": {
+        "unit": "mtok",
+        "input": 2,
+        "output": 6,
+        "cachedInput": 0.5,
+        "cacheWrite": null,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 64.72,
+        "coding": 62,
+        "codingAgent": 68,
+        "reasoning": 72,
+        "longContext": 74,
+        "writing": 70,
+        "multimodal": 76,
+        "cheapWork": 76
+      },
+      "speed": {
+        "outputTps": 75,
+        "ttftMs": 1000
+      },
+      "tags": [
+        "fast",
+        "vision",
+        "value"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-08-12",
+      "knowledge": "2026-02-01",
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "grok-4.6",
+        "openrouter": "xai/grok-4.6",
+        "openrouterModel": "xai/grok-4.6"
+      },
+      "notes": "BenchLM overall 64.72 at $2/$6; CursorBench 46.3.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/xai/grok-4.6",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "tencent/hunyuan3d-3.5",
+      "slug": "hunyuan3d-3.1-pro",
+      "name": "Hunyuan3D 3.1 Pro",
+      "provider": {
+        "id": "fal",
+        "name": "fal.ai (Tencent Hunyuan)",
+        "env": [
+          "FAL_KEY"
+        ],
+        "keysUrl": "https://fal.ai/dashboard/keys",
+        "docsUrl": "https://fal.ai/models/fal-ai/hunyuan-3d/v3.1/pro/image-to-3d",
+        "sdk": "npm i @fal-ai/client"
+      },
+      "modality": "3d",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "asset",
+        "amount": 0.525,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "geometry + PBR",
+            "amount": 0.525,
+            "default": true
+          },
+          {
+            "label": "geometry only",
+            "amount": 0.375
+          },
+          {
+            "label": "geometry + PBR + multiview",
+            "amount": 0.675
+          }
+        ]
+      },
+      "quality": {
+        "overall": 91,
+        "threeD": 91
+      },
+      "speed": {
+        "latencySec": 90
+      },
+      "tags": [
+        "3d",
+        "open-weights",
+        "best-value",
+        "pbr",
+        "8k-texture",
+        "rapid"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-09-01",
+      "capabilities": {
+        "imageInput": true,
+        "threeDOutput": true,
+        "pbr": true,
+        "selfHost": true
+      },
+      "access": {
+        "apiModel": "fal-ai/hunyuan-3d/v3.1/pro/image-to-3d",
+        "apiModelNote": "fal route; Tencent Cloud also sells 3D generation directly."
+      },
+      "notes": "Strong geometry at a mid price, custom face count, PBR add-on. No native rigging.",
+      "sources": [
+        {
+          "name": "fal.ai",
+          "url": "https://fal.ai/models/fal-ai/hunyuan-3d/v3.1/pro/image-to-3d",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "moonshotai/kimi-k3",
+      "slug": "kimi-k3",
+      "name": "Kimi K3",
+      "provider": {
+        "id": "moonshotai",
+        "name": "Moonshot AI",
+        "env": [
+          "MOONSHOT_API_KEY"
+        ],
+        "keysUrl": "https://platform.moonshot.ai/console/api-keys",
+        "docsUrl": "https://platform.moonshot.ai/docs",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1048576,
+      "maxOutput": 1048576,
+      "pricing": {
+        "unit": "mtok",
+        "input": 3,
+        "output": 15,
+        "cachedInput": 0.3,
+        "cacheWrite": 3,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 66.69,
+        "coding": 64,
+        "codingAgent": 66,
+        "reasoning": 74,
+        "longContext": 82,
+        "writing": 74,
+        "multimodal": 72,
+        "cheapWork": 70
+      },
+      "speed": {
+        "outputTps": 55,
+        "ttftMs": 1400
+      },
+      "tags": [
+        "open-weights",
+        "long-context"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-07-16",
+      "knowledge": null,
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": true,
+        "pdf": false,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": true
+      },
+      "access": {
+        "apiModel": "kimi-k3",
+        "openrouter": "moonshotai/kimi-k3",
+        "openrouterModel": "moonshotai/kimi-k3"
+      },
+      "notes": "BenchLM overall 66.69; open weights.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/moonshotai/kimi-k3",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "moonshotai/kimi-k3.1-pro",
+      "slug": "kimi-k3.1-pro",
+      "name": "Kimi K3.1 Pro",
+      "provider": {
+        "id": "moonshotai",
+        "name": "Moonshot AI",
+        "env": [
+          "MOONSHOT_API_KEY"
+        ],
+        "keysUrl": "https://platform.moonshot.ai/console/api-keys",
+        "docsUrl": "https://platform.moonshot.ai/docs",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1048576,
+      "maxOutput": 1048576,
+      "pricing": {
+        "unit": "mtok",
+        "input": 2,
+        "output": 10,
+        "cachedInput": 0.2,
+        "cacheWrite": 2,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 71.2,
+        "coding": 70,
+        "codingAgent": 72,
+        "reasoning": 78,
+        "longContext": 88,
+        "writing": 78,
+        "multimodal": 76,
+        "cheapWork": 72
+      },
+      "speed": {
+        "outputTps": 55,
+        "ttftMs": 1500
+      },
+      "tags": [
+        "open-weights",
+        "long-context",
+        "value"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-10-23",
+      "knowledge": null,
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": true,
+        "pdf": false,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": true
+      },
+      "access": {
+        "apiModel": "kimi-k3.1-pro",
+        "openrouter": "moonshotai/kimi-k3.1-pro",
+        "openrouterModel": "moonshotai/kimi-k3.1-pro"
+      },
+      "notes": "BenchLM overall 71.2; highest-ranked open-weight model on BenchLM coding.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/moonshotai/kimi-k3.1-pro",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "fal/kling-4.0",
+      "slug": "kling-4.0",
+      "name": "Kling 4.0",
+      "provider": {
+        "id": "fal",
+        "name": "fal.ai (Kling)",
+        "env": [
+          "FAL_KEY"
+        ],
+        "keysUrl": "https://fal.ai/dashboard/keys",
+        "docsUrl": "https://fal.ai/models/kling/v4/text-to-video",
+        "sdk": "npm i @fal-ai/client"
+      },
+      "modality": "video",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "second",
+        "amount": 0.157,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "720p",
+            "amount": 0.157,
+            "default": true
+          },
+          {
+            "label": "1080p",
+            "amount": 0.235
+          }
+        ]
+      },
+      "quality": {
+        "overall": 94,
+        "videoGen": 94
+      },
+      "speed": {
+        "latencySec": 300
+      },
+      "tags": [
+        "video",
+        "long-takes",
+        "reference"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-15",
+      "capabilities": {
+        "imageInput": true,
+        "videoInput": true,
+        "videoOutput": true,
+        "nativeAudio": false,
+        "maxDurationSec": 30,
+        "lipSync": false,
+        "cinematic": true
+      },
+      "access": {
+        "apiModel": "kling/v4/text-to-video",
+        "apiModelNote": "fal endpoint; resolution defaults to 1080p — set 720p explicitly to halve cost."
+      },
+      "notes": "Native 30s takes, multi-keyframe control, strong motion. No audio and no 4K on this endpoint; lips are not synced.",
+      "sources": [
+        {
+          "name": "AIReiter",
+          "url": "https://aireiter.com/blog/kling-4-0-api-pricing-fal-cost-vs-seedance-vidu",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/lyria-3.5",
+      "slug": "lyria-3.5",
+      "name": "Lyria 3.5",
+      "provider": {
+        "id": "google",
+        "name": "Google",
+        "env": [
+          "GEMINI_API_KEY",
+          "GOOGLE_API_KEY"
+        ],
+        "keysUrl": "https://aistudio.google.com/apikey",
+        "docsUrl": "https://ai.google.dev/gemini-api/docs/music-generation",
+        "sdk": "npm i @google/genai"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "song",
+        "amount": 0.08,
+        "currency": "USD",
+        "confidence": "verified"
+      },
+      "quality": {
+        "overall": 90,
+        "music": 90
+      },
+      "speed": {
+        "latencySec": 30
+      },
+      "tags": [
+        "audio",
+        "music",
+        "best-value",
+        "full-song"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-09-11",
+      "capabilities": {
+        "musicGeneration": true
+      },
+      "access": {
+        "apiModel": "lyria-3.5"
+      },
+      "notes": "$0.08 per full song — the cheapest production music option in the catalog.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "meshy/meshy-7.1",
+      "slug": "meshy-7.1",
+      "name": "Meshy 7.1",
+      "provider": {
+        "id": "meshy",
+        "name": "Meshy",
+        "env": [
+          "MESHY_API_KEY"
+        ],
+        "keysUrl": "https://www.meshy.ai/settings/api",
+        "docsUrl": "https://docs.meshy.ai/en/api/text-to-3d",
+        "sdk": "REST"
+      },
+      "modality": "3d",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "asset",
+        "amount": 1.2,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "textured",
+            "amount": 1.2,
+            "default": true
+          },
+          {
+            "label": "untextured",
+            "amount": 0.8
+          },
+          {
+            "label": "texture + rig + animation",
+            "amount": 1.52
+          }
+        ]
+      },
+      "quality": {
+        "overall": 91,
+        "threeD": 91
+      },
+      "speed": {
+        "latencySec": 60
+      },
+      "tags": [
+        "3d",
+        "texturing",
+        "animation",
+        "game-ready",
+        "pbr"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-09-01",
+      "capabilities": {
+        "imageInput": true,
+        "threeDOutput": true,
+        "rigging": true,
+        "animation": true,
+        "pbr": true
+      },
+      "access": {
+        "apiModel": "meshy-7.1",
+        "apiModelNote": "30 credits per textured image-to-3D request; dollar cost depends on your credit pack."
+      },
+      "notes": "Only mainstream pipeline with texture + auto-rig + animation in one call. $1.20 textured; rig +$0.20, animation +$0.12.",
+      "sources": [
+        {
+          "name": "fal.ai",
+          "url": "https://fal.ai/models/meshy/v7.1/text-to-3d",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "minimax/music-3",
+      "slug": "minimax-music-3",
+      "name": "MiniMax Music 3",
+      "provider": {
+        "id": "minimax",
+        "name": "MiniMax",
+        "env": [
+          "MINIMAX_API_KEY"
+        ],
+        "keysUrl": "https://platform.minimaxi.com/user-center/basic-information/interface-key",
+        "docsUrl": "https://platform.minimaxi.com/docs",
+        "sdk": "REST"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "song",
+        "amount": 0.12,
+        "currency": "USD",
+        "confidence": "estimated",
+        "variants": [
+          {
+            "label": "60s",
+            "amount": 0.12,
+            "default": true
+          }
+        ]
+      },
+      "quality": {
+        "overall": 84,
+        "music": 84
+      },
+      "speed": {
+        "latencySec": 25
+      },
+      "tags": [
+        "audio",
+        "music",
+        "value",
+        "commercial-safe"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-08-01",
+      "capabilities": {
+        "musicGeneration": true
+      },
+      "access": {
+        "apiModel": "music-3",
+        "apiModelNote": "Billed per second (~$0.002/s); a 60s track is about $0.12."
+      },
+      "notes": "Volume music option at roughly $0.002/s (~$0.12/min), commercial-safe. Quality below Lyria but cheaper at length.",
+      "sources": [
+        {
+          "name": "creative model research",
+          "url": "https://platform.minimaxi.com/docs",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "minimax/MiniMax-M3.1-Flash",
+      "slug": "minimax-m3.1-flash",
+      "name": "MiniMax-M3.1-Flash",
+      "provider": {
+        "id": "minimax",
+        "name": "MiniMax",
+        "env": [
+          "MINIMAX_API_KEY"
+        ],
+        "keysUrl": "https://platform.minimaxi.com/user-center/basic-information/interface-key",
+        "docsUrl": "https://platform.minimaxi.com/docs",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1000000,
+      "maxOutput": 524288,
+      "pricing": {
+        "unit": "mtok",
+        "input": 0.15,
+        "output": 0.6,
+        "cachedInput": 0.015,
+        "cacheWrite": null,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 58.17,
+        "coding": 53,
+        "codingAgent": 60,
+        "reasoning": 62,
+        "longContext": 76,
+        "writing": 62,
+        "multimodal": 60,
+        "cheapWork": 92
+      },
+      "speed": {
+        "outputTps": 110,
+        "ttftMs": 700
+      },
+      "tags": [
+        "cheap",
+        "fast",
+        "long-context",
+        "high-volume"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-10-19",
+      "knowledge": null,
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": true,
+        "pdf": false,
+        "structuredOutput": false,
+        "promptCache": true,
+        "openWeights": true
+      },
+      "access": {
+        "apiModel": "MiniMax-M3.1-Flash",
+        "openrouter": "minimax/MiniMax-M3.1-Flash",
+        "openrouterModel": "minimax/MiniMax-M3.1-Flash"
+      },
+      "notes": "BenchLM overall 58.17 at $0.15/$0.60 with 1M context.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/minimax/MiniMax-M3.1-Flash",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "mistral/mistral-large-4",
+      "slug": "mistral-large-4",
+      "name": "Mistral Large 4",
+      "provider": {
+        "id": "mistral",
+        "name": "Mistral AI",
+        "env": [
+          "MISTRAL_API_KEY"
+        ],
+        "keysUrl": "https://console.mistral.ai/api-keys",
+        "docsUrl": "https://docs.mistral.ai",
+        "sdk": "npm i @mistralai/mistralai"
+      },
+      "modality": "text",
+      "contextWindow": 1048576,
+      "maxOutput": 262144,
+      "pricing": {
+        "unit": "mtok",
+        "input": 0.7,
+        "output": 2.1,
+        "cachedInput": 0.07,
+        "cacheWrite": null,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 51.48,
+        "coding": 46,
+        "codingAgent": 48,
+        "reasoning": 52,
+        "longContext": 66,
+        "writing": 62,
+        "multimodal": 56,
+        "cheapWork": 62
+      },
+      "speed": {
+        "outputTps": 80,
+        "ttftMs": 900
+      },
+      "tags": [
+        "eu-hosted",
+        "value"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-06",
+      "knowledge": null,
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": false,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "mistral-large-4",
+        "openrouter": "mistral/mistral-large-4",
+        "openrouterModel": "mistral/mistral-large-4"
+      },
+      "notes": "BenchLM overall 51.48; EU-hosted option.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/mistral/mistral-large-4",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/nano-banana-2.1",
+      "slug": "nano-banana-2.1",
+      "name": "Nano Banana 2.1",
+      "provider": {
+        "id": "google",
+        "name": "Google",
+        "env": [
+          "GEMINI_API_KEY",
+          "GOOGLE_API_KEY"
+        ],
+        "keysUrl": "https://aistudio.google.com/apikey",
+        "docsUrl": "https://ai.google.dev/gemini-api/docs/image-generation",
+        "sdk": "npm i @google/genai"
+      },
+      "modality": "image",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "image",
+        "amount": 0.0336,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "1K",
+            "amount": 0.0336,
+            "default": true
+          },
+          {
+            "label": "2K",
+            "amount": 0.0504
+          },
+          {
+            "label": "4K",
+            "amount": 0.113
+          },
+          {
+            "label": "batch 1K",
+            "amount": 0.0168
+          }
+        ]
+      },
+      "quality": {
+        "overall": 93,
+        "imageGen": 94,
+        "imageEdit": 96,
+        "textInImage": 88
+      },
+      "speed": {
+        "latencySec": 8
+      },
+      "tags": [
+        "image",
+        "editing",
+        "best-value",
+        "4k",
+        "fast",
+        "character-consistency"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-06",
+      "capabilities": {
+        "imageInput": true,
+        "imageOutput": true,
+        "textInImage": true
+      },
+      "access": {
+        "apiModel": "gemini-nano-banana-2.1",
+        "apiModelNote": "First-party Gemini image model id."
+      },
+      "notes": "The price/quality default for most image work: $0.0336 at 1K, strong edits and character consistency.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/nano-banana-pro",
+      "slug": "nano-banana-pro",
+      "name": "Nano Banana Pro",
+      "provider": {
+        "id": "google",
+        "name": "Google",
+        "env": [
+          "GEMINI_API_KEY",
+          "GOOGLE_API_KEY"
+        ],
+        "keysUrl": "https://aistudio.google.com/apikey",
+        "docsUrl": "https://ai.google.dev/gemini-api/docs/image-generation",
+        "sdk": "npm i @google/genai"
+      },
+      "modality": "image",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "image",
+        "amount": 0.134,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "1K/2K",
+            "amount": 0.134,
+            "default": true
+          },
+          {
+            "label": "4K",
+            "amount": 0.24
+          },
+          {
+            "label": "batch 1K/2K",
+            "amount": 0.067
+          }
+        ]
+      },
+      "quality": {
+        "overall": 96,
+        "imageGen": 96,
+        "imageEdit": 97,
+        "textInImage": 97
+      },
+      "speed": {
+        "latencySec": 20
+      },
+      "tags": [
+        "image",
+        "best-quality",
+        "text-in-image",
+        "4k",
+        "editing"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-05-28",
+      "capabilities": {
+        "imageInput": true,
+        "imageOutput": true,
+        "textInImage": true
+      },
+      "access": {
+        "apiModel": "gemini-3-pro-image"
+      },
+      "notes": "Best text rendering and 4K output; use when the image must contain accurate type or brand assets.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3.8-max",
+      "slug": "qwen3.8-max",
+      "name": "Qwen3.8 Max",
+      "provider": {
+        "id": "alibaba",
+        "name": "Alibaba Cloud",
+        "env": [
+          "DASHSCOPE_API_KEY"
+        ],
+        "keysUrl": "https://bailian.console.alibabacloud.com/?apiKey=1",
+        "docsUrl": "https://www.alibabacloud.com/help/en/model-studio",
+        "sdk": "npm i openai"
+      },
+      "modality": "text",
+      "contextWindow": 1000000,
+      "maxOutput": 131072,
+      "pricing": {
+        "unit": "mtok",
+        "input": 2,
+        "output": 6,
+        "cachedInput": 0.25,
+        "cacheWrite": 2.5,
+        "currency": "USD"
+      },
+      "quality": {
+        "overall": 63.41,
+        "coding": 59,
+        "codingAgent": 63,
+        "reasoning": 68,
+        "longContext": 82,
+        "writing": 68,
+        "multimodal": 72,
+        "cheapWork": 74
+      },
+      "speed": {
+        "outputTps": 80,
+        "ttftMs": 900
+      },
+      "tags": [
+        "long-context",
+        "value",
+        "multilingual"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-08-03",
+      "knowledge": null,
+      "capabilities": {
+        "tools": true,
+        "reasoning": true,
+        "vision": true,
+        "audioInput": false,
+        "videoInput": true,
+        "pdf": true,
+        "structuredOutput": true,
+        "promptCache": true,
+        "openWeights": false
+      },
+      "access": {
+        "apiModel": "qwen3.8-max",
+        "openrouter": "alibaba/qwen3.8-max",
+        "openrouterModel": "alibaba/qwen3.8-max"
+      },
+      "notes": "BenchLM overall 63.41; strong Chinese and 1M context.",
+      "sources": [
+        {
+          "name": "models.dev",
+          "url": "https://models.dev/api.json",
+          "readAt": "2026-11-19"
+        },
+        {
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/alibaba/qwen3.8-max",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "bytedance/seedance-2.5",
+      "slug": "seedance-2.5",
+      "name": "Seedance 2.5",
+      "provider": {
+        "id": "bytedance",
+        "name": "ByteDance",
+        "env": [
+          "BYTEPLUS_API_KEY"
+        ],
+        "keysUrl": "https://console.byteplus.com",
+        "docsUrl": "https://docs.byteplus.com/en/docs/ModelArk/Seedance",
+        "sdk": "REST"
+      },
+      "modality": "video",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "second",
+        "amount": 0.473,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "480p",
+            "amount": 0.2205
+          },
+          {
+            "label": "720p",
+            "amount": 0.473,
+            "default": true
+          },
+          {
+            "label": "1080p",
+            "amount": 1.164
+          },
+          {
+            "label": "4K",
+            "amount": 1.84
+          }
+        ]
+      },
+      "quality": {
+        "overall": 93,
+        "videoGen": 93
+      },
+      "speed": {
+        "latencySec": 150
+      },
+      "tags": [
+        "video",
+        "references",
+        "multi-shot",
+        "value"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-09-10",
+      "capabilities": {
+        "imageInput": true,
+        "videoInput": true,
+        "videoOutput": true,
+        "nativeAudio": true,
+        "maxDurationSec": 30,
+        "lipSync": true,
+        "cinematic": true
+      },
+      "access": {
+        "apiModel": "seedance-2-5",
+        "apiModelNote": "ModelArk id; billing is per generated video token, so per-second figures are estimates."
+      },
+      "notes": "30s, 4K, synchronized audio; strongest cinematic look above $0.20/s. Most expensive at 1080p+.",
+      "sources": [
+        {
+          "name": "Seedance API guide",
+          "url": "https://www.seeddance.io/blog/seedance-2-5-api-guide",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "bytedance/seedream-4.5",
+      "slug": "seedream-5.5",
+      "name": "Seedream 5.5",
+      "provider": {
+        "id": "bytedance",
+        "name": "ByteDance",
+        "env": [
+          "BYTEPLUS_API_KEY"
+        ],
+        "keysUrl": "https://console.byteplus.com",
+        "docsUrl": "https://docs.byteplus.com/en/docs/ModelArk/Seedream",
+        "sdk": "REST"
+      },
+      "modality": "image",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "image",
+        "amount": 0.03,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "1K/1.5K",
+            "amount": 0.03,
+            "default": true
+          },
+          {
+            "label": "2K",
+            "amount": 0.0405
+          }
+        ]
+      },
+      "quality": {
+        "overall": 90,
+        "imageGen": 91,
+        "imageEdit": 92,
+        "textInImage": 90
+      },
+      "speed": {
+        "latencySec": 8
+      },
+      "tags": [
+        "image",
+        "editing",
+        "fast",
+        "text-in-image",
+        "value"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-01",
+      "capabilities": {
+        "imageInput": true,
+        "imageOutput": true,
+        "textInImage": true
+      },
+      "access": {
+        "apiModel": "bytedance/seedream/v5.5",
+        "apiModelNote": "fal route; BytePlus model id may differ."
+      },
+      "notes": "Cheapest credible 2K image at $0.03; transparent PNG, configurable dimensions, layerize variant. No 4K on fal.",
+      "sources": [
+        {
+          "name": "fal.ai",
+          "url": "https://fal.ai/models/bytedance/seedream/v5.5/text-to-image",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "microsoft/trellis-2",
+      "slug": "trellis-2",
+      "name": "TRELLIS 2",
+      "provider": {
+        "id": "fal",
+        "name": "fal.ai (Microsoft Research)",
+        "env": [
+          "FAL_KEY"
+        ],
+        "keysUrl": "https://fal.ai/dashboard/keys",
+        "docsUrl": "https://fal.ai/models/fal-ai/trellis-2",
+        "sdk": "npm i @fal-ai/client"
+      },
+      "modality": "3d",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "asset",
+        "amount": 0.3,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "1024p",
+            "amount": 0.3,
+            "default": true
+          },
+          {
+            "label": "512p",
+            "amount": 0.25
+          },
+          {
+            "label": "1536p",
+            "amount": 0.35
+          }
+        ]
+      },
+      "quality": {
+        "overall": 82,
+        "threeD": 82
+      },
+      "speed": {
+        "latencySec": 45
+      },
+      "tags": [
+        "3d",
+        "open-weights",
+        "self-host",
+        "budget"
+      ],
+      "openWeights": true,
+      "releaseDate": "2026-04-01",
+      "capabilities": {
+        "imageInput": true,
+        "threeDOutput": true,
+        "selfHost": true
+      },
+      "access": {
+        "apiModel": "fal-ai/trellis-2",
+        "apiModelNote": "Open model; self-host for zero per-asset fee."
+      },
+      "notes": "Open-weight 3D model, self-hostable. Weaker textures/PBR than commercial tiers but the cheapest path at scale.",
+      "sources": [
+        {
+          "name": "fal.ai",
+          "url": "https://fal.ai/models/fal-ai/trellis-2",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "tripo/tripo-3.0",
+      "slug": "tripo-h3.1",
+      "name": "Tripo H3.1",
+      "provider": {
+        "id": "tripo",
+        "name": "Tripo",
+        "env": [
+          "TRIPO_API_KEY"
+        ],
+        "keysUrl": "https://platform.tripo3d.ai/api-keys",
+        "docsUrl": "https://developers.tripo3d.ai/en/docs",
+        "sdk": "REST / MCP"
+      },
+      "modality": "3d",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "asset",
+        "amount": 0.2,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "text · standard",
+            "amount": 0.2,
+            "default": true
+          },
+          {
+            "label": "text · untextured",
+            "amount": 0.1
+          },
+          {
+            "label": "image · standard",
+            "amount": 0.3
+          },
+          {
+            "label": "HD texture",
+            "amount": 0.3
+          },
+          {
+            "label": "plus quad mesh",
+            "amount": 0.25
+          }
+        ]
+      },
+      "quality": {
+        "overall": 94,
+        "threeD": 94
+      },
+      "speed": {
+        "latencySec": 60
+      },
+      "tags": [
+        "3d",
+        "best-topology",
+        "rigging",
+        "quad-mesh",
+        "pbr",
+        "game-ready"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-03-01",
+      "capabilities": {
+        "imageInput": true,
+        "threeDOutput": true,
+        "rigging": true,
+        "pbr": true
+      },
+      "access": {
+        "apiModel": "tripo3d/h3.1/text-to-3d",
+        "apiModelNote": "fal route; Tripo direct uses the same H3.1 generation endpoint."
+      },
+      "notes": "Cheapest usable game asset at $0.10; quad/retopo mesh +$0.05, HD texture $0.30, auto-rig separate.",
+      "sources": [
+        {
+          "name": "Tripo pricing",
+          "url": "https://developers.tripo3d.ai/en/pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/veo-3.1",
+      "slug": "veo-3.1",
+      "name": "Veo 3.1",
+      "provider": {
+        "id": "google-vertex",
+        "name": "Google Vertex AI",
+        "env": [
+          "GOOGLE_CLOUD_PROJECT",
+          "GOOGLE_APPLICATION_CREDENTIALS"
+        ],
+        "keysUrl": "https://console.cloud.google.com/iam-admin/serviceaccounts",
+        "docsUrl": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate",
+        "sdk": "npm i @google-cloud/aiplatform"
+      },
+      "modality": "video",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "second",
+        "amount": 0.4,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "720p/1080p audio",
+            "amount": 0.4,
+            "default": true
+          },
+          {
+            "label": "4K audio",
+            "amount": 0.6
+          },
+          {
+            "label": "720p silent",
+            "amount": 0.2
+          }
+        ]
+      },
+      "quality": {
+        "overall": 95,
+        "videoGen": 95
+      },
+      "speed": {
+        "latencySec": 120
+      },
+      "tags": [
+        "video",
+        "best-quality",
+        "native-audio",
+        "4k",
+        "cinematic"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-08-15",
+      "capabilities": {
+        "imageInput": true,
+        "videoOutput": true,
+        "nativeAudio": true,
+        "maxDurationSec": 8,
+        "lipSync": true,
+        "cinematic": true
+      },
+      "access": {
+        "apiModel": "veo-3.1-generate-001",
+        "apiModelNote": "Vertex only — Veo is no longer served by the Gemini API."
+      },
+      "notes": "Reference-quality native audio/dialogue, 4K, 8s clips. Vertex project + IAM required. $2.00 for 5s with audio.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "google/veo-3.1-fast",
+      "slug": "veo-3.1-fast",
+      "name": "Veo 3.1 Fast",
+      "provider": {
+        "id": "google-vertex",
+        "name": "Google Vertex AI",
+        "env": [
+          "GOOGLE_CLOUD_PROJECT",
+          "GOOGLE_APPLICATION_CREDENTIALS"
+        ],
+        "keysUrl": "https://console.cloud.google.com/iam-admin/serviceaccounts",
+        "docsUrl": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/veo/3-1-generate",
+        "sdk": "npm i @google-cloud/aiplatform"
+      },
+      "modality": "video",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "second",
+        "amount": 0.1,
+        "currency": "USD",
+        "confidence": "verified",
+        "variants": [
+          {
+            "label": "720p audio",
+            "amount": 0.1,
+            "default": true
+          },
+          {
+            "label": "1080p audio",
+            "amount": 0.12
+          },
+          {
+            "label": "4K audio",
+            "amount": 0.3
+          }
+        ]
+      },
+      "quality": {
+        "overall": 86,
+        "videoGen": 86
+      },
+      "speed": {
+        "latencySec": 60
+      },
+      "tags": [
+        "video",
+        "best-value",
+        "draft",
+        "native-audio"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-08-15",
+      "capabilities": {
+        "imageInput": true,
+        "videoOutput": true,
+        "nativeAudio": true,
+        "maxDurationSec": 8,
+        "lipSync": false,
+        "cinematic": false
+      },
+      "access": {
+        "apiModel": "veo-3.1-fast-generate-001",
+        "apiModelNote": "Vertex only."
+      },
+      "notes": "Same family, 4× cheaper than Veo 3.1 at 720p. The right default for iterating before a hero render.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "mistral/voxtral-small-transcribe-3",
+      "slug": "voxtral-small-transcribe-3",
+      "name": "Voxtral Small Transcribe 3",
+      "provider": {
+        "id": "mistral",
+        "name": "Mistral AI",
+        "env": [
+          "MISTRAL_API_KEY"
+        ],
+        "keysUrl": "https://console.mistral.ai/api-keys",
+        "docsUrl": "https://docs.mistral.ai",
+        "sdk": "npm i @mistralai/mistralai"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "minute",
+        "amount": 0.004,
+        "currency": "USD",
+        "confidence": "verified"
+      },
+      "quality": {
+        "overall": 90,
+        "stt": 90
+      },
+      "speed": {
+        "latencySec": 20
+      },
+      "tags": [
+        "audio",
+        "stt",
+        "value",
+        "multilingual"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-20",
+      "capabilities": {
+        "speechToText": true
+      },
+      "access": {
+        "apiModel": "voxtral-small-transcribe-3-0"
+      },
+      "notes": "$0.004/min, slightly cheaper than GPT Transcribe with lower latency.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "id": "mistral/voxtral-tts-3",
+      "slug": "voxtral-tts-3",
+      "name": "Voxtral TTS 3",
+      "provider": {
+        "id": "mistral",
+        "name": "Mistral AI",
+        "env": [
+          "MISTRAL_API_KEY"
+        ],
+        "keysUrl": "https://console.mistral.ai/api-keys",
+        "docsUrl": "https://docs.mistral.ai",
+        "sdk": "npm i @mistralai/mistralai"
+      },
+      "modality": "audio",
+      "contextWindow": null,
+      "maxOutput": null,
+      "pricing": {
+        "unit": "kchar",
+        "amount": 0.013,
+        "currency": "USD",
+        "confidence": "verified"
+      },
+      "quality": {
+        "overall": 88,
+        "tts": 88
+      },
+      "speed": {
+        "latencySec": 2
+      },
+      "tags": [
+        "audio",
+        "tts",
+        "best-value",
+        "fast",
+        "multilingual"
+      ],
+      "openWeights": false,
+      "releaseDate": "2026-10-20",
+      "capabilities": {
+        "textToSpeech": true
+      },
+      "access": {
+        "apiModel": "voxtral-mini-tts-3-0"
+      },
+      "notes": "$13 per 1M characters (~$0.013/1K) — 6× cheaper than Eleven v4 with solid quality.",
+      "sources": [
+        {
+          "name": "BenchLM media pricing",
+          "url": "https://benchlm.ai/media-pricing",
+          "readAt": "2026-11-19"
+        }
+      ]
+    }
+  ]
+}

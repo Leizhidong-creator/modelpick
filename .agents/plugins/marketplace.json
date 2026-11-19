@@ -1,0 +1,10 @@
+{
+  "name": "modelpick",
+  "plugins": [
+    {
+      "name": "modelpick",
+      "source": "./plugins/modelpick",
+      "description": "Model selection and API-key setup for every workflow node: coding, image, video, 3D, and audio."
+    }
+  ]
+}
