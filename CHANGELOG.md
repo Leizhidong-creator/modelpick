@@ -10,7 +10,7 @@ All notable changes to ModelPick are documented here. The format follows Keep a 
 - 41-model catalog across 18 providers: text, image, video, 3D, and audio.
 - 20 task nodes with English/Chinese detection, capability filters, quality floors, and cost anchors.
 - **Cost per solved task**: cache-aware price × expected attempts, with transparent retry model.
-- MCP server with 6 tools: `pick_model`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`.
+- MCP server with 7 tools: `pick_model`, `get_decision_packet`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`.
 - Agent installers: Claude Code, Codex CLI, Cursor, DeepSeek Harness, Copilot CLI, generic MCP.
 - Portable `SKILL.md`, Claude Code plugin, marketplace manifests, and `.agents` skill copy.
 - Data-driven policy (`catalog/policy.json`) and private model overrides (`~/.modelpick/overrides.json`).

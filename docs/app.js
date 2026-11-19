@@ -19,11 +19,11 @@
     },
     codex: {
       name: "Codex CLI",
-      note: "Writes AGENTS.md and the skill. The MCP server is registered globally with codex mcp add.",
+      note: "Writes AGENTS.md, the skill, and appends ~/.codex/config.toml. Backs up the existing file first.",
       file: "~/.codex/config.toml",
       kind: "global",
-      command: "npx -y github:Leizhidong-creator/modelpick setup codex\ncodex mcp add modelpick -- npx -y github:Leizhidong-creator/modelpick mcp",
-      restart: "Run codex mcp list. modelpick should show enabled.",
+      command: "npx -y github:Leizhidong-creator/modelpick setup codex --global --write\ncodex mcp list",
+      restart: "Restart Codex. modelpick should show enabled in codex mcp list.",
       code: `[mcp_servers.modelpick]
 command = "npx"
 args = ["-y", "github:Leizhidong-creator/modelpick", "mcp"]`

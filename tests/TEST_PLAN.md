@@ -44,17 +44,17 @@ Result: **88/88 pass**.
 - Media prices carry `verified` or `estimated`.
 - Snapshot age <120 days.
 
-### 3. Integration — 39 tests
+### 3. Integration — 43 tests
 
 | Area | File | What is asserted |
 |---|---|---|
 | CLI | `tests/integration/cli.test.js` | version/help, tasks, model filters, pick, constraints, no-eligible exit code, plan, compare, doctor, keys, update, invalid preset |
-| MCP | `tests/integration/mcp.test.js` | initialize, 6 tools, compact pick payload, plan, setup, list, unknown tool, explain, clean stdout |
+| MCP | `tests/integration/mcp.test.js` | initialize, 7 tools, compact pick payload, plan, setup, list, unknown tool, explain, clean stdout |
 | Setup | `tests/integration/setup.test.js` | generic/Claude/DSH installs, idempotent AGENTS block, sibling MCP preservation, invalid JSON refusal, dry run, unknown agent, DSH row/backup |
 | Decision | `tests/integration/decision.test.js` | packet contract, verdict application, invented slug rejection, missing file |
 | Add-model | `tests/integration/add-model.test.js` | validation before write, routable custom model, removal |
 
-Result: **39/39 pass**.
+Result: **43/43 pass**.
 
 ### 4. End-to-end — 3 tests
 

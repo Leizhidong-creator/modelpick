@@ -48,7 +48,7 @@ Repo: https://github.com/Leizhidong-creator/modelpick
 
 ## r/mcp (Day 7)
 
-**Title:** ModelPick MCP server: 6 tools for model selection across text, image, video, 3D, audio
+**Title:** ModelPick MCP server: 7 tools for model selection across text, image, video, 3D, audio
 
 **Body:**
 

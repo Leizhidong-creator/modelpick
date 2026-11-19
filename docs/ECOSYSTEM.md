@@ -68,11 +68,12 @@ DSH also reads the portable skill from `.dsh/skills`, `.agents/skills`, `~/.dsh/
 
 ## MCP contract
 
-Six tools, stdio, no keys required for recommendations:
+Seven tools, stdio, no keys required for recommendations:
 
 | Tool | Input | Output |
 |---|---|---|
 | `pick_model` | query, task, optimize, max_cost, min_quality, open_weights, available_only, context_tokens, exclude_providers, top_k, optional `verdict` | ranked model, cost per solved task, why, setup, availability, best runnable fallback, judge decision |
+| `get_decision_packet` | query, task, optimize, max_cost, open_weights, top_k | a portable judge prompt, allowed slugs, and apply instructions |
 | `plan_workflow` | goal, optimize, max_cost | steps, model per step, total estimate |
 | `compare_models` | models[], task | quality, cost, attempts, availability |
 | `get_setup` | model | endpoint, auth, env, SDK, curl, docs |

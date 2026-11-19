@@ -127,6 +127,23 @@ function copySkill(dir, { dryRun = false } = {}) {
  * MCP servers are Cordis plugin rows. We require an explicit `--write` because
  * this file is live application configuration.
  */
+/**
+ * Codex reads MCP servers from ~/.codex/config.toml. `codex mcp add` is the
+ * official path; this writer is the no-CLI fallback and the testable path.
+ * Requires --global --write because it edits a user-level file.
+ */
+export function writeCodexMcp(server, { configFile, dryRun = false } = {}) {
+  const file = configFile ?? home('.codex', 'config.toml');
+  const block = `\n# modelpick:begin (managed by modelpick setup codex --global --write)\n[mcp_servers.modelpick]\ncommand = ${JSON.stringify(server.command)}\nargs = ${JSON.stringify(server.args)}\n# modelpick:end\n`;
+  const current = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
+  if (current.includes('[mcp_servers.modelpick]')) return { file, changed: false, action: 'already-present' };
+  if (dryRun) return { file, changed: true, action: 'append', content: block };
+  ensureDir(file);
+  const backup = fs.existsSync(file) ? backupFile(file) : null;
+  fs.appendFileSync(file, block, 'utf8');
+  return { file, changed: true, action: 'appended', backup };
+}
+
 export function writeDshMcp(server, { profile = 'desktop', dryRun = false, dshHome } = {}) {
   const base = dshHome ?? home('.dsh');
   const file = path.join(base, 'profiles', profile, 'cordis.patch.yml');
@@ -188,13 +205,20 @@ export function installAgent(agentId, options = {}) {
     }
     case 'codex': {
       if (global) {
-        notes.push(`Add this to ${home('.codex', 'config.toml')}:`);
-        notes.push(`[mcp_servers.modelpick]\ncommand = ${JSON.stringify(server.command)}\nargs = ${JSON.stringify(server.args)}`);
         actions.push(...copySkill(home('.agents', 'skills', 'modelpick'), { dryRun }));
+        if (options.write) {
+          const written = writeCodexMcp(server, { dryRun, configFile: options.codexConfig });
+          actions.push({ file: written.file, changed: written.changed, action: written.action });
+          if (written.changed) notes.push(`Wrote the MCP row to ${written.file}. Restart Codex, then run \`codex mcp list\`.`);
+        } else {
+          notes.push(`No global MCP file written. Run: modelpick setup codex --global --write`);
+          notes.push(`It appends [mcp_servers.modelpick] to ~/.codex/config.toml, or use codex mcp add.`);
+        }
       } else {
         actions.push(upsertBlock(path.join(cwd, 'AGENTS.md'), AGENTS_BLOCK, { dryRun }));
         actions.push(...copySkill(path.join(cwd, '.agents', 'skills', 'modelpick'), { dryRun }));
-        notes.push(`Register the MCP server once:\n  codex mcp add modelpick -- ${JSON.stringify(server.command)} ${server.args.map((arg) => JSON.stringify(arg)).join(' ')}`);
+        notes.push(`Register the MCP server once (Codex reads ~/.codex/config.toml):\n  codex mcp add modelpick -- ${JSON.stringify(server.command)} ${server.args.map((arg) => JSON.stringify(arg)).join(' ')}`);
+        notes.push('Or write it from ModelPick: modelpick setup codex --global --write');
       }
       break;
     }

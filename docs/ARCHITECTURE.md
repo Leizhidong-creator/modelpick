@@ -69,7 +69,7 @@ The bundled catalog is a **dated snapshot**. `modelpick update` fetches a newer 
 | Surface | Entry | Contract |
 |---|---|---|
 | CLI | `bin/modelpick.js` | human output + `--json`; exit 3 when no model fits constraints; `decide` + `--verdict` |
-| MCP | `src/mcp/server.js` | JSON-RPC over stdio, 6 tools, compact payloads, optional `verdict` |
+| MCP | `src/mcp/server.js` | JSON-RPC over stdio, 7 tools, compact payloads, optional `verdict` |
 | Skill | `skills/modelpick/SKILL.md` | when to call, how to read results, fallback CLI |
 | Claude plugin | `plugins/modelpick/` | manifest, `.mcp.json`, command, skill |
 | Installers | `src/integrations/index.js` | idempotent writes with backups; never clobber invalid JSON; DSH profile row |

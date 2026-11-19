@@ -18,10 +18,10 @@ test('MCP initializes with tools capability and instructions', async () => {
   assert.equal(initialized.serverInfo.name, 'modelpick');
   assert.ok(initialized.instructions.includes('pick_model'));
   const tools = responses.get(2).result.tools;
-  assert.equal(tools.length, 6);
+  assert.equal(tools.length, 7);
   assert.deepEqual(
     tools.map((tool) => tool.name).sort(),
-    ['compare_models', 'explain_task', 'get_setup', 'list_models', 'pick_model', 'plan_workflow']
+    ['compare_models', 'explain_task', 'get_decision_packet', 'get_setup', 'list_models', 'pick_model', 'plan_workflow']
   );
   assert.ok(tools.every((tool) => tool.inputSchema.type === 'object'));
 });
@@ -64,6 +64,18 @@ test('pick_model accepts an external verdict and reports it', async () => {
   const judged = toolResult(second.responses.get(21));
   assert.equal(judged.recommendation.slug, slugs.at(-1));
   assert.equal(judged.decision.applied, true);
+});
+
+test('get_decision_packet returns a portable judge prompt', async () => {
+  const { responses } = await mcpSession([
+    init,
+    { jsonrpc: '2.0', id: 22, method: 'tools/call', params: { name: 'get_decision_packet', arguments: { query: 'create a 3D game asset' } } }
+  ]);
+  const packet = toolResult(responses.get(22));
+  assert.equal(packet.kind, 'decision-packet');
+  assert.ok(packet.allowedSlugs.length >= 2);
+  assert.ok(packet.prompt.includes('Return ONLY JSON'));
+  assert.equal(packet.candidates.length, packet.allowedSlugs.length);
 });
 
 test('plan_workflow returns every step and a total', async () => {

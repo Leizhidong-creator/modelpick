@@ -34,6 +34,7 @@ export async function runSetup(ctx) {
         global: Boolean(ctx.flags.global),
         write: Boolean(ctx.flags.write),
         profile: ctx.options.profile,
+        codexConfig: ctx.options['codex-config'],
         dryRun: Boolean(ctx.flags['dry-run']),
         mode
       })

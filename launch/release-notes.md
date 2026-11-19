@@ -8,10 +8,10 @@ The first public cut of a model router that prices **cost per solved task**, not
 - **`pick`** returns one recommendation with quality, expected attempts, cost per solved task, latency, why, trade-offs, and the exact key/env setup.
 - **Key-aware fallbacks.** If you do not own the recommended provider, `picks.available` gives the best runnable model. `--available` filters to keys already present. No keys is not an error.
 - **Value, defined.** The value pick is the cheapest model within 8 quality points of the best eligible model; if the band is empty, it falls back to the top pick. It keeps 95.4% of frontier first-pass quality at 41.6% of the cost in the simulation. Definition, simulation, and sensitivity: `docs/VALUE.md`.
-- **6 MCP tools** over stdio: `pick_model`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`.
+- **7 MCP tools** over stdio: `pick_model`, `get_decision_packet`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`.
 - **Embedded everywhere it can be:** Claude Code plugin + marketplace, Codex MCP/skill, Cursor, DeepSeek Harness profile row, Copilot, generic MCP.
 - **Bring your own decision model.** `modelpick decide` emits a portable packet; `modelpick pick --verdict` applies a judge/decision-model ranking locally. The verdict can only reorder the shortlist by two positions and cannot override constraints. `pick_model` accepts the same object over MCP. Protocol: `docs/JUDGES.md`.
-- **Evidence:** 130 tests, 25/25 adversarial cases, 115 dev + 35 held-out decision runs, and an explicit confidence label on every quality score and price.
+- **Evidence:** 134 tests, 25/25 adversarial cases, 115 dev + 35 held-out decision runs, and an explicit confidence label on every quality score and price.
 - **93-second English intro video** with a local neural voice, plus script, storyboard, captions, and a poster.
 
 ## Honest limits

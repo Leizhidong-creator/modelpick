@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-130%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-134%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-25%2F25-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -137,16 +137,15 @@ Plugin alternative, inside Claude Code:
 
 ```bash
 npx -y github:Leizhidong-creator/modelpick setup codex
-codex mcp add modelpick -- npx -y github:Leizhidong-creator/modelpick mcp
+# or write the global MCP row directly, with a backup:
+npx -y github:Leizhidong-creator/modelpick setup codex --global --write
 codex mcp list
 ```
 
-`setup codex` writes `AGENTS.md` and `.agents/skills/modelpick/`. Codex reads MCP servers from `~/.codex/config.toml`, so the `codex mcp add` line is the part that registers the server. It writes:
+`setup codex` writes `AGENTS.md` and `.agents/skills/modelpick/`. Codex reads MCP servers from `~/.codex/config.toml`, so `--global --write` appends the row or you can use `codex mcp add`:
 
-```toml
-[mcp_servers.modelpick]
-command = "npx"
-args = ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+```bash
+codex mcp add modelpick -- npx -y github:Leizhidong-creator/modelpick mcp
 ```
 
 ### Cursor
@@ -201,7 +200,7 @@ It writes `.mcp.json`, `.github/skills/modelpick/`, and `AGENTS.md`. Restart Cop
 }
 ```
 
-Tools exposed: `pick_model`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`. Recommendations work without any provider key; the key is only needed to run the chosen model.
+Tools exposed: `pick_model`, `get_decision_packet`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`. Recommendations work without any provider key; the key is only needed to run the chosen model.
 
 **Portable skill:** `.agents/skills/modelpick/SKILL.md` is read by Codex, Cursor, Copilot CLI, Devin/Windsurf, and DeepSeek Harness. Claude Code gets its own copy. The skill tells the agent when to call `pick_model` and how to report the result.
 

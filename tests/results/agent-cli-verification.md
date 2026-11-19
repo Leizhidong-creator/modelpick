@@ -92,7 +92,7 @@ Not installed on this machine. The documented config path is `~/.copilot/mcp-con
 
 - The generated Claude plugin manifest is accepted by the real Claude Code validator.
 - The generated Codex MCP config is accepted by the real Codex CLI.
-- The MCP server speaks the protocol and answers six tools (tested directly).
+- The MCP server speaks the protocol and answers seven tools (tested directly).
 - DSH's file format and profile path are real, not invented.
 
 ## What this does not prove

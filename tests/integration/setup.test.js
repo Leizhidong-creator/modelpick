@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { runCli, tempDir } from '../helpers.js';
-import { writeDshMcp, mcpCommand } from '../../src/integrations/index.js';
+import { writeDshMcp, writeCodexMcp, mcpCommand } from '../../src/integrations/index.js';
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -105,4 +105,35 @@ test('DSH dry-run does not create a profile file', () => {
   const result = writeDshMcp(mcpCommand({ mode: 'node' }), { profile: 'web', dryRun: true, dshHome: home });
   assert.equal(result.action, 'append');
   assert.ok(!fs.existsSync(result.file));
+});
+
+test('Codex MCP row is written once, with a backup', () => {
+  const dir = tempDir('mp-codex-');
+  const file = path.join(dir, 'config.toml');
+  fs.writeFileSync(file, '[mcp_servers.other]\ncommand = "existing"\n');
+  const first = writeCodexMcp(mcpCommand({ mode: 'node' }), { configFile: file });
+  assert.equal(first.action, 'appended');
+  const text = fs.readFileSync(file, 'utf8');
+  assert.ok(text.includes('[mcp_servers.modelpick]'));
+  assert.ok(text.includes('[mcp_servers.other]'));
+  assert.ok(first.backup && fs.existsSync(first.backup));
+  const second = writeCodexMcp(mcpCommand({ mode: 'node' }), { configFile: file });
+  assert.equal(second.action, 'already-present');
+  assert.equal((text.match(/\[mcp_servers\.modelpick\]/g) ?? []).length, 1);
+});
+
+test('Codex dry-run does not create a config file', () => {
+  const dir = tempDir('mp-codex-dry-');
+  const file = path.join(dir, 'config.toml');
+  const result = writeCodexMcp(mcpCommand({ mode: 'node' }), { configFile: file, dryRun: true });
+  assert.equal(result.action, 'append');
+  assert.ok(!fs.existsSync(file));
+});
+
+test('Codex setup tells the user how to write the global config', () => {
+  const cwd = tempDir();
+  const result = runCli(['setup', 'codex', '--json'], { cwd });
+  assert.equal(result.status, 0);
+  const payload = JSON.parse(result.stdout);
+  assert.ok(payload.results[0].notes.some((note) => note.includes('--global --write')));
 });

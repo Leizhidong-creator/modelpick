@@ -1,6 +1,7 @@
 import readline from 'node:readline';
 import { loadCatalog, catalogStats, findModel } from '../core/catalog.js';
 import { recommend, plan, compare } from '../core/recommend.js';
+import { buildDecisionPacket } from '../core/decision.js';
 import { detectTask } from '../core/tasks.js';
 import { ModelPickError } from '../core/errors.js';
 import { modelAvailability } from '../core/availability.js';
@@ -37,6 +38,23 @@ const TOOLS = [
           required: ['ranking']
         },
         top_k: { type: 'integer', minimum: 1, maximum: 5, default: 3 }
+      },
+      required: ['query']
+    }
+  },
+  {
+    name: 'get_decision_packet',
+    description:
+      'Build a portable packet that asks any judge/decision model (Claude, GPT, Gemini, a decision-tuned model, or a local model) to rank the shortlist. Then call pick_model with the returned verdict. Use when the user wants a second opinion or a decision-model override.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        query: { type: 'string', description: 'What the agent is trying to do.' },
+        task: { type: 'string', description: 'Optional task id.' },
+        optimize: { type: 'string', enum: ['balanced', 'quality', 'cost', 'speed', 'privacy'] },
+        max_cost: { type: 'number' },
+        open_weights: { type: 'boolean' },
+        top_k: { type: 'integer', minimum: 2, maximum: 5, default: 3 }
       },
       required: ['query']
     }
@@ -201,6 +219,29 @@ export function createMcpServer({ input = process.stdin, output = process.stdout
           topK: args.top_k ?? 3
         });
         return textResult(compactRecommendation(result));
+      }
+      case 'get_decision_packet': {
+        const result = recommend(cat, {
+          query: args.query,
+          task: args.task,
+          optimize: args.optimize,
+          maxCost: args.max_cost,
+          openWeights: args.open_weights,
+          topK: args.top_k ?? 3
+        });
+        if (result.error) return toolError(result.message, 'Relax the constraints, then try again.');
+        const packet = buildDecisionPacket(result);
+        return textResult({
+          schemaVersion: packet.schemaVersion,
+          kind: packet.kind,
+          task: packet.task,
+          constraints: packet.constraints,
+          allowedSlugs: packet.allowedSlugs,
+          candidates: packet.candidates,
+          prompt: packet.prompt,
+          outputSchema: packet.outputSchema,
+          apply: 'Call pick_model with the judge JSON as the verdict argument.'
+        });
       }
       case 'plan_workflow': {
         const result = plan(cat, args.goal, { optimize: args.optimize, maxCost: args.max_cost });

@@ -51,7 +51,7 @@ test('video deliverables exist and are non-empty', () => {
 });
 
 test('site assets mirror the README assets', () => {
-  for (const file of ['social-preview.png', 'terminal-pick.png', 'benchmark.png', 'modelpick-intro.mp4', 'modelpick-intro-thumb.png']) {
+  for (const file of ['social-preview.png', 'terminal-pick.png', 'benchmark.png', 'modelpick-intro.mp4', 'modelpick-intro-thumb.png', 'modelpick-intro.bilingual.srt']) {
     assert.ok(fs.existsSync(path.join(ROOT, 'docs', 'assets', file)), `docs/assets/${file} missing`);
   }
 });
