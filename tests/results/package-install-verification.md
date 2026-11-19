@@ -31,10 +31,10 @@ $ npx modelpick pick "3D sword for Unity" --json
 |---|---|
 | `bin` link works after install | pass (`npx modelpick version` → `0.1.0`) |
 | Catalog is packaged | pass (`catalog/models.json` present, 40 models) |
-| Assets are packaged | pass (`assets/modelpick-intro.mp4`, 13.6 MB) |
+| Assets are packaged | pass (`assets/modelpick-intro.mp4`, 4.7 MB, bilingual captions) |
 | README-linked docs are packaged | pass (`launch/`, `tests/*.md`, `research/hf-evidence.json`) |
 | `pick --json` works from the installed package | pass |
-| `verify` works from the installed package | pass (12/12 checks, hashes match) |
+| `verify` works from the installed package | pass (13/13 checks, integrity hashes match) |
 
 Installed-package verification:
 
@@ -54,13 +54,14 @@ $ npx modelpick verify --no-color
   ✓ held-out             held-out top-1 100%
   ✓ value-simulation     quality parity 95.4% · cost 41.6% of frontier
   ✓ hashes               catalog/policy hashes available
+  ✓ integrity            catalog matches the shipped checksums
   OK
 ```
 
 ## Package size
 
-- Tarball: **14.3 MB**
-- Unpacked: **15.0 MB**
-- Main weight: the 93.5s intro film (13.6 MB). The CLI, catalog, docs, and tests are under 1.5 MB.
+- Tarball: **5.2 MB**
+- Unpacked: **6.3 MB**
+- Main weight: the 93.5s intro video (4.7 MB) with burned-in English + 中文 captions. The CLI, catalog, docs, and tests are under 1.6 MB.
 
 The tarball is not published to npm; there is no npm auth on the build machine. This test proves the artifact is installable when the registry step is available.
