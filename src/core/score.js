@@ -25,6 +25,13 @@ function round(value, digits = 4) {
 }
 
 export function qualityConfidenceFor(model) {
+  if (model?.tags?.includes('estimated-quality')) {
+    return {
+      level: 'estimated',
+      label: 'estimated prior',
+      note: 'The vendor has not published benchmark scores; this is a price/spec-informed prior, not a measured score.'
+    };
+  }
   const modality = model?.modality;
   if (modality === 'image' || modality === 'video') {
     return {
