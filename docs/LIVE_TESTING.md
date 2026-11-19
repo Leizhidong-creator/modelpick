@@ -17,7 +17,7 @@ Raw receipt: [`tests/results/live-smoke-latest.json`](../tests/results/live-smok
 | Pollinations text | `GET https://text.pollinations.ai/What%20is%202%2B2%3F` | `200`, body `4` | 0.8s |
 | Pollinations image | `GET https://image.pollinations.ai/prompt/...` | `200 image/jpeg`, 1,876 bytes | 0.8s |
 | GitHub Models | `POST https://models.github.ai/inference/chat/completions` | `200`, body `OK` | 1.2s |
-| Ollama local | `GET http://127.0.0.1:11434/api/tags` | not running on the build machine | — |
+| Ollama local | `GET http://127.0.0.1:11434/api/tags` → `POST /api/chat` | `200`, model `qwen-local:latest`, body contains `OK` | 0.09s warm (101s cold load) |
 
 These are **connectivity and response-format checks**. They do not measure output quality, and they are not paid catalog providers.
 
@@ -31,6 +31,7 @@ These are **connectivity and response-format checks**. They do not measure outpu
 ## What this does not prove
 
 - That a paid provider key works. That requires the user's key.
+- That the local 0.5B model is a quality proxy for a frontier model; it is a transport test.
 - That the response quality matches the catalog prior.
 - That every endpoint in `catalog/models.json` is correct.
 
@@ -59,4 +60,6 @@ Pollinations and GitHub Models were reachable without a paid key, so they are us
 
 ## Third provider
 
-The target is at least three independent providers. The current two are Pollinations and GitHub Models. The third slot is intentionally left open until a real key or a local Ollama server is available; do not fake it with a second model behind the same gateway.
+Three endpoints have now answered: Pollinations, GitHub Models, and a local Ollama server running `qwen-local:latest` (Qwen2.5-0.5B-Instruct, Q4_K_M, 491 MB).
+
+Be precise about the count: **two external vendors plus one local runtime**. This is three real endpoints, not three independent external vendors. A paid provider key is still the missing test.

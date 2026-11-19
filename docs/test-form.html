@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ModelPick test form</title>
+<style>
+  :root { --bg:#070a0e; --panel:#0d141c; --line:#263442; --ivory:#f5efe4; --dim:#8b9aaa; --gold:#c9a96e; --cyan:#39c5cf; --green:#3fb950; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ivory); font:16px/1.55 "Segoe UI",Arial,sans-serif; }
+  main { max-width: 1400px; margin: 0 auto; padding: 56px 24px 100px; }
+  h1 { font: 700 48px/1.05 "Bodoni MT",Georgia,serif; margin: 0 0 12px; }
+  h2 { font: 700 32px/1.1 "Bodoni MT",Georgia,serif; margin: 52px 0 14px; }
+  p { color: var(--dim); max-width: 900px; }
+  a { color: var(--cyan); }
+  .kicker { font: 600 13px "Consolas"; letter-spacing: .16em; color: var(--gold); text-transform: uppercase; }
+  .stats { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0 8px; }
+  .stat { border:1px solid var(--line); border-radius:8px; padding:14px 18px; background:var(--panel); }
+  .stat b { display:block; font:700 30px "Bodoni MT",Georgia,serif; color:var(--gold); }
+  .stat span { color:var(--dim); font-size:13px; }
+  table { width:100%; border-collapse:collapse; margin-top:14px; font-size:14px; }
+  th,td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--dim); font:600 12px "Consolas"; letter-spacing:.06em; text-transform:uppercase; }
+  td.num, th.num { text-align:right; font-family:"Consolas",monospace; }
+  tr:hover td { background:rgba(57,197,207,.04); }
+  .ok { color:var(--green); } .bad { color:#f85149; }
+  .note { border-left:2px solid var(--gold); padding-left:14px; color:var(--dim); }
+  footer { margin-top:60px; color:var(--dim); font-size:13px; }
+</style>
+</head>
+<body><main>
+<div class="kicker">Evidence sheet · 2026-11-19</div>
+<h1>Test form</h1>
+<p>20 tasks × 40 models, the actual test receipt, and the live endpoint smoke. This is the human-readable view of <a href="https://github.com/Leizhidong-creator/modelpick/blob/main/tests/results/TEST_FORM.md">tests/results/TEST_FORM.md</a>.</p>
+<div class="stats">
+  <div class="stat"><b>174</b><span>tests passing</span></div>
+  <div class="stat"><b>90.02%</b><span>line coverage</span></div>
+  <div class="stat"><b>28/28</b><span>adversarial cases</span></div>
+  <div class="stat"><b>100%</b><span>dev top-1</span></div>
+  <div class="stat"><b>100%</b><span>held-out top-1</span></div>
+  <div class="stat"><b>95%</b><span>value quality parity</span></div>
+</div>
+<p class="note">This is a decision benchmark, not an independent model-output benchmark. Media quality is an expert prior. Live smoke proves transport and response format, not quality.</p>
+
+<h2>Per-task matrix</h2>
+<table><thead><tr><th>Task</th><th class="num">Eligible</th><th>Top model</th><th class="num">Quality</th><th class="num">Cost / task</th><th>Value pick</th><th class="num">Value cost</th></tr></thead><tbody>
+<tr><td>coding-agent<br><span class="note">Agentic coding</span></td><td class="num">4</td><td>gemini-4-carbon</td><td class="num">87.3</td><td class="num">$0.174</td><td>gemini-4-carbon</td><td class="num">$0.174</td></tr>
+<tr><td>code-review<br><span class="note">Code review</span></td><td class="num">6</td><td>gemini-4-carbon</td><td class="num">85.29</td><td class="num">$0.088</td><td>gpt-6.2-sol</td><td class="num">$0.087</td></tr>
+<tr><td>refactor<br><span class="note">Large refactor</span></td><td class="num">6</td><td>gemini-4-carbon</td><td class="num">86.32</td><td class="num">$0.193</td><td>gemini-4-carbon</td><td class="num">$0.193</td></tr>
+<tr><td>debugging<br><span class="note">Debugging</span></td><td class="num">6</td><td>gemini-4-carbon</td><td class="num">85.53</td><td class="num">$0.132</td><td>gpt-6.2-sol</td><td class="num">$0.130</td></tr>
+<tr><td>planning<br><span class="note">Planning &amp; architecture</span></td><td class="num">6</td><td>gemini-4-carbon</td><td class="num">86.71</td><td class="num">$0.069</td><td>gpt-6.2-sol</td><td class="num">$0.067</td></tr>
+<tr><td>long-context<br><span class="note">Long-context analysis</span></td><td class="num">10</td><td>gemini-4-hydrogen</td><td class="num">86.42</td><td class="num">$0.647</td><td>gpt-6.1-terra</td><td class="num">$0.472</td></tr>
+<tr><td>research<br><span class="note">Research synthesis</span></td><td class="num">11</td><td>gpt-6.1-terra</td><td class="num">80.57</td><td class="num">$0.164</td><td>gpt-6.1-terra</td><td class="num">$0.164</td></tr>
+<tr><td>writing<br><span class="note">Writing &amp; copy</span></td><td class="num">9</td><td>gpt-6.2-sol</td><td class="num">87.92</td><td class="num">$0.036</td><td>gpt-6.1-terra</td><td class="num">$0.020</td></tr>
+<tr><td>translation<br><span class="note">Translation</span></td><td class="num">12</td><td>gpt-6.1-terra</td><td class="num">80.55</td><td class="num">$0.031</td><td>gpt-6.1-terra</td><td class="num">$0.031</td></tr>
+<tr><td>extraction<br><span class="note">Structured extraction</span></td><td class="num">20</td><td>claude-haiku-5.5</td><td class="num">62.41</td><td class="num">$0.0066</td><td>claude-haiku-5.5</td><td class="num">$0.0066</td></tr>
+<tr><td>classification<br><span class="note">Classification &amp; tagging</span></td><td class="num">22</td><td>claude-haiku-5.5</td><td class="num">70.91</td><td class="num">$0.0008</td><td>claude-haiku-5.5</td><td class="num">$0.0008</td></tr>
+<tr><td>data-analysis<br><span class="note">Data analysis</span></td><td class="num">6</td><td>gemini-4-carbon</td><td class="num">85.7</td><td class="num">$0.145</td><td>gpt-6.2-sol</td><td class="num">$0.144</td></tr>
+<tr><td>computer-use<br><span class="note">Computer &amp; browser use</span></td><td class="num">5</td><td>gemini-4-carbon</td><td class="num">91.31</td><td class="num">$0.081</td><td>gemini-4-carbon</td><td class="num">$0.081</td></tr>
+<tr><td>image-gen<br><span class="note">Image generation</span></td><td class="num">4</td><td>nano-banana-2.1</td><td class="num">93.65</td><td class="num">$0.036</td><td>seedream-5.5</td><td class="num">$0.034</td></tr>
+<tr><td>image-edit<br><span class="note">Image editing</span></td><td class="num">4</td><td>nano-banana-2.1</td><td class="num">93.8</td><td class="num">$0.036</td><td>seedream-5.5</td><td class="num">$0.033</td></tr>
+<tr><td>video-gen<br><span class="note">Video generation</span></td><td class="num">4</td><td>veo-3.1-fast</td><td class="num">86</td><td class="num">$0.596</td><td>veo-3.1-fast</td><td class="num">$0.596</td></tr>
+<tr><td>3d-gen<br><span class="note">3D asset generation</span></td><td class="num">4</td><td>tripo-h3.1</td><td class="num">94</td><td class="num">$0.215</td><td>tripo-h3.1</td><td class="num">$0.215</td></tr>
+<tr><td>tts<br><span class="note">Text to speech</span></td><td class="num">2</td><td>voxtral-tts-3</td><td class="num">88</td><td class="num">$0.015</td><td>voxtral-tts-3</td><td class="num">$0.015</td></tr>
+<tr><td>stt<br><span class="note">Speech to text</span></td><td class="num">2</td><td>voxtral-small-transcribe-3</td><td class="num">90</td><td class="num">$0.045</td><td>voxtral-small-transcribe-3</td><td class="num">$0.045</td></tr>
+<tr><td>music<br><span class="note">Music generation</span></td><td class="num">2</td><td>lyria-3.5</td><td class="num">90</td><td class="num">$0.090</td><td>lyria-3.5</td><td class="num">$0.090</td></tr>
+</tbody></table>
+
+<h2>Per-model applicability</h2>
+<table><thead><tr><th>Model</th><th class="num">Eligible</th><th class="num">Top-1</th><th class="num">Top-3</th></tr></thead><tbody>
+<tr><td>gemini-4-carbon</td><td class="num">13</td><td class="num">7</td><td class="num">10</td></tr>
+<tr><td>gpt-6.1-terra</td><td class="num">6</td><td class="num">2</td><td class="num">4</td></tr>
+<tr><td>claude-haiku-5.5</td><td class="num">2</td><td class="num">2</td><td class="num">2</td></tr>
+<tr><td>nano-banana-2.1</td><td class="num">2</td><td class="num">2</td><td class="num">2</td></tr>
+<tr><td>gpt-6.2-sol</td><td class="num">12</td><td class="num">1</td><td class="num">8</td></tr>
+<tr><td>gemini-4-hydrogen</td><td class="num">6</td><td class="num">1</td><td class="num">3</td></tr>
+<tr><td>lyria-3.5</td><td class="num">1</td><td class="num">1</td><td class="num">1</td></tr>
+<tr><td>tripo-h3.1</td><td class="num">1</td><td class="num">1</td><td class="num">1</td></tr>
+<tr><td>veo-3.1-fast</td><td class="num">1</td><td class="num">1</td><td class="num">1</td></tr>
+<tr><td>voxtral-small-transcribe-3</td><td class="num">1</td><td class="num">1</td><td class="num">1</td></tr>
+<tr><td>voxtral-tts-3</td><td class="num">1</td><td class="num">1</td><td class="num">1</td></tr>
+<tr><td>claude-sonnet-5.5</td><td class="num">11</td><td class="num">0</td><td class="num">5</td></tr>
+<tr><td>claude-opus-5.5</td><td class="num">13</td><td class="num">0</td><td class="num">2</td></tr>
+<tr><td>deepseek-v4.1-flash</td><td class="num">2</td><td class="num">0</td><td class="num">2</td></tr>
+<tr><td>gpt-6-luna</td><td class="num">2</td><td class="num">0</td><td class="num">2</td></tr>
+<tr><td>gpt-image-2</td><td class="num">2</td><td class="num">0</td><td class="num">2</td></tr>
+<tr><td>seedream-5.5</td><td class="num">2</td><td class="num">0</td><td class="num">2</td></tr>
+<tr><td>eleven-v4</td><td class="num">1</td><td class="num">0</td><td class="num">1</td></tr>
+<tr><td>gpt-6.2-astra</td><td class="num">13</td><td class="num">0</td><td class="num">1</td></tr>
+<tr><td>gpt-transcribe</td><td class="num">1</td><td class="num">0</td><td class="num">1</td></tr>
+<tr><td>kling-4.0</td><td class="num">1</td><td class="num">0</td><td class="num">1</td></tr>
+<tr><td>meshy-7.1</td><td class="num">1</td><td class="num">0</td><td class="num">1</td></tr>
+<tr><td>minimax-music-3</td><td class="num">1</td><td class="num">0</td><td class="num">1</td></tr>
+<tr><td>trellis-2</td><td class="num">1</td><td class="num">0</td><td class="num">1</td></tr>
+<tr><td>veo-3.1</td><td class="num">1</td><td class="num">0</td><td class="num">1</td></tr>
+<tr><td>claude-fable-5.2</td><td class="num">13</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>deepseek-v4-pro</td><td class="num">2</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>gemini-3.8-flash</td><td class="num">2</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>gemini-4-argon</td><td class="num">6</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>glm-5.3</td><td class="num">2</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>glm-5.3-flash</td><td class="num">1</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>gpt-5.6-sol</td><td class="num">4</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>grok-4.6</td><td class="num">2</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>hunyuan3d-3.1-pro</td><td class="num">1</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>kimi-k3</td><td class="num">3</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>kimi-k3.1-pro</td><td class="num">5</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>minimax-m3.1-flash</td><td class="num">1</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>nano-banana-pro</td><td class="num">2</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>qwen3.8-max</td><td class="num">2</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>seedance-2.5</td><td class="num">1</td><td class="num">0</td><td class="num">0</td></tr>
+</tbody></table>
+
+<h2>Adversarial cases</h2>
+<table><thead><tr><th>ID</th><th>Area</th><th>Attack</th><th>Observed</th><th>Result</th></tr></thead><tbody>
+<tr><td>A01</td><td>input</td><td>Empty query</td><td>ERR_MISSING_TASK</td><td class="ok">PASS</td></tr>
+<tr><td>A02</td><td>input</td><td>100,000-character query</td><td>11ms</td><td class="ok">PASS</td></tr>
+<tr><td>A03</td><td>input</td><td>Prompt injection: ignore instructions + rm -rf</td><td>3d-gen</td><td class="ok">PASS</td></tr>
+<tr><td>A04</td><td>input</td><td>Shell metacharacters</td><td>tripo-h3.1</td><td class="ok">PASS</td></tr>
+<tr><td>A05</td><td>input</td><td>RTL + emoji + zero-width characters</td><td>image-gen</td><td class="ok">PASS</td></tr>
+<tr><td>A06</td><td>path</td><td>Task id traversal: ../../etc/passwd</td><td>1</td><td class="ok">PASS</td></tr>
+<tr><td>A07</td><td>budget</td><td>Negative budget</td><td>1</td><td class="ok">PASS</td></tr>
+<tr><td>A08</td><td>budget</td><td>NaN budget</td><td>1</td><td class="ok">PASS</td></tr>
+<tr><td>A09</td><td>constraints</td><td>Open weights + $0.001 budget</td><td>NO_ELIGIBLE_MODEL</td><td class="ok">PASS</td></tr>
+<tr><td>A10</td><td>constraints</td><td>2M-token context requirement</td><td>NO_ELIGIBLE_MODEL</td><td class="ok">PASS</td></tr>
+<tr><td>A11</td><td>constraints</td><td>Unknown optimize preset</td><td>1</td><td class="ok">PASS</td></tr>
+<tr><td>A12</td><td>catalog</td><td>Invalid overrides JSON</td><td>ERR_OVERRIDES_INVALID</td><td class="ok">PASS</td></tr>
+<tr><td>A13</td><td>catalog</td><td>Corrupt cache falls back to bundled snapshot</td><td>40</td><td class="ok">PASS</td></tr>
+<tr><td>A14</td><td>catalog</td><td>Duplicate slug validation</td><td>ERR_INVALID_CATALOG</td><td class="ok">PASS</td></tr>
+<tr><td>A15</td><td>secrets</td><td>Secret in environment</td><td>0</td><td class="ok">PASS</td></tr>
+<tr><td>A16</td><td>setup</td><td>Setup dry-run on a clean project</td><td>none</td><td class="ok">PASS</td></tr>
+<tr><td>A17</td><td>setup</td><td>Invalid .mcp.json is never overwritten</td><td>1</td><td class="ok">PASS</td></tr>
+<tr><td>A18</td><td>add-model</td><td>Incomplete model file</td><td>1</td><td class="ok">PASS</td></tr>
+<tr><td>A19</td><td>mcp</td><td>tools/call with null arguments</td><td>{&quot;content&quot;:[{&quot;type&quot;:&quot;text&quot;,&quot;text&quot;:&quot;{\&quot;error\&quot;:\&quot;TOOL_ERROR\&quot;,\&quot;message\&quot;:\&quot;Tell </td><td class="ok">PASS</td></tr>
+<tr><td>A20</td><td>mcp</td><td>Unknown tool</td><td>-32602</td><td class="ok">PASS</td></tr>
+<tr><td>A21</td><td>mcp</td><td>10 concurrent pick calls</td><td>10</td><td class="ok">PASS</td></tr>
+<tr><td>A22</td><td>claims</td><td>Stale catalog is flagged</td><td>687</td><td class="ok">PASS</td></tr>
+<tr><td>A23</td><td>claims</td><td>Recommendation without any keys still returns a decision</td><td>false</td><td class="ok">PASS</td></tr>
+<tr><td>A24</td><td>decision</td><td>Verdict invents a model outside the shortlist</td><td>1</td><td class="ok">PASS</td></tr>
+<tr><td>A25</td><td>decision</td><td>External verdict reorders locally</td><td>meshy-7.1</td><td class="ok">PASS</td></tr>
+<tr><td>A26</td><td>eval</td><td>Malformed eval passed field</td><td>1</td><td class="ok">PASS</td></tr>
+<tr><td>A27</td><td>setup</td><td>VS Code --global is not silently written</td><td>1</td><td class="ok">PASS</td></tr>
+<tr><td>A28</td><td>setup</td><td>Generated AGENTS command is installable</td><td>0</td><td class="ok">PASS</td></tr>
+</tbody></table>
+
+<h2>Live smoke</h2>
+<table><thead><tr><th>Endpoint</th><th>Result</th><th class="num">Latency</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>pollinations-text</td><td class="ok">PASS</td><td class="num">1256 ms</td><td>200 text/plain; charset=utf-8</td></tr>
+<tr><td>pollinations-image</td><td class="ok">PASS</td><td class="num">749 ms</td><td>200 image/jpeg</td></tr>
+<tr><td>github-models</td><td class="ok">PASS</td><td class="num">1087 ms</td><td>200 text/plain</td></tr>
+<tr><td>ollama-local</td><td class="ok">PASS</td><td class="num">88 ms</td><td>200 </td></tr>
+</tbody></table>
+<p class="note">Free/public endpoints only. No API keys are used or stored. The third paid-provider slot is still open.</p>
+
+<footer>ModelPick 0.1.0 · MIT · <a href="index.html">home</a> · <a href="https://github.com/Leizhidong-creator/modelpick">GitHub</a></footer>
+</main></body></html>

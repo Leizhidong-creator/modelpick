@@ -89,3 +89,10 @@ test('skill copies contain no mojibake and mention the decision packet', () => {
     assert.ok(text.includes('get_decision_packet'), `${file} does not mention get_decision_packet`);
   }
 });
+
+test('the public test form page is generated', () => {
+  const html = read('docs/test-form.html');
+  assert.ok(html.length > 5000);
+  assert.match(html, /Per-task matrix/);
+  assert.match(html, /Adversarial cases/);
+});

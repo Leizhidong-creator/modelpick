@@ -21,11 +21,11 @@ async function timed(name, fn) {
   }
 }
 
-async function text(url, options = {}) {
-  const response = await fetch(url, { ...options, signal: AbortSignal.timeout(30000) });
+async function text(url, options = {}, timeout = 30000) {
+  const response = await fetch(url, { ...options, signal: AbortSignal.timeout(timeout) });
   const body = await response.text();
   if (!response.ok) throw new Error(`HTTP ${response.status}: ${body.slice(0, 120)}`);
-  return { status: response.status, contentType: response.headers.get('content-type'), body: body.slice(0, 240) };
+  return { status: response.status, contentType: response.headers.get('content-type'), body: body.slice(0, 240), full: body };
 }
 
 async function bytes(url, options = {}) {
@@ -72,15 +72,15 @@ cases.push(
 
 cases.push(
   await timed('ollama-local', async () => {
-    const tags = await text('http://127.0.0.1:11434/api/tags');
-    const models = JSON.parse(tags.body).models ?? [];
+    const tags = await text('http://127.0.0.1:11434/api/tags', {}, 10000);
+    const models = JSON.parse(tags.full).models ?? [];
     if (!models.length) throw new Error('Ollama is running but has no models');
     const model = models[0].name;
     const result = await text('http://127.0.0.1:11434/api/chat', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ model, messages: [{ role: 'user', content: 'Reply with OK.' }], stream: false })
-    });
+    }, 120000);
     return { status: result.status, model, body: result.body.slice(0, 160) };
   })
 );

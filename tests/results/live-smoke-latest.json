@@ -1,21 +1,22 @@
 {
   "schemaVersion": "1.0",
   "kind": "live-smoke",
-  "generatedAt": "2026-11-19T10:40:24.028Z",
+  "generatedAt": "2026-11-19T10:59:59.186Z",
   "note": "Free/public endpoints only. No API keys are used or stored. These are connectivity/format checks, not model quality measurements.",
   "cases": [
     {
       "name": "pollinations-text",
       "ok": true,
-      "ms": 844,
+      "ms": 1256,
       "status": 200,
       "contentType": "text/plain; charset=utf-8",
-      "body": "4"
+      "body": "4",
+      "full": "4"
     },
     {
       "name": "pollinations-image",
       "ok": true,
-      "ms": 840,
+      "ms": 749,
       "status": 200,
       "contentType": "image/jpeg",
       "bytes": 1876
@@ -23,16 +24,19 @@
     {
       "name": "github-models",
       "ok": true,
-      "ms": 1196,
+      "ms": 1087,
       "status": 200,
       "contentType": "text/plain",
-      "body": "OK\r\n"
+      "body": "OK\r\n",
+      "full": "OK\r\n"
     },
     {
       "name": "ollama-local",
-      "ok": false,
-      "ms": 5,
-      "error": "fetch failed"
+      "ok": true,
+      "ms": 88,
+      "status": 200,
+      "model": "qwen-local:latest",
+      "body": "{\"model\":\"qwen-local:latest\",\"created_at\":\"2026-11-19T10:59:59.1849417Z\",\"message\":{\"role\":\"assistant\",\"content\":\"OK\"},\"done\":true,\"done_reason\":\"stop\",\"total_d"
     }
   ]
 }

@@ -1,12 +1,12 @@
 # Test form
 
-Generated: 2026-11-19T10:45:25.301Z
+Generated: 2026-11-19T11:01:03.468Z
 
 This is the human-readable evidence sheet. Machine-readable results are in `tests/results/*.json`.
 
 ## 1. Automated test suite
 
-- Node tests: **173** passing
+- Node tests: **174** passing
 - Line coverage: **90.02%**
 - Branch coverage: **66.29%**
 - Test files: unit, integration, e2e, adversarial
@@ -104,10 +104,10 @@ Models with zero eligible nodes are a catalog bug; the matrix test fails on them
 
 | endpoint | result | latency | evidence |
 |---|---|---:|---|
-| pollinations-text | pass | 844 ms | 200 text/plain; charset=utf-8 |
-| pollinations-image | pass | 840 ms | 200 image/jpeg |
-| github-models | pass | 1196 ms | 200 text/plain |
-| ollama-local | fail | 5 ms | — fetch failed |
+| pollinations-text | pass | 1256 ms | 200 text/plain; charset=utf-8 |
+| pollinations-image | pass | 749 ms | 200 image/jpeg |
+| github-models | pass | 1087 ms | 200 text/plain |
+| ollama-local | pass | 88 ms | 200  |
 
 This is connectivity and response-format evidence, not a model-quality benchmark. No API keys are used.
 
