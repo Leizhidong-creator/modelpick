@@ -33,3 +33,20 @@ test('eval rejects a missing file with a structured error', () => {
   assert.equal(result.status, 1);
   assert.ok(result.stderr.includes('ERR_EVAL_READ'));
 });
+
+test('eval --html writes a self-contained report', () => {
+  const cwd = tempDir('mp-eval-html-');
+  fs.writeFileSync(path.join(cwd, 'evals.json'), JSON.stringify({
+    task: '3d-gen',
+    runs: [
+      { model: 'tripo-h3.1', passed: true, cost: 0.2 },
+      { model: 'tripo-h3.1', passed: false, cost: 0.2 }
+    ]
+  }));
+  const result = runCli(['eval', 'evals.json', '--html', 'report.html'], { cwd });
+  assert.equal(result.status, 0);
+  const html = fs.readFileSync(path.join(cwd, 'report.html'), 'utf8');
+  assert.match(html, /Your eval report/);
+  assert.match(html, /Wilson 95%/);
+  assert.match(html, /tripo-h3\.1/);
+});

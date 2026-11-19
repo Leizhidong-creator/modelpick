@@ -1,14 +1,14 @@
 # Test form
 
-Generated: 2026-11-19T11:15:41.296Z
+Generated: 2026-11-19T11:21:57.004Z
 
 This is the human-readable evidence sheet. Machine-readable results are in `tests/results/*.json`.
 
 ## 1. Automated test suite
 
-- Node tests: **175** passing
-- Line coverage: **90.04%**
-- Branch coverage: **66.34%**
+- Node tests: **176** passing
+- Line coverage: **90.12%**
+- Branch coverage: **66.26%**
 - Test files: unit, integration, e2e, adversarial
 - Adversarial cases: **28/28**
 
@@ -16,7 +16,7 @@ This is the human-readable evidence sheet. Machine-readable results are in `test
 |---|---|---|
 | Unit + integration + e2e | `node --test "tests/**/*.test.js"` | all pass |
 | Adversarial | `node tests/adversarial/run.js` | 28/28 |
-| Coverage | `node --test --experimental-test-coverage "tests/**/*.test.js"` | 90.04% lines |
+| Coverage | `node --test --experimental-test-coverage "tests/**/*.test.js"` | 90.12% lines |
 | Package install | `npm pack` + clean install + `verify` | 13/13 checks |
 | Live smoke | `node scripts/live_smoke.js` | see section 5 |
 

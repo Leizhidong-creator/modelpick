@@ -3,6 +3,35 @@ import path from 'node:path';
 import { evaluateRuns } from '../core/evaluate.js';
 import { ModelPickError } from '../core/errors.js';
 
+function esc(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function reportHtml(result, source) {
+  const rows = result.models.map((model) => {
+    const ci = `${Math.round(model.passRateLow * 100)}–${Math.round(model.passRateHigh * 100)}%`;
+    const cost = model.costPerSolved == null ? '—' : `$${model.costPerSolved.toFixed(4)}`;
+    return `<tr><td>${esc(model.slug)}</td><td>${model.runs}</td><td>${model.solved}</td><td>${Math.round(model.passRate * 100)}%</td><td>${ci}</td><td>${model.meanAttempts.toFixed(2)}</td><td>${cost}</td><td>${model.catalogQuality ?? '—'}</td></tr>`;
+  }).join('\n');
+  return `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ModelPick eval report</title>
+<style>
+body{margin:0;background:#070a0e;color:#f5efe4;font:16px/1.55 "Segoe UI",Arial,sans-serif}main{max-width:1100px;margin:0 auto;padding:48px 24px}
+h1{font:700 42px/1.05 "Bodoni MT",Georgia,serif;margin:0 0 8px}p{color:#8b9aaa}table{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid #263442}th{color:#8b9aaa;font:600 12px "Consolas";text-transform:uppercase}
+td:nth-child(n+2){font-family:"Consolas",monospace}.note{border-left:2px solid #c9a96e;padding-left:14px;color:#8b9aaa;margin-top:24px}
+</style></head><body><main>
+<div style="font:600 13px Consolas;letter-spacing:.16em;color:#c9a96e;text-transform:uppercase">User eval · ${new Date().toISOString().slice(0, 10)}</div>
+<h1>Your eval report</h1>
+<p>${esc(result.task.label)} · ${result.runs} runs · source: ${esc(source)}</p>
+<table><thead><tr><th>Model</th><th>Runs</th><th>Solved</th><th>Pass</th><th>Wilson 95%</th><th>Attempts</th><th>Cost / solved</th><th>Catalog quality</th></tr></thead><tbody>
+${rows}
+</tbody></table>
+<p class="note">${esc(result.caveat)} Cost per solved is omitted if any run lacks a cost. Catalog quality is the task-weighted prior, not a measured output score.</p>
+</main></body></html>`;
+}
+
 export async function runEval(ctx) {
   const file = ctx.positionals[0];
   if (!file) {
@@ -32,6 +61,13 @@ export async function runEval(ctx) {
 
   if (ctx.json) {
     console.log(JSON.stringify(result, null, 2));
+    return;
+  }
+
+  if (ctx.options.html || ctx.flags.html) {
+    const target = typeof ctx.options.html === 'string' ? path.resolve(ctx.options.html) : path.resolve('eval-report.html');
+    fs.writeFileSync(target, reportHtml(result, file));
+    console.log(`\n  Wrote ${target}\n`);
     return;
   }
 

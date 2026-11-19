@@ -48,6 +48,7 @@ The `models` grouped form is also accepted:
 modelpick eval evals.json
 modelpick eval evals.json --json
 modelpick eval evals.json --min-samples 10
+modelpick eval evals.json --html report.html
 ```
 
 Output ranks by **cost per solved task**, not pass rate alone. It prints:
@@ -80,3 +81,7 @@ If the answer changes the ranking, add the case to `bench/scenarios.json` or ope
 - Self-reported quality is not independent.
 - One task and one prompt distribution do not generalize.
 - The report does not auto-tune the catalog; that requires a curated benchmark and a maintainer review.
+
+## Shareable HTML report
+
+`--html report.html` writes a self-contained dark HTML report with the pass rate, Wilson interval, attempts, cost per solved, and catalog quality. It has no external assets and no tracking. Useful for a design-partner review or a PR comment.
