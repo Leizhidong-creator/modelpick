@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-134%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-135%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-25%2F25-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -120,6 +120,7 @@ npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0
 | **Cursor** | `setup cursor` | `.cursor/mcp.json` |
 | **DeepSeek Harness** | `setup dsh --global --write --profile desktop` | `~/.dsh/profiles/<profile>/cordis.patch.yml` |
 | **GitHub Copilot CLI** | `setup copilot` | `.mcp.json` |
+| **VS Code / Copilot agent mode** | `setup vscode` | `.vscode/mcp.json` (`servers`) |
 | **Any MCP client** | `modelpick mcp` | your client's stdio config |
 
 ### Claude Code
@@ -192,6 +193,14 @@ copilot mcp list
 ```
 
 It writes `.mcp.json`, `.github/skills/modelpick/`, and `AGENTS.md`. Restart Copilot and ask for a model pick.
+
+### VS Code / Copilot agent mode
+
+```bash
+npx -y github:Leizhidong-creator/modelpick setup vscode
+```
+
+It writes `.vscode/mcp.json` under `servers` (VS Code's schema, not `mcpServers`), the portable skill, and `AGENTS.md`. In VS Code run **MCP: List Servers**, start `modelpick`, then ask in agent mode. Sibling servers are preserved.
 
 ### Any MCP client
 

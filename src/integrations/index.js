@@ -19,6 +19,7 @@ export const AGENTS = [
   { id: 'cursor', label: 'Cursor', kind: 'MCP + rules + skill' },
   { id: 'dsh', label: 'DeepSeek Harness', kind: 'skill + MCP plugin row' },
   { id: 'copilot', label: 'GitHub Copilot CLI', kind: 'MCP + skill' },
+  { id: 'vscode', label: 'VS Code / Copilot agent mode', kind: 'MCP + skill' },
   { id: 'generic', label: 'Any AGENTS.md agent', kind: 'MCP + portable skill' }
 ];
 
@@ -74,7 +75,7 @@ function writeFile(file, content, { force = false } = {}) {
 }
 
 /** Merge one server into an existing mcpServers JSON object without clobbering siblings. */
-function mergeMcpFile(file, server, { dryRun = false } = {}) {
+function mergeMcpFile(file, server, { dryRun = false, key = 'mcpServers', type = null } = {}) {
   let data = {};
   if (fs.existsSync(file)) {
     const raw = fs.readFileSync(file, 'utf8').trim();
@@ -90,9 +91,13 @@ function mergeMcpFile(file, server, { dryRun = false } = {}) {
       }
     }
   }
+  const entry = {
+    ...(type ? { type } : {}),
+    ...mcpJson(server).mcpServers.modelpick
+  };
   const next = {
     ...data,
-    mcpServers: { ...(data.mcpServers ?? {}), modelpick: mcpJson(server).mcpServers.modelpick }
+    [key]: { ...(data[key] ?? {}), modelpick: entry }
   };
   if (!dryRun) writeFile(file, `${JSON.stringify(next, null, 2)}\n`);
   return { file, changed: true, action: fs.existsSync(file) ? 'merged' : 'created', content: next };
@@ -259,6 +264,13 @@ export function installAgent(agentId, options = {}) {
       actions.push(...copySkill(path.join(cwd, '.github', 'skills', 'modelpick'), { dryRun }));
       actions.push(upsertBlock(path.join(cwd, 'AGENTS.md'), AGENTS_BLOCK, { dryRun }));
       notes.push('Run `copilot mcp list` to confirm the server is connected.');
+      break;
+    }
+    case 'vscode': {
+      actions.push(mergeMcpFile(path.join(cwd, '.vscode', 'mcp.json'), server, { dryRun, key: 'servers', type: 'stdio' }));
+      actions.push(...copySkill(path.join(cwd, '.agents', 'skills', 'modelpick'), { dryRun }));
+      actions.push(upsertBlock(path.join(cwd, 'AGENTS.md'), AGENTS_BLOCK, { dryRun }));
+      notes.push('In VS Code, run "MCP: List Servers" and start modelpick, or restart the agent session.');
       break;
     }
     case 'generic': {

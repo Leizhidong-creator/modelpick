@@ -130,6 +130,22 @@ test('Codex dry-run does not create a config file', () => {
   assert.ok(!fs.existsSync(file));
 });
 
+test('VS Code setup writes .vscode/mcp.json without clobbering siblings', () => {
+  const cwd = tempDir();
+  fs.mkdirSync(path.join(cwd, '.vscode'), { recursive: true });
+  fs.writeFileSync(
+    path.join(cwd, '.vscode', 'mcp.json'),
+    JSON.stringify({ servers: { other: { command: 'keep-me' } } }, null, 2)
+  );
+  const result = runCli(['setup', 'vscode', '--json'], { cwd });
+  assert.equal(result.status, 0);
+  const config = JSON.parse(fs.readFileSync(path.join(cwd, '.vscode', 'mcp.json'), 'utf8'));
+  assert.equal(config.servers.other.command, 'keep-me');
+  assert.equal(config.servers.modelpick.type, 'stdio');
+  assert.ok(config.servers.modelpick.args.includes('mcp'));
+  assert.ok(fs.existsSync(path.join(cwd, '.agents', 'skills', 'modelpick', 'SKILL.md')));
+});
+
 test('Codex setup tells the user how to write the global config', () => {
   const cwd = tempDir();
   const result = runCli(['setup', 'codex', '--json'], { cwd });

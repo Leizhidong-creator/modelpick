@@ -7,9 +7,9 @@ The project claims Node 20/22/24 support. This is the actual matrix run on the b
 
 | Runtime | Command | Tests | Benchmark | Value simulation |
 |---|---|---:|---|---|
-| Node 24.15.0 | `node --test "tests/**/*.test.js"` | **134/134** | 115 runs, 0 failures | pass |
-| Node 22.x | `npx -y -p node@22 node --test "tests/**/*.test.js"` | **134/134** | not re-run | not re-run |
-| Node 20.20.2 | `npx -y -p node@20 node --test tests/unit tests/integration tests/e2e` | **134/134** | 115 runs, 0 failures | pass |
+| Node 24.15.0 | `node --test "tests/**/*.test.js"` | **135/135** | 115 runs, 0 failures | pass |
+| Node 22.x | `npx -y -p node@22 node --test "tests/**/*.test.js"` | **135/135** | not re-run | not re-run |
+| Node 20.20.2 | `npx -y -p node@20 node --test tests/unit tests/integration tests/e2e` | **135/135** | 115 runs, 0 failures | pass |
 
 Node 20 does not expand the quoted `tests/**/*.test.js` glob on Windows; the directory form is the portable invocation. CI uses the glob on Ubuntu/macOS and the directory form as a fallback.
 

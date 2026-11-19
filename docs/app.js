@@ -74,6 +74,23 @@ args = ["-y", "github:Leizhidong-creator/modelpick", "mcp"]`
     }
   }
 }`
+    },
+    vscode: {
+      name: "VS Code / Copilot agent mode",
+      note: "Uses VS Code's servers schema, not mcpServers. Sibling servers are preserved.",
+      file: ".vscode/mcp.json",
+      kind: "project",
+      command: "npx -y github:Leizhidong-creator/modelpick setup vscode",
+      restart: "VS Code → MCP: List Servers → start modelpick",
+      code: `{
+  "servers": {
+    "modelpick": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+    }
+  }
+}`
     }
   };
 

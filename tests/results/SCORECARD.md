@@ -1,6 +1,6 @@
 # ModelPick multi-dimensional scorecard
 
-Generated: 2026-11-19T09:32:27.090Z
+Generated: 2026-11-19T09:36:37.649Z
 
 **Composite: 96.9/100 · grade A**
 
@@ -11,7 +11,7 @@ Generated: 2026-11-19T09:32:27.090Z
 | Robustness | 15% | 100 | 90 | priceStability + sensitivity-latest.json + determinism |
 | Coverage | 15% | 100 | 95 | catalog + task requirements |
 | Safety | 15% | 100 | 100 | adversarial-latest.json |
-| Operability | 10% | 93.4 | 90 | p95 latency + verify receipt + line coverage |
+| Operability | 10% | 93.1 | 90 | p95 latency + verify receipt + line coverage |
 
 ## Metrics
 
@@ -40,8 +40,8 @@ Generated: 2026-11-19T09:32:27.090Z
 - `adversarialPass`: 1
 - `cases`: 25
 
-### Operability — 93.4/100
-- `p95Ms`: 1
+### Operability — 93.1/100
+- `p95Ms`: 1.1
 - `verifyOk`: true
 - `coverage`: 84.79
 

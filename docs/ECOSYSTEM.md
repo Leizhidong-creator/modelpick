@@ -14,7 +14,7 @@ ModelPick is designed to be embedded, not to become another destination. This pa
 | **Windsurf / Devin Desktop** | `.devin/mcp_config.json` | `.agents/skills/` | — | Generic MCP; adapter pending |
 | **Cline** | `cline_mcp_settings.json` | `.agents/skills/` | — | Generic MCP; adapter pending |
 | **Zed** | `context_servers` in settings | — | — | Generic MCP; adapter pending |
-| **VS Code agent mode** | `.vscode/mcp.json` (`servers`) | — | — | Generic MCP; adapter pending |
+| **VS Code / Copilot agent mode** | `.vscode/mcp.json` (`servers`) | `.agents/skills/` | — | **Shipped** (`setup vscode`) |
 | **Any MCP client** | stdio JSON-RPC | portable `SKILL.md` | — | **Shipped** |
 
 ## One command per agent
@@ -25,6 +25,7 @@ modelpick setup codex
 modelpick setup cursor
 modelpick setup dsh
 modelpick setup copilot
+modelpick setup vscode
 modelpick setup generic
 ```
 

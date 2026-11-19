@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "multi-dimensional-scorecard",
-  "generatedAt": "2026-11-19T09:32:27.090Z",
+  "generatedAt": "2026-11-19T09:36:37.649Z",
   "catalog": {
     "version": "2026.11.19",
     "models": 40,
@@ -81,11 +81,11 @@
       "id": "operability",
       "label": "Operability",
       "weight": 10,
-      "score": 93.4,
+      "score": 93.1,
       "target": 90,
       "evidence": "p95 latency + verify receipt + line coverage",
       "metrics": {
-        "p95Ms": 1,
+        "p95Ms": 1.1,
         "verifyOk": true,
         "coverage": 84.79
       }
