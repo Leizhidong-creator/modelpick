@@ -1,5 +1,5 @@
 import { ModelPickError } from './errors.js';
-import { rankModels, qualityFor, unitCostFor, attemptsFor, workloadFor } from './score.js';
+import { rankModels, qualityFor, qualityConfidenceFor, unitCostFor, attemptsFor, workloadFor } from './score.js';
 import { parseIntent, resolveTask, detectTask } from './tasks.js';
 import { anyProviderKey, modelAvailability } from './availability.js';
 import { applyVerdict } from './judge.js';
@@ -83,6 +83,7 @@ function compact(candidate, task) {
     name: candidate.name,
     provider: candidate.provider,
     quality: candidate.quality,
+    qualityConfidence: qualityConfidenceFor(candidate.model),
     costPerTask: candidate.costPerTask,
     unitCost: candidate.unitCost,
     attempts: candidate.attempts,

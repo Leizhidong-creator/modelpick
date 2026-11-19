@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { loadCatalog } from '../../src/core/catalog.js';
 import { loadPolicy } from '../../src/core/policy.js';
 import {
+  qualityConfidenceFor,
   qualityFor,
   attemptsFor,
   unitCostFor,
@@ -129,3 +130,9 @@ test('value pick is the cheapest model inside the policy quality band', () => {
   }
 });
 
+
+test('quality confidence distinguishes benchmarked text from media priors', () => {
+  assert.equal(qualityConfidenceFor({ modality: 'text' }).level, 'benchmark');
+  assert.equal(qualityConfidenceFor({ modality: '3d' }).level, 'prior');
+  assert.match(qualityConfidenceFor({ modality: 'video' }).note, /prior/);
+});

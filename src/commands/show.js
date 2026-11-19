@@ -1,6 +1,6 @@
 import { loadCatalog, findModel } from '../core/catalog.js';
 import { connectionFor } from '../core/connect.js';
-import { rankModels } from '../core/score.js';
+import { rankModels, qualityConfidenceFor } from '../core/score.js';
 import { ModelPickError } from '../core/errors.js';
 
 function money(value) {
@@ -61,6 +61,7 @@ export async function runShow(ctx) {
             contextWindow: model.contextWindow,
             pricing: model.pricing,
             quality: model.quality,
+            qualityConfidence: qualityConfidenceFor(model),
             capabilities: model.capabilities,
             tags: model.tags,
             notes: model.notes,
@@ -91,7 +92,8 @@ export async function runShow(ctx) {
   } else {
     console.log(`  ${s.dim('price')} ${money(model.pricing.amount)} per ${model.pricing.unit} ${s.dim(model.pricing.confidence === 'estimated' ? '(estimated)' : '')}`);
   }
-  console.log(`  ${s.dim('quality')} overall ${model.quality.overall}`);
+  const qualityConfidence = qualityConfidenceFor(model);
+  console.log(`  ${s.dim('quality')} overall ${model.quality.overall} ${s.dim(`(${qualityConfidence.label})`)}`);
   if (best) {
     console.log(`\n  ${s.cyan('BEST NODES')}`);
     for (const item of applicability.filter((entry) => entry.top3).slice(0, 5)) {

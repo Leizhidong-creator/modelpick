@@ -24,6 +24,21 @@ function round(value, digits = 4) {
   return Math.round(value * factor) / factor;
 }
 
+export function qualityConfidenceFor(model) {
+  const media = ['image', 'video', '3d', 'audio'].includes(model?.modality);
+  return media
+    ? {
+        level: 'prior',
+        label: 'expert prior',
+        note: 'Media quality is an expert prior, not an independent output benchmark.'
+      }
+    : {
+        level: 'benchmark',
+        label: 'benchmark-backed',
+        note: 'Text quality is anchored to public leaderboard scores; it is still not a live output benchmark.'
+      };
+}
+
 export function qualityFor(model, task) {
   let weighted = 0;
   let total = 0;

@@ -8,6 +8,7 @@ test('show includes connection and task applicability', () => {
   const payload = JSON.parse(result.stdout);
   assert.equal(payload.kind, 'model');
   assert.equal(payload.model.slug, 'tripo-h3.1');
+  assert.equal(payload.model.qualityConfidence.level, 'prior');
   assert.ok(payload.connection.baseUrl);
   assert.ok(payload.connection.env.includes('TRIPO_API_KEY'));
   assert.ok(payload.applicability.eligibleNodes >= 1);

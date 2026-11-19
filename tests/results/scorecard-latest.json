@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "multi-dimensional-scorecard",
-  "generatedAt": "2026-11-19T10:08:33.479Z",
+  "generatedAt": "2026-11-19T10:26:39.247Z",
   "catalog": {
     "version": "2026.11.19",
     "models": 40,
@@ -74,20 +74,20 @@
       "evidence": "adversarial-latest.json",
       "metrics": {
         "adversarialPass": 1,
-        "cases": 25
+        "cases": 28
       }
     },
     {
       "id": "operability",
       "label": "Operability",
       "weight": 10,
-      "score": 98.3,
+      "score": 98.2,
       "target": 90,
       "evidence": "p95 latency + verify receipt + line coverage",
       "metrics": {
-        "p95Ms": 1.9,
+        "p95Ms": 1,
         "verifyOk": true,
-        "coverage": 84.79
+        "coverage": 84.46
       }
     }
   ],

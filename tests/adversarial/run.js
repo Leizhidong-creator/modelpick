@@ -212,6 +212,25 @@ add('A25', 'decision', 'External verdict reorders locally', 'applied=true, top i
   return { pass: result.recommendation.slug === ranking[0] && result.decision.applied === true, observed: result.recommendation.slug };
 });
 
+add('A26', 'eval', 'Malformed eval passed field', 'ERR_EVAL_INVALID, no crash', async () => {
+  const cwd = tempDir('mp-adv-eval-');
+  fs.writeFileSync(path.join(cwd, 'bad-eval.json'), JSON.stringify({ task: '3d-gen', runs: [{ model: 'tripo-h3.1', passed: 'yes' }] }));
+  const result = runCli(['eval', 'bad-eval.json', '--json'], { cwd });
+  return { pass: result.status === 1 && result.stderr.includes('ERR_EVAL_INVALID'), observed: result.status };
+});
+
+add('A27', 'setup', 'VS Code --global is not silently written', 'ERR_GLOBAL_UNSUPPORTED', async () => {
+  const result = runCli(['setup', 'vscode', '--global', '--json'], { cwd: tempDir('mp-adv-vscode-') });
+  return { pass: result.status === 1 && result.stderr.includes('ERR_GLOBAL_UNSUPPORTED'), observed: result.status };
+});
+
+add('A28', 'setup', 'Generated AGENTS command is installable', 'GitHub install, no unpublished npm command', async () => {
+  const cwd = tempDir('mp-adv-agents-');
+  const result = runCli(['setup', 'generic', '--json'], { cwd });
+  const agents = fs.readFileSync(path.join(cwd, 'AGENTS.md'), 'utf8');
+  return { pass: result.status === 0 && agents.includes('github:Leizhidong-creator/modelpick') && !agents.includes('modelpick@latest'), observed: result.status };
+});
+
 const results = [];
 for (const item of cases) {
   const started = performance.now();

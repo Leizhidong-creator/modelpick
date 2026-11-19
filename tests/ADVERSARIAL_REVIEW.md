@@ -28,7 +28,7 @@
 
 ## Adversarial test matrix
 
-25 cases, run by `node tests/adversarial/run.js`; raw results in `tests/results/adversarial-latest.json`.
+28 cases, run by `node tests/adversarial/run.js`; raw results in `tests/results/adversarial-latest.json`.
 
 | ID | Area | Attack | Expected | Observed | Result |
 |---|---|---|---|---|---|
@@ -57,8 +57,11 @@
 | A23 | Keys | No keys | decision, availability false | false | PASS |
 | A24 | Decision | Verdict invents a model | `ERR_VERDICT_INVALID` | exit 1 | PASS |
 | A25 | Decision | External verdict reorders | applied, verdict top wins | meshy-7.1 | PASS |
+| A26 | Eval | Malformed `passed` field | `ERR_EVAL_INVALID` | exit 1 | PASS |
+| A27 | Setup | VS Code `--global` | `ERR_GLOBAL_UNSUPPORTED` | exit 1 | PASS |
+| A28 | Setup | Generated AGENTS install command | GitHub install, no unpublished npm | exit 0 | PASS |
 
-**Result: 25/25 pass.**
+**Result: 28/28 pass.**
 
 ## Claims audit
 

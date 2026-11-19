@@ -3,7 +3,7 @@
  * observed pass rate, Wilson interval, expected attempts, and cost per solved
  * task, then compares the result with the catalog's prediction.
  */
-import { qualityFor } from './score.js';
+import { qualityFor, qualityConfidenceFor } from './score.js';
 
 function wilson(successes, total, z = 1.96) {
   if (!total) return { low: 0, high: 0 };
@@ -86,6 +86,7 @@ export function evaluateRuns(input, catalog, { minSamples = 5 } = {}) {
       costCoverage: allCosts ? 'complete' : 'partial',
       meanQuality: quality.length ? quality.reduce((sum, value) => sum + value, 0) / quality.length : null,
       catalogQuality: model ? Math.round(qualityFor(model, taskDef) * 10) / 10 : null,
+      catalogQualityConfidence: model ? qualityConfidenceFor(model) : null,
       enoughSamples: items.length >= minSamples
     });
   }

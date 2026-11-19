@@ -1,9 +1,9 @@
 {
   "schemaVersion": "1.0",
   "kind": "adversarial",
-  "generatedAt": "2026-11-19T10:08:33.014Z",
-  "total": 25,
-  "passed": 25,
+  "generatedAt": "2026-11-19T10:26:38.792Z",
+  "total": 28,
+  "passed": 28,
   "failed": 0,
   "results": [
     {
@@ -13,16 +13,16 @@
       "expected": "ERR_MISSING_TASK, no crash",
       "observed": "ERR_MISSING_TASK",
       "pass": true,
-      "ms": 0.9
+      "ms": 1
     },
     {
       "id": "A02",
       "area": "input",
       "vector": "100,000-character query",
       "expected": "no crash, <2s",
-      "observed": "12ms",
+      "observed": "13ms",
       "pass": true,
-      "ms": 12.4
+      "ms": 12.9
     },
     {
       "id": "A03",
@@ -31,7 +31,7 @@
       "expected": "treated as data, task 3d-gen",
       "observed": "3d-gen",
       "pass": true,
-      "ms": 1
+      "ms": 2
     },
     {
       "id": "A04",
@@ -40,7 +40,7 @@
       "expected": "no shell execution, structured result",
       "observed": "tripo-h3.1",
       "pass": true,
-      "ms": 1.1
+      "ms": 1.4
     },
     {
       "id": "A05",
@@ -49,7 +49,7 @@
       "expected": "no crash, task detected",
       "observed": "image-gen",
       "pass": true,
-      "ms": 4.2
+      "ms": 5.9
     },
     {
       "id": "A06",
@@ -58,7 +58,7 @@
       "expected": "ERR_UNKNOWN_TASK, no file read",
       "observed": 1,
       "pass": true,
-      "ms": 163.1
+      "ms": 168.8
     },
     {
       "id": "A07",
@@ -67,7 +67,7 @@
       "expected": "ERR_INVALID_OPTION",
       "observed": 1,
       "pass": true,
-      "ms": 137.7
+      "ms": 136.4
     },
     {
       "id": "A08",
@@ -76,7 +76,7 @@
       "expected": "ERR_INVALID_OPTION",
       "observed": 1,
       "pass": true,
-      "ms": 133.8
+      "ms": 154.4
     },
     {
       "id": "A09",
@@ -103,7 +103,7 @@
       "expected": "ERR_INVALID_OPTIMIZE",
       "observed": 1,
       "pass": true,
-      "ms": 143
+      "ms": 160.6
     },
     {
       "id": "A12",
@@ -112,7 +112,7 @@
       "expected": "ERR_OVERRIDES_INVALID, no silent ignore",
       "observed": "ERR_OVERRIDES_INVALID",
       "pass": true,
-      "ms": 6.3
+      "ms": 5.5
     },
     {
       "id": "A13",
@@ -121,7 +121,7 @@
       "expected": "load succeeds",
       "observed": 40,
       "pass": true,
-      "ms": 6.7
+      "ms": 12.1
     },
     {
       "id": "A14",
@@ -130,7 +130,7 @@
       "expected": "ERR_INVALID_CATALOG",
       "observed": "ERR_INVALID_CATALOG",
       "pass": true,
-      "ms": 1.1
+      "ms": 1.2
     },
     {
       "id": "A15",
@@ -139,7 +139,7 @@
       "expected": "never appears in keys output",
       "observed": 0,
       "pass": true,
-      "ms": 137.4
+      "ms": 157.3
     },
     {
       "id": "A16",
@@ -148,7 +148,7 @@
       "expected": "no files written",
       "observed": "none",
       "pass": true,
-      "ms": 146.9
+      "ms": 140.4
     },
     {
       "id": "A17",
@@ -157,7 +157,7 @@
       "expected": "refuse + preserve bytes",
       "observed": 1,
       "pass": true,
-      "ms": 134.6
+      "ms": 129.5
     },
     {
       "id": "A18",
@@ -166,7 +166,7 @@
       "expected": "refuse before writing overrides",
       "observed": 1,
       "pass": true,
-      "ms": 127.1
+      "ms": 124.9
     },
     {
       "id": "A19",
@@ -175,7 +175,7 @@
       "expected": "tool error, server alive",
       "observed": "{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"error\\\":\\\"TOOL_ERROR\\\",\\\"message\\\":\\\"Tell ",
       "pass": true,
-      "ms": 131.9
+      "ms": 141.3
     },
     {
       "id": "A20",
@@ -184,7 +184,7 @@
       "expected": "JSON-RPC -32602",
       "observed": -32602,
       "pass": true,
-      "ms": 145.6
+      "ms": 136
     },
     {
       "id": "A21",
@@ -193,7 +193,7 @@
       "expected": "all responses, no interleaving corruption",
       "observed": 10,
       "pass": true,
-      "ms": 152
+      "ms": 159.9
     },
     {
       "id": "A22",
@@ -202,7 +202,7 @@
       "expected": "stale true and ageDays > 120",
       "observed": 687,
       "pass": true,
-      "ms": 1.3
+      "ms": 0.8
     },
     {
       "id": "A23",
@@ -211,7 +211,7 @@
       "expected": "no crash; availability false",
       "observed": false,
       "pass": true,
-      "ms": 0.9
+      "ms": 1
     },
     {
       "id": "A24",
@@ -220,7 +220,7 @@
       "expected": "ERR_VERDICT_INVALID, no rerank",
       "observed": 1,
       "pass": true,
-      "ms": 335.3
+      "ms": 289.7
     },
     {
       "id": "A25",
@@ -229,7 +229,34 @@
       "expected": "applied=true, top is the verdict top",
       "observed": "meshy-7.1",
       "pass": true,
-      "ms": 316.4
+      "ms": 286.2
+    },
+    {
+      "id": "A26",
+      "area": "eval",
+      "vector": "Malformed eval passed field",
+      "expected": "ERR_EVAL_INVALID, no crash",
+      "observed": 1,
+      "pass": true,
+      "ms": 131.3
+    },
+    {
+      "id": "A27",
+      "area": "setup",
+      "vector": "VS Code --global is not silently written",
+      "expected": "ERR_GLOBAL_UNSUPPORTED",
+      "observed": 1,
+      "pass": true,
+      "ms": 124.4
+    },
+    {
+      "id": "A28",
+      "area": "setup",
+      "vector": "Generated AGENTS command is installable",
+      "expected": "GitHub install, no unpublished npm command",
+      "observed": 0,
+      "pass": true,
+      "ms": 146
     }
   ]
 }

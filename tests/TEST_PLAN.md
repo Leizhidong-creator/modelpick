@@ -18,7 +18,7 @@ Evidence lives in `tests/results/` (JSON + HTML) and `tests/evidence/` (images +
 
 ## Dimensions
 
-### 1. Unit logic — 97 tests
+### 1. Unit logic — 98 tests
 
 | Area | File | What is asserted |
 |---|---|---|
@@ -32,7 +32,7 @@ Evidence lives in `tests/results/` (JSON + HTML) and `tests/evidence/` (images +
 | Judge | `tests/unit/judge.test.js` | prompt blindness, strict JSON, invented slug rejection, Borda, movement cap |
 | Links | `tests/unit/links.test.js` | README/launch links resolve, video assets exist, site mirrors assets |
 
-Result: **97/97 pass**.
+Result: **98/98 pass**.
 
 ### 2. Data integrity
 
@@ -66,7 +66,7 @@ Result: **50/50 pass**.
 
 ### 5. Adversarial / security
 
-25 cases in `tests/adversarial/run.js`; raw results in `tests/results/adversarial-latest.json`; full findings table in [`ADVERSARIAL_REVIEW.md`](ADVERSARIAL_REVIEW.md). Result: **25/25 pass**.
+28 cases in `tests/adversarial/run.js`; raw results in `tests/results/adversarial-latest.json`; full findings table in [`ADVERSARIAL_REVIEW.md`](ADVERSARIAL_REVIEW.md). Result: **25/25 pass**.
 
 | Case | Expected | Observed |
 |---|---|---|

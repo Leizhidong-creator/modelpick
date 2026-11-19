@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-150%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-151%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-25%2F25-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -303,7 +303,7 @@ The value pick keeps **95.4% of frontier first-pass quality at 41.6% of the cost
 
 | Correctness | Cost | Robustness | Coverage | Safety | Operability | Composite |
 |---:|---:|---:|---:|---:|---:|---:|
-| 100 | 88 | 100 | 100 | 100 | 98.3 | **97.4 / A** |
+| 100 | 88 | 100 | 100 | 100 | 98.2 | **97.4 / A** |
 
 <p align="center"><img src="assets/scorecard.png" alt="ModelPick six-dimension scorecard" width="82%" /></p>
 
@@ -519,7 +519,7 @@ node --test "tests/**/*.test.js"
 node bench/run.js              # decision benchmark -> tests/results/
 node bench/holdout.js          # held-out decision benchmark
 node bench/value.js            # cost-per-solved-task simulation
-node tests/adversarial/run.js  # 25 adversarial cases
+node tests/adversarial/run.js  # 28 adversarial cases
 node scripts/check.js          # all of the above
 node scripts/make_assets.py    # regenerate README/test images
 ```
