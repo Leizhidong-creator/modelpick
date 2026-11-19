@@ -32,7 +32,7 @@ Claude Haiku 5.5：$0.008 → **$0.012/解决**（68.8 分）
 **4/**
 所以我做了 **ModelPick**：一个 CLI + MCP server，按「节点」选模型。
 
-20 个节点、41 个模型、18 家供应商。
+20 个节点、40 个模型、18 家供应商。
 文本 · 图片 · 视频 · 3D · 音频。
 
 `npx -y github:Leizhidong-creator/modelpick pick "给 Unity 做一个 3D 剑"`
