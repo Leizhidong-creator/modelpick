@@ -16,10 +16,10 @@ The product is ready; the next bottleneck is distribution. This is the channel m
 
 | Channel | Requirement | Action |
 |---|---|---|
-| Glama MCP | Public GitHub repo; usually auto-indexes from awesome list | Claim/verify the server after the awesome PR merges: https://glama.ai/mcp/servers |
+| Glama MCP | Auto-indexed | Listed and badge live: https://glama.ai/mcp/servers/Leizhidong-creator/modelpick |
 | Smithery | CLI + account auth; can publish a stdio server | `npx @smithery/cli` after npm or GitHub install is stable |
-| PulseMCP | Submit form; no paid placement | https://www.pulsemcp.com/submit |
-| mcp.so | Submit form | https://mcp.so/submit |
+| PulseMCP | **Paused** as of Sep 3, 2026; not accepting submissions | Recheck later |
+| mcp.so | Free listing requires sign-in; paid $39 immediate review | Skip paid placement |
 | mcpservers.org | Submit form | https://mcpservers.org/submit |
 | MCP Market | Submit listing | https://mcpmarket.com |
 | Official MCP Registry | Requires npm package or OCI image | Blocked on npm 2FA; use `server.json` after publish |
