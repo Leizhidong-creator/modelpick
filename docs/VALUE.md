@@ -36,13 +36,13 @@ The retry curve is a model, not a measurement. It is shown on every result and t
 
 1. Filter to eligible models (modality, capability, context, budget, openness, keys).
 2. Find the best quality \(Q^*\).
-3. Keep models with \(Q \ge \max(Q^* - 6,\ Q_{\text{top}} - 0.5)\).
-4. Pick the lowest \(C\) in that band; break ties by higher \(Q\).
+3. Keep models with \(Q \ge Q^* - 6\).
+4. Pick the lowest \(C\) in that band. If the band is empty, fall back to the top recommendation.
 
 Two properties matter:
 
-- The value pick is **never worse than the recommendation**. A cheaper model below the recommendation's quality is not "value"; it is a downgrade.
-- The band is a **quality-constrained cost minimization**, not a quality/cost ratio. A ratio rewards a $0.001 model with 60 quality; that is not the product.
+- The value pick is **quality-constrained**: it never leaves the 6-point band just to save money. It can cost more than the cheapest top pick when that buys real quality; the simulation shows the trade.
+- The band is not a quality/cost ratio. A ratio rewards a $0.001 model with 60 quality; that is not the product.
 
 `--optimize value` uses the same band with a value-oriented utility. `--optimize cost` drops the quality preference to the task floor: it is the "cheapest that still clears the bar" mode, not the default.
 
@@ -55,12 +55,12 @@ Two properties matter:
 | Strategy | First-pass | Cost / solved | Quality parity | Cost vs frontier | Parity ≥90% |
 |---|---:|---:|---:|---:|---:|
 | Frontier always | 93.7% | $0.6417 | 100.0% | 100.0% | 100% |
-| **Value pick** | **91.7%** | **$0.2708** | **97.9%** | **58.4%** | **100%** |
-| Cheapest always | 83.3% | $0.1736 | 88.8% | 34.1% | 60% |
-| Task default (balanced) | 84.0% | $0.1752 | 89.6% | 34.6% | 60% |
-| Per-trial oracle | — | $0.1625 | 100.0% | 32.6% | 100% |
+| **Value pick** | **91.0%** | **$0.2702** | **97.2%** | **58.0%** | **100%** |
+| Cheapest always | 87.6% | $0.2060 | 93.5% | 39.1% | 80% |
+| Task default (balanced) | 88.3% | $0.2077 | 94.2% | 39.6% | 80% |
+| Per-trial oracle | — | $0.1952 | 100.0% | 37.7% | 100% |
 
-**Reading it:** the value pick keeps **97.9% of frontier first-pass quality at 58% of the cost**, and clears the 90%-parity bar on all five tasks. The cheapest strategy saves another 24 cost points but loses 11 quality points and fails the parity bar on two of five tasks. That is the trade the product exists to make explicit.
+**Reading it:** the value pick keeps **97.2% of frontier first-pass quality at 58% of the cost**, and clears the 90%-parity bar on all five tasks. The cheapest strategy saves 19 cost points but loses 3.7 quality points and fails the parity bar on two of five tasks. That is the trade the product exists to make explicit.
 
 This is a **synthetic sanity check**, not a live model eval. It validates the arithmetic and the definition. The decision benchmark (`bench/run.js`) is the separate test of whether the labels agree with the router.
 
@@ -71,12 +71,12 @@ This is a **synthetic sanity check**, not a live model eval. It validates the ar
 | Task | band ±3 | band ±6 (default) | band ±10 |
 |---|---|---|---|
 | coding-agent | Claude Fable 5.2 $0.642 | Gemini 4 Carbon $0.174 | Gemini 4 Carbon $0.174 |
-| image-gen | Nano Banana 2.1 $0.036 | Nano Banana 2.1 $0.036 | Nano Banana 2.1 $0.036 |
+| image-gen | Nano Banana 2.1 $0.036 | Seedream 5.5 $0.034 | Seedream 5.5 $0.034 |
 | video-gen | Kling 4.0 $0.843 | Kling 4.0 $0.843 | Veo 3.1 Fast $0.596 |
 | 3d-gen | Tripo H3.1 $0.215 | Tripo H3.1 $0.215 | Tripo H3.1 $0.215 |
 | tts | Eleven v4 $0.085 | Eleven v4 $0.085 | Voxtral TTS 3 $0.015 |
 
-- **Value pick flips across bands: 3/5 tasks.** The definition is sensitive; the UI always shows the band and the quality gap.
+- **Value pick flips across bands: 4/5 tasks.** The definition is sensitive; the UI always shows the band and the quality gap.
 - **Value pick flips across retry multipliers 0.8/1.15/1.5: 0/5 tasks.** Cost ranking is robust to the retry assumption in this catalog.
 
 If a user disagrees with the band, they can use `--optimize quality` (band ±0), `--optimize cost` (task floor), or edit `policy.value.qualityTolerance`.

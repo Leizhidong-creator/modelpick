@@ -340,10 +340,11 @@ export function rankModels(catalog, task, options = {}) {
   const fastest = Math.min(...ranked.map((item) => item.latencySec));
   const tolerance = options.valueTolerance ?? loadPolicy().value?.qualityTolerance ?? 6;
   const leader = ranked[0];
-  // The value pick is never worse than the recommendation. It is the cheapest
-  // model within tolerance of the best AND at least as good as the top pick.
-  const threshold = Math.max(bestQuality - tolerance, leader.quality - 0.5);
-  let valuePool = ranked.filter((item) => item.quality >= threshold);
+  // Value is the cheapest model within tolerance of the best quality. If the
+  // band is empty, fall back to the top recommendation rather than an arbitrary
+  // expensive model. Value can cost more than the top pick when it buys real
+  // quality; that is the point of a quality-constrained value metric.
+  let valuePool = ranked.filter((item) => item.quality >= bestQuality - tolerance);
   if (!valuePool.length) valuePool = [leader];
   const value = valuePool.reduce(
     (best, item) =>

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "value-simulation",
-  "generatedAt": "2026-11-19T08:24:18.681Z",
+  "generatedAt": "2026-11-19T08:31:22.370Z",
   "trialsPerTask": 4000,
   "parityThreshold": 0.9,
   "tasks": [
@@ -24,18 +24,18 @@
           "parityPass": true
         },
         "cheapest": {
-          "model": "claude-haiku-5.5",
-          "name": "Claude Haiku 5.5",
-          "quality": 68.82,
-          "firstPass": 0.641,
-          "solved": 3931,
-          "solveRate": 0.98275,
-          "spent": 46.924800000002776,
-          "costPerSolved": 0.011937115237853669,
-          "attemptsMean": 1.5275,
-          "qualityParity": 0.703,
-          "costRatio": 0.019,
-          "parityPass": false
+          "model": "gemini-4-carbon",
+          "name": "Gemini 4 Carbon",
+          "quality": 87.3,
+          "firstPass": 0.854,
+          "solved": 3996,
+          "solveRate": 0.999,
+          "spent": 695.044800000046,
+          "costPerSolved": 0.17393513513514666,
+          "attemptsMean": 1.16775,
+          "qualityParity": 0.936,
+          "costRatio": 0.27,
+          "parityPass": true
         },
         "value": {
           "model": "gemini-4-carbon",
@@ -44,26 +44,26 @@
           "firstPass": 0.854,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 701.4432000000483,
-          "costPerSolved": 0.17536080000001206,
-          "attemptsMean": 1.1785,
+          "spent": 700.4016000000479,
+          "costPerSolved": 0.17510040000001198,
+          "attemptsMean": 1.17675,
           "qualityParity": 0.936,
           "costRatio": 0.272,
           "parityPass": true
         },
         "balanced": {
-          "model": "claude-haiku-5.5",
-          "name": "Claude Haiku 5.5",
-          "quality": 68.82,
-          "firstPass": 0.641,
-          "solved": 3928,
-          "solveRate": 0.982,
-          "spent": 47.854080000002845,
-          "costPerSolved": 0.012182810590632089,
-          "attemptsMean": 1.55775,
-          "qualityParity": 0.703,
-          "costRatio": 0.019,
-          "parityPass": false
+          "model": "gemini-4-carbon",
+          "name": "Gemini 4 Carbon",
+          "quality": 87.3,
+          "firstPass": 0.854,
+          "solved": 3999,
+          "solveRate": 0.99975,
+          "spent": 698.4672000000472,
+          "costPerSolved": 0.17466046511629088,
+          "attemptsMean": 1.1735,
+          "qualityParity": 0.936,
+          "costRatio": 0.271,
+          "parityPass": true
         },
         "oracle": {
           "model": "oracle",
@@ -72,11 +72,11 @@
           "firstPass": null,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 32.96667200000156,
-          "costPerSolved": 0.00824166800000039,
+          "spent": 687.5760000000273,
+          "costPerSolved": 0.17189400000000682,
           "attemptsMean": null,
           "qualityParity": null,
-          "costRatio": 0.013,
+          "costRatio": 0.267,
           "parityPass": null
         }
       }
@@ -114,17 +114,17 @@
           "parityPass": true
         },
         "value": {
-          "model": "nano-banana-2.1",
-          "name": "Nano Banana 2.1",
-          "quality": 93.65,
-          "firstPass": 0.927,
-          "solved": 4000,
-          "solveRate": 1,
-          "spent": 144.71520000001644,
-          "costPerSolved": 0.03617880000000411,
-          "attemptsMean": 1.07675,
-          "qualityParity": 0.972,
-          "costRatio": 0.257,
+          "model": "seedream-5.5",
+          "name": "Seedream 5.5",
+          "quality": 90.65,
+          "firstPass": 0.892,
+          "solved": 3999,
+          "solveRate": 0.99975,
+          "spent": 134.49000000000433,
+          "costPerSolved": 0.033630907726932814,
+          "attemptsMean": 1.12075,
+          "qualityParity": 0.935,
+          "costRatio": 0.239,
           "parityPass": true
         },
         "balanced": {
@@ -134,11 +134,11 @@
           "firstPass": 0.927,
           "solved": 3999,
           "solveRate": 0.99975,
-          "spent": 145.18560000001654,
-          "costPerSolved": 0.03630547636909641,
-          "attemptsMean": 1.08025,
+          "spent": 144.9504000000165,
+          "costPerSolved": 0.036246661665420475,
+          "attemptsMean": 1.0785,
           "qualityParity": 0.972,
-          "costRatio": 0.258,
+          "costRatio": 0.257,
           "parityPass": true
         },
         "oracle": {
@@ -148,8 +148,8 @@
           "firstPass": null,
           "solved": 4000,
           "solveRate": 1,
-          "spent": 122.14740000000458,
-          "costPerSolved": 0.030536850000001146,
+          "spent": 122.15460000000458,
+          "costPerSolved": 0.030538650000001145,
           "attemptsMean": null,
           "qualityParity": null,
           "costRatio": 0.217,
@@ -396,35 +396,35 @@
       "parityPassShare": 1
     },
     "cheapest": {
-      "firstPass": 0.833,
-      "solveRate": 0.996,
-      "costPerSolved": 0.1736,
-      "qualityParity": 0.888,
-      "costRatio": 0.341,
-      "parityPassShare": 0.6
+      "firstPass": 0.876,
+      "solveRate": 1,
+      "costPerSolved": 0.206,
+      "qualityParity": 0.935,
+      "costRatio": 0.391,
+      "parityPassShare": 0.8
     },
     "value": {
-      "firstPass": 0.917,
+      "firstPass": 0.91,
       "solveRate": 1,
-      "costPerSolved": 0.2708,
-      "qualityParity": 0.979,
-      "costRatio": 0.584,
+      "costPerSolved": 0.2702,
+      "qualityParity": 0.972,
+      "costRatio": 0.58,
       "parityPassShare": 1
     },
     "balanced": {
-      "firstPass": 0.84,
-      "solveRate": 0.996,
-      "costPerSolved": 0.1752,
-      "qualityParity": 0.896,
-      "costRatio": 0.346,
-      "parityPassShare": 0.6
+      "firstPass": 0.883,
+      "solveRate": 1,
+      "costPerSolved": 0.2077,
+      "qualityParity": 0.942,
+      "costRatio": 0.396,
+      "parityPassShare": 0.8
     },
     "oracle": {
       "firstPass": null,
       "solveRate": 1,
-      "costPerSolved": 0.1625,
+      "costPerSolved": 0.1952,
       "qualityParity": 1,
-      "costRatio": 0.326,
+      "costRatio": 0.377,
       "parityPassShare": 1
     }
   },

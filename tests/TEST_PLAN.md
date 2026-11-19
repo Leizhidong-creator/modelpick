@@ -125,7 +125,7 @@ The CLI avoids POSIX-only shell assumptions; setup uses absolute `node` paths on
 
 Full methodology and limitations: `bench/METHODOLOGY.md`. Raw runs: `tests/results/benchmark-latest.json`, `holdout-latest.json`, `value-latest.json`, `sensitivity-latest.json`.
 
-**Value simulation** (`node bench/value.js`, 4,000 jobs × 5 tasks): value pick keeps **97.9%** of frontier first-pass quality at **58.4%** of the cost; cheapest keeps 88.8% at 34.1%. Sensitivity: value flips on 3/5 tasks across ±3/±6/±10 quality bands, 0/5 across retry multipliers 0.8/1.15/1.5. Full table in [`../docs/VALUE.md`](../docs/VALUE.md).
+**Value simulation** (`node bench/value.js`, 4,000 jobs × 5 tasks): value pick keeps **97.2%** of frontier first-pass quality at **58.0%** of the cost; cheapest keeps 93.5% at 39.1%. Sensitivity: value flips on 4/5 tasks across ±3/±6/±10 quality bands, 0/5 across retry multipliers 0.8/1.15/1.5. Full table in [`../docs/VALUE.md`](../docs/VALUE.md).
 
 ### 9. UX / manual review
 

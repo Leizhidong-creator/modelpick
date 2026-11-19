@@ -95,7 +95,7 @@ export function runValueSimulation() {
   const rows = [];
   for (const taskId of TASKS) {
     const task = catalog.taskById.get(taskId);
-    const ranked = rankModels(catalog, task, { limit: 50, constraints: { minQuality: 0 } });
+    const ranked = rankModels(catalog, task, { limit: 50 });
     const stats = ranked.all.map((item) => modelStats(catalog.bySlug.get(item.slug), task));
     const byQuality = [...stats].sort((a, b) => b.quality - a.quality || a.unitCost - b.unitCost);
     const byCost = [...stats].sort((a, b) => a.unitCost - b.unitCost || b.quality - a.quality);

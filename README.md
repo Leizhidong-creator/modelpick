@@ -200,10 +200,10 @@ Full per-node tables: [`docs/LEADERBOARD.md`](docs/LEADERBOARD.md).
 | Strategy | First-pass | Cost / solved | Quality parity | Cost vs frontier |
 |---|---:|---:|---:|---:|
 | Frontier always | 93.7% | $0.6417 | 100% | 100% |
-| **Value pick** | **91.7%** | **$0.2708** | **97.9%** | **58.4%** |
-| Cheapest always | 83.3% | $0.1736 | 88.8% | 34.1% |
+| **Value pick** | **91.0%** | **$0.2702** | **97.2%** | **58.0%** |
+| Cheapest always | 87.6% | $0.2060 | 93.5% | 39.1% |
 
-The value pick keeps **97.9% of frontier first-pass quality at 58% of the cost**. The cheapest model saves another 24 cost points but loses 11 quality points and fails a 90%-parity bar on two of five tasks. This is synthetic; the arithmetic and the definition are in [`docs/VALUE.md`](docs/VALUE.md), and the evidence behind every quality score is in [`docs/QUALITY.md`](docs/QUALITY.md).
+The value pick keeps **97.2% of frontier first-pass quality at 58% of the cost**. The cheapest model saves 19 cost points but loses 3.7 quality points and fails a 90%-parity bar on two of five tasks. This is synthetic; the arithmetic and the definition are in [`docs/VALUE.md`](docs/VALUE.md), and the evidence behind every quality score is in [`docs/QUALITY.md`](docs/QUALITY.md).
 
 ---
 
@@ -225,7 +225,7 @@ request
 
 Presets: `balanced` (task weights), `value` (price-performance), `quality`, `cost`, `speed`, `privacy`. Budgets and quality floors are hard constraints, not suggestions.
 
-**The default is a value decision, not a bargain hunt.** The value pick is the cheapest model within **6 quality points of the best eligible model** — and never worse than the recommendation itself. It is returned as `picks.value` and `value`, with the quality gap and the percentage of the best model's cost. The full definition, simulation, and sensitivity analysis are in [`docs/VALUE.md`](docs/VALUE.md).
+**The default is a value decision, not a bargain hunt.** The value pick is the cheapest model within **6 quality points of the best eligible model**; if the band is empty, it falls back to the top recommendation. It is returned as `picks.value` and `value`, with the quality gap and the percentage of the best model's cost. The full definition, simulation, and sensitivity analysis are in [`docs/VALUE.md`](docs/VALUE.md).
 
 Every answer includes:
 - `recommendation.slug`, `quality`, `costPerTask`, `expectedAttempts`, `latencySec`

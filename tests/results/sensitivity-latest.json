@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "sensitivity",
-  "generatedAt": "2026-11-19T08:21:07.811Z",
+  "generatedAt": "2026-11-19T08:30:06.839Z",
   "toleranceRows": [
     {
       "tolerance": 3,
@@ -12,7 +12,7 @@
           "quality": 92.32,
           "qualityGap": 0,
           "cost": 0.642403,
-          "costRatio": 53.654,
+          "costRatio": 3.687,
           "label": "tolerance 3"
         },
         {
@@ -62,7 +62,7 @@
           "quality": 92.32,
           "qualityGap": 0,
           "cost": 0.642403,
-          "costRatio": 53.654,
+          "costRatio": 3.687,
           "label": "tolerance 5"
         },
         {
@@ -112,16 +112,16 @@
           "quality": 87.3,
           "qualityGap": 5,
           "cost": 0.174245,
-          "costRatio": 14.553,
+          "costRatio": 1,
           "label": "tolerance 6"
         },
         {
           "task": "image-gen",
-          "value": "nano-banana-2.1",
-          "quality": 93.65,
-          "qualityGap": 2.3,
-          "cost": 0.036254,
-          "costRatio": 1.079,
+          "value": "seedream-5.5",
+          "quality": 90.65,
+          "qualityGap": 5.3,
+          "cost": 0.0336,
+          "costRatio": 1,
           "label": "tolerance 6"
         },
         {
@@ -162,16 +162,16 @@
           "quality": 87.3,
           "qualityGap": 5,
           "cost": 0.174245,
-          "costRatio": 14.553,
+          "costRatio": 1,
           "label": "tolerance 8"
         },
         {
           "task": "image-gen",
-          "value": "nano-banana-2.1",
-          "quality": 93.65,
-          "qualityGap": 2.3,
-          "cost": 0.036254,
-          "costRatio": 1.079,
+          "value": "seedream-5.5",
+          "quality": 90.65,
+          "qualityGap": 5.3,
+          "cost": 0.0336,
+          "costRatio": 1,
           "label": "tolerance 8"
         },
         {
@@ -212,16 +212,16 @@
           "quality": 87.3,
           "qualityGap": 5,
           "cost": 0.174245,
-          "costRatio": 14.553,
+          "costRatio": 1,
           "label": "tolerance 10"
         },
         {
           "task": "image-gen",
-          "value": "nano-banana-2.1",
-          "quality": 93.65,
-          "qualityGap": 2.3,
-          "cost": 0.036254,
-          "costRatio": 1.079,
+          "value": "seedream-5.5",
+          "quality": 90.65,
+          "qualityGap": 5.3,
+          "cost": 0.0336,
+          "costRatio": 1,
           "label": "tolerance 10"
         },
         {
@@ -264,16 +264,16 @@
           "quality": 87.3,
           "qualityGap": 5,
           "cost": 0.165614,
-          "costRatio": 16.189,
+          "costRatio": 1,
           "label": "retry 0.8"
         },
         {
           "task": "image-gen",
-          "value": "nano-banana-2.1",
-          "quality": 93.65,
-          "qualityGap": 2.3,
-          "cost": 0.035414,
-          "costRatio": 1.092,
+          "value": "seedream-5.5",
+          "quality": 90.65,
+          "qualityGap": 5.3,
+          "cost": 0.03243,
+          "costRatio": 1,
           "label": "retry 0.8"
         },
         {
@@ -314,16 +314,16 @@
           "quality": 87.3,
           "qualityGap": 5,
           "cost": 0.174245,
-          "costRatio": 14.553,
+          "costRatio": 1,
           "label": "retry 1.15"
         },
         {
           "task": "image-gen",
-          "value": "nano-banana-2.1",
-          "quality": 93.65,
-          "qualityGap": 2.3,
-          "cost": 0.036254,
-          "costRatio": 1.079,
+          "value": "seedream-5.5",
+          "quality": 90.65,
+          "qualityGap": 5.3,
+          "cost": 0.0336,
+          "costRatio": 1,
           "label": "retry 1.15"
         },
         {
@@ -364,16 +364,16 @@
           "quality": 87.3,
           "qualityGap": 5,
           "cost": 0.183768,
-          "costRatio": 12.734,
+          "costRatio": 1,
           "label": "retry 1.5"
         },
         {
           "task": "image-gen",
-          "value": "nano-banana-2.1",
-          "quality": 93.65,
-          "qualityGap": 2.3,
-          "cost": 0.037128,
-          "costRatio": 1.064,
+          "value": "seedream-5.5",
+          "quality": 90.65,
+          "qualityGap": 5.3,
+          "cost": 0.03489,
+          "costRatio": 1,
           "label": "retry 1.5"
         },
         {
@@ -407,7 +407,7 @@
     }
   ],
   "flips": {
-    "tolerance": 3,
+    "tolerance": 4,
     "retry": 0
   }
 }

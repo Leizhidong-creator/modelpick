@@ -20,7 +20,6 @@ function snapshot(label, options = {}) {
     const task = catalog.taskById.get(taskId);
     const ranked = rankModels(catalog, task, {
       limit: 50,
-      constraints: { minQuality: 0 },
       valueTolerance: options.tolerance,
       retryMultiplier: options.retry
     });
