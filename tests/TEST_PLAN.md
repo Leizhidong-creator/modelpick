@@ -44,7 +44,7 @@ Result: **83/83 pass**.
 - Media prices carry `verified` or `estimated`.
 - Snapshot age <120 days.
 
-### 3. Integration — 36 tests
+### 3. Integration — 39 tests
 
 | Area | File | What is asserted |
 |---|---|---|
@@ -54,7 +54,7 @@ Result: **83/83 pass**.
 | Decision | `tests/integration/decision.test.js` | packet contract, verdict application, invented slug rejection, missing file |
 | Add-model | `tests/integration/add-model.test.js` | validation before write, routable custom model, removal |
 
-Result: **36/36 pass**.
+Result: **39/39 pass**.
 
 ### 4. End-to-end — 3 tests
 

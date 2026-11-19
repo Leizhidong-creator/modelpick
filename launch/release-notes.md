@@ -11,7 +11,7 @@ The first public cut of a model router that prices **cost per solved task**, not
 - **6 MCP tools** over stdio: `pick_model`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`.
 - **Embedded everywhere it can be:** Claude Code plugin + marketplace, Codex MCP/skill, Cursor, DeepSeek Harness profile row, Copilot, generic MCP.
 - **Bring your own decision model.** `modelpick decide` emits a portable packet; `modelpick pick --verdict` applies a judge/decision-model ranking locally. The verdict can only reorder the shortlist by two positions and cannot override constraints. `pick_model` accepts the same object over MCP. Protocol: `docs/JUDGES.md`.
-- **Evidence:** 122 tests, 25/25 adversarial cases, 115 dev + 35 held-out decision runs, and an explicit confidence label on every quality score and price.
+- **Evidence:** 125 tests, 25/25 adversarial cases, 115 dev + 35 held-out decision runs, and an explicit confidence label on every quality score and price.
 - **93-second English intro film** with a local neural voice, plus script, storyboard, captions, and a poster.
 
 ## Honest limits

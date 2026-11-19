@@ -29,6 +29,7 @@
     "research/hf-evidence.json",
     "tests/*.md",
     "tests/results/*.md",
+    "tests/results/*.json",
     "bench",
     "assets/*.png",
     "assets/*.mp4",

@@ -10,7 +10,8 @@ const steps = [
   ['bench', [path.join(ROOT, 'bench', 'run.js')]],
   ['holdout', [path.join(ROOT, 'bench', 'holdout.js')]],
   ['value', [path.join(ROOT, 'bench', 'value.js')]],
-  ['adversarial', [path.join(ROOT, 'tests', 'adversarial', 'run.js')]]
+  ['adversarial', [path.join(ROOT, 'tests', 'adversarial', 'run.js')]],
+  ['verify', [path.join(ROOT, 'bin', 'modelpick.js'), 'verify']]
 ];
 
 let failed = false;

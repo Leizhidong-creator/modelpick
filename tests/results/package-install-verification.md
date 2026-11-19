@@ -34,6 +34,28 @@ $ npx modelpick pick "3D sword for Unity" --json
 | Assets are packaged | pass (`assets/modelpick-intro.mp4`, 13.6 MB) |
 | README-linked docs are packaged | pass (`launch/`, `tests/*.md`, `research/hf-evidence.json`) |
 | `pick --json` works from the installed package | pass |
+| `verify` works from the installed package | pass (12/12 checks, hashes match) |
+
+Installed-package verification:
+
+```text
+$ npx modelpick verify --no-color
+
+  ModelPick verification · modelpick@0.1.0
+  ✓ node                 Node 24.15.0
+  ✓ package              modelpick@0.1.0
+  ✓ dependencies         zero runtime dependencies
+  ✓ catalog-schema       catalog + policy schema valid
+  ✓ catalog-invariants   slugs, prices, evidence, weights, plans
+  ✓ coverage             41 models · 20 tasks · 18 providers
+  ✓ evidence             every model has an HTTPS source
+  ✓ task-coverage        every task has at least two compatible models
+  ✓ decision-benchmark   115 dev runs · top-1 100%
+  ✓ held-out             held-out top-1 100%
+  ✓ value-simulation     quality parity 95.4% · cost 41.6% of frontier
+  ✓ hashes               catalog/policy hashes available
+  OK
+```
 
 ## Package size
 

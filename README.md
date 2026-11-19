@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-122%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-125%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-25%2F25-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -264,6 +264,7 @@ modelpick models                   Browse the catalog
 modelpick tasks                    List the 20 nodes
 modelpick show <model>             Endpoint, auth, SDK, curl, and evidence
 modelpick decide "<task>"          Build a portable decision packet for any judge
+modelpick verify                   Verify catalog, evidence, benchmarks, hashes
 modelpick add-model <file>         Add a private/custom model
 modelpick setup [agent]            Install MCP + skill
 modelpick mcp                      Run the stdio MCP server
