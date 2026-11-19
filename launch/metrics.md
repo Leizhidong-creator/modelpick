@@ -77,3 +77,9 @@ Do not record star counts as the only success metric. A reply that says “your 
 - https://x.com/DurgaraoGa51557/status/2123401908903903331
 - Reply to a post arguing support and financial agents need different routing policies.
 - Value-first: policy boundary, hard constraints per node, cost per solved task.
+
+## Targeted retry reply
+
+- https://x.com/DurgaraoGa51557/status/2123402250181865903
+- Reply to a benchmark post about a 63%-cheaper model.
+- Value-first: one benchmark is not one solved task; 20% failure means 1.25 attempts; asked whether it still wins after retries.
