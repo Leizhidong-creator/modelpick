@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Leizhidong-creator/modelpick",
+  "title": "ModelPick",
+  "description": "Pick the best-value model at every task node, with cost per solved task and the exact setup.",
+  "repository": {
+    "url": "https://github.com/Leizhidong-creator/modelpick",
+    "source": "github"
+  },
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "modelpick",
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": []
+    }
+  ]
+}
