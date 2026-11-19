@@ -102,3 +102,8 @@ Do not record star counts as the only success metric. A reply that says “your 
 - https://x.com/DurgaraoGa51557/status/2123412142917607881
 - Offer: 5 teams, one CSV, free cost-per-solved-task report, no signup.
 - Links to the browser eval page.
+
+## Two targeted agent-routing replies
+
+- https://x.com/DurgaraoGa51557/status/2123417833891938331 — developer running Claude Code, Codex and OpenCode side by side; per-node routing, not per-agent.
+- https://x.com/DurgaraoGa51557/status/2123417881740558841 — model-launch chart reader; cost per solved task and retries.
