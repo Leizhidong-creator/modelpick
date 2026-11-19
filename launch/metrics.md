@@ -96,3 +96,9 @@ Do not record star counts as the only success metric. A reply that says “your 
 
 - https://x.com/DurgaraoGa51557/status/2123411822497927467
 - Announcement: Official MCP Registry entry, npm 0.1.1, `npx modelpick setup claude-code`.
+
+## Design-partner call
+
+- https://x.com/DurgaraoGa51557/status/2123412142917607881
+- Offer: 5 teams, one CSV, free cost-per-solved-task report, no signup.
+- Links to the browser eval page.
