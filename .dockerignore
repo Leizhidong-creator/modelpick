@@ -1,0 +1,10 @@
+node_modules
+.git
+.local
+tests
+docs
+launch
+research
+bench
+assets/modelpick-intro.mp4
+*.tgz
