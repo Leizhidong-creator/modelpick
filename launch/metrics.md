@@ -28,3 +28,8 @@ Do not record star counts as the only success metric. A reply that says “your 
 
 - michael-muir/software-factory#20 (model router epic): https://github.com/michael-muir/software-factory/issues/20#issuecomment-7007576626
 - 8gi-foundation/8gent-code#73 (role-based routing): https://github.com/8gi-foundation/8gent-code/issues/73#issuecomment-7007577565
+
+## Build-in-public calibration post
+
+- https://x.com/DurgaraoGa51557/status/2123378270897107227
+- Content: the two score reductions (Nano Banana Pro 96→91, Veo 3.1 95→89), 40 models / 20 nodes / 177 tests, repo link. Product only.
