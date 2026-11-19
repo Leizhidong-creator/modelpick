@@ -22,28 +22,27 @@ function normalise(input) {
   const task = input.task;
   if (!task) throw new Error('Eval input needs a task id');
   const runs = [];
-  if (Array.isArray(input.runs)) {
-    for (const run of input.runs) {
-      if (!run.model) throw new Error('Each run needs a model slug');
-      runs.push({
-        model: run.model,
-        passed: Boolean(run.passed),
-        cost: run.cost == null ? null : Number(run.cost),
-        attempts: Math.max(1, Number(run.attempts ?? 1)),
-        quality: run.quality == null ? null : Number(run.quality)
-      });
+  const addRun = (run, fallbackModel) => {
+    const model = run.model ?? fallbackModel;
+    if (!model) throw new Error('Each run needs a model slug');
+    if (typeof run.passed !== 'boolean') throw new Error(`Expected passed: true/false for ${model}`);
+    const cost = run.cost == null ? null : Number(run.cost);
+    if (cost !== null && (!Number.isFinite(cost) || cost < 0)) {
+      throw new Error(`Cost must be a non-negative number for ${model}`);
     }
+    const attempts = Number(run.attempts ?? 1);
+    if (!Number.isInteger(attempts) || attempts < 1) throw new Error(`Attempts must be a whole number >= 1 for ${model}`);
+    const quality = run.quality == null ? null : Number(run.quality);
+    if (quality !== null && (!Number.isFinite(quality) || quality < 0 || quality > 100)) {
+      throw new Error(`Quality must be 0-100 for ${model}`);
+    }
+    runs.push({ model, passed: run.passed, cost, attempts, quality });
+  };
+  if (Array.isArray(input.runs)) {
+    for (const run of input.runs) addRun(run);
   } else if (input.models && typeof input.models === 'object') {
     for (const [model, item] of Object.entries(input.models)) {
-      for (const run of item.runs ?? []) {
-        runs.push({
-          model,
-          passed: Boolean(run.passed),
-          cost: run.cost == null ? null : Number(run.cost),
-          attempts: Math.max(1, Number(run.attempts ?? 1)),
-          quality: run.quality == null ? null : Number(run.quality)
-        });
-      }
+      for (const run of item.runs ?? []) addRun(run, model);
     }
   } else {
     throw new Error('Eval input needs a runs array or a models object');

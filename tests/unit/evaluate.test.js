@@ -55,6 +55,12 @@ test('flags small samples and sorts by cost per solved', () => {
   assert.equal(result.models.find((model) => model.slug === 'meshy-7.1').enoughSamples, false);
 });
 
+test('rejects non-boolean, negative cost, and out-of-range quality', () => {
+  assert.throws(() => evaluateRuns({ task: '3d-gen', runs: [{ model: 'tripo-h3.1', passed: 'yes' }] }, catalog), /passed/);
+  assert.throws(() => evaluateRuns({ task: '3d-gen', runs: [{ model: 'tripo-h3.1', passed: true, cost: -1 }] }, catalog), /Cost/);
+  assert.throws(() => evaluateRuns({ task: '3d-gen', runs: [{ model: 'tripo-h3.1', passed: true, quality: 101 }] }, catalog), /Quality/);
+});
+
 test('rejects an unknown task and malformed input', () => {
   assert.throws(() => evaluateRuns({ task: 'nope', runs: [] }, catalog), /Unknown task/);
   assert.throws(() => evaluateRuns({}, catalog), /needs a task/);
