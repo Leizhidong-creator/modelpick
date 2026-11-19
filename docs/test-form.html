@@ -3,12 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ModelPick test form: 20 tasks × 40 models</title>
-<meta name="description" content="The ModelPick evidence sheet: 177 tests, 90.12% line coverage, 28 adversarial cases, 20 tasks × 40 models, and live endpoint smoke." />
-<meta property="og:title" content="ModelPick test form" />
-<meta property="og:description" content="177 tests, 90.12% line coverage, 28/28 adversarial cases, 20 tasks × 40 models." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://leizhidong-creator.github.io/modelpick/test-form.html" />
+<title>ModelPick test form</title>
 <style>
   :root { --bg:#070a0e; --panel:#0d141c; --line:#263442; --ivory:#f5efe4; --dim:#8b9aaa; --gold:#c9a96e; --cyan:#39c5cf; --green:#3fb950; }
   * { box-sizing: border-box; }
@@ -48,7 +43,7 @@
 <p class="note">This is a decision benchmark, not an independent model-output benchmark. Image/video quality is arena-informed; 3D/audio remain expert priors. Live smoke proves transport and response format, not quality.</p>
 
 <h2>Per-task matrix</h2>
-<table><caption class="kicker" style="text-align:left;padding:8px 0">Per-task decision matrix</caption><thead><tr><th>Task</th><th class="num">Eligible</th><th>Top model</th><th class="num">Quality</th><th class="num">Cost / task</th><th>Value pick</th><th class="num">Value cost</th></tr></thead><tbody>
+<table><thead><tr><th>Task</th><th class="num">Eligible</th><th>Top model</th><th class="num">Quality</th><th class="num">Cost / task</th><th>Value pick</th><th class="num">Value cost</th></tr></thead><tbody>
 <tr><td>coding-agent<br><span class="note">Agentic coding</span></td><td class="num">4</td><td>gemini-4-carbon</td><td class="num">87.3</td><td class="num">$0.174</td><td>gemini-4-carbon</td><td class="num">$0.174</td></tr>
 <tr><td>code-review<br><span class="note">Code review</span></td><td class="num">6</td><td>gemini-4-carbon</td><td class="num">85.29</td><td class="num">$0.088</td><td>gpt-6.2-sol</td><td class="num">$0.087</td></tr>
 <tr><td>refactor<br><span class="note">Large refactor</span></td><td class="num">6</td><td>gemini-4-carbon</td><td class="num">86.32</td><td class="num">$0.193</td><td>gemini-4-carbon</td><td class="num">$0.193</td></tr>
@@ -72,7 +67,7 @@
 </tbody></table>
 
 <h2>Per-model applicability</h2>
-<table><caption class="kicker" style="text-align:left;padding:8px 0">Per-model applicability</caption><thead><tr><th>Model</th><th class="num">Eligible</th><th class="num">Top-1</th><th class="num">Top-3</th></tr></thead><tbody>
+<table><thead><tr><th>Model</th><th class="num">Eligible</th><th class="num">Top-1</th><th class="num">Top-3</th></tr></thead><tbody>
 <tr><td>gemini-4-carbon</td><td class="num">13</td><td class="num">7</td><td class="num">10</td></tr>
 <tr><td>gpt-6.1-terra</td><td class="num">6</td><td class="num">2</td><td class="num">4</td></tr>
 <tr><td>claude-haiku-5.5</td><td class="num">2</td><td class="num">2</td><td class="num">2</td></tr>
@@ -116,7 +111,7 @@
 </tbody></table>
 
 <h2>Adversarial cases</h2>
-<table><caption class="kicker" style="text-align:left;padding:8px 0">Adversarial cases</caption><thead><tr><th>ID</th><th>Area</th><th>Attack</th><th>Observed</th><th>Result</th></tr></thead><tbody>
+<table><thead><tr><th>ID</th><th>Area</th><th>Attack</th><th>Observed</th><th>Result</th></tr></thead><tbody>
 <tr><td>A01</td><td>input</td><td>Empty query</td><td>ERR_MISSING_TASK</td><td class="ok">PASS</td></tr>
 <tr><td>A02</td><td>input</td><td>100,000-character query</td><td>11ms</td><td class="ok">PASS</td></tr>
 <tr><td>A03</td><td>input</td><td>Prompt injection: ignore instructions + rm -rf</td><td>3d-gen</td><td class="ok">PASS</td></tr>
@@ -148,7 +143,7 @@
 </tbody></table>
 
 <h2>Live smoke</h2>
-<table><caption class="kicker" style="text-align:left;padding:8px 0">Live smoke</caption><thead><tr><th>Endpoint</th><th>Result</th><th class="num">Latency</th><th>Evidence</th></tr></thead><tbody>
+<table><thead><tr><th>Endpoint</th><th>Result</th><th class="num">Latency</th><th>Evidence</th></tr></thead><tbody>
 <tr><td>pollinations-text</td><td class="ok">PASS</td><td class="num">1256 ms</td><td>200 text/plain; charset=utf-8</td></tr>
 <tr><td>pollinations-image</td><td class="ok">PASS</td><td class="num">749 ms</td><td>200 image/jpeg</td></tr>
 <tr><td>github-models</td><td class="ok">PASS</td><td class="num">1087 ms</td><td>200 text/plain</td></tr>
