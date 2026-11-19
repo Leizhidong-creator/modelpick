@@ -65,3 +65,9 @@ Do not record star counts as the only success metric. A reply that says “your 
 - Clean-project verification: `npm install modelpick` -> `0.1.0`; `modelpick verify` -> `ok: true`; VS Code setup dry-run works.
 - npm showed the normal `0.0.0-stage` processing placeholder briefly; version `0.1.0` and `latest` are correct.
 - Launch post: https://x.com/DurgaraoGa51557/status/2123398907225162026
+
+## Targeted router reply
+
+- https://x.com/DurgaraoGa51557/status/2123401451980611630
+- Reply to a developer who routed 2,564 coding-agent requests through a local LLM router.
+- Value-first: 184 read tokens per written token; cost per solved task with retries; invited the actual log to the CSV eval.
