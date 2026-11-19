@@ -17,3 +17,9 @@ Do not record star counts as the only success metric. A reply that says “your 
 
 - Design partner reply posted under the pinned post: 5 slots, eval file, no signup.
 - Reply views at posting: 4; no external users yet.
+
+## GitHub outreach
+
+- Commented on DigiBanks99/lopen#51 (model routing design): https://github.com/DigiBanks99/lopen/issues/51#issuecomment-7007416128
+- Commented on jim-at-jibba/agent-os#4 (planner/executor/verifier routing): https://github.com/jim-at-jibba/agent-os/issues/4#issuecomment-7007430751
+- Both comments lead with a concrete design, disclose ModelPick, and do not ask for a star.

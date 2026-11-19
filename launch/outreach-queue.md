@@ -12,9 +12,9 @@ Target: **20–30 touches per week**, not 2,000 emails. One follow-up maximum.
 | 2 | `ryoppippi/ccusage` | Token/cost tracking | Issue / discussion | “Raw spend vs cost per solved task; here is a free eval schema.” | todo |
 | 3 | `AgentOps-AI/agentops` | Agent observability | Issue / integration PR | “Export a decision receipt into a trace; no key proxying.” | todo |
 | 4 | `inferock/inferock-bench` | Inference benchmark | Issue / PR | “Compare routing regret, not only throughput.” | todo |
-| 5 | `DigiBanks99/lopen#51` | Public issue: “Model routing” | Issue comment | Answer the design question; link only if asked. | todo |
+| 5 | `DigiBanks99/lopen#51` | Public issue: “Model routing” | Issue comment | Answer the design question; link only if asked. | **commented** |
 | 6 | `michael-muir/software-factory#20` | Public issue: “E20 · Model router” | Issue comment | Concrete per-node schema, constraints before scoring. | todo |
-| 7 | `jim-at-jibba/agent-os#4` | Public issue: “Model routing” | Issue comment | Small adapter sketch; no promo. | todo |
+| 7 | `jim-at-jibba/agent-os#4` | Public issue: “Model routing” | Issue comment | Small adapter sketch; no promo. | **commented** |
 | 8 | `8gi-foundation/8gent-code#73` | Public issue: “Role-based model routing” | Issue comment | Role → task node mapping; cost denominator. | todo |
 | 9 | `sillyash/FiiReFLY#3` | Public issue: models + routes | Issue comment | API/model-id mapping and fallback. | todo |
 
