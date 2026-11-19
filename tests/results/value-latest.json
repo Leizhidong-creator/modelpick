@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "kind": "value-simulation",
-  "generatedAt": "2026-11-19T08:31:22.370Z",
+  "generatedAt": "2026-11-19T08:32:23.379Z",
   "trialsPerTask": 4000,
   "parityThreshold": 0.9,
   "tasks": [
