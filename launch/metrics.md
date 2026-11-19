@@ -40,3 +40,9 @@ Do not record star counts as the only success metric. A reply that says “your 
 - Reply under Google AI's 94K-view Gemini 4 Neon launch post.
 - Value-first: pricing, 1M context, no published benchmark, estimated-prior experiment, top-1 drop 100%→96.5%, 4 failed picks. One repo link.
 - The model is deliberately **not** in the catalog until task-level evidence exists.
+
+## GPT-6.2 Astra reply
+
+- https://x.com/DurgaraoGa51557/status/2123391421210407419
+- Reply under OpenAI's GPT-6.2 Astra launch post (1.1M views at posting).
+- Value-first: official benchmark acknowledged, then workload-specific numbers: Astra $0.68/solved vs Sol $0.18 vs Fable 5.2 $0.64 at 80k/8k/60% cache; routing is per node.
