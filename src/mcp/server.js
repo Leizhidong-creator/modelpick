@@ -9,6 +9,7 @@ import { detectTask } from '../core/tasks.js';
 import { ModelPickError } from '../core/errors.js';
 import { modelAvailability } from '../core/availability.js';
 import { connectionFor } from '../core/connect.js';
+import { secretStatus } from '../core/secrets.js';
 
 const PROTOCOL_VERSION = '2025-06-18';
 const PKG = JSON.parse(fs.readFileSync(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../package.json'), 'utf8'));
@@ -91,7 +92,7 @@ const TOOLS = [
   },
   {
     name: 'get_setup',
-    description: 'Get the API key env var, key URL, docs, and model id needed to call a recommended model.',
+    description: 'Get the API key env var, key URL, docs, model id, and whether the key is configured locally. Never accepts or returns a key value.',
     inputSchema: {
       type: 'object',
       properties: { model: { type: 'string', description: 'Model slug, e.g. tripo-3.0 or nano-banana-2.1.' } },
@@ -279,6 +280,8 @@ export function createMcpServer({ input = process.stdin, output = process.stdout
       case 'get_setup': {
         const model = findModel(cat, args.model);
         if (!model) return toolError(`Unknown model: ${args.model}`, 'Call list_models first.');
+        const env = model.provider?.env ?? [];
+        const configured = env.map((name) => secretStatus(name));
         return textResult({
           slug: model.slug,
           name: model.name,
@@ -287,7 +290,11 @@ export function createMcpServer({ input = process.stdin, output = process.stdout
           access: model.access,
           connection: connectionFor(model),
           pricing: model.pricing,
-          docs: model.sources
+          docs: model.sources,
+          configured: env.length === 0 || configured.some((entry) => entry.configured),
+          keyStatus: configured,
+          setupCommand: env.length ? `modelpick keys set ${env[0]}` : 'Local provider; no key required.',
+          setupUi: 'modelpick keys --ui'
         });
       }
       case 'list_models': {

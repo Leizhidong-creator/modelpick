@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-182%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-197%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-28%2F28-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -43,7 +43,7 @@ npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for 
   <a href="https://leizhidong-creator.github.io/modelpick/#video"><img src="assets/modelpick-intro-thumb.png" alt="Watch the ModelPick intro video" width="72%" /></a>
 </p>
 
-<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.3/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
+<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.4/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
 
 ---
 
@@ -66,7 +66,7 @@ Three things are broken in model selection today:
 | Optimizes | access, failover, provider margin | model switching inside a coding loop | **best price-performance at each node** |
 | Modalities | mostly text; OpenRouter's live catalog is ~4% non-text | text | **text, image, video, 3D, audio** |
 | Decision | route by price/availability | rules or a classifier | capability filters + benchmark-weighted utility |
-| Keys | held by the gateway | local | **never stored; you call the provider** |
+| Keys | held by the gateway | local | **local file/env only; you call the provider** |
 | Evidence | live prices | config | dated catalog + public benchmark + raw failures |
 
 Gateways are useful, and ModelPick can recommend one as the setup path. But a gateway cannot tell you that a 3D node should use Tripo instead of Meshy, or that a "headline text" image needs a model with a text-rendering score above 90. That choice is what this tool makes.
@@ -104,7 +104,7 @@ npm install modelpick --registry=https://leizhidong-creator.github.io/modelpick/
 # offline release tarball
 
 ```bash
-npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.3/modelpick-0.1.3.tgz
+npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.4/modelpick-0.1.4.tgz
 ```
 
 <p align="center">
@@ -383,7 +383,11 @@ modelpick eval <file>              Analyze your own pass/fail runs
 modelpick add-model <file>         Add a private/custom model
 modelpick setup [agent]            Install MCP + skill
 modelpick mcp                      Run the stdio MCP server
-modelpick keys                     Show required env vars (never values)
+modelpick keys                     Configure keys (wizard) or list status
+modelpick keys --ui                Localhost-only key page
+modelpick keys set OPENAI_API_KEY  Hidden-input key setup
+modelpick keys test ENV            Live key check
+modelpick keys remove ENV          Delete a local key
 modelpick doctor                   Diagnose install, keys, freshness
 modelpick update                   Refresh the catalog snapshot
 modelpick bench                    Run the decision benchmark
@@ -407,6 +411,33 @@ modelpick pick "refactor this repo" --available
 # Need 400K tokens of context
 modelpick pick "read this 400-page document" --context 400000
 ```
+
+
+### Configure keys locally
+
+`pick`, `plan`, and `compare` never need a key. To execute a model, configure at least one provider.
+
+```bash
+modelpick keys                 # interactive wizard
+modelpick keys --ui            # localhost-only page, opens in your browser
+modelpick keys list           # status only; values are never printed
+modelpick keys test OPENAI_API_KEY
+modelpick keys remove OPENAI_API_KEY
+```
+
+Keys are stored in `~/.modelpick/secrets.json` with mode `0600`; environment variables take precedence. They are **not** sent to ModelPick, telemetry, or the judge model. They are only sent to the provider you choose.
+
+The page binds to `127.0.0.1` with a one-time token. It is not a remote service. See [`docs/KEYS.md`](docs/KEYS.md).
+
+No key at all? Use local Ollama for a text-only demo:
+
+```bash
+ollama pull qwen2.5:0.5b
+modelpick keys list            # shows Ollama local status
+modelpick pick "explain this function" --available
+```
+
+Ollama is a local runtime, not "Llama" itself; it can run Qwen, Llama, and other GGUF models. It is lower quality than cloud models and is not a 3D/video provider.
 
 ### Only have a few API keys?
 

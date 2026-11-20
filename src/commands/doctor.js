@@ -4,6 +4,8 @@ import path from 'node:path';
 import { loadCatalog, catalogStats } from '../core/catalog.js';
 import { paths, ensureHome } from '../core/config.js';
 import { detectAgents } from '../integrations/index.js';
+import { secretStatus } from '../core/secrets.js';
+import { checkOllama } from '../core/key-check.js';
 
 const MIN_NODE = [20, 11];
 
@@ -47,18 +49,26 @@ export async function runDoctor(ctx) {
       if (!providers.has(model.provider.id)) {
         providers.set(model.provider.id, { name: model.provider.name, env: model.provider.env, set: false });
       }
-      if (model.provider.env.some((name) => Boolean(process.env[name]))) providers.get(model.provider.id).set = true;
+      if (model.provider.env.some((name) => secretStatus(name).configured)) providers.get(model.provider.id).set = true;
     }
     const ready = [...providers.values()].filter((provider) => provider.set);
     add(
       'keys',
       ready.length ? 'pass' : 'warn',
       ready.length
-        ? `${ready.length}/${providers.size} providers have a key in this shell (${ready.map((p) => p.name).join(', ')})`
-        : 'No provider keys detected in this shell',
-      ready.length ? null : 'This is fine for recommendations. Add a key only when you are ready to call.'
+        ? `${ready.length}/${providers.size} providers configured (${ready.map((p) => p.name).join(', ')})`
+        : 'No provider keys configured',
+      ready.length ? null : 'Recommendations work without keys. Configure one with `modelpick keys --ui` when you want execution.'
     );
   }
+
+  const ollama = await checkOllama();
+  add(
+    'ollama',
+    ollama.running ? 'pass' : 'warn',
+    ollama.running ? `Ollama running (${ollama.message})` : 'Ollama not detected',
+    ollama.running ? null : 'Optional local path: install Ollama, then `ollama pull qwen2.5:0.5b`.'
+  );
 
   const detected = detectAgents();
   add('agents', detected.length ? 'pass' : 'warn', `Detected: ${detected.join(', ')}`, 'Run `modelpick setup` to install the MCP server + skill');

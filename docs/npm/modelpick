@@ -1,15 +1,15 @@
 {
   "name": "modelpick",
   "dist-tags": {
-    "latest": "0.1.3"
+    "latest": "0.1.4"
   },
   "versions": {
-    "0.1.3": {
+    "0.1.4": {
       "dist": {
-        "tarball": "https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.3/modelpick-0.1.3.tgz",
-        "integrity": "sha512-kQVzr0Ak6P/kZ3HjKMQFOCK5irLvRAXCCi5gCg3aZ27Key2vPCJP6DIC+YKJyN/AonRxYmbia/cE2lTZoeRylg=="
+        "tarball": "https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.4/modelpick-0.1.4.tgz",
+        "integrity": "sha512-sLCAsrGJ/v4w8XfjzehKnz9KCqSrkVgTfCEPWxH557K6wra0DnEyPKqn2mjnMoFAFILZkjmplv2pk6sHRWyXIA=="
       },
-      "version": "0.1.3",
+      "version": "0.1.4",
       "license": "MIT",
       "dependencies": {},
       "name": "modelpick",

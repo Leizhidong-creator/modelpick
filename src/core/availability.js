@@ -5,14 +5,16 @@
  *
  * Values are never read — only presence is checked.
  */
-export function modelAvailability(model, env = process.env) {
+import { storedEnvNames } from './secrets.js';
+
+export function modelAvailability(model, env = process.env, stored = storedEnvNames()) {
   const providerEnv = model.provider?.env ?? [];
   const envMode = model.provider?.envMode === 'all' ? 'all' : 'any';
-  const present = providerEnv.filter((name) => Boolean(env[name]));
+  const present = providerEnv.filter((name) => Boolean(env[name]) || stored.has(name));
   const directReady =
     providerEnv.length > 0 && (envMode === 'all' ? present.length === providerEnv.length : present.length > 0);
   const openrouterReady =
-    model.modality === 'text' && Boolean(model.access?.openrouter) && Boolean(env.OPENROUTER_API_KEY);
+    model.modality === 'text' && Boolean(model.access?.openrouter) && (Boolean(env.OPENROUTER_API_KEY) || stored.has('OPENROUTER_API_KEY'));
 
   if (directReady) {
     return {

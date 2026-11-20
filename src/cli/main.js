@@ -46,7 +46,8 @@ ${b('AGENT INTEGRATION')}
   setup [agent]      Configure Claude Code, Codex, Cursor, DSH, or generic MCP
                      (--global, --write, --profile for DSH; --dry-run to preview)
   mcp                Run the Model Context Protocol server (stdio)
-  keys               Show required key env vars (never prints values)
+  keys               Configure provider keys (wizard) or list status
+  keys --ui          Localhost-only key setup page
   doctor             Diagnose install, keys, catalog freshness
 
 ${b('MAINTAIN')}

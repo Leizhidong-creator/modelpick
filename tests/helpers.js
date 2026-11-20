@@ -25,6 +25,7 @@ export function runCli(args, options = {}) {
     cwd: options.cwd ?? ROOT,
     env: baseEnv(options.env),
     encoding: 'utf8',
+    input: options.input,
     timeout: options.timeout ?? 30000
   });
   let json = null;
