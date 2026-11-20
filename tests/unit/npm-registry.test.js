@@ -14,7 +14,7 @@ test('static npm registry metadata matches the package version', () => {
   assert.equal(registry['dist-tags'].latest, pkg.version);
   const version = registry.versions[pkg.version];
   assert.ok(version, `missing ${pkg.version}`);
-  assert.match(version.dist.tarball, /releases\/download\/v0\.1\.4\/modelpick-0\.1\.4\.tgz$/);
+  assert.match(version.dist.tarball, /releases\/download\/v0\.1\.5\/modelpick-0\.1\.5\.tgz$/);
   assert.match(version.dist.integrity, /^sha512-/);
   assert.deepEqual(version.bin, pkg.bin);
 });

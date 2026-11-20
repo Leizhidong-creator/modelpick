@@ -114,6 +114,13 @@ modelpick doctor
 
 ModelPick does **not** auto-download a model. The user chooses and pulls it.
 
+Run the keyless path:
+
+```bash
+modelpick run "explain this function" --local
+modelpick run --status
+```
+
 ## For agents
 
 `get_setup` returns:

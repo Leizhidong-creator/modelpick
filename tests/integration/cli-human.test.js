@@ -75,7 +75,7 @@ test('human verify prints a receipt', () => {
 test('version, help, and unknown command render', () => {
   const version = runCli(['version']);
   assert.equal(version.status, 0);
-  assert.match(version.stdout, /0\.1\.4/);
+  assert.match(version.stdout, /0\.1\.5/);
 
   const help = runCli(['help']);
   assert.equal(help.status, 0);

@@ -10,7 +10,7 @@ import { makeStyle } from './format.js';
 
 const COMMANDS = new Set([
   'pick', 'choose', 'recommend', 'plan', 'compare', 'models', 'list', 'tasks',
-  'setup', 'mcp', 'doctor', 'keys', 'update', 'bench', 'add-model', 'show', 'decide', 'judges', 'verify', 'eval', 'version', 'help'
+  'setup', 'mcp', 'doctor', 'keys', 'update', 'bench', 'add-model', 'show', 'decide', 'judges', 'run', 'verify', 'eval', 'version', 'help'
 ]);
 
 const ALIASES = { choose: 'pick', recommend: 'pick', list: 'models' };
@@ -58,6 +58,8 @@ ${b('MAINTAIN')}
   show <model>       Endpoint, auth, SDK, curl example, and evidence for one model
   decide <task>      Build a portable decision packet for any judge/decision model
   judges             List Jev, Gemini Decision 1, and their exact API setup
+  run <prompt>       Run a local Ollama model (--local, --model, --host)
+  run --status       Show local Ollama models (--json)
   verify             Verify catalog, evidence, benchmark, and package hashes
   eval <file>        Analyze your own pass/fail runs with Wilson intervals
 
@@ -219,6 +221,12 @@ export async function main(argv) {
       case 'judges': {
         const { runJudges } = await import('../commands/judges.js');
         await runJudges(ctx);
+        break;
+      }
+      case 'run': {
+        const { runLocal, runLocalStatus } = await import('../commands/run.js');
+        if (ctx.flags.status) await runLocalStatus(ctx);
+        else await runLocal(ctx);
         break;
       }
       case 'verify': {
