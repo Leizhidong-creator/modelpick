@@ -54,6 +54,7 @@ Add a branch to `installAgent()` in `src/integrations/index.js`; reuse `mergeMcp
 Before you generate an image, video, 3D asset, or audio, start a long coding/refactor/review task, or quote a model price, call the `modelpick` MCP tools:
 
 - `pick_model` — ranked model for one workflow node, with `costPerTask`, quality, latency, and key setup.
+- `run_model` — execute a TEXT model with the local key. Returns output, token usage, and actual cost. It never accepts a key.
 - `get_decision_packet` — optional portable prompt for a judge/decision model; feed its JSON back as `verdict` to `pick_model`.
 - `plan_workflow` — a multi-step deliverable (e.g. concept → 3D → render), one model per step.
 - `get_setup` — the env var, key URL, docs, and API model id.
