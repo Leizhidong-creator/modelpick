@@ -77,30 +77,54 @@ More: [`research/competitive-landscape.md`](research/competitive-landscape.md) (
 
 ## 30-second quickstart
 
-No install is required:
+### Windows: one command, no prompts
 
-```bash
-# 1. Ask for a recommendation (no key, no signup, no network)
-npx -y modelpick pick "generate a product photo with the headline 'Fresh Roast'"
-
-# 2. Plan a multi-step deliverable
-npx -y modelpick plan "30 second product launch video"
-
-# 3. Install into your agent (writes MCP config + skill)
-npx -y modelpick setup claude-code
+```bat
+npm install -g modelpick
+modelpick keys --ui
 ```
 
-### Installed locally vs globally
+If global install is blocked by policy:
 
-`npm install modelpick` puts the package in `./node_modules`; it does **not** add a global `modelpick` command.
+```bat
+npx --yes --package=modelpick@latest modelpick keys --ui
+```
+
+Or double-click the launcher:
+
+https://leizhidong-creator.github.io/modelpick/start-modelpick.cmd
+
+Do **not** paste bash comments (`# ...`) into CMD; CMD does not understand `#`.
+
+### macOS / Linux
+
+```bash
+npm install -g modelpick
+modelpick keys --ui
+
+# or no install
+npx --yes --package=modelpick@latest modelpick keys --ui
+```
+
+### Then
+
+```bash
+modelpick keys list
+modelpick doctor
+modelpick run "hello" --local --model qwen-local:latest
+```
+
+### Why `npm install modelpick` alone is not enough
+
+`npm install modelpick` installs into `./node_modules`; it does **not** put `modelpick` on PATH.
 
 ```bash
 npm install modelpick
-npx modelpick keys --ui       # ✅ correct
+npx modelpick keys --ui       # ✅
 # modelpick keys --ui         # ❌ not on PATH
 ```
 
-For a permanent bare command:
+Install globally for a permanent command:
 
 ```bash
 npm install -g modelpick
@@ -115,7 +139,7 @@ Fallbacks if the registry is unavailable:
 
 ```bash
 # GitHub, no npm auth
-npx -y github:Leizhidong-creator/modelpick pick "refactor this 40k-line repo, cheapest that works"
+npx --yes github:Leizhidong-creator/modelpick pick "refactor this 40k-line repo, cheapest that works"
 
 # static registry mirror
 npm install modelpick --registry=https://leizhidong-creator.github.io/modelpick/npm/

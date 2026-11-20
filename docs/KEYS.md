@@ -7,6 +7,35 @@ ModelPick separates **recommendation** from **execution**.
 
 ## Entry points
 
+### Windows, one command
+
+```bat
+npm install -g modelpick
+modelpick keys --ui
+```
+
+No admin rights? Use:
+
+```bat
+npx --yes --package=modelpick@latest modelpick keys --ui
+```
+
+Or double-click:
+
+https://leizhidong-creator.github.io/modelpick/start-modelpick.cmd
+
+CMD does not understand bash comments. Do not paste lines starting with `#`.
+
+### macOS / Linux
+
+```bash
+npm install -g modelpick
+modelpick keys --ui
+
+# no install
+npx --yes --package=modelpick@latest modelpick keys --ui
+```
+
 ### CLI wizard
 
 ```bash
