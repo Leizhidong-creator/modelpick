@@ -3,7 +3,7 @@ name: modelpick
 description: Pick the most cost-effective model at every workflow node (coding, image, video, 3D, audio), with cost per solved task, key-aware fallbacks, and the exact API connection.
 whenToUse: Before choosing a model, generating media, starting a long coding task, quoting a model price, wiring up a provider key, or when the user only has some API keys.
 metadata:
-  version: 0.1.0
+  version: 0.2.0
   homepage: https://github.com/Leizhidong-creator/modelpick
 ---
 
@@ -45,7 +45,9 @@ Do **not** call it on every turn or for trivial edits. One call per node is the 
 
 5. Before calling the provider, use `recommendation.connection` (or call `get_setup`) for the endpoint, auth header, SDK, curl example, and API model id. Never print or store the key value.
 
-6. In your final answer, state the model and the **cost per solved task**, not the token price. Example: `Tripo H3.1 — $0.21 per usable asset (1.07 expected attempts)`.
+6. If the key is configured and the node is text, call `run_model` with the prompt to execute it. It returns `output`, token usage, and actual cost. If the key is missing, show `setupCommand` / `setupUi`; never ask for the key in chat.
+
+7. In your final answer, state the model and the **cost per solved task**, not the token price. Example: `Tripo H3.1 — $0.21 per usable asset (1.07 expected attempts)`.
 
 ## Rules
 
@@ -64,6 +66,7 @@ npx -y github:Leizhidong-creator/modelpick pick "generate a 3D game asset" --jso
 npx -y github:Leizhidong-creator/modelpick pick "refactor this repo" --available --json
 npx -y github:Leizhidong-creator/modelpick plan "product launch video" --json
 npx -y github:Leizhidong-creator/modelpick show tripo-h3.1 --json
+npx -y github:Leizhidong-creator/modelpick run "explain this function" --model gpt-6.2-sol --json
 ```
 
 The JSON has the same shape as the MCP tool.

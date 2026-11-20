@@ -136,7 +136,9 @@ modelpick run --status
 
 It never accepts or returns the key value. The host agent should show the command/URL to the user, not ask for the key in chat.
 
-## What is not implemented yet
+## What is implemented now
 
-- `run_model` provider execution is the next layer. This release ships the key store, wizard, page, status, and missing-key contract.
+- Cloud **text** execution through `run_model` / `modelpick run` for OpenAI, Anthropic, Gemini, DeepSeek, and OpenRouter.
+- Local Ollama text execution with no key.
+- Image, video, 3D, and audio execution adapters are next.
 - OS keychain storage is a later hardening step; the current file is local, atomic, and `0600`.

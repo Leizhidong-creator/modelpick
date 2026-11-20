@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-205%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-217%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-28%2F28-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -43,7 +43,7 @@ npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for 
   <a href="https://leizhidong-creator.github.io/modelpick/#video"><img src="assets/modelpick-intro-thumb.png" alt="Watch the ModelPick intro video" width="72%" /></a>
 </p>
 
-<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.5/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
+<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.0/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
 
 ---
 
@@ -77,6 +77,8 @@ More: [`research/competitive-landscape.md`](research/competitive-landscape.md) (
 
 ## 30-second quickstart
 
+No install is required:
+
 ```bash
 # 1. Ask for a recommendation (no key, no signup, no network)
 npx -y modelpick pick "generate a product photo with the headline 'Fresh Roast'"
@@ -86,6 +88,23 @@ npx -y modelpick plan "30 second product launch video"
 
 # 3. Install into your agent (writes MCP config + skill)
 npx -y modelpick setup claude-code
+```
+
+### Installed locally vs globally
+
+`npm install modelpick` puts the package in `./node_modules`; it does **not** add a global `modelpick` command.
+
+```bash
+npm install modelpick
+npx modelpick keys --ui       # ✅ correct
+# modelpick keys --ui         # ❌ not on PATH
+```
+
+For a permanent bare command:
+
+```bash
+npm install -g modelpick
+modelpick keys --ui
 ```
 
 Official npm package: https://www.npmjs.com/package/modelpick
@@ -102,9 +121,7 @@ npx -y github:Leizhidong-creator/modelpick pick "refactor this 40k-line repo, ch
 npm install modelpick --registry=https://leizhidong-creator.github.io/modelpick/npm/
 
 # offline release tarball
-
-```bash
-npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.1.5/modelpick-0.1.5.tgz
+npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.0/modelpick-0.2.0.tgz
 ```
 
 <p align="center">
@@ -220,7 +237,7 @@ It writes `.vscode/mcp.json` under `servers` (VS Code's schema, not `mcpServers`
 }
 ```
 
-Tools exposed: `pick_model`, `get_decision_packet`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`. Recommendations work without any provider key; the key is only needed to run the chosen model.
+Tools exposed: `pick_model`, `run_model`, `get_decision_packet`, `plan_workflow`, `compare_models`, `get_setup`, `list_models`, `explain_task`. Recommendations work without any provider key; the key is only needed to run the chosen model.
 
 **Portable skill:** `.agents/skills/modelpick/SKILL.md` is read by Codex, Cursor, Copilot CLI, Devin/Windsurf, and DeepSeek Harness. Claude Code gets its own copy. The skill tells the agent when to call `pick_model` and how to report the result.
 
@@ -424,6 +441,24 @@ modelpick keys list           # status only; values are never printed
 modelpick keys test OPENAI_API_KEY
 modelpick keys remove OPENAI_API_KEY
 ```
+
+### Execute text models
+
+```bash
+# Auto-route from the prompt, then execute with the local key
+modelpick run "refactor this function" --task coding-agent
+
+# Pin a model
+modelpick run "write a launch headline" --model gpt-6.2-sol
+
+# Provider only (highest-quality text model for that provider)
+modelpick run "review this diff" --provider anthropic
+
+# No key at all: local Ollama
+modelpick run "hello" --local --model qwen-local:latest
+```
+
+Cloud execution currently covers **text** models through OpenAI, Anthropic, Gemini, DeepSeek, and OpenRouter. Image, video, 3D, and audio execution adapters are next. The key is read from the local store/env and is never accepted as an argument.
 
 ### Run locally with no key
 

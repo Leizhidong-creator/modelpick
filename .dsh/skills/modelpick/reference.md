@@ -63,3 +63,13 @@ modelpick pick "refactor this 40k-line repo" --open-weights --context 200000
 modelpick compare claude-fable-5.2 gemini-4-carbon --task coding-agent
 modelpick plan "3D game asset from concept art"
 ```
+
+## run_model
+
+`run_model` executes a **text** model with the locally configured provider key. It never accepts a key argument.
+
+```json
+{ "prompt": "refactor this function", "task": "coding-agent" }
+```
+
+Returns `output`, `usage.inputTokens`, `usage.outputTokens`, `cost` (actual, from the catalog price), `model`, `provider`, and `requestId`. If no key is configured it returns `ERR_MISSING_KEY` with `setupCommand` and `setupUi`.

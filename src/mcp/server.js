@@ -10,6 +10,7 @@ import { ModelPickError } from '../core/errors.js';
 import { modelAvailability } from '../core/availability.js';
 import { connectionFor } from '../core/connect.js';
 import { secretStatus } from '../core/secrets.js';
+import { runRecommended } from '../core/run-service.js';
 
 const PROTOCOL_VERSION = '2025-06-18';
 const PKG = JSON.parse(fs.readFileSync(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../package.json'), 'utf8'));
@@ -88,6 +89,21 @@ const TOOLS = [
         task: { type: 'string' }
       },
       required: ['models', 'task']
+    }
+  },
+  {
+    name: 'run_model',
+    description: 'Execute a TEXT model with the locally configured key and return the output, token usage, and actual cost. Never accepts a key. Other modalities are not wired yet.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        prompt: { type: 'string', description: 'What the model should do.' },
+        model: { type: 'string', description: 'Catalog slug. Omit to route automatically.' },
+        task: { type: 'string', description: 'Task node id, e.g. coding-agent.' },
+        provider: { type: 'string', description: 'Provider id to choose from when model is omitted.' },
+        max_tokens: { type: 'integer', minimum: 1, maximum: 32768 }
+      },
+      required: ['prompt']
     }
   },
   {
@@ -276,6 +292,33 @@ export function createMcpServer({ input = process.stdin, output = process.stdout
       case 'compare_models': {
         const result = compare(cat, args.models, { task: args.task });
         return textResult(result);
+      }
+      case 'run_model': {
+        if (!args.prompt || !String(args.prompt).trim()) return toolError('A prompt is required.');
+        try {
+          const result = await runRecommended({
+            catalog: cat,
+            prompt: String(args.prompt),
+            model: args.model,
+            task: args.task,
+            provider: args.provider,
+            maxTokens: args.max_tokens
+          });
+          return textResult({
+            ...result,
+            setup: {
+              configured: true,
+              setupUi: 'modelpick keys --ui',
+              note: 'The key stays local; it is only sent to the provider.'
+            }
+          });
+        } catch (error) {
+          if (error instanceof ModelPickError && error.code === 'ERR_MISSING_KEY') {
+            return textResult({ error: error.code, message: error.message, hint: error.hint, ...error.details });
+          }
+          if (error instanceof ModelPickError) return toolError(error.message, error.hint);
+          return toolError(error.message);
+        }
       }
       case 'get_setup': {
         const model = findModel(cat, args.model);

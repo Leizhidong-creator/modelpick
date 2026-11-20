@@ -19,10 +19,10 @@ test('MCP initializes with tools capability and instructions', async () => {
   assert.equal(initialized.serverInfo.version, JSON.parse(fs.readFileSync('package.json', 'utf8')).version);
   assert.ok(initialized.instructions.includes('pick_model'));
   const tools = responses.get(2).result.tools;
-  assert.equal(tools.length, 7);
+  assert.equal(tools.length, 8);
   assert.deepEqual(
     tools.map((tool) => tool.name).sort(),
-    ['compare_models', 'explain_task', 'get_decision_packet', 'get_setup', 'list_models', 'pick_model', 'plan_workflow']
+    ['compare_models', 'explain_task', 'get_decision_packet', 'get_setup', 'list_models', 'pick_model', 'plan_workflow', 'run_model']
   );
   assert.ok(tools.every((tool) => tool.inputSchema.type === 'object'));
 });
@@ -92,6 +92,24 @@ test('plan_workflow returns every step and a total', async () => {
   const payload = toolResult(responses.get(4));
   assert.ok(payload.steps.length >= 4);
   assert.ok(payload.estimate.totalCost > 0);
+});
+
+test('run_model returns a structured missing-key contract without a key', async () => {
+  const { responses } = await mcpSession([
+    init,
+    {
+      jsonrpc: '2.0',
+      id: 9,
+      method: 'tools/call',
+      params: { name: 'run_model', arguments: { prompt: 'hello', model: 'claude-fable-5.2' } }
+    }
+  ]);
+  const result = toolResult(responses.get(9));
+  assert.equal(result.error, 'ERR_MISSING_KEY');
+  assert.equal(result.needsUserAction, true);
+  assert.equal(result.env, 'ANTHROPIC_API_KEY');
+  assert.match(result.command, /modelpick keys set/);
+  assert.match(result.setupUi, /keys --ui/);
 });
 
 test('get_setup and list_models work', async () => {

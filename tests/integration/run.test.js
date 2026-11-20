@@ -73,10 +73,10 @@ test('run --local human output and --status work', async () => {
   }
 });
 
-test('run without --local explains the current execution boundary', () => {
-  const result = runCli(['run', 'hello']);
+test('run without a configured cloud key returns the setup path', () => {
+  const result = runCli(['run', 'hello', '--model', 'gpt-6.2-sol']);
   assert.equal(result.status, 1);
-  assert.match(result.stderr, /Cloud execution is not enabled|--local/i);
+  assert.match(result.stderr, /No key configured|keys set|keys --ui/i);
 });
 
 test('run refuses a non-loopback Ollama host', () => {
