@@ -103,6 +103,11 @@ test('get_setup and list_models work', async () => {
   const setup = toolResult(responses.get(5));
   assert.equal(setup.slug, 'tripo-h3.1');
   assert.ok(setup.provider.env.includes('TRIPO_API_KEY'));
+  assert.equal(setup.configured, false);
+  assert.equal(setup.keyStatus[0].name, 'TRIPO_API_KEY');
+  assert.equal(setup.keyStatus[0].configured, false);
+  assert.match(setup.setupCommand, /modelpick keys set/);
+  assert.ok(!JSON.stringify(setup).includes('value'));
   const list = toolResult(responses.get(6));
   assert.ok(list.count >= 4);
   assert.ok(list.models.every((model) => model.modality === 'image'));
