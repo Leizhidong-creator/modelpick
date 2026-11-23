@@ -1,0 +1,52 @@
+name: Publish to MCP Registry
+
+# Publishes server.json to the official MCP Registry (registry.modelcontextprotocol.io)
+# when a GitHub Release is published. No secrets are needed: GitHub OIDC proves the
+# workflow runs in this repository, which owns the io.github.Leizhidong-creator namespace.
+#
+# How to trigger:
+#   1. Bump `version` in server.json (and package.json) — the registry requires a
+#      NEW, unique version on every publish; re-publishing 0.2.0 will be rejected.
+#   2. Publish the npm package for that version, then create a GitHub Release
+#      (e.g. tag v0.2.1) — or run this workflow manually from the Actions tab.
+# The workflow itself does NOT publish anything until it is triggered.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # required for mcp-publisher login github-oidc
+      contents: read
+    env:
+      MCP_PUBLISHER_VERSION: v1.8.8
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+
+      - name: Download and verify mcp-publisher
+        run: |
+          set -euo pipefail
+          archive="mcp-publisher_linux_amd64.tar.gz"
+          base="https://github.com/modelcontextprotocol/registry/releases/download/${MCP_PUBLISHER_VERSION}"
+          curl -sSL -o "$archive" "$base/$archive"
+          curl -sSL -o "$archive.sigstore.json" "$base/$archive.sigstore.json"
+          cosign verify-blob --bundle "$archive.sigstore.json" \
+            --certificate-identity "https://github.com/modelcontextprotocol/registry/.github/workflows/release.yml@refs/tags/${MCP_PUBLISHER_VERSION}" \
+            --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+            "$archive"
+          tar -xzf "$archive" mcp-publisher
+
+      - name: Validate server.json
+        run: ./mcp-publisher validate
+
+      - name: Login to MCP Registry (GitHub OIDC)
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish to MCP Registry
+        run: ./mcp-publisher publish
