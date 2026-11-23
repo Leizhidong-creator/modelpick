@@ -101,6 +101,8 @@ More: [`research/competitive-landscape.md`](research/competitive-landscape.md) (
 
 ## 30-second quickstart
 
+**Step-by-step start page:** https://leizhidong-creator.github.io/modelpick/start.html
+
 **Guided install page:** https://leizhidong-creator.github.io/modelpick/install.html
 
 ### Windows: one command, no prompts
