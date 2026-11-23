@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-23T03:59:03.759Z",
+  "generatedAt": "2026-11-23T04:24:01.814Z",
   "catalogVersion": "2026.11.19",
   "scenarios": 39,
   "runs": 115,
@@ -10,7 +10,7 @@
     "top3": 1,
     "constraintPass": 1,
     "medianCostRegret": 0,
-    "p95Ms": 12.4,
+    "p95Ms": 17,
     "priceStability": 1
   },
   "thresholds": {
@@ -38,7 +38,7 @@
       ],
       "costPerTask": 0.174245,
       "quality": 87.3,
-      "elapsedMs": 12.38,
+      "elapsedMs": 25.12,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -56,7 +56,7 @@
       ],
       "costPerTask": 0.174245,
       "quality": 87.3,
-      "elapsedMs": 5.65,
+      "elapsedMs": 14.38,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -74,7 +74,7 @@
       ],
       "costPerTask": 0.174245,
       "quality": 87.3,
-      "elapsedMs": 8.49,
+      "elapsedMs": 8.15,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -92,7 +92,7 @@
       ],
       "costPerTask": 0.13152,
       "quality": 85.53,
-      "elapsedMs": 10.43,
+      "elapsedMs": 12.5,
       "costRegret": 0.009254569731571318,
       "reasons": [],
       "pass": true
@@ -110,7 +110,7 @@
       ],
       "costPerTask": 0.130314,
       "quality": 86.16,
-      "elapsedMs": 6.09,
+      "elapsedMs": 16.52,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -128,7 +128,7 @@
       ],
       "costPerTask": 0.13152,
       "quality": 85.53,
-      "elapsedMs": 10.37,
+      "elapsedMs": 8.44,
       "costRegret": 0.009254569731571318,
       "reasons": [],
       "pass": true
@@ -146,7 +146,7 @@
       ],
       "costPerTask": 0.087772,
       "quality": 85.29,
-      "elapsedMs": 14.03,
+      "elapsedMs": 15.88,
       "costRegret": 0.0075301896322145625,
       "reasons": [],
       "pass": true
@@ -164,7 +164,7 @@
       ],
       "costPerTask": 0.087116,
       "quality": 85.81,
-      "elapsedMs": 9.62,
+      "elapsedMs": 10.84,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -182,7 +182,7 @@
       ],
       "costPerTask": 0.319939,
       "quality": 91.78,
-      "elapsedMs": 7.18,
+      "elapsedMs": 10.72,
       "costRegret": 2.672563019422379,
       "reasons": [],
       "pass": true
@@ -200,7 +200,7 @@
       ],
       "costPerTask": 0.193481,
       "quality": 86.32,
-      "elapsedMs": 5.31,
+      "elapsedMs": 21.53,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -218,7 +218,7 @@
       ],
       "costPerTask": 0.193481,
       "quality": 86.32,
-      "elapsedMs": 8.46,
+      "elapsedMs": 10.58,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -236,7 +236,7 @@
       ],
       "costPerTask": 0.193481,
       "quality": 86.32,
-      "elapsedMs": 5.52,
+      "elapsedMs": 14.53,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -254,7 +254,7 @@
       ],
       "costPerTask": 0.068558,
       "quality": 86.71,
-      "elapsedMs": 5.01,
+      "elapsedMs": 17.04,
       "costRegret": 0.023421755810655285,
       "reasons": [],
       "pass": true
@@ -272,7 +272,7 @@
       ],
       "costPerTask": 0.066989,
       "quality": 88.44,
-      "elapsedMs": 13.07,
+      "elapsedMs": 12.48,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -290,7 +290,7 @@
       ],
       "costPerTask": 0.066989,
       "quality": 88.44,
-      "elapsedMs": 10.69,
+      "elapsedMs": 10.14,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -308,7 +308,7 @@
       ],
       "costPerTask": 0.64701,
       "quality": 86.42,
-      "elapsedMs": 5.44,
+      "elapsedMs": 8.89,
       "costRegret": 0.3694144838212634,
       "reasons": [],
       "pass": true
@@ -326,7 +326,7 @@
       ],
       "costPerTask": 0.472472,
       "quality": 80.02,
-      "elapsedMs": 9.07,
+      "elapsedMs": 12.5,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -344,7 +344,7 @@
       ],
       "costPerTask": 0.80808,
       "quality": 91.41,
-      "elapsedMs": 17.82,
+      "elapsedMs": 10.38,
       "costRegret": 0.7103235747303545,
       "reasons": [],
       "pass": true
@@ -362,7 +362,7 @@
       ],
       "costPerTask": 0.163834,
       "quality": 80.57,
-      "elapsedMs": 15.02,
+      "elapsedMs": 7.17,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -380,7 +380,7 @@
       ],
       "costPerTask": 0.163834,
       "quality": 80.57,
-      "elapsedMs": 9.38,
+      "elapsedMs": 17.02,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -398,7 +398,7 @@
       ],
       "costPerTask": 0.291288,
       "quality": 88.96,
-      "elapsedMs": 11.62,
+      "elapsedMs": 15.37,
       "costRegret": 0.7779459697010387,
       "reasons": [],
       "pass": true
@@ -416,7 +416,7 @@
       ],
       "costPerTask": 0.03566,
       "quality": 87.92,
-      "elapsedMs": 13.52,
+      "elapsedMs": 8.46,
       "costRegret": 0.8211531586742248,
       "reasons": [],
       "pass": true
@@ -434,7 +434,7 @@
       ],
       "costPerTask": 0.019581,
       "quality": 81.24,
-      "elapsedMs": 9.17,
+      "elapsedMs": 7.52,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -452,7 +452,7 @@
       ],
       "costPerTask": 0.03566,
       "quality": 87.92,
-      "elapsedMs": 6.76,
+      "elapsedMs": 10.37,
       "costRegret": 0.8211531586742248,
       "reasons": [],
       "pass": true
@@ -470,7 +470,7 @@
       ],
       "costPerTask": 0.030912,
       "quality": 80.55,
-      "elapsedMs": 7.94,
+      "elapsedMs": 14.92,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -488,7 +488,7 @@
       ],
       "costPerTask": 0.030912,
       "quality": 80.55,
-      "elapsedMs": 10.31,
+      "elapsedMs": 11.35,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -506,7 +506,7 @@
       ],
       "costPerTask": 0.205248,
       "quality": 94.4,
-      "elapsedMs": 7.62,
+      "elapsedMs": 15.33,
       "costRegret": 5.639751552795032,
       "reasons": [],
       "pass": true
@@ -524,7 +524,7 @@
       ],
       "costPerTask": 0.006569,
       "quality": 62.41,
-      "elapsedMs": 5.95,
+      "elapsedMs": 8.87,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -542,7 +542,7 @@
       ],
       "costPerTask": 0.006569,
       "quality": 62.41,
-      "elapsedMs": 7.13,
+      "elapsedMs": 17.23,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -560,7 +560,7 @@
       ],
       "costPerTask": 0.0008,
       "quality": 70.91,
-      "elapsedMs": 5.41,
+      "elapsedMs": 15.17,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -578,7 +578,7 @@
       ],
       "costPerTask": 0.0008,
       "quality": 70.91,
-      "elapsedMs": 12.06,
+      "elapsedMs": 12.38,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -596,7 +596,7 @@
       ],
       "costPerTask": 0.145436,
       "quality": 85.7,
-      "elapsedMs": 6.79,
+      "elapsedMs": 14.71,
       "costRegret": 0.009278343361161456,
       "reasons": [],
       "pass": true
@@ -614,7 +614,7 @@
       ],
       "costPerTask": 0.144099,
       "quality": 86.34,
-      "elapsedMs": 5.39,
+      "elapsedMs": 16.42,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -632,7 +632,7 @@
       ],
       "costPerTask": 0.145436,
       "quality": 85.7,
-      "elapsedMs": 10.4,
+      "elapsedMs": 7.77,
       "costRegret": 0.009278343361161456,
       "reasons": [],
       "pass": true
@@ -650,7 +650,7 @@
       ],
       "costPerTask": 0.080992,
       "quality": 91.31,
-      "elapsedMs": 11.52,
+      "elapsedMs": 8.34,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -668,7 +668,7 @@
       ],
       "costPerTask": 0.080992,
       "quality": 91.31,
-      "elapsedMs": 5.71,
+      "elapsedMs": 6.23,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -686,7 +686,7 @@
       ],
       "costPerTask": 0.080992,
       "quality": 91.31,
-      "elapsedMs": 9.88,
+      "elapsedMs": 20.04,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -704,7 +704,7 @@
       ],
       "costPerTask": 0.036254,
       "quality": 93.65,
-      "elapsedMs": 2.55,
+      "elapsedMs": 3.13,
       "costRegret": 0.07898809523809534,
       "reasons": [],
       "pass": true
@@ -722,7 +722,7 @@
       ],
       "costPerTask": 0.0336,
       "quality": 90.65,
-      "elapsedMs": 3.12,
+      "elapsedMs": 1.59,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -740,7 +740,7 @@
       ],
       "costPerTask": 0.036254,
       "quality": 93.65,
-      "elapsedMs": 2.82,
+      "elapsedMs": 1.46,
       "costRegret": 0.07898809523809534,
       "reasons": [],
       "pass": true
@@ -758,7 +758,7 @@
       ],
       "costPerTask": 0.0336,
       "quality": 90.65,
-      "elapsedMs": 4.1,
+      "elapsedMs": 3.5,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -776,7 +776,7 @@
       ],
       "costPerTask": 0.0336,
       "quality": 90.65,
-      "elapsedMs": 1.5,
+      "elapsedMs": 4.35,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -794,7 +794,7 @@
       ],
       "costPerTask": 0.0336,
       "quality": 90.65,
-      "elapsedMs": 1.34,
+      "elapsedMs": 1.64,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -812,7 +812,7 @@
       ],
       "costPerTask": 0.036187,
       "quality": 93.8,
-      "elapsedMs": 1.56,
+      "elapsedMs": 1.74,
       "costRegret": 0.08376759508834962,
       "reasons": [],
       "pass": true
@@ -830,7 +830,7 @@
       ],
       "costPerTask": 0.03339,
       "quality": 91.2,
-      "elapsedMs": 2.81,
+      "elapsedMs": 1.38,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -848,7 +848,7 @@
       ],
       "costPerTask": 0.036187,
       "quality": 93.8,
-      "elapsedMs": 1.48,
+      "elapsedMs": 1.3,
       "costRegret": 0.08376759508834962,
       "reasons": [],
       "pass": true
@@ -866,7 +866,7 @@
       ],
       "costPerTask": 0.036187,
       "quality": 93.8,
-      "elapsedMs": 1.42,
+      "elapsedMs": 1.57,
       "costRegret": 0.08376759508834962,
       "reasons": [],
       "pass": true
@@ -884,7 +884,7 @@
       ],
       "costPerTask": 0.03339,
       "quality": 91.2,
-      "elapsedMs": 1.34,
+      "elapsedMs": 1.36,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -902,7 +902,7 @@
       ],
       "costPerTask": 0.036187,
       "quality": 93.8,
-      "elapsedMs": 1.11,
+      "elapsedMs": 3.63,
       "costRegret": 0.08376759508834962,
       "reasons": [],
       "pass": true
@@ -920,7 +920,7 @@
       ],
       "costPerTask": 0.0336,
       "quality": 90.65,
-      "elapsedMs": 1.29,
+      "elapsedMs": 3.92,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -938,7 +938,7 @@
       ],
       "costPerTask": 0.0336,
       "quality": 90.65,
-      "elapsedMs": 1.06,
+      "elapsedMs": 2.69,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -956,7 +956,7 @@
       ],
       "costPerTask": 0.0336,
       "quality": 90.65,
-      "elapsedMs": 1.16,
+      "elapsedMs": 2.83,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -974,7 +974,7 @@
       ],
       "costPerTask": 0.036254,
       "quality": 93.65,
-      "elapsedMs": 1.1,
+      "elapsedMs": 3.49,
       "costRegret": 0.07898809523809534,
       "reasons": [],
       "pass": true
@@ -992,7 +992,7 @@
       ],
       "costPerTask": 0.0336,
       "quality": 90.65,
-      "elapsedMs": 1.44,
+      "elapsedMs": 3.09,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1010,7 +1010,7 @@
       ],
       "costPerTask": 0.036254,
       "quality": 93.65,
-      "elapsedMs": 1.82,
+      "elapsedMs": 4,
       "costRegret": 0.07898809523809534,
       "reasons": [],
       "pass": true
@@ -1028,7 +1028,7 @@
       ],
       "costPerTask": 0.036254,
       "quality": 93.65,
-      "elapsedMs": 1.72,
+      "elapsedMs": 3.76,
       "costRegret": 0.07898809523809534,
       "reasons": [],
       "pass": true
@@ -1046,7 +1046,7 @@
       ],
       "costPerTask": 0.0336,
       "quality": 90.65,
-      "elapsedMs": 2.46,
+      "elapsedMs": 3.6,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1064,7 +1064,7 @@
       ],
       "costPerTask": 0.036254,
       "quality": 93.65,
-      "elapsedMs": 1.47,
+      "elapsedMs": 1.45,
       "costRegret": 0.07898809523809534,
       "reasons": [],
       "pass": true
@@ -1082,7 +1082,7 @@
       ],
       "costPerTask": 0.036254,
       "quality": 93.65,
-      "elapsedMs": 1.63,
+      "elapsedMs": 2.01,
       "costRegret": 0.07898809523809534,
       "reasons": [],
       "pass": true
@@ -1100,7 +1100,7 @@
       ],
       "costPerTask": 0.0336,
       "quality": 90.65,
-      "elapsedMs": 0.99,
+      "elapsedMs": 2.2,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1118,7 +1118,7 @@
       ],
       "costPerTask": 0.036254,
       "quality": 93.65,
-      "elapsedMs": 1.03,
+      "elapsedMs": 4.07,
       "costRegret": 0.07898809523809534,
       "reasons": [],
       "pass": true
@@ -1136,7 +1136,7 @@
       ],
       "costPerTask": 0.596,
       "quality": 86,
-      "elapsedMs": 1.6,
+      "elapsedMs": 7.14,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1154,7 +1154,7 @@
       ],
       "costPerTask": 0.596,
       "quality": 86,
-      "elapsedMs": 1.17,
+      "elapsedMs": 3.68,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1172,7 +1172,7 @@
       ],
       "costPerTask": 0.84309,
       "quality": 94,
-      "elapsedMs": 2.66,
+      "elapsedMs": 3.8,
       "costRegret": 0.41458053691275176,
       "reasons": [],
       "pass": true
@@ -1189,7 +1189,7 @@
       ],
       "costPerTask": 0.84309,
       "quality": 94,
-      "elapsedMs": 2.46,
+      "elapsedMs": 4.06,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1206,7 +1206,7 @@
       ],
       "costPerTask": 0.84309,
       "quality": 94,
-      "elapsedMs": 2.25,
+      "elapsedMs": 4.01,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1223,7 +1223,7 @@
       ],
       "costPerTask": 0.84309,
       "quality": 94,
-      "elapsedMs": 1.93,
+      "elapsedMs": 2.38,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1241,7 +1241,7 @@
       ],
       "costPerTask": 0.596,
       "quality": 86,
-      "elapsedMs": 2.8,
+      "elapsedMs": 3.5,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1259,7 +1259,7 @@
       ],
       "costPerTask": 0.596,
       "quality": 86,
-      "elapsedMs": 1.67,
+      "elapsedMs": 4.25,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1277,7 +1277,7 @@
       ],
       "costPerTask": 0.84309,
       "quality": 94,
-      "elapsedMs": 1.22,
+      "elapsedMs": 3.89,
       "costRegret": 0.41458053691275176,
       "reasons": [],
       "pass": true
@@ -1294,7 +1294,7 @@
       ],
       "costPerTask": 2.29,
       "quality": 89,
-      "elapsedMs": 5.87,
+      "elapsedMs": 2.77,
       "costRegret": 1.7161987450924574,
       "reasons": [],
       "pass": true
@@ -1311,7 +1311,7 @@
       ],
       "costPerTask": 2.29,
       "quality": 89,
-      "elapsedMs": 4.13,
+      "elapsedMs": 2.27,
       "costRegret": 1.7161987450924574,
       "reasons": [],
       "pass": true
@@ -1328,7 +1328,7 @@
       ],
       "costPerTask": 2.57312,
       "quality": 93,
-      "elapsedMs": 1.05,
+      "elapsedMs": 1.84,
       "costRegret": 2.0520110545730583,
       "reasons": [],
       "pass": true
@@ -1344,7 +1344,7 @@
       ],
       "costPerTask": 2.57312,
       "quality": 93,
-      "elapsedMs": 0.99,
+      "elapsedMs": 1.78,
       "costRegret": 2.0520110545730583,
       "reasons": [],
       "pass": true
@@ -1360,7 +1360,7 @@
       ],
       "costPerTask": 2.57312,
       "quality": 93,
-      "elapsedMs": 0.88,
+      "elapsedMs": 1.76,
       "costRegret": 2.0520110545730583,
       "reasons": [],
       "pass": true
@@ -1376,7 +1376,7 @@
       ],
       "costPerTask": 2.57312,
       "quality": 93,
-      "elapsedMs": 0.83,
+      "elapsedMs": 1.61,
       "costRegret": 2.0520110545730583,
       "reasons": [],
       "pass": true
@@ -1394,7 +1394,7 @@
       ],
       "costPerTask": 0.2148,
       "quality": 94,
-      "elapsedMs": 1.04,
+      "elapsedMs": 2.26,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1412,7 +1412,7 @@
       ],
       "costPerTask": 0.2148,
       "quality": 94,
-      "elapsedMs": 0.98,
+      "elapsedMs": 3.83,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1430,7 +1430,7 @@
       ],
       "costPerTask": 0.2148,
       "quality": 94,
-      "elapsedMs": 1.93,
+      "elapsedMs": 2.95,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1447,293 +1447,293 @@
       ],
       "costPerTask": 0.2148,
       "quality": 94,
-      "elapsedMs": 2.68,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-rigged-character",
-      "mode": "cost",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "meshy-7.1"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 2.7,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-rigged-character",
-      "mode": "quality",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "meshy-7.1"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 1.34,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-barrel-cheap",
-      "mode": "balanced",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "trellis-2",
-        "meshy-7.1"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 1.29,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-barrel-cheap",
-      "mode": "cost",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "trellis-2",
-        "hunyuan3d-3.1-pro"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 1.52,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-barrel-cheap",
-      "mode": "quality",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "hunyuan3d-3.1-pro",
-        "meshy-7.1"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 1.75,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-hero-character",
-      "mode": "balanced",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "trellis-2",
-        "meshy-7.1"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 1.26,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-hero-character",
-      "mode": "cost",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "trellis-2",
-        "hunyuan3d-3.1-pro"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 1.05,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-hero-character",
-      "mode": "quality",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "hunyuan3d-3.1-pro",
-        "meshy-7.1"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 1.13,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-hundred-assets",
-      "mode": "balanced",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "trellis-2",
-        "meshy-7.1"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 1.33,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-hundred-assets",
-      "mode": "cost",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "trellis-2",
-        "hunyuan3d-3.1-pro"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 1.04,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "3d-hundred-assets",
-      "mode": "quality",
-      "task": "3d-gen",
-      "chosen": "tripo-h3.1",
-      "chosenName": "Tripo H3.1",
-      "top3": [
-        "tripo-h3.1",
-        "hunyuan3d-3.1-pro",
-        "meshy-7.1"
-      ],
-      "costPerTask": 0.2148,
-      "quality": 94,
-      "elapsedMs": 1.02,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "tts-warm-narration",
-      "mode": "balanced",
-      "task": "tts",
-      "chosen": "voxtral-tts-3",
-      "chosenName": "Voxtral TTS 3",
-      "top3": [
-        "voxtral-tts-3",
-        "eleven-v4"
-      ],
-      "costPerTask": 0.01508,
-      "quality": 88,
-      "elapsedMs": 1.42,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "tts-warm-narration",
-      "mode": "cost",
-      "task": "tts",
-      "chosen": "voxtral-tts-3",
-      "chosenName": "Voxtral TTS 3",
-      "top3": [
-        "voxtral-tts-3",
-        "eleven-v4"
-      ],
-      "costPerTask": 0.01508,
-      "quality": 88,
-      "elapsedMs": 0.63,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "tts-warm-narration",
-      "mode": "quality",
-      "task": "tts",
-      "chosen": "eleven-v4",
-      "chosenName": "Eleven v4",
-      "top3": [
-        "eleven-v4",
-        "voxtral-tts-3"
-      ],
-      "costPerTask": 0.08488,
-      "quality": 95,
-      "elapsedMs": 0.73,
-      "costRegret": 4.628647214854111,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "tts-cheap-bulk",
-      "mode": "balanced",
-      "task": "tts",
-      "chosen": "voxtral-tts-3",
-      "chosenName": "Voxtral TTS 3",
-      "top3": [
-        "voxtral-tts-3",
-        "eleven-v4"
-      ],
-      "costPerTask": 0.01508,
-      "quality": 88,
-      "elapsedMs": 3.52,
-      "costRegret": 0,
-      "reasons": [],
-      "pass": true
-    },
-    {
-      "scenario": "tts-cheap-bulk",
-      "mode": "cost",
-      "task": "tts",
-      "chosen": "voxtral-tts-3",
-      "chosenName": "Voxtral TTS 3",
-      "top3": [
-        "voxtral-tts-3",
-        "eleven-v4"
-      ],
-      "costPerTask": 0.01508,
-      "quality": 88,
       "elapsedMs": 2.73,
       "costRegret": 0,
       "reasons": [],
       "pass": true
     },
     {
+      "scenario": "3d-rigged-character",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 3.25,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-rigged-character",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 3.4,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-barrel-cheap",
+      "mode": "balanced",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 2.9,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-barrel-cheap",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "hunyuan3d-3.1-pro"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 1.35,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-barrel-cheap",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 1.43,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hero-character",
+      "mode": "balanced",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 1.39,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hero-character",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "hunyuan3d-3.1-pro"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 1.2,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hero-character",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 1.23,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hundred-assets",
+      "mode": "balanced",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 1.67,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hundred-assets",
+      "mode": "cost",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "trellis-2",
+        "hunyuan3d-3.1-pro"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 3.43,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "3d-hundred-assets",
+      "mode": "quality",
+      "task": "3d-gen",
+      "chosen": "tripo-h3.1",
+      "chosenName": "Tripo H3.1",
+      "top3": [
+        "tripo-h3.1",
+        "hunyuan3d-3.1-pro",
+        "meshy-7.1"
+      ],
+      "costPerTask": 0.2148,
+      "quality": 94,
+      "elapsedMs": 2.62,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-warm-narration",
+      "mode": "balanced",
+      "task": "tts",
+      "chosen": "voxtral-tts-3",
+      "chosenName": "Voxtral TTS 3",
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "costPerTask": 0.01508,
+      "quality": 88,
+      "elapsedMs": 2,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-warm-narration",
+      "mode": "cost",
+      "task": "tts",
+      "chosen": "voxtral-tts-3",
+      "chosenName": "Voxtral TTS 3",
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "costPerTask": 0.01508,
+      "quality": 88,
+      "elapsedMs": 1.59,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-warm-narration",
+      "mode": "quality",
+      "task": "tts",
+      "chosen": "eleven-v4",
+      "chosenName": "Eleven v4",
+      "top3": [
+        "eleven-v4",
+        "voxtral-tts-3"
+      ],
+      "costPerTask": 0.08488,
+      "quality": 95,
+      "elapsedMs": 2.29,
+      "costRegret": 4.628647214854111,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-cheap-bulk",
+      "mode": "balanced",
+      "task": "tts",
+      "chosen": "voxtral-tts-3",
+      "chosenName": "Voxtral TTS 3",
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "costPerTask": 0.01508,
+      "quality": 88,
+      "elapsedMs": 1.77,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
+      "scenario": "tts-cheap-bulk",
+      "mode": "cost",
+      "task": "tts",
+      "chosen": "voxtral-tts-3",
+      "chosenName": "Voxtral TTS 3",
+      "top3": [
+        "voxtral-tts-3",
+        "eleven-v4"
+      ],
+      "costPerTask": 0.01508,
+      "quality": 88,
+      "elapsedMs": 1.41,
+      "costRegret": 0,
+      "reasons": [],
+      "pass": true
+    },
+    {
       "scenario": "tts-cheap-bulk",
       "mode": "quality",
       "task": "tts",
@@ -1745,7 +1745,7 @@
       ],
       "costPerTask": 0.08488,
       "quality": 95,
-      "elapsedMs": 2.67,
+      "elapsedMs": 1.86,
       "costRegret": 4.628647214854111,
       "reasons": [],
       "pass": true
@@ -1762,7 +1762,7 @@
       ],
       "costPerTask": 0.0452,
       "quality": 90,
-      "elapsedMs": 2.16,
+      "elapsedMs": 1.8,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1779,7 +1779,7 @@
       ],
       "costPerTask": 0.0452,
       "quality": 90,
-      "elapsedMs": 1.9,
+      "elapsedMs": 1.76,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1796,7 +1796,7 @@
       ],
       "costPerTask": 0.04833,
       "quality": 94,
-      "elapsedMs": 1.48,
+      "elapsedMs": 1.31,
       "costRegret": 0.06924778761061949,
       "reasons": [],
       "pass": true
@@ -1813,7 +1813,7 @@
       ],
       "costPerTask": 0.0452,
       "quality": 90,
-      "elapsedMs": 1,
+      "elapsedMs": 1.11,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1830,7 +1830,7 @@
       ],
       "costPerTask": 0.0452,
       "quality": 90,
-      "elapsedMs": 0.7,
+      "elapsedMs": 1.02,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1847,7 +1847,7 @@
       ],
       "costPerTask": 0.04833,
       "quality": 94,
-      "elapsedMs": 0.74,
+      "elapsedMs": 0.98,
       "costRegret": 0.06924778761061949,
       "reasons": [],
       "pass": true
@@ -1864,7 +1864,7 @@
       ],
       "costPerTask": 0.0904,
       "quality": 90,
-      "elapsedMs": 0.83,
+      "elapsedMs": 1.46,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1881,7 +1881,7 @@
       ],
       "costPerTask": 0.0904,
       "quality": 90,
-      "elapsedMs": 0.78,
+      "elapsedMs": 0.84,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1898,7 +1898,7 @@
       ],
       "costPerTask": 0.0904,
       "quality": 90,
-      "elapsedMs": 1.55,
+      "elapsedMs": 1.05,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1915,7 +1915,7 @@
       ],
       "costPerTask": 0.0904,
       "quality": 90,
-      "elapsedMs": 1.01,
+      "elapsedMs": 0.94,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1932,7 +1932,7 @@
       ],
       "costPerTask": 0.0904,
       "quality": 90,
-      "elapsedMs": 0.73,
+      "elapsedMs": 1.92,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1949,7 +1949,7 @@
       ],
       "costPerTask": 0.0904,
       "quality": 90,
-      "elapsedMs": 0.83,
+      "elapsedMs": 2.83,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1967,7 +1967,7 @@
       ],
       "costPerTask": 0.596,
       "quality": 86,
-      "elapsedMs": 1.93,
+      "elapsedMs": 3.64,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -1985,7 +1985,7 @@
       ],
       "costPerTask": 0.596,
       "quality": 86,
-      "elapsedMs": 1.21,
+      "elapsedMs": 4.07,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -2003,7 +2003,7 @@
       ],
       "costPerTask": 0.84309,
       "quality": 94,
-      "elapsedMs": 1.24,
+      "elapsedMs": 3.27,
       "costRegret": 0.41458053691275176,
       "reasons": [],
       "pass": true
@@ -2021,7 +2021,7 @@
       ],
       "costPerTask": 0.2148,
       "quality": 94,
-      "elapsedMs": 1.33,
+      "elapsedMs": 3.18,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -2039,7 +2039,7 @@
       ],
       "costPerTask": 0.2148,
       "quality": 94,
-      "elapsedMs": 1.17,
+      "elapsedMs": 2.66,
       "costRegret": 0,
       "reasons": [],
       "pass": true
@@ -2057,7 +2057,7 @@
       ],
       "costPerTask": 0.2148,
       "quality": 94,
-      "elapsedMs": 1.24,
+      "elapsedMs": 1.72,
       "costRegret": 0,
       "reasons": [],
       "pass": true

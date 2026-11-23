@@ -1,12 +1,12 @@
 # Test form
 
-Generated: 2026-11-23T03:59:20.574Z
+Generated: 2026-11-23T04:24:32.063Z
 
 This is the human-readable evidence sheet. Machine-readable results are in `tests/results/*.json`.
 
 ## 1. Automated test suite
 
-- Node tests: **224** passing
+- Node tests: **227** passing
 - Line coverage: **90.47%**
 - Branch coverage: **67.7%**
 - Test files: unit, integration, e2e, adversarial
