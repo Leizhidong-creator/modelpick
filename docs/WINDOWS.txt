@@ -1,0 +1,24 @@
+ModelPick — Windows launcher
+============================
+
+1. Unzip this folder.
+2. Double-click start-modelpick.cmd.
+3. Wait for the browser page: Connect a model.
+4. Paste a provider key, click Save & test.
+
+The launcher runs:
+
+  npx --yes --package=modelpick@latest modelpick keys --ui
+
+It needs Node.js 20+ (https://nodejs.org/) and no administrator rights.
+
+If double-click is blocked by policy, open CMD in this folder and run:
+
+  npx --yes --package=modelpick@latest modelpick keys --ui
+
+Global install alternative:
+
+  npm install -g modelpick
+  modelpick keys --ui
+
+No telemetry. No proxy. Keys stay in %USERPROFILE%\.modelpick\secrets.json.

@@ -10,6 +10,7 @@ test('install page is a complete copy-paste path', () => {
   assert.match(install, /npm install -g modelpick/);
   assert.match(install, /npx --yes --package=modelpick@latest modelpick keys --ui/);
   assert.match(install, /start-modelpick\.cmd/);
+  assert.match(install, /start-modelpick\.zip/);
   assert.match(install, /modelpick keys --ui/);
   assert.match(install, /modelpick --version/);
 });

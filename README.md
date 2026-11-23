@@ -96,7 +96,7 @@ npx --yes --package=modelpick@latest modelpick keys --ui
 
 Or double-click the launcher:
 
-https://leizhidong-creator.github.io/modelpick/start-modelpick.cmd
+https://leizhidong-creator.github.io/modelpick/install.html
 
 Do **not** paste bash comments (`# ...`) into CMD; CMD does not understand `#`.
 
