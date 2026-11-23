@@ -164,9 +164,9 @@ npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0
 
 | Agent | Command | MCP file it uses |
 |---|---|---|
-| **Claude Code** | `setup claude-code` | `.mcp.json` (project) or `~/.claude.json` (`--global`) |
-| **OpenAI Codex CLI** | `setup codex` + `codex mcp add` | `~/.codex/config.toml` |
-| **Cursor** | `setup cursor` | `.cursor/mcp.json` |
+| **Claude Code** | `setup claude-code --global --write` | `~/.claude.json` |
+| **OpenAI Codex CLI** | `setup codex --global --write` | `~/.codex/config.toml` |
+| **Cursor** | `setup cursor --global --write` | `~/.cursor/mcp.json` |
 | **DeepSeek Harness** | `setup dsh --global --write --profile desktop` | `~/.dsh/profiles/<profile>/cordis.patch.yml` |
 | **GitHub Copilot CLI** | `setup copilot` | `.mcp.json` |
 | **VS Code / Copilot agent mode** | `setup vscode` | `.vscode/mcp.json` (`servers`) |
@@ -175,12 +175,12 @@ npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0
 ### Claude Code
 
 ```bash
-modelpick setup claude-code
-# writes .mcp.json, .claude/skills/modelpick/, and a CLAUDE.md block
+modelpick setup claude-code --global --write
+# writes ~/.claude.json plus the global skill
 claude mcp list        # modelpick should appear
 ```
 
-Restart Claude Code, run `/mcp`, and approve the project server. Then ask: `pick a model for a 3D sword for Unity`.
+Restart Claude Code, run `/mcp`, and approve the global server. Then ask: `pick a model for a 3D sword for Unity`.
 
 Plugin alternative, inside Claude Code:
 
@@ -192,8 +192,7 @@ Plugin alternative, inside Claude Code:
 ### OpenAI Codex CLI
 
 ```bash
-modelpick setup codex
-# or write the global MCP row directly, with a backup:
+# writes the global MCP row with a backup
 modelpick setup codex --global --write
 codex mcp list
 ```
@@ -207,10 +206,10 @@ codex mcp add modelpick -- modelpick mcp
 ### Cursor
 
 ```bash
-modelpick setup cursor
+modelpick setup cursor --global --write
 ```
 
-It writes `.cursor/mcp.json`, `.cursor/rules/modelpick.mdc`, `.cursor/skills/modelpick/`, and `AGENTS.md`. Open **Cursor → Settings → MCP** and confirm `modelpick` is connected.
+It writes `~/.cursor/mcp.json` plus the global skill. Open **Cursor → Settings → MCP** and confirm `modelpick` is connected.
 
 ### DeepSeek Harness
 

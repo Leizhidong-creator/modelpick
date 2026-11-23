@@ -2,92 +2,92 @@
   const AGENTS = {
     claude: {
       name: "Claude Code",
-      note: "Writes a project MCP config, the skill, and a CLAUDE.md block.",
-      file: ".mcp.json",
-      kind: "project",
-      command: "npx -y github:Leizhidong-creator/modelpick setup claude-code",
-      restart: "Restart Claude Code, then run /mcp. The server appears as modelpick.",
+      note: "Global MCP config + skill. Run once; works across projects. Restart and approve with /mcp.",
+      file: "~/.claude.json",
+      kind: "global",
+      command: "modelpick setup claude-code --global --write",
+      restart: "Restart Claude Code, then run /mcp. Approve modelpick once.",
       code: `{
   "mcpServers": {
     "modelpick": {
       "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+      "command": "modelpick",
+      "args": ["mcp"]
     }
   }
 }`
     },
     codex: {
       name: "Codex CLI",
-      note: "Writes AGENTS.md, the skill, and appends ~/.codex/config.toml. Backs up the existing file first.",
+      note: "Global MCP row + skill. Run once; works across projects.",
       file: "~/.codex/config.toml",
       kind: "global",
-      command: "npx -y github:Leizhidong-creator/modelpick setup codex --global --write\ncodex mcp list",
+      command: "modelpick setup codex --global --write\ncodex mcp list",
       restart: "Restart Codex. modelpick should show enabled in codex mcp list.",
       code: `[mcp_servers.modelpick]
-command = "npx"
-args = ["-y", "github:Leizhidong-creator/modelpick", "mcp"]`
+command = "modelpick"
+args = ["mcp"]`
     },
     cursor: {
       name: "Cursor",
-      note: "Writes a project MCP config, a Cursor rule, and the skill.",
-      file: ".cursor/mcp.json",
-      kind: "project",
-      command: "npx -y github:Leizhidong-creator/modelpick setup cursor",
-      restart: "Open Cursor → Settings → MCP. modelpick should show connected.",
+      note: "Global MCP config + skill. Run once; works across projects.",
+      file: "~/.cursor/mcp.json",
+      kind: "global",
+      command: "modelpick setup cursor --global --write",
+      restart: "Restart Cursor → Settings → MCP. modelpick should show connected.",
       code: `{
   "mcpServers": {
     "modelpick": {
-      "command": "npx",
-      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+      "command": "modelpick",
+      "args": ["mcp"]
     }
   }
 }`
     },
     dsh: {
       name: "DeepSeek Harness",
-      note: "DSH has no mcp.json. It loads MCP servers as Cordis rows in the profile patch.",
+      note: "DSH loads MCP servers as Cordis rows in the profile patch. Run once per profile.",
       file: "~/.dsh/profiles/desktop/cordis.patch.yml",
       kind: "profile",
-      command: "npx -y github:Leizhidong-creator/modelpick setup dsh --global --write --profile desktop",
-      restart: "Restart DSH. The row is appended once and the existing profile is backed up first.",
+      command: "modelpick setup dsh --global --write --profile desktop",
+      restart: "Restart DSH. The row is appended once; the profile is backed up first.",
       code: `- id: mcp-modelpick
   name: '@deepseek-ai/dsh-mcp-client'
   config:
     serverName: modelpick
     transport: stdio
-    command: npx
-    args: ["-y", "github:Leizhidong-creator/modelpick", "mcp"]`
+    command: modelpick
+    args: ["mcp"]`
     },
     copilot: {
       name: "Copilot CLI",
-      note: "Writes a project MCP config, the skill, and an AGENTS.md block.",
+      note: "Project MCP config + skill + AGENTS.md block. Run inside the repo.",
       file: ".mcp.json",
       kind: "project",
-      command: "npx -y github:Leizhidong-creator/modelpick setup copilot",
+      command: "modelpick setup copilot",
       restart: "Run copilot mcp list. modelpick should show connected.",
       code: `{
   "mcpServers": {
     "modelpick": {
-      "command": "npx",
-      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+      "command": "modelpick",
+      "args": ["mcp"]
     }
   }
 }`
     },
     vscode: {
       name: "VS Code / Copilot agent mode",
-      note: "Uses VS Code's servers schema, not mcpServers. Sibling servers are preserved.",
+      note: "Project config using VS Code's servers schema. Run inside the repo.",
       file: ".vscode/mcp.json",
       kind: "project",
-      command: "npx -y github:Leizhidong-creator/modelpick setup vscode",
-      restart: "VS Code → MCP: List Servers → start modelpick",
+      command: "modelpick setup vscode",
+      restart: "VS Code → MCP: List Servers → start modelpick.",
       code: `{
   "servers": {
     "modelpick": {
       "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "github:Leizhidong-creator/modelpick", "mcp"]
+      "command": "modelpick",
+      "args": ["mcp"]
     }
   }
 }`
