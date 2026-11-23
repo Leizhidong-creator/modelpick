@@ -165,7 +165,10 @@ test('localhost key UI serves status, saves, and closes with a token', async () 
     assert.equal(status.status, 200);
     const page = await fetch(`${base}/keys?token=${token}`);
     assert.equal(page.status, 200);
-    assert.match(await page.text(), /Connect the models/);
+    const pageText = await page.text();
+    assert.match(pageText, /Connect a model/);
+    assert.match(pageText, /Search provider/);
+    assert.match(pageText, /keys connected/);
     const missingTest = await fetch(`${base}/api/test`, {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-modelpick-token': token },

@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-221%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-224%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-28%2F28-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -45,7 +45,7 @@ npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for 
   <a href="https://leizhidong-creator.github.io/modelpick/#video"><img src="assets/modelpick-intro-thumb.png" alt="Watch the ModelPick intro video" width="72%" /></a>
 </p>
 
-<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.1/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
+<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.2/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
 
 ---
 
@@ -78,6 +78,8 @@ More: [`research/competitive-landscape.md`](research/competitive-landscape.md) (
 ---
 
 ## 30-second quickstart
+
+**Guided install page:** https://leizhidong-creator.github.io/modelpick/install.html
 
 ### Windows: one command, no prompts
 
@@ -147,7 +149,7 @@ npx --yes github:Leizhidong-creator/modelpick pick "refactor this 40k-line repo,
 npm install modelpick --registry=https://leizhidong-creator.github.io/modelpick/npm/
 
 # offline release tarball
-npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.1/modelpick-0.2.1.tgz
+npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.2/modelpick-0.2.2.tgz
 ```
 
 <p align="center">
