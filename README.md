@@ -27,11 +27,12 @@ Your agent can write code, call tools, and ship a feature. Then it picks **one m
 
 The result is predictable: 60–95% of the spend goes to work that did not need a frontier model, and the hard nodes still fail because the model was chosen for the wrong modality.
 
-**ModelPick is a router and cost calculator, not another gateway.** Before each node, it answers three questions in one call:
+**ModelPick is a router, cost calculator, and local-key executor — not another gateway.** Before each node it answers four questions:
 
 1. **Which model?** Ranked for this exact task, with hard capability filters (context, text-in-image, rigging, clip length, open weights).
 2. **What will it really cost?** **Cost per solved task** — list price × expected attempts, not $/M tokens.
 3. **How do I connect it?** The env var, key URL, docs, and API model id.
+4. **How do I run it?** `run_model` executes text models with the key that stays on this machine; the main agent passes compressed `system`, `messages`, `context`, and an optional JSON output schema.
 
 ```bash
 npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for a Unity game"
@@ -46,6 +47,27 @@ npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for 
 </p>
 
 <p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.2/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
+
+
+---
+
+## Start here
+
+Four steps. The first two take about a minute.
+
+| Step | Command | What happens |
+|---|---|---|
+| **1. Install** | `npm install -g modelpick` | CLI + MCP server. Node 20+, zero runtime dependencies. |
+| **2. Add a key** | `modelpick keys --ui` | Local page. Pick a provider, click **Get a key**, paste, **Save & test**. Stored in `~/.modelpick/secrets.json` (`0600`). |
+| **3. Connect an agent** | `modelpick setup claude-code --global --write` | One-time MCP registration. Cursor: `setup cursor --global --write`; Codex: `setup codex --global --write`. Restart the app. |
+| **4. Run or ask** | `modelpick run "fix this bug" --task coding-agent` | Or let the connected agent call `pick_model` / `run_model`. |
+
+- **No key yet?** Recommendations work offline. Local Ollama works with no key: `modelpick run "hello" --local`.
+- **Guided install:** https://leizhidong-creator.github.io/modelpick/install.html
+- **Key security:** [`docs/KEYS.md`](docs/KEYS.md)
+- **All agent configs:** [`#works-with-the-agents-you-already-use`](#works-with-the-agents-you-already-use)
+
+**What executes today:** text models through OpenAI, Anthropic, Gemini, DeepSeek, and OpenRouter, plus local Ollama. Image, video, 3D, and audio execution adapters are next; recommendations cover all five modalities now.
 
 ---
 
@@ -518,7 +540,10 @@ The main agent owns the conversation and the repository. It **compresses and sel
 CLI equivalent:
 
 ```bash
-modelpick run "fix the race" --task coding-agent   --system "You are a senior TypeScript reviewer."   --context-file diff.patch   --output json --schema schema.json
+modelpick run "fix the race" --task coding-agent \
+  --system "You are a senior TypeScript reviewer." \
+  --context-file diff.patch \
+  --output json --schema schema.json
 ```
 
 The key is read from the local store/env and is never accepted as an argument. Image, video, 3D, and audio execution adapters are next.

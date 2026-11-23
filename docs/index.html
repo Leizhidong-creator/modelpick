@@ -31,6 +31,8 @@
     <div class="wrap nav-inner">
       <a class="brand" href="#"><span class="logo">MP</span> ModelPick</a>
       <div class="nav-links">
+        <a href="#start">Start</a>
+        <a href="#run">Run</a>
         <a href="install.html">Install</a>
         <a href="#why">Why</a>
         <a href="#coverage">Coverage</a>
@@ -48,7 +50,7 @@
   <header class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow"><span class="dot"></span> v0.2.1 · catalog 2026.11.19 · MIT</div>
+        <div class="eyebrow"><span class="dot"></span> v0.2.2 · catalog 2026.11.19 · MIT</div>
         <h1>Stop overpaying for <span class="accent">simple steps.</span></h1>
         <p class="lede">Your agent uses one model for everything. ModelPick picks the model, shows the real cost, and gives you the key — for coding, image, video, 3D, and audio.</p>
         <div class="install">
@@ -222,7 +224,80 @@ cost <span class="cy">$0.21</span> / usable asset
       </div>
     </section>
 
-    <section id="agents">
+    
+    <section id="start">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Start here</div>
+            <h2>Install. Add a key. Connect your agent.</h2>
+          </div>
+          <p>Four steps, no hidden configuration. Keys stay on this machine; the agent only sees the tools.</p>
+        </div>
+        <div class="startgrid">
+          <div class="startcard">
+            <div class="startnum">1</div>
+            <h3>Install</h3>
+            <p>One global npm command. No runtime dependencies, no build step.</p>
+            <div class="install"><span class="prompt">$</span><code id="start-install">npm install -g modelpick</code><button class="copy" data-copy="#start-install">copy</button></div>
+            <a href="install.html">Guided install page →</a>
+          </div>
+          <div class="startcard">
+            <div class="startnum">2</div>
+            <h3>Add one API key</h3>
+            <p>Open the local page, click “Get a key”, paste it, then “Save &amp; test”. No key is ever pasted into chat.</p>
+            <div class="install"><span class="prompt">$</span><code id="start-keys">modelpick keys --ui</code><button class="copy" data-copy="#start-keys">copy</button></div>
+            <a href="KEYS.md">Key storage and security →</a>
+          </div>
+          <div class="startcard">
+            <div class="startnum">3</div>
+            <h3>Connect your agent</h3>
+            <p>One-time MCP registration per host. Claude Code, Cursor, and Codex can share the same local keys.</p>
+            <div class="install"><span class="prompt">$</span><code id="start-agent">modelpick setup claude-code --global --write</code><button class="copy" data-copy="#start-agent">copy</button></div>
+            <a href="#agents">Cursor, Codex, DSH, VS Code →</a>
+          </div>
+          <div class="startcard">
+            <div class="startnum">4</div>
+            <h3>Run or ask</h3>
+            <p>Use the CLI directly, or let the agent choose. Text models execute now; media execution is next.</p>
+            <div class="install"><span class="prompt">$</span><code id="start-run">modelpick run "fix this bug" --task coding-agent</code><button class="copy" data-copy="#start-run">copy</button></div>
+            <a href="#run">How execution works →</a>
+          </div>
+        </div>
+        <div class="startkey">
+          <img src="assets/keys-ui.png" alt="ModelPick local API key page with providers, key fields, and Save & test buttons" />
+          <div class="startkey-note">The key page runs on 127.0.0.1 only, with a one-time token. Keys are stored in <code>~/.modelpick/secrets.json</code> with mode <code>0600</code>. No telemetry, no proxy.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="run">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Recommendation → execution</div>
+            <h2>Decide, then actually run it.</h2>
+          </div>
+          <p>ModelPick recommends offline. When you add a key, the same MCP server can execute text nodes and return output, token usage, and actual cost.</p>
+        </div>
+        <div class="startgrid">
+          <div class="startcard">
+            <h3>1. Pick the node model</h3>
+            <p>Hard constraints first, then quality, cost per solved task, latency, and key availability. No key required.</p>
+            <div class="install"><span class="prompt">$</span><code id="run-pick">modelpick pick "refactor this module" --task coding-agent --json</code><button class="copy" data-copy="#run-pick">copy</button></div>
+            <p style="margin-top:10px">Returns <code>recommendation.slug</code>, <code>costPerTask</code>, <code>quality</code>, and the exact <code>connection</code>.</p>
+          </div>
+          <div class="startcard">
+            <h3>2. Compress, then execute</h3>
+            <p>The main agent passes only the selected context. ModelPick checks the token budget and returns a context report; it never silently truncates.</p>
+            <div class="install"><span class="prompt">$</span><code id="run-exec">modelpick run "fix the race" --task coding-agent --context-file diff.patch --output json --schema schema.json</code><button class="copy" data-copy="#run-exec">copy</button></div>
+            <p style="margin-top:10px">Text providers today: OpenAI, Anthropic, Gemini, DeepSeek, OpenRouter. Local Ollama needs no key. Media execution is next.</p>
+          </div>
+        </div>
+        <div class="startkey-note" style="border:1px solid var(--line);border-radius:12px;margin-top:14px">MCP equivalent: <code>run_model</code> with <code>system</code>, <code>messages</code>, <code>context</code>, and optional <code>output.schema</code>. The key is read from this machine and is never an MCP argument.</div>
+      </div>
+    </section>
+<section id="agents">
       <div class="wrap">
         <div class="section-head">
           <div>
