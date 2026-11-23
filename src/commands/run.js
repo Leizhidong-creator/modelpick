@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { ModelPickError } from '../core/errors.js';
 import { DEFAULT_OLLAMA_HOST, DEFAULT_OLLAMA_MODEL, generateLocal, listOllamaModels } from '../core/ollama.js';
 import { runRecommended } from '../core/run-service.js';
@@ -19,6 +21,13 @@ export async function runLocalStatus(ctx) {
   else console.log(`  ${s.dim('Install: https://ollama.com · then `ollama pull qwen2.5:0.5b`')}\n`);
 }
 
+function readOptional(file, label) {
+  if (!file) return null;
+  try { return fs.readFileSync(path.resolve(file), 'utf8'); } catch (error) {
+    throw new ModelPickError(`Could not read ${label}: ${file}`, { code: 'ERR_FILE_READ', hint: error.message });
+  }
+}
+
 export async function runLocal(ctx) {
   if (ctx.flags.status) return runLocalStatus(ctx);
   const prompt = ctx.positionals.join(' ').trim();
@@ -29,10 +38,16 @@ export async function runLocal(ctx) {
     });
   }
 
+  const context = ctx.options.context ?? readOptional(ctx.options['context-file'], 'context file');
+  const system = ctx.options.system ?? null;
+  const schema = ctx.options.schema ? JSON.parse(readOptional(ctx.options.schema, 'schema file')) : undefined;
+  const output = ctx.options.output === 'json' ? { format: 'json', schema } : { format: 'text' };
+
   if (isLocal(ctx)) {
     const host = ctx.options.host ?? process.env.OLLAMA_HOST ?? DEFAULT_OLLAMA_HOST;
     const model = ctx.options.model ?? DEFAULT_OLLAMA_MODEL;
-    const result = await generateLocal({ prompt, model, host });
+    const localPrompt = context ? `Context:\n${context}\n\n${prompt}` : prompt;
+    const result = await generateLocal({ prompt: localPrompt, model, host });
     if (ctx.json) {
       console.log(JSON.stringify({ schemaVersion: '1.0', kind: 'local-run', ...result }, null, 2));
       return;
@@ -49,6 +64,9 @@ export async function runLocal(ctx) {
   const result = await runRecommended({
     catalog,
     prompt,
+    context,
+    system,
+    output,
     model: ctx.options.model,
     task: ctx.options.task,
     provider: ctx.options.provider,

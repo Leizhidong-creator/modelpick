@@ -73,6 +73,10 @@ ${b('OPTIONS')}
   --context <n>      Input tokens required (filters context windows)
   --exclude <ids>    Comma-separated provider ids to exclude
   --top <n>          Number of alternatives (default 3)
+  --context-file <f> Read an explicit context file for 'run' (never read by MCP)
+  --system <text>    System instruction for 'run'
+  --output <fmt>     text | json for 'run'
+  --schema <file>    JSON Schema for 'run --output json'
   --json             Machine-readable output for agents and CI
   --explain          Show the scoring math
   --no-color         Plain text (NO_COLOR also works)

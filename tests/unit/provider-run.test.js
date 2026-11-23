@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadCatalog } from '../../src/core/catalog.js';
-import { adapterFor, runTextModel } from '../../src/core/provider-run.js';
+import { adapterFor, estimateTokens, runTextModel } from '../../src/core/provider-run.js';
 import { tempDir } from '../helpers.js';
 
 const catalog = loadCatalog({ preferCache: false });
@@ -170,6 +170,78 @@ test('provider HTTP failures are classified and do not leak the key', () => with
     /returned no text/
   );
 }));
+
+test('messages, system, and context are formatted per provider', () => withEnv(['ANTHROPIC_API_KEY', 'OPENAI_API_KEY'], async () => {
+  process.env.ANTHROPIC_API_KEY = 'a';
+  process.env.OPENAI_API_KEY = 'o';
+  let anthropic;
+  await runTextModel({
+    model: bySlug('claude-fable-5.2'),
+    system: 'be terse',
+    messages: [
+      { role: 'user', content: 'first' },
+      { role: 'assistant', content: 'ok' },
+      { role: 'user', content: 'second' }
+    ],
+    context: 'file.ts',
+    fetchImpl: async (url, init) => { anthropic = { url, init }; return json({ content: [{ type: 'text', text: 'yes' }], usage: {} }); }
+  });
+  const body = JSON.parse(anthropic.init.body);
+  assert.equal(body.system, 'be terse');
+  assert.equal(body.messages[0].content, 'Context:\nfile.ts\n\nfirst');
+  assert.equal(body.messages.length, 3);
+  let openai;
+  await runTextModel({
+    model: bySlug('gpt-6.2-sol'),
+    system: 'be terse',
+    prompt: 'last',
+    fetchImpl: async (url, init) => { openai = { url, init }; return json({ choices: [{ message: { content: 'ok' } }], usage: {} }); }
+  });
+  const openaiBody = JSON.parse(openai.init.body);
+  assert.equal(openaiBody.messages[0].role, 'system');
+  assert.equal(openaiBody.messages[0].content, 'be terse');
+  assert.equal(openaiBody.messages[1].content, 'last');
+}));
+
+test('context budget fails instead of silently truncating', () => withEnv(['OPENAI_API_KEY'], async () => {
+  process.env.OPENAI_API_KEY = 'sk';
+  const model = { ...bySlug('gpt-6.2-sol'), contextWindow: 1000 };
+  const huge = 'x'.repeat(10000);
+  await assert.rejects(
+    () => runTextModel({ model, prompt: huge, maxTokens: 4096, fetchImpl: async () => json({}) }),
+    (error) => {
+      assert.equal(error.code, 'ERR_CONTEXT_TOO_LARGE');
+      assert.equal(error.details.model, model.slug);
+      assert.ok(error.details.estimatedInputTokens > 0);
+      return true;
+    }
+  );
+}));
+
+test('JSON output is parsed and validated against a schema', () => withEnv(['OPENAI_API_KEY'], async () => {
+  process.env.OPENAI_API_KEY = 'sk';
+  const result = await runTextModel({
+    model: bySlug('gpt-6.2-sol'),
+    prompt: 'return a fix',
+    output: { format: 'json', schema: { type: 'object', required: ['fix'], properties: { fix: { type: 'string' } } } },
+    fetchImpl: async () => json({ choices: [{ message: { content: '{"fix":"ok"}' } }], usage: {} })
+  });
+  assert.equal(result.data.fix, 'ok');
+  await assert.rejects(
+    () => runTextModel({
+      model: bySlug('gpt-6.2-sol'),
+      prompt: 'return a fix',
+      output: { format: 'json', schema: { type: 'object', required: ['fix'], properties: { fix: { type: 'string' } } } },
+      fetchImpl: async () => json({ choices: [{ message: { content: '{"nope":1}' } }], usage: {} })
+    }),
+    (error) => error.code === 'ERR_OUTPUT_SCHEMA'
+  );
+}));
+
+test('token estimator counts CJK and ASCII conservatively', () => {
+  assert.ok(estimateTokens('hello world') >= 2);
+  assert.ok(estimateTokens('你好世界') >= 4);
+});
 
 test('unsupported providers fail before a network call', () => withEnv([], async () => {
   const model = bySlug('tripo-h3.1');

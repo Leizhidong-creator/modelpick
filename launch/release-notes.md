@@ -1,4 +1,4 @@
-# ModelPick 0.2.0 — decision foundation
+# ModelPick 0.2.1 — decision foundation
 
 The first public cut of a model router that prices **cost per solved task**, not per token.
 
@@ -33,4 +33,4 @@ npx -y github:Leizhidong-creator/modelpick setup claude-code
 
 MIT. No telemetry. No key storage. No gateway.
 
-- Published to the Official MCP Registry as `io.github.Leizhidong-creator/modelpick@0.2.0`.
+- Published to the Official MCP Registry as `io.github.Leizhidong-creator/modelpick@0.2.1`.

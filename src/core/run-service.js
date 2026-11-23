@@ -30,8 +30,8 @@ export function chooseRunModel(catalog, { prompt, model, task, provider } = {}) 
   return found;
 }
 
-export async function runRecommended({ catalog, prompt, model, task, provider, fetchImpl, maxTokens } = {}) {
+export async function runRecommended({ catalog, prompt, messages, system, context, output, model, task, provider, fetchImpl, maxTokens } = {}) {
   const chosen = chooseRunModel(catalog, { prompt, model, task, provider });
-  const result = await runTextModel({ model: chosen, prompt, fetchImpl, maxTokens });
+  const result = await runTextModel({ model: chosen, prompt, messages, system, context, output, fetchImpl, maxTokens });
   return result;
 }

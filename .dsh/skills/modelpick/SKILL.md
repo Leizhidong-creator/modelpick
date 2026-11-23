@@ -45,7 +45,7 @@ Do **not** call it on every turn or for trivial edits. One call per node is the 
 
 5. Before calling the provider, use `recommendation.connection` (or call `get_setup`) for the endpoint, auth header, SDK, curl example, and API model id. Never print or store the key value.
 
-6. If the key is configured and the node is text, call `run_model` with the prompt to execute it. It returns `output`, token usage, and actual cost. If the key is missing, show `setupCommand` / `setupUi`; never ask for the key in chat.
+6. If the key is configured and the node is text, call `run_model` with the **compressed** node context to execute it. Pass `system`, `messages`, `context`, and optionally `output` (a fixed JSON schema); do not send the whole repository or full transcript. It returns `output`/`data`, token usage, actual cost, and a `context` report. If the key is missing, show `setupCommand` / `setupUi`; never ask for the key in chat.
 
 7. In your final answer, state the model and the **cost per solved task**, not the token price. Example: `Tripo H3.1 — $0.21 per usable asset (1.07 expected attempts)`.
 

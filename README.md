@@ -12,7 +12,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-39c5cf" /></a>
   <a href="package.json"><img alt="node" src="https://img.shields.io/badge/node-%3E%3D20.11-339933" /></a>
   <a href="https://modelcontextprotocol.io"><img alt="MCP" src="https://img.shields.io/badge/MCP-stdio-8a5cf6" /></a>
-  <img alt="tests" src="https://img.shields.io/badge/tests-217%20passing-3fb950" />
+  <img alt="tests" src="https://img.shields.io/badge/tests-221%20passing-3fb950" />
   <img alt="adversarial" src="https://img.shields.io/badge/adversarial-28%2F28-3fb950" />
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
@@ -45,7 +45,7 @@ npx -y github:Leizhidong-creator/modelpick pick "create a stylized 3D sword for 
   <a href="https://leizhidong-creator.github.io/modelpick/#video"><img src="assets/modelpick-intro-thumb.png" alt="Watch the ModelPick intro video" width="72%" /></a>
 </p>
 
-<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.0/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
+<p align="center"><a href="https://leizhidong-creator.github.io/modelpick/#video"><strong>▶ Watch the intro video with English + 中文 captions</strong></a> · <a href="https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.1/modelpick-intro.mp4">direct MP4</a> · <a href="launch/video-storyboard.md">script &amp; storyboard</a> · <a href="assets/modelpick-intro.bilingual.srt">English + 中文 captions</a></p>
 
 ---
 
@@ -147,7 +147,7 @@ npx --yes github:Leizhidong-creator/modelpick pick "refactor this 40k-line repo,
 npm install modelpick --registry=https://leizhidong-creator.github.io/modelpick/npm/
 
 # offline release tarball
-npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.0/modelpick-0.2.0.tgz
+npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0.2.1/modelpick-0.2.1.tgz
 ```
 
 <p align="center">
@@ -484,7 +484,44 @@ modelpick run "review this diff" --provider anthropic
 modelpick run "hello" --local --model qwen-local:latest
 ```
 
-Cloud execution currently covers **text** models through OpenAI, Anthropic, Gemini, DeepSeek, and OpenRouter. Image, video, 3D, and audio execution adapters are next. The key is read from the local store/env and is never accepted as an argument.
+
+#### Context contract
+
+The main agent owns the conversation and the repository. It **compresses and selects** the node context; ModelPick does not crawl files or build RAG.
+
+`run_model` accepts:
+
+```json
+{
+  "system": "You are a senior TypeScript reviewer.",
+  "messages": [
+    { "role": "user", "content": "Here is the compressed diff..." },
+    { "role": "assistant", "content": "I see the race." },
+    { "role": "user", "content": "Fix it without changing the API." }
+  ],
+  "context": "Optional selected file excerpts, logs, or constraints",
+  "output": {
+    "format": "json",
+    "schema": { "type": "object", "required": ["fix"], "properties": { "fix": { "type": "string" } } }
+  }
+}
+```
+
+- `system` is separate.
+- `context` is prepended to the first user message.
+- `output.format: "json"` parses and validates the provider output before returning.
+- Token budget comes from the model context window minus `max_tokens` and a safety margin.
+- If the budget is exceeded, ModelPick returns `ERR_CONTEXT_TOO_LARGE` and **does not silently truncate**.
+- The response includes `context.estimatedInputTokens`, `inputBudget`, `outputReserved`, and `truncated`.
+
+CLI equivalent:
+
+```bash
+modelpick run "fix the race" --task coding-agent   --system "You are a senior TypeScript reviewer."   --context-file diff.patch   --output json --schema schema.json
+```
+
+The key is read from the local store/env and is never accepted as an argument. Image, video, 3D, and audio execution adapters are next.
+
 
 ### Run locally with no key
 

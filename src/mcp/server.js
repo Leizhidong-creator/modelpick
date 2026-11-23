@@ -97,13 +97,34 @@ const TOOLS = [
     inputSchema: {
       type: 'object',
       properties: {
-        prompt: { type: 'string', description: 'What the model should do.' },
+        prompt: { type: 'string', description: 'The latest user request. Optional if messages is supplied.' },
+        messages: {
+          type: 'array',
+          description: 'Compressed context from the main agent. Roles: user and assistant.',
+          items: {
+            type: 'object',
+            properties: {
+              role: { type: 'string', enum: ['user', 'assistant'] },
+              content: { type: 'string' }
+            },
+            required: ['role', 'content']
+          }
+        },
+        system: { type: 'string', description: 'System instruction for this node.' },
+        context: { type: 'string', description: 'Additional compressed context (files, diff, logs). The main agent selects it; ModelPick does not read files.' },
+        output: {
+          type: 'object',
+          description: 'Optional fixed output contract. JSON output is parsed and validated before returning.',
+          properties: {
+            format: { type: 'string', enum: ['text', 'json'] },
+            schema: { type: 'object' }
+          }
+        },
         model: { type: 'string', description: 'Catalog slug. Omit to route automatically.' },
         task: { type: 'string', description: 'Task node id, e.g. coding-agent.' },
         provider: { type: 'string', description: 'Provider id to choose from when model is omitted.' },
         max_tokens: { type: 'integer', minimum: 1, maximum: 32768 }
-      },
-      required: ['prompt']
+      }
     }
   },
   {
@@ -294,11 +315,17 @@ export function createMcpServer({ input = process.stdin, output = process.stdout
         return textResult(result);
       }
       case 'run_model': {
-        if (!args.prompt || !String(args.prompt).trim()) return toolError('A prompt is required.');
+        if ((!args.prompt || !String(args.prompt).trim()) && (!Array.isArray(args.messages) || !args.messages.length)) {
+          return toolError('A prompt or messages are required.');
+        }
         try {
           const result = await runRecommended({
             catalog: cat,
-            prompt: String(args.prompt),
+            prompt: args.prompt ? String(args.prompt) : undefined,
+            messages: args.messages,
+            system: args.system,
+            context: args.context,
+            output: args.output,
             model: args.model,
             task: args.task,
             provider: args.provider,
@@ -314,6 +341,9 @@ export function createMcpServer({ input = process.stdin, output = process.stdout
           });
         } catch (error) {
           if (error instanceof ModelPickError && error.code === 'ERR_MISSING_KEY') {
+            return textResult({ error: error.code, message: error.message, hint: error.hint, ...error.details });
+          }
+          if (error instanceof ModelPickError && error.code === 'ERR_CONTEXT_TOO_LARGE') {
             return textResult({ error: error.code, message: error.message, hint: error.hint, ...error.details });
           }
           if (error instanceof ModelPickError) return toolError(error.message, error.hint);
