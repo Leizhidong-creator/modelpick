@@ -18,6 +18,8 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
 </p>
 
 [![ModelPick MCP server – quality and maintenance score on Glama](https://glama.ai/mcp/servers/Leizhidong-creator/modelpick/badges/card.svg)](https://glama.ai/mcp/servers/Leizhidong-creator/modelpick)
+[![M8ven Score](https://m8ven.ai/badge/mcp/leizhidong-creator-modelpick-km8w2n?v=ed60169f8adcb5a2d35ee972699f4802)](https://m8ven.ai/mcp/leizhidong-creator-modelpick-km8w2n?s=readme)
+
 
 <p align="center"><a href="https://leizhidong-creator.github.io/modelpick/">Website</a> · <a href="https://leizhidong-creator.github.io/modelpick/#video">intro video (93s)</a> · <a href="docs/VALUE.md">How value is defined</a> · <a href="docs/ECOSYSTEM.md">Ecosystem</a></p>
 
