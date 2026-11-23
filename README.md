@@ -175,7 +175,7 @@ npm install https://github.com/Leizhidong-creator/modelpick/releases/download/v0
 ### Claude Code
 
 ```bash
-npx -y github:Leizhidong-creator/modelpick setup claude-code
+modelpick setup claude-code
 # writes .mcp.json, .claude/skills/modelpick/, and a CLAUDE.md block
 claude mcp list        # modelpick should appear
 ```
@@ -192,22 +192,22 @@ Plugin alternative, inside Claude Code:
 ### OpenAI Codex CLI
 
 ```bash
-npx -y github:Leizhidong-creator/modelpick setup codex
+modelpick setup codex
 # or write the global MCP row directly, with a backup:
-npx -y github:Leizhidong-creator/modelpick setup codex --global --write
+modelpick setup codex --global --write
 codex mcp list
 ```
 
 `setup codex` writes `AGENTS.md` and `.agents/skills/modelpick/`. Codex reads MCP servers from `~/.codex/config.toml`, so `--global --write` appends the row or you can use `codex mcp add`:
 
 ```bash
-codex mcp add modelpick -- npx -y github:Leizhidong-creator/modelpick mcp
+codex mcp add modelpick -- modelpick mcp
 ```
 
 ### Cursor
 
 ```bash
-npx -y github:Leizhidong-creator/modelpick setup cursor
+modelpick setup cursor
 ```
 
 It writes `.cursor/mcp.json`, `.cursor/rules/modelpick.mdc`, `.cursor/skills/modelpick/`, and `AGENTS.md`. Open **Cursor → Settings → MCP** and confirm `modelpick` is connected.

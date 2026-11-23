@@ -13,6 +13,9 @@ test('install page is a complete copy-paste path', () => {
   assert.match(install, /start-modelpick\.zip/);
   assert.match(install, /modelpick keys --ui/);
   assert.match(install, /modelpick --version/);
+  assert.match(install, /modelpick setup claude-code --global/);
+  assert.match(install, /modelpick setup cursor --global/);
+  assert.match(install, /modelpick setup codex --global --write/);
 });
 
 test('install page explains the three common CMD failures', () => {

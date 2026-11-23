@@ -97,6 +97,18 @@ footer{margin-top:32px;padding-top:18px;border-top:1px solid var(--line);color:v
   </section>
 
   <section class="card wide">
+    <div class="os">Connect your agent</div>
+    <h2>One-time registration per host</h2>
+    <p>API keys are shared through ModelPick. Cursor, Codex, and Claude Code still need to be told that the ModelPick MCP server exists. Run the matching command once, then restart the app.</p>
+    <div class="steps">
+      <div class="step"><b>Claude Code</b><span><code>modelpick setup claude-code --global</code><br>then <code>claude mcp list</code> and approve; global scope avoids repeating per repo.</span></div>
+      <div class="step"><b>Cursor</b><span><code>modelpick setup cursor --global</code><br>writes the global Cursor MCP config; restart Cursor.</span></div>
+      <div class="step"><b>Codex CLI</b><span><code>modelpick setup codex --global --write</code><br>then <code>codex mcp list</code>; restart Codex.</span></div>
+    </div>
+    <div class="note">No duplicate keys. Every host starts <code>modelpick mcp</code>, which reads the same local <code>~/.modelpick/secrets.json</code>. Without this step, the app only sees a normal terminal command, not the ModelPick tools. Prefer <code>--global</code> unless you want a project-scoped server.</div>
+  </section>
+
+  <section class="card wide">
     <div class="os">Verify</div>
     <h2>Check that it worked</h2>
     <pre><code>modelpick --version
