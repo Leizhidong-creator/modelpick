@@ -17,7 +17,7 @@ Coding, image, video, 3D, and audio. One CLI, one MCP server, every agent.</p>
   <img alt="dependencies" src="https://img.shields.io/badge/runtime%20deps-0-3fb950" />
 </p>
 
-[![ModelPick MCP server](https://glama.ai/mcp/servers/Leizhidong-creator/modelpick/badges/card.svg)](https://glama.ai/mcp/servers/Leizhidong-creator/modelpick)
+[![ModelPick MCP server – quality and maintenance score on Glama](https://glama.ai/mcp/servers/Leizhidong-creator/modelpick/badges/card.svg)](https://glama.ai/mcp/servers/Leizhidong-creator/modelpick)
 
 <p align="center"><a href="https://leizhidong-creator.github.io/modelpick/">Website</a> · <a href="https://leizhidong-creator.github.io/modelpick/#video">intro video (93s)</a> · <a href="docs/VALUE.md">How value is defined</a> · <a href="docs/ECOSYSTEM.md">Ecosystem</a></p>
 
